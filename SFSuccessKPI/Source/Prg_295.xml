@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="Create Table STAT_KUNDE" ISN_2="1" LastIsn="1" id="295">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <ParametersAttributes/>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63037" date="22.10.2020" time="17:30:37"/>
+        </Header>
+        <Resource>
+          <Columns/>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="I"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="T"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="Create Table STAT_Kunde&#xD;&#xA;(&#xD;&#xA;Ebene1 smallint, &#xD;&#xA;Ebene2 smallint, &#xD;&#xA;Ebene3 smallint, &#xD;&#xA;Ebene4 smallint, &#xD;&#xA;RechnungsEmpfaenger int,&#xD;&#xA;Kontoart char(1),&#xD;&#xA;BETREIBER int,&#xD;&#xA;Lieferanschrift_Nr int, &#xD;&#xA;STAT_Betreiber int,&#xD;&#xA;---------&#xD;&#xA;IDNR int,&#xD;&#xA;Serien_Nr varchar(30),&#xD;&#xA;ModellBezeichnung char(30), &#xD;&#xA;--------&#xD;&#xA;Auftnr int,&#xD;&#xA;Rechnungs_Nr int,&#xD;&#xA;Erzeugungsart char(1), &#xD;&#xA;Auftrags_Datum datetime,&#xD;&#xA;RechnungsDatum datetime,&#xD;&#xA;STAT_Datum datetime, &#xD;&#xA;posnr smallint,&#xD;&#xA;--------&#xD;&#xA;artikel_nr char(25),&#xD;&#xA;Zuordnung char(2),&#xD;&#xA;Bezeichnung varchar(60),&#xD;&#xA;Bezeichnung_II varchar(60),&#xD;&#xA;--------&#xD;&#xA;Vertragsnummer varchar(15),&#xD;&#xA;Vertragsbereich varchar(1),&#xD;&#xA;Vertrag_Version int,&#xD;&#xA;Poolvertrag smallint,&#xD;&#xA;Pauschale_Zaehler char(15),&#xD;&#xA;PauschZaehl_Beschreibung char(30),&#xD;&#xA;SW_Farbe varchar(1),&#xD;&#xA;Preisformel varchar(3),&#xD;&#xA;PF_Kategorie int,&#xD;&#xA;--------&#xD;&#xA;von_Zeitraum_Vertr datetime,&#xD;&#xA;bis_Zeitraum_Vertr datetime,&#xD;&#xA;Zaehler_alt int,&#xD;&#xA;Zaehler_neu int,&#xD;&#xA;Volumen int,&#xD;&#xA;Freikopien int,&#xD;&#xA;Zeilenwert float,&#xD;&#xA;STAT_Zeilenwert float&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;create unique index STAT_Kunde_ix1 on dbo.STAT_Kunde (ebene1,ebene2,ebene3,Ebene4,Auftnr,posnr)&#xD;&#xA;create index STAT_Kunde_ix2 on dbo.STAT_Kunde (ebene1,ebene2,ebene3,Ebene4,STAT_Betreiber,Vertragsbereich,Vertragsnummer,IDNR,Pauschale_Zaehler,PauschZaehl_Beschreibung,Auftnr)"/>
+        </SQL_FORM>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="Create Table STAT_KUNDE"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

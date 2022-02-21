@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="Create STAT TrendProgArtGruppe" ISN_2="1" LastIsn="1" id="217">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <ParametersAttributes/>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63035" date="22.10.2020" time="17:30:35"/>
+        </Header>
+        <Resource>
+          <Columns/>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="I"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="T"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="create table dbo.STAT_Trend_Prognose_ArtikelGruppe (&#xD;&#xA;TableVNr int default 3,&#xD;&#xA;Ebene1 smallint not null default 0,&#xD;&#xA;Ebene2 smallint not null default 0,&#xD;&#xA;Ebene3 smallint not null default 0,&#xD;&#xA;Ebene4 smallint not null default 0,&#xD;&#xA;StatGruppe int,&#xD;&#xA;StatGrp_Bezeichnung char(30),&#xD;&#xA;ArtikelGruppe int,&#xD;&#xA;ArtGrp_Bezeichnung char(30),&#xD;&#xA;IDnr int not null, &#xD;&#xA;MonthStartDate datetime, &#xD;&#xA;MaxDatum datetime, &#xD;&#xA;Netto float, &#xD;&#xA;Netto_Trd float, &#xD;&#xA;Netto_linR float,&#xD;&#xA;Kosten float,&#xD;&#xA;Deckung float, &#xD;&#xA;Deckung_Trd float,&#xD;&#xA;Deckung_linR float, &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;ReAnzahl integer,&#xD;&#xA;ReAnzahl_Trd float, &#xD;&#xA;ReAnzahl_linR float,&#xD;&#xA;VerkaufteEinheiten float, &#xD;&#xA;VerkaufteEinheiten_Trd float, &#xD;&#xA;VerkaufteEinheiten_linR float, &#xD;&#xA;DeckungNetto float,&#xD;&#xA;DeckungNetto_Trd float,&#xD;&#xA;DeckungNetto_linR float,&#xD;&#xA;NettoVerkEinheit float,&#xD;&#xA;NettoVerkEinheit_Trd float,&#xD;&#xA;NettoVerkEinheit_linR float,&#xD;&#xA;NettoRechnung float,&#xD;&#xA;NettoRechnung_Trd float, &#xD;&#xA;NettoRechnung_linR float,&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;TrendBr_CMMLY float, &#xD;&#xA;TrendBr_CMLM float, &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;TrendDeBr_CMMLY float, &#xD;&#xA;TrendDeBr_CMLM float&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;create unique index STAT_Trend_Prognose_ArtikelGruppe_ix1 on dbo.STAT_Trend_Prognose_ArtikelGruppe (ebene1,ebene2,ebene3,Ebene4,StatGruppe,Artikelgruppe,IDNR,MonthStartDate)"/>
+        </SQL_FORM>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="Create STAT TrendProgArtGruppe"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

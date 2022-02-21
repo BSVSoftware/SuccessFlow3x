@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="Calc Trend Brutto" ISN_2="1" LastIsn="1" id="305">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <ParametersAttributes/>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63037" date="22.10.2020" time="17:30:37"/>
+        </Header>
+        <Resource>
+          <Columns/>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="I"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="T"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="update dbo.STAT_KUNDE&#xD;&#xA;SET KundenWert = &#xD;&#xA;&#x9;&#x9;ISNULL((SELECT sum(RECHNUNGSBUCH.Brutto)FROM RECHNUNGSBUCH&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE RECHNUNGSBUCH.Kunden_Nr=STAT_KUNDE.KundenNr&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;GROUP BY RECHNUNGSBUCH.Kunden_Nr&#xD;&#xA;&#x9;&#x9;),0) from dbo.STAT_KUNDE &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;UPDATE dbo.STAT_KUNDE&#xD;&#xA;SET Sum_SecLastYear = &#xD;&#xA;&#x9;&#x9;ISNULL((SELECT sum(RECHNUNGSBUCH.Brutto) FROM  RECHNUNGSBUCH &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE RECHNUNGSBUCH.Kunden_Nr=STAT_KUNDE.KundenNr and  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;RECHNUNGSBUCH.Datum between ({fn NOW()}-2*365) and ({fn NOW()}-1*365)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;GROUP BY RECHNUNGSBUCH.Kunden_Nr&#xD;&#xA;&#x9;&#x9;),0) from dbo.STAT_KUNDE&#xD;&#xA;&#xD;&#xA;UPDATE dbo.STAT_KUNDE&#xD;&#xA;SET Sum_LastYear = &#xD;&#xA;&#x9;&#x9;ISNULL((SELECT sum(RECHNUNGSBUCH.Brutto) FROM  RECHNUNGSBUCH &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE RECHNUNGSBUCH.Kunden_Nr=STAT_KUNDE.KundenNr and  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;RECHNUNGSBUCH.Datum between ({fn NOW()}-1*365) and ({fn NOW()})&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;GROUP BY RECHNUNGSBUCH.Kunden_Nr&#xD;&#xA;&#x9;&#x9;),0) from dbo.STAT_KUNDE  &#xD;&#xA;&#xD;&#xA;UPDATE dbo.STAT_KUNDE&#xD;&#xA;SET Sum_SecLastQuarter = &#xD;&#xA;&#x9;&#x9;ISNULL((SELECT sum(RECHNUNGSBUCH.Brutto) FROM  RECHNUNGSBUCH &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE RECHNUNGSBUCH.Kunden_Nr=STAT_KUNDE.KundenNr and  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;RECHNUNGSBUCH.Datum between dateadd(quarter,-2,dateadd(year, 0,{fn NOW()}))and dateadd(quarter,-1,dateadd(year, 0,{fn NOW()}))-1&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;GROUP BY RECHNUNGSBUCH.Kunden_Nr&#xD;&#xA;&#x9;&#x9;),0) from dbo.STAT_KUNDE&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;UPDATE dbo.STAT_KUNDE&#xD;&#xA;SET Sum_LastQuarter = &#xD;&#xA;&#x9;&#x9;ISNULL((SELECT sum(RECHNUNGSBUCH.Brutto) FROM  RECHNUNGSBUCH &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE RECHNUNGSBUCH.Kunden_Nr=STAT_KUNDE.KundenNr and  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;RECHNUNGSBUCH.Datum between dateadd(quarter,-1,dateadd(year, 0,{fn NOW()}))and dateadd(year, 0, {fn NOW()}) -1&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;GROUP BY RECHNUNGSBUCH.Kunden_Nr&#xD;&#xA;&#x9;&#x9;),0) from dbo.STAT_KUNDE  &#xD;&#xA;&#xD;&#xA;UPDATE dbo.STAT_KUNDE&#xD;&#xA;SET Sum_SecLastMonth = &#xD;&#xA;&#x9;&#x9;ISNULL((SELECT sum(RECHNUNGSBUCH.Brutto) FROM  RECHNUNGSBUCH &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE RECHNUNGSBUCH.Kunden_Nr=STAT_KUNDE.KundenNr and  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;RECHNUNGSBUCH.Datum between dateadd(month,-2,dateadd(year, 0,{fn NOW()}))and dateadd(month,-1,dateadd(year, 0,{fn NOW()})) -1&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;GROUP BY RECHNUNGSBUCH.Kunden_Nr&#xD;&#xA;&#x9;&#x9;),0) from dbo.STAT_KUNDE&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;UPDATE dbo.STAT_KUNDE&#xD;&#xA;SET Sum_LastMonth = &#xD;&#xA;&#x9;&#x9;ISNULL((SELECT sum(RECHNUNGSBUCH.Brutto) FROM  RECHNUNGSBUCH &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE RECHNUNGSBUCH.Kunden_Nr=STAT_KUNDE.KundenNr and  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;RECHNUNGSBUCH.Datum between dateadd(month,-1,dateadd(year, 0,{fn NOW()}))and dateadd(month,0,dateadd(year, 0,{fn NOW()})) -1&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;GROUP BY RECHNUNGSBUCH.Kunden_Nr&#xD;&#xA;&#x9;&#x9;),0) from dbo.STAT_KUNDE  &#xD;&#xA;&#xD;&#xA;UPDATE dbo.STAT_KUNDE&#xD;&#xA;SET TrendYear = CASE&#x9;WHEN (Sum_LastYear+Sum_SecLastYear)&lt;>0 &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN ISNULL((Sum_LastYear-Sum_SecLastYear)/(Sum_LastYear+Sum_SecLastYear),0)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE 0&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;END&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM dbo.STAT_KUNDE &#xD;&#xA;&#xD;&#xA;UPDATE dbo.STAT_KUNDE&#xD;&#xA;SET RatioYear = CASE&#x9;WHEN (Sum_SecLastYear)&lt;>0&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN ISNULL((Sum_LastYear)/(Sum_SecLastYear),0)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE 999&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;END&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM dbo.STAT_KUNDE &#xD;&#xA;&#x9;&#x9; &#xD;&#xA;UPDATE dbo.STAT_KUNDE&#xD;&#xA;SET TrendQuarter = CASE&#x9;WHEN (Sum_LastQuarter+Sum_SecLastQuarter)&lt;>0 &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN ISNULL((Sum_LastQuarter-Sum_SecLastQuarter)/(Sum_LastQuarter+Sum_SecLastQuarter),0)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE 0&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;END&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM dbo.STAT_KUNDE &#xD;&#xA;&#xD;&#xA;UPDATE dbo.STAT_KUNDE&#xD;&#xA;SET RatioQuarter = CASE&#x9;WHEN (Sum_SecLastQuarter)&lt;>0&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN ISNULL((Sum_LastQuarter)/(Sum_SecLastQuarter),0)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE 999&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;END&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM dbo.STAT_KUNDE &#xD;&#xA;&#xD;&#xA;UPDATE dbo.STAT_KUNDE&#xD;&#xA;SET TrendMonth = CASE&#x9;WHEN (Sum_LastMonth+Sum_SecLastMonth)&lt;>0 &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN ISNULL((Sum_LastMonth-Sum_SecLastMonth)/(Sum_LastMonth+Sum_SecLastMonth),0)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE 0&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;END&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM dbo.STAT_KUNDE &#xD;&#xA;&#xD;&#xA;UPDATE dbo.STAT_KUNDE&#xD;&#xA;SET RatioMonth = CASE&#x9;WHEN (Sum_SecLastMonth)&lt;>0&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN ISNULL((Sum_LastMonth)/(Sum_SecLastMonth),0)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE 999&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;END&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM dbo.STAT_KUNDE"/>
+        </SQL_FORM>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="Calc Trend Brutto"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

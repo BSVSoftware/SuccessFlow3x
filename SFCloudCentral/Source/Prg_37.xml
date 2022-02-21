@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="UserCredentials" ISN_2="1" LastIsn="1" id="37">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="N"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <ParametersAttributes/>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="M"/>
+          <DotNetObjectExists val="Y"/>
+          <LastModified _date="737720" _time="63299" date="22.10.2020" time="17:34:59"/>
+        </Header>
+        <ItemIsn val="3"/>
+        <Resource>
+          <Columns>
+            <Column id="1" name="User_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_ALPHA" id="1"/>
+                <Picture id="157" valUnicode="128"/>
+                <StoredAs id="173" val="1"/>
+                <Size id="174" val="128"/>
+                <_Flip id="194"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="Password_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_ALPHA" id="1"/>
+                <Picture id="157" valUnicode="128"/>
+                <StoredAs id="173" val="1"/>
+                <Size id="174" val="128"/>
+                <_Flip id="194"/>
+              </PropertyList>
+            </Column>
+            <Column id="3" name="CredentialDetails">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_BLOB" id="1"/>
+                <Size id="174" val="28"/>
+                <Definition id="175" val="1"/>
+                <_FieldStyle id="276" val="5"/>
+                <ObjectType id="478" val="Microsoft.PowerBI.Api.Models.CredentialDetails"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="M"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="M"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="N"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="N"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="Y"/>
+            <AllowCreate val="Y"/>
+            <AllowDelete val="Y"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="Y"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="N"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <TaskLogic>
+          <LogicUnit id="1" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="1" Type="M">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="3" FlowIsn="6" id="3">
+                  <Column val="3"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+          <LogicUnit id="3" propagate="78">
+            <Level val="R"/>
+            <Type val="S"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <Expanded val="1"/>
+            <LogicLines>
+              <LogicLine>
+                <Invoke FlowIsn="5">
+                  <OperationType val="."/>
+                  <Event>
+                    <EventType val="N"/>
+                  </Event>
+                  <TaskID comp="-1"/>
+                  <Lock val="Y"/>
+                  <Arguments>
+                    <Argument>
+                      <Variable val="3"/>
+                      <Skip val="N"/>
+                      <DotNetType val="Microsoft.PowerBI.Api.Models.CredentialDetails"/>
+                    </Argument>
+                    <Argument>
+                      <Variable val="1"/>
+                      <Skip val="N"/>
+                      <Name val="newUser"/>
+                      <DotNetType val="System.String"/>
+                    </Argument>
+                    <Argument>
+                      <Variable val="2"/>
+                      <Skip val="N"/>
+                      <Name val="newPassword"/>
+                      <DotNetType val="System.String"/>
+                    </Argument>
+                  </Arguments>
+                  <Wait val="Y"/>
+                  <SyncData val="N"/>
+                  <ReturnValVee val="3"/>
+                  <ReturnValue val="3"/>
+                  <FunctionName val="func"/>
+                  <SnippetCode val="using System;&#xA;using System.Linq;&#xA;using Microsoft.PowerBI.Api;&#xA;using Microsoft.PowerBI.Api.Models;&#xA;using Microsoft.PowerBI.Api.Models.Credentials;&#xA;using Microsoft.PowerBI.Api.Extensions;&#xA;using Microsoft.IdentityModel.Clients.ActiveDirectory;&#xA;using Microsoft.Rest;&#xA;&#xA;&#xA;public static class Snippet&#xA;{&#xA;&#x9;public static Microsoft.PowerBI.Api.Models.CredentialDetails func(System.String newUser, System.String newPassword)&#xA;&#x9;{&#xA;            string clientID = &quot;5655cf2a-0ba4-42c5-8c19-09fc456c89cf&quot;;&#xA;&#xA;            string redirectUri = &quot;https://login.live.com/oauth20_desktop.srf&quot;;&#xA;            string resourceUri = &quot;https://analysis.windows.net/powerbi/api&quot;;&#xA;            string authorityUri = &quot;https://login.windows.net/common&quot;;&#xA;            string ApiURL = &quot;https://api.powerbi.com/&quot;;&#xA;&#xA;            AuthenticationContext authContext = new AuthenticationContext(authorityUri);            &#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;    string token = authContext.AcquireToken(resourceUri, clientID, new Uri(redirectUri)).AccessToken;&#xA;&#xA;            var tokenCredentials = new TokenCredentials(token,&quot;Bearer&quot;);&#xA;            var pbiClient = new PowerBIClient(new Uri(ApiURL),tokenCredentials);&#xA;&#xA;            var datasources = pbiClient.Datasets.GetDatasources(&quot;dc0523ed-88dd-4db5-9011-a14262b80260&quot;).Value;&#xA;          &#xA;            var datasource = datasources.First();&#xA;            var gwid = datasource.GatewayId;            &#xA;&#xA;            var gateway = pbiClient.Gateways.GetGateway(gwid.Value);&#xA;            var pubid = gateway.PublicKey;&#xA;&#xA;            var credentials = new BasicCredentials(newUser, newPassword);&#xA;            var credentialsEncryptor = new AsymmetricKeyEncryptor(pubid);&#xA;            var credentialDetails = new CredentialDetails(credentials, PrivacyLevel.Private, EncryptedConnection.Encrypted, credentialsEncryptor); &#x9;&#x9;&#xA;&#x9;&#x9;&#x9;return credentialDetails;&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#xA;}"/>
+                  <CompiledCode val="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cGF0aWJpbGl0eUF0dHJpYnV0ZQAwZGdkYXhkMABNaWNyb3NvZnQuSWRlbnRpdHlNb2RlbC5DbGllbnRzLkFjdGl2ZURpcmVjdG9yeQBBdXRoZW50aWNhdGlvbkNvbnRleHQAVXJpAEF1dGhlbnRpY2F0aW9uUmVzdWx0AEFjcXVpcmVUb2tlbgBnZXRfQWNjZXNzVG9rZW4ATWljcm9zb2Z0LlJlc3QuQ2xpZW50UnVudGltZQBNaWNyb3NvZnQuUmVzdABUb2tlbkNyZWRlbnRpYWxzAFN5c3RlbS5OZXQuSHR0cABEZWxlZ2F0aW5nSGFuZGxlcgBQb3dlckJJQ2xpZW50AFNlcnZpY2VDbGllbnRDcmVkZW50aWFscwBJRGF0YXNldHNPcGVyYXRpb25zAGdldF9EYXRhc2V0cwBEYXRhc2V0c09wZXJhdGlvbnNFeHRlbnNpb25zAERhdGFzb3VyY2VzAEdldERhdGFzb3VyY2VzAFN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljAElMaXN0YDEARGF0YXNvdXJjZQBnZXRfVmFsdWUAU3lzdGVtLkNvcmUAU3lzdGVtLkxpbnEARW51bWVyYWJsZQBJRW51bWVyYWJsZWAxAEZpcnN0AE51bGxhYmxlYDEAR3VpZABnZXRfR2F0ZXdheUlkAElHYXRld2F5c09wZXJhdGlvbnMAZ2V0X0dhdGV3YXlzAEdhdGV3YXlzT3BlcmF0aW9uc0V4dGVuc2lvbnMAR2F0ZXdheQBHZXRHYXRld2F5AEdhdGV3YXlQdWJsaWNLZXkAZ2V0X1B1YmxpY0tleQBNaWNyb3NvZnQuUG93ZXJCSS5BcGkuTW9kZWxzLkNyZWRlbnRpYWxzAEJhc2ljQ3JlZGVudGlhbHMATWljcm9zb2Z0LlBvd2VyQkkuQXBpLkV4dGVuc2lvbnMAQXN5bW1ldHJpY0tleUVuY3J5cHRvcgBQcml2YWN5TGV2ZWwAUHJpdmF0ZQBFbmNyeXB0ZWRDb25uZWN0aW9uAEVuY3J5cHRlZABDcmVkZW50aWFsc0Jhc2UATWljcm9zb2Z0LlBvd2VyQkkuQXBpLkV4dGVuc2lvbnMuTW9kZWxzLkNyZWRlbnRpYWxzAElDcmVkZW50aWFsc0VuY3J5cHRvcgAASTUANgA1ADUAYwBmADIA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAADAOwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="/>
+                  <SnippetLanguage val="C"/>
+                  <ForCompactFramework val="N"/>
+                  <isGuiThreadExecution val="Y"/>
+                  <CompileTime HighDateTime="30807852" LowDateTime="3985379374"/>
+                  <AssemblyIds val="586817642,1128943106,1182039329,-1532522256,-612915800,"/>
+                  <RetainFocus val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Invoke>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="UserCredentials"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="Create STAT_TZ_CHANGE1" ISN_2="1" LastIsn="1" id="57">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <ParametersAttributes/>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63031" date="22.10.2020" time="17:30:31"/>
+        </Header>
+        <Resource>
+          <Columns/>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="M"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="M"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="L"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="Y"/>
+            <AllowCreate val="Y"/>
+            <AllowDelete val="Y"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="CREATE TABLE STAT_TonerZaehlerChange&#xD;&#xA;(&#xD;&#xA; Ebene1 smallint NOT NULL DEFAULT 0&#xD;&#xA;,Ebene2 int NOT NULL DEFAULT 0&#xD;&#xA;,Ebene3 int NOT NULL DEFAULT 0&#xD;&#xA;,Ebene4 int NOT NULL DEFAULT 0&#xD;&#xA;,KundNr int DEFAULT 0&#xD;&#xA;,ModellNr float&#xD;&#xA;,IDNR int DEFAULT 0&#xD;&#xA;,DeviceID float NOT NULL DEFAULT 0&#xD;&#xA;,Coleranttype varchar(60) not null&#xD;&#xA;,TonerArtNr varchar(25)&#xD;&#xA;,TonerSerialNr float&#xD;&#xA;,SupplyCapacity int&#xD;&#xA;,SupplyPrice float&#xD;&#xA;,Deckungsanteil float&#xD;&#xA;,lfdNr int identity(1,1) not null&#xD;&#xA;,BeforeChangeValue float&#xD;&#xA;,BefChValue_extrapol float&#xD;&#xA;,BefChValue_TPS_Real float&#xD;&#xA;,BefChValue_TPS_LinR float&#xD;&#xA;,BefChValue_TPD_Real float&#xD;&#xA;,BefChValue_TPD_LinR float&#xD;&#xA;,AfterChangeValue float&#xD;&#xA;,PreviousAfterChangeValue float&#xD;&#xA;,BeforeChangeDate datetime&#xD;&#xA;,ChangeDate_extrapol datetime&#xD;&#xA;,AfterChangeDate datetime&#xD;&#xA;,ChangeDate_Previous datetime&#xD;&#xA;,PreviousAfterChangeDate datetime&#xD;&#xA;,d_ZaehlerMono_dead float&#xD;&#xA;,d_ZaehlerFarbe_dead float&#xD;&#xA;,d_ZaehlerGesamt_dead float&#xD;&#xA;,AfterChange_DeadVolume int&#xD;&#xA;,d_ZaehlerMono float&#xD;&#xA;,d_ZaehlerFarbe float&#xD;&#xA;,d_ZaehlerGesamt float&#xD;&#xA;,d_VolumenToner float&#xD;&#xA;,DeadVol_Percent_Farbe float&#xD;&#xA;,DeadVol_Percent_Gesamt float&#xD;&#xA;,TonerProSeite float&#xD;&#xA;,TonerProSeite_linR float&#xD;&#xA;,TonerProTag float&#xD;&#xA;,TonerProSeite_extrapol float&#xD;&#xA;,TonerDeckung float&#xD;&#xA;,TonerNetto_DeckDiff float&#xD;&#xA;,LossByTonerChange_EUR float&#xD;&#xA;,NettoByTDeckDiff_EUR float&#xD;&#xA;,SCap_SPrice_DVolFarbe_DVGes_Flag smallint not null default 0&#xD;&#xA;,ExtrapolQuality varchar(20) -- OK &lt;=25%>= Satisfiying&lt;= 50% >= Bad &lt;= 90% >= inaccepatable&#xD;&#xA;,NoTonerChange_Flag bit&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;create unique index STAT_TZChange_Neu_lfdNr on dbo.STAT_TonerZaehlerChange (Ebene1,Ebene2,Ebene3,Ebene4,lfdNr)&#xD;&#xA;create index STAT_TZChange_Neu_IDNR on dbo.STAT_TonerZaehlerChange (Ebene1,Ebene2,Ebene3,Ebene4,IDNR)&#xD;&#xA;create index STAT_TZChange_Neu_KundNr on dbo.STAT_TonerZaehlerChange (Ebene1,Ebene2,Ebene3,Ebene4,KundNr)&#xD;&#xA;create index STAT_TZChange_Neu_ModellNr on dbo.STAT_TonerZaehlerChange (Ebene1,Ebene2,Ebene3,Ebene4,ModellNr)&#xD;&#xA;create index STAT_TZChange_Neu_BCValue on dbo.STAT_TonerZaehlerChange (Ebene1,Ebene2,Ebene3,Ebene4,BefChValue_extrapol)"/>
+        </SQL_FORM>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="Create STAT_TZ_CHANGE1"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

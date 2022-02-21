@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="ETL1  STAT_Anbahnung_Daten" ISN_2="1" LastIsn="1" id="138">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <TSK_PARAMS val="4"/>
+            <ParametersAttributes>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+            </ParametersAttributes>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63033" date="22.10.2020" time="17:30:33"/>
+        </Header>
+        <ItemIsn val="4"/>
+        <Resource>
+          <Columns>
+            <Column id="1" name="Ebene1_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="1"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="Ebene2_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="2"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene2"/>
+              </PropertyList>
+            </Column>
+            <Column id="3" name="Ebene3_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="3"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene3"/>
+              </PropertyList>
+            </Column>
+            <Column id="4" name="Ebene4_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="4"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene4"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="I"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="T"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="Delete  from STAT_Anbahnung_Daten where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;&#xD;&#xA;insert into dbo.STAT_Anbahnung_Daten (Ebene1,Ebene2,Ebene3,Ebene4,Anbahnung,KDNR,datumtyp,Datum,StatusAI,AnfangsDatum,UserNr,Beschreibung,PlanGEWONNEN)&#xD;&#xA;&#xD;&#xA;&#x9;select a.Ebene1,a.Ebene2,a.Ebene3,a.Ebene4,a.AnbahnungsNr,a.KundenNr,-1, a.geschlossenam,a.Aktiv_Inaktiv,case when a.erstelltam>MIN(b.Rufeingang_Datum) then MIN(b.Rufeingang_Datum)else a.erstelltam end , Besitzer,Beschreibung,a.UmsatzIst&#xD;&#xA;&#x9;from z_anbahnung a left join HOTLINE b on a.AnbahnungsNr = b.Anbahnung and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4&#xD;&#xA;&#x9;where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4 and a.geschlossenam is not null &#xD;&#xA;&#x9;group by a.ebene1,a.ebene2,a.ebene3,a.ebene4,a.KundenNr,a.AnbahnungsNr,a.geschlossenam,a.Aktiv_Inaktiv, Besitzer, Beschreibung, a.UmsatzIst,erstelltam&#xD;&#xA;&#x9;&#xD;&#xA;union all&#xD;&#xA;&#xD;&#xA;&#x9;Select a.Ebene1,a.Ebene2,a.Ebene3,a.Ebene4,a.AnbahnungsNr,a.KundenNr,1, a.erstelltam,a.Aktiv_Inaktiv,null, Besitzer,Beschreibung,a.UmsatzIst&#xD;&#xA;&#x9;from z_anbahnung a &#xD;&#xA;&#x9;where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4 &#xD;&#xA;&#x9;group by a.ebene1,a.ebene2,a.ebene3,a.ebene4,a.KundenNr,a.AnbahnungsNr,a.geschlossenam,a.Aktiv_Inaktiv, Besitzer, Beschreibung, a.UmsatzIst,erstelltam&#xD;&#xA;&#xD;&#xA;order by 8&#xD;&#xA;&#xD;&#xA;update dbo.STAT_Anbahnung_Daten set Matchcode = (SELECT b.Matchcode from KUNDEN b where  a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Anbahnung_Daten as a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Anbahnung_Daten set UserName = (SELECT b.Name from MITARBEITER b where  a.UserNr=b.MitarbNr and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 )from dbo.STAT_Anbahnung_Daten as a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Anbahnung_Daten SET PlanUmsatz= (SELECT UmsatzPlan from z_anbahnung b where a.anbahnung = b.AnbahnungsNr and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from STAT_Anbahnung_Daten a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Anbahnung_Daten SET StatGeschl= (SELECT StatusGeschlossen from z_anbahnung b where a.anbahnung = b.AnbahnungsNr and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from STAT_Anbahnung_Daten a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;&#xD;&#xA;--PLanUmsatz aktualisierung, wenn gewonnen durch UmsatzIst ersetzen&#xD;&#xA;update dbo.STAT_Anbahnung_Daten SET PlanUmsatz= PlanGEWONNEN where datumtyp=-1 and StatGeschl=1&#xD;&#xA;&#xD;&#xA;-- Einträge für Null-Werte für StatGeschl und PlanUmsatz=0 aussschließen&#xD;&#xA;--DELETE FROM dbo.STAT_Anbahnung_Daten WHERE PlanUmsatz=0&#xD;&#xA;&#xD;&#xA;update dbo.STAT_Anbahnung_Daten SET Probability= (SELECT Wahrscheinlichkeit from z_anbahnung b where a.anbahnung = b.AnbahnungsNr and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4)from STAT_Anbahnung_Daten a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Anbahnung_Daten SET PlanTOTAL= PlanUmsatz where datumtyp=1 and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;update dbo.STAT_Anbahnung_Daten SET ProbabilityTOTAL= Probability where datumtyp=1  and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;update dbo.STAT_Anbahnung_Daten SET PlanUmReal= PlanUmsatz*Probability/100 where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;update dbo.STAT_Anbahnung_Daten set PlanVERLOREN = (SELECT  b.PlanUmsatz FROM  dbo.STAT_Anbahnung_Daten b where a.anbahnung = b.Anbahnung and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4  and (StatGeschl=0 or StatGeschl=2) and datumtyp=-1) from dbo.STAT_Anbahnung_Daten as a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Anbahnung_Daten set PlanOFFEN = (SELECT  b.PlanUmsatz FROM  dbo.STAT_Anbahnung_Daten b &#x9;where a.anbahnung = b.Anbahnung and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4  and datumtyp=1 and StatGeschl=0) from dbo.STAT_Anbahnung_Daten as a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Anbahnung_Daten set PlanGEWONNEN = NULL where datumtyp=1 or ((StatGeschl=0 or StatGeschl=2) and datumtyp=-1) and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;"/>
+          <INARG>
+            <Arguments>
+              <Argument Variable="1"/>
+              <Argument Variable="2"/>
+              <Argument Variable="3"/>
+              <Argument Variable="4"/>
+            </Arguments>
+          </INARG>
+        </SQL_FORM>
+        <INT_CMP_LIST_INFO>
+          <v>2</v>
+        </INT_CMP_LIST_INFO>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="3" FlowIsn="5" id="3">
+                  <Column val="3"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="4" FlowIsn="6" id="4">
+                  <Column val="4"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="ETL1  STAT_Anbahnung_Daten"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

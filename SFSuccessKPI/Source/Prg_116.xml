@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="ET2 STAT_TFuellStandChange" ISN_2="1" LastIsn="1" id="116">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <ParametersAttributes/>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63033" date="22.10.2020" time="17:30:33"/>
+        </Header>
+        <Resource>
+          <Columns/>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="M"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="M"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="N"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="Y"/>
+            <AllowCreate val="Y"/>
+            <AllowDelete val="Y"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="&#xD;&#xA;Update dbo.STAT_TFuellStandChange set TonerYield = Case when PreviousAfterChangeValue&lt;>0 then 100*convert(decimal(5,2),TonerDifference)/PreviousAfterChangeValue else 0 end&#xD;&#xA;Update dbo.STAT_TFuellStandChange set d_ZaehlerFarbe= ((Select b.Zaehler_Farbe from STAT_TonerZaehler b where a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and a.IDNR =b.IDNR and b.datum=a.BeforeChangeDate)-(Select c.Zaehler_Farbe from STAT_TonerZaehler c where a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4 and a.IDNR =c.IDNR and c.datum=a.PreviousAfterChangeDate)) from dbo.STAT_TFuellStandChange a&#xD;&#xA;Update dbo.STAT_TFuellStandChange set d_ZaehlerGesamt= ((Select b.Zaehler_Gesamt from STAT_TonerZaehler b where a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and a.IDNR =b.IDNR and b.datum=a.BeforeChangeDate)-(Select c.Zaehler_Gesamt from STAT_TonerZaehler c where a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4 and a.IDNR =c.IDNR and c.datum=a.PreviousAfterChangeDate)) from dbo.STAT_TFuellStandChange a&#xD;&#xA;Update dbo.STAT_TFuellStandChange set TonerDeckung =  case when coleranttype='black' then (case when isnull(d_ZaehlerGesamt,0)&lt;>0 then SupplyCapacity*TonerDifference/isnull(d_ZaehlerGesamt,1)else -1 end) else (case when isnull(d_ZaehlerFarbe,0)&lt;>0 then SupplyCapacity*TonerDifference/isnull(d_ZaehlerFarbe,1) else -1 end) end&#xD;&#xA;Update dbo.STAT_TFuellStandChange set TonerDeckung =   TonerDeckung/100*(&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Select f.DeckungsanteilinProzent from Artikel f where a.Ebene1=f.Ebene1 and a.Ebene2=f.Ebene2 and a.Ebene3=f.Ebene3 and a.Ebene4=f.Ebene4 &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and f.ArtikelPart_NR =a.TonerArtnr&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;) from dbo.STAT_TFuellStandChange a&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;update dbo.STAT_TFuellStandChange set LossByCustomer =  &#x9;(convert(decimal(7,4),BeforeChangeValue))/100*(&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Select f.EK_Preis_durchschn from Artikel f where a.Ebene1=f.Ebene1 and a.Ebene2=f.Ebene2 and a.Ebene3=f.Ebene3 and a.Ebene4=f.Ebene4 &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and f.ArtikelPart_NR =a.TonerArtnr&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;) from dbo.STAT_TFuellStandChange a&#xD;&#xA;&#xD;&#xA;update dbo.STAT_TFuellStandChange set LossByToner =  &#x9;(100-convert(decimal(7,4),PreviousAfterChangeValue))/100*(&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Select f.EK_Preis_durchschn from Artikel f where a.Ebene1=f.Ebene1 and a.Ebene2=f.Ebene2 and a.Ebene3=f.Ebene3 and a.Ebene4=f.Ebene4 &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and f.ArtikelPart_NR =a.TonerArtnr&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;) from dbo.STAT_TFuellStandChange a"/>
+        </SQL_FORM>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="ET2 STAT_TFuellStandChange"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="ZaehlerHistoryUpdate_Mono" ISN_2="1" LastIsn="1" id="37">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <TSK_PARAMS val="4"/>
+            <ParametersAttributes>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+            </ParametersAttributes>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63031" date="22.10.2020" time="17:30:31"/>
+        </Header>
+        <ItemIsn val="4"/>
+        <Resource>
+          <Columns>
+            <Column id="1" name="Ebene1_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="1"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene2"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="Ebene2_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="2"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene2"/>
+              </PropertyList>
+            </Column>
+            <Column id="3" name="Ebene3_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="3"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene3"/>
+              </PropertyList>
+            </Column>
+            <Column id="4" name="Ebene4_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="4"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene4"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="I"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="T"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="DECLARE @LoopCounter1 int,@MaxLoopCount int,@Zaehlerbeschreibung varchar(30),@Zaehlerherkunft varchar(10),@Kennung varchar(2),@IDNR int,@Slope float,@MinZaehler float,@MaxDate datetime,@MinDate datetime,@Date datetime;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;SET @IDNR = (Select min(distinct b.IDNR) from GERAETE_STATISTIK_VOLUMEN b join (Select Ebene1,Ebene2, Ebene3,Ebene4,IDNR,InstallDatum from GERAETE where InstallDatum is not null and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;UNION &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Select Ebene1,Ebene2, Ebene3,Ebene4,IDNR,Installation_kalkuliert from GERAETE_Zusatz where Installation_kalkuliert is not null and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;a on (a.IDNR=b.IDNR and b.Ebene1=a.Ebene1 and b.Ebene2=a.Ebene2 and b.Ebene3=a.Ebene3 and b.Ebene4=a.Ebene4) )&#x9;&#x9;&#x9;&#xD;&#xA;set @MaxLoopCount=(Select Count(distinct b.IDNR) from GERAETE_STATISTIK_VOLUMEN b join (Select Ebene1,Ebene2, Ebene3,Ebene4,IDNR,InstallDatum from GERAETE where InstallDatum is not null and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;UNION Select Ebene1,Ebene2, Ebene3,Ebene4,IDNR,Installation_kalkuliert from GERAETE_Zusatz where Installation_kalkuliert is not null and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;a on (a.IDNR=b.IDNR and b.Ebene1=a.Ebene1 and b.Ebene2=a.Ebene2 and b.Ebene3=a.Ebene3 and b.Ebene4=a.Ebene4) )&#x9;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;SET @LoopCounter1=1&#xD;&#xA;WHILE @LoopCounter1&lt;= @MaxLoopCount&#xD;&#xA;BEGIN&#xD;&#xA;&#x9;SET @MaxDate = (Select top 1 min(b.Datum)from GERAETE_STATISTIK_VOLUMEN b where b.Zaehler_Herkunft=&#x9;&#xD;&#xA;&#x9;(Select f.Zaehlerherkunft from FMAuditSteuerfile f where f.Ebene1=:1 and f.Ebene2=:2 and f.Ebene3=:3 and f.Ebene4=:4 and f.Code=1)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and b.aktueller_Zaehlerstand>0 and b.Ebene1=:1 and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4 and  b.IDNR=@IDNR and b.Status=1&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and b.Zaehlerbeschreibung in&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(Select Zaehlerbeschreibung from GEREATE_ZAEHLER c where c.Ebene1=:1 and c.Ebene2=:2 and c.Ebene3=:3 and c.Ebene4=:4 and c.IDNR=@IDNR  and SW_Farbe ='S')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;group by datum,IDNR)&#xD;&#xA;&#x9;SET @MinZaehler = (Select top 1 min(b.aktueller_Zaehlerstand)from GERAETE_STATISTIK_VOLUMEN b where b.Zaehler_Herkunft=&#x9;&#xD;&#xA;&#x9;(Select f.Zaehlerherkunft from FMAuditSteuerfile f where f.Ebene1=:1 and f.Ebene2=:2 and f.Ebene3=:3 and f.Ebene4=:4 and f.Code=1)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and b.aktueller_Zaehlerstand>0 and b.Ebene1=:1 and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4 and @IDNR = b.IDNR and b.Status=1&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and b.Zaehlerbeschreibung in&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(Select Zaehlerbeschreibung from GEREATE_ZAEHLER c where c.Ebene1=:1 and c.Ebene2=:2 and c.Ebene3=:3 and c.Ebene4=:4 and c.IDNR=@IDNR  and SW_Farbe ='S')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;group by datum,IDNR)&#xD;&#xA;&#x9;SET @Zaehlerbeschreibung = (Select top 1 min(b.Zaehlerbeschreibung)from GERAETE_STATISTIK_VOLUMEN b where b.Zaehler_Herkunft=&#x9;&#xD;&#xA;&#x9;(Select f.Zaehlerherkunft from FMAuditSteuerfile f where f.Ebene1=:1 and f.Ebene2=:2 and f.Ebene3=:3 and f.Ebene4=:4 and f.Code=1)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and b.aktueller_Zaehlerstand>0 and b.Ebene1=:1 and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4 and @IDNR = b.IDNR and b.Status=1&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and b.Zaehlerbeschreibung in&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(Select Zaehlerbeschreibung from GEREATE_ZAEHLER c where c.Ebene1=:1 and c.Ebene2=:2 and c.Ebene3=:3 and c.Ebene4=:4 and c.IDNR=@IDNR  and SW_Farbe ='S')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;group by datum,IDNR)&#xD;&#xA;&#x9;SET @Zaehlerherkunft = (Select top 1 min(b.Zaehler_Herkunft)from GERAETE_STATISTIK_VOLUMEN b where b.Zaehler_Herkunft=&#x9;&#xD;&#xA;&#x9;(Select f.Zaehlerherkunft from FMAuditSteuerfile f where f.Ebene1=:1  and f.Ebene2=:2 and f.Ebene3=:3 and f.Ebene4=:4 and f.Code=1)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and b.aktueller_Zaehlerstand>0 and b.Ebene1=:1  and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4 and @IDNR = b.IDNR and b.Status=1&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and b.Zaehlerbeschreibung in&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(Select Zaehlerbeschreibung from GEREATE_ZAEHLER c where c.Ebene1=:1  and c.Ebene2=:2 and c.Ebene3=:3 and c.Ebene4=:4 and c.IDNR=@IDNR  and SW_Farbe ='S')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;group by datum,IDNR)&#xD;&#xA;&#x9;SET @Kennung = (Select top 1 min(b.Kennung)from GERAETE_STATISTIK_VOLUMEN b where b.Zaehler_Herkunft=&#x9;&#xD;&#xA;&#x9;(Select f.Zaehlerherkunft from FMAuditSteuerfile f where f.Ebene1=:1  and f.Ebene2=:2 and f.Ebene3=:3 and f.Ebene4=:4 and f.Code=1)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and b.aktueller_Zaehlerstand>0 and b.Ebene1=:1  and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4 and @IDNR = b.IDNR and b.Status=1&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and b.Zaehlerbeschreibung in&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(Select Zaehlerbeschreibung from GEREATE_ZAEHLER c where c.Ebene1=:1  and c.Ebene2=:2 and c.Ebene3=:3 and c.Ebene4=:4 and c.IDNR=@IDNR  and SW_Farbe ='S')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;group by datum,IDNR)&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;SET @Date = (Select CASE WHEN b.Installdatum is null THEN (Select c.Installation_kalkuliert from GERAETE_ZUSATZ c where c.Ebene1=:1 and c.Ebene2=:2 and c.Ebene3=:3 and c.Ebene4=:4 and c.IDNR=@IDNR)ELSE b.Installdatum END from Geraete b where b.Ebene1=:1 and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4 and  b.IDNR=@IDNR)&#xD;&#xA;&#x9;SET @MinDate = (Select CASE WHEN b.Installdatum is null THEN (Select c.Installation_kalkuliert from GERAETE_ZUSATZ c where c.Ebene1=:1 and c.Ebene2=:2 and c.Ebene3=:3 and c.Ebene4=:4 and c.IDNR=@IDNR)ELSE b.Installdatum END from Geraete b where b.Ebene1=:1 and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4 and  b.IDNR=@IDNR)&#xD;&#xA;&#x9;SET @Slope =  case when DATEDIFF(dd,@MaxDate,@Date)=0 THEN 1 ELSE @MinZaehler/DATEDIFF(dd,@MaxDate,@Date) END&#xD;&#xA;&#x9;WHILE @date&lt; @MaxDate&#xD;&#xA;&#x9;&#x9;&#x9;BEGIN&#xD;&#xA;&#x9;&#x9;&#x9;INSERT INTO dbo.GERAETE_STATISTIK_VOLUMEN (Datum,Ebene1,Ebene2,Ebene3,Ebene4,IDNR,Status, aktueller_Zaehlerstand,Zaehlerbeschreibung,StatusManuellUser,Zaehler_Herkunft,Kennung)&#xD;&#xA;&#x9;&#x9;&#x9;Select&#x9;@date,:1,:2,:3,:4,@IDNR,1, round(DATEDIFF(dd,@Date,@MinDate)*@Slope,0),@Zaehlerbeschreibung,'SIM',@Zaehlerherkunft,@Kennung&#xD;&#xA;&#x9;&#x9;&#x9;SET @date = dateadd(DD,1,@date)&#xD;&#xA;&#x9;END&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;SET @IDNR = (Select min(distinct b.IDNR) from GERAETE_STATISTIK_VOLUMEN b join (Select Ebene1,Ebene2, Ebene3,Ebene4,IDNR,InstallDatum from GERAETE where InstallDatum is not null and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;UNION&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Select Ebene1,Ebene2, Ebene3,Ebene4,IDNR,Installation_kalkuliert from GERAETE_Zusatz where Installation_kalkuliert is not null and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4) a&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;on (a.IDNR=b.IDNR and b.Ebene1=a.Ebene1 and b.Ebene2=a.Ebene2 and b.Ebene3=a.Ebene3 and b.Ebene4=a.Ebene4) where a.InstallDatum is not null and b.Ebene1=:1 and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4 and b.IDNR>@IDNR)&#x9;&#xD;&#xA;&#x9;SET @LoopCounter1= @LoopCounter1+1&#xD;&#xA;END&#xD;&#xA;update  dbo.GERAETE_STATISTIK_VOLUMEN set aktueller_Zaehlerstand=1 where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and aktueller_Zaehlerstand=0 and StatusManuellUser='SIM'"/>
+          <INARG>
+            <Arguments>
+              <Argument>
+                <Exp val="1"/>
+              </Argument>
+              <Argument>
+                <Exp val="2"/>
+              </Argument>
+              <Argument>
+                <Exp val="3"/>
+              </Argument>
+              <Argument>
+                <Exp val="4"/>
+              </Argument>
+            </Arguments>
+          </INARG>
+        </SQL_FORM>
+        <INT_CMP_LIST_INFO>
+          <v>2</v>
+        </INT_CMP_LIST_INFO>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="3" FlowIsn="5" id="3">
+                  <Column val="3"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="4" FlowIsn="6" id="4">
+                  <Column val="4"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="ZaehlerHistoryUpdate_Mono"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+        <Expressions>
+          <Expression id="1">
+            <ExpSyntax val="{0,1}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="2">
+            <ExpSyntax val="{0,2}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="3">
+            <ExpSyntax val="{0,3}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="4">
+            <ExpSyntax val="{0,4}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+        </Expressions>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

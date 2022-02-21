@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="ETL2 STAT_KUNDE" ISN_2="1" LastIsn="1" id="298">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <ParametersAttributes/>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63037" date="22.10.2020" time="17:30:37"/>
+        </Header>
+        <Resource>
+          <Columns/>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="M"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="L"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="--Aufteilung Umsätze aus Poolverträgen nach Volumen (ZF &amp; ZP)&#xD;&#xA;update STAT_Kunde set STAT_Zeilenwert = isnull(a.Zeilenwert,0)+isnull(a.Volumen,0)*&#xD;&#xA;CASE WHEN 'ZF'in (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr and  y.PF_Kategorie is not null) &#xD;&#xA;THEN (Select sum(x.Zeilenwert) from STAT_Kunde x &#xD;&#xA;where a.Ebene1=x.Ebene1 and  a.Ebene2=x.Ebene2 and a.Ebene3=x.Ebene3 and a.Ebene4=x.Ebene4 and a.Auftnr=x.Auftnr and a.Preisformel=x.Preisformel and x.PF_Kategorie=a.PF_Kategorie and x.Pauschale_Zaehler='ZF' group by x.Preisformel, x.PF_Kategorie)/&#xD;&#xA;--Suume da bei Preisformeln das Volumen nicht immer dem Gesamtvolumen entspricht!&#xD;&#xA;(Select CASE WHEN SUM(z.Volumen)&lt;>0 THEN SUM(z.Volumen) ELSE 1 END from STAT_Kunde z where a.Ebene1=z.Ebene1 and a.Ebene2=z.Ebene2 and a.Ebene3=z.Ebene3 and a.Ebene4=z.Ebene4 and a.Auftnr=z.Auftnr and Pauschale_Zaehler='Z' and a.PF_Kategorie=z.PF_Kategorie)&#xD;&#xA; WHEN 'ZP' in (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr) &#xD;&#xA;THEN (Select isnull(x.Zeilenwert,0)/(Case When Volumen&lt;>0 then Volumen Else 1 End) from STAT_Kunde x &#xD;&#xA;where a.Ebene1=x.Ebene1 and  a.Ebene2=x.Ebene2 and a.Ebene3=x.Ebene3 and a.Ebene4=x.Ebene4 and a.Auftnr=x.Auftnr and x.Pauschale_Zaehler='ZP') &#xD;&#xA;ELSE 0 END&#xD;&#xA;from STAT_Kunde a where Pauschale_Zaehler='Z' --and Poolvertrag=1&#xD;&#xA;&#xD;&#xA;--Aufteilung Umsätze für ZählerPool nach Volumen (ZPO)&#xD;&#xA;update STAT_Kunde set STAT_Zeilenwert = isnull(Zeilenwert,0)+isnull(Volumen,0)*&#xD;&#xA;CASE WHEN 'ZPO' in (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr) &#xD;&#xA;THEN (Select isnull(x.Zeilenwert,0)/(Case When Volumen&lt;>0 then Volumen Else 1 End) from STAT_Kunde x &#xD;&#xA;where a.Ebene1=x.Ebene1 and  a.Ebene2=x.Ebene2 and a.Ebene3=x.Ebene3 and a.Ebene4=x.Ebene4 and a.Auftnr=x.Auftnr and x.Pauschale_Zaehler='ZPO') &#xD;&#xA;ELSE 0 END&#xD;&#xA;from STAT_Kunde a where Pauschale_Zaehler='Z'  and 'ZPO' IN (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr)&#xD;&#xA;&#xD;&#xA;--Aufteilung Freikopien für ZählerPool nach Volumen (ZPO)&#xD;&#xA;update STAT_Kunde set STAT_Freikopien = isnull(Freikopien,0)+isnull(Volumen,0)*&#xD;&#xA;CASE WHEN 'ZPO' in (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr) &#xD;&#xA;THEN (Select isnull(x.Freikopien,0)/(Case When Volumen&lt;>0 then Volumen Else 1 End) from STAT_Kunde x &#xD;&#xA;where a.Ebene1=x.Ebene1 and  a.Ebene2=x.Ebene2 and a.Ebene3=x.Ebene3 and a.Ebene4=x.Ebene4 and a.Auftnr=x.Auftnr and x.Pauschale_Zaehler='ZPO') &#xD;&#xA;ELSE 0 END&#xD;&#xA;from STAT_Kunde a where Pauschale_Zaehler='Z' and 'ZPO' IN (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;--Aufteilung der Umsätze ZF ohne Poolvertrag (ZF ohne IDNR ZF / mit IDNR)&#xD;&#xA;update STAT_Kunde set STAT_Zeilenwert = isnull(a.Zeilenwert,0)+isnull(a.Volumen,0)*&#xD;&#xA;CASE WHEN 'ZF' in (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr and a.IDNR=y.IDNR) &#xD;&#xA;THEN (Select isnull(x.Zeilenwert,0) from STAT_Kunde x &#xD;&#xA;where a.Ebene1=x.Ebene1 and a.Ebene2=x.Ebene2 and a.Ebene3=x.Ebene3 and a.Ebene4=x.Ebene4 and a.Auftnr=x.Auftnr and a.Preisformel= x.Preisformel and x.PF_Kategorie=a.PF_Kategorie and a.IDNR=x.IDNR and x.Pauschale_Zaehler='ZF')/&#xD;&#xA;--Suume da bei Preisformeln das Volumen nicht immer dem Gesamtvolumen entspricht!&#xD;&#xA;(Select CASE WHEN SUM(z.Volumen)&lt;>0 THEN SUM(z.Volumen) ELSE 1 END from STAT_Kunde z where a.Ebene1=z.Ebene1 and a.Ebene2=z.Ebene2 and a.Ebene3=z.Ebene3 and a.Ebene4=z.Ebene4 and a.IDNR=z.IDNR and a.Auftnr=z.Auftnr and Pauschale_Zaehler='Z' and a.PF_Kategorie=z.PF_Kategorie)&#xD;&#xA;ELSE (Select isnull(x.Zeilenwert,0) from STAT_Kunde x &#xD;&#xA;where a.Ebene1=x.Ebene1 and a.Ebene2=x.Ebene2 and a.Ebene3=x.Ebene3 and a.Ebene4=x.Ebene4 and a.Auftnr=x.Auftnr and a.Preisformel=x.Preisformel and x.PF_Kategorie=a.PF_Kategorie and x.Pauschale_Zaehler='ZF')/&#xD;&#xA;--Suume da bei Preisformeln das Volumen nicht immer dem Gesamtvolumen entspricht!&#xD;&#xA;(Select CASE WHEN SUM(z.Volumen)&lt;>0 THEN SUM(z.Volumen) ELSE 1 END from STAT_Kunde z where a.Ebene1=z.Ebene1 and a.Ebene2=z.Ebene2 and a.Ebene3=z.Ebene3 and a.Ebene4=z.Ebene4 and a.Auftnr=z.Auftnr and Pauschale_Zaehler='Z' and a.PF_Kategorie=z.PF_Kategorie)&#xD;&#xA;END&#xD;&#xA;from STAT_Kunde a where Pauschale_Zaehler='Z' and Poolvertrag=0 and 'ZF' IN (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr)&#xD;&#xA;&#xD;&#xA;-- Gleichmäßige Aufteilung der Poolpauschalen und Gutschriften auf die Geräte&#xD;&#xA;update STAT_Kunde set STAT_Zeilenwert = isnull(Zeilenwert,0)+(&#xD;&#xA;isnull((Select x.Zeilenwert from STAT_Kunde x &#xD;&#xA;where a.Ebene1=x.Ebene1 and  a.Ebene2=x.Ebene2 and a.Ebene3=x.Ebene3 and a.Ebene4=x.Ebene4 and a.Auftnr=x.Auftnr and x.Pauschale_Zaehler='PP'),0)+&#xD;&#xA;isnull((Select x.Zeilenwert from STAT_Kunde x &#xD;&#xA;where a.Ebene1=x.Ebene1 and  a.Ebene2=x.Ebene2 and a.Ebene3=x.Ebene3 and a.Ebene4=x.Ebene4 and a.Auftnr=x.Auftnr and x.Pauschale_Zaehler='PG'),0))/&#xD;&#xA;CASE WHEN (Select COUNT(distinct y.IDNR) from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr and ISNULL(y.IDNR,0)>0)>0&#xD;&#xA;THEN(Select COUNT(distinct y.IDNR) from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr  and ISNULL(y.IDNR,0)>0) ELSE 1 END&#xD;&#xA;from STAT_Kunde a where Pauschale_Zaehler='P' and &#xD;&#xA;('PP' IN (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr) or&#xD;&#xA;'PG' IN (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr))&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;--Aufteilung der Freikopien bei Poolverträgen anhand der Voluminas&#xD;&#xA;update STAT_Kunde set STAT_Freikopien = Freikopien+isnull(Volumen,0)*&#xD;&#xA;CASE WHEN 'ZF' in (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr) &#xD;&#xA;THEN (Select sum(cast (x.Freikopien as float)) from STAT_Kunde x &#xD;&#xA;where a.Ebene1=x.Ebene1 and  a.Ebene2=x.Ebene2 and a.Ebene3=x.Ebene3 and a.Ebene4=x.Ebene4 and a.Auftnr=x.Auftnr and x.PF_Kategorie=a.PF_Kategorie and x.Pauschale_Zaehler='ZF' group by x.Preisformel, x.PF_Kategorie)/&#xD;&#xA;--Suume da bei Preisformeln das Volumen nicht immer dem Gesamtvolumen entspricht!&#xD;&#xA;(Select CASE WHEN SUM(z.Volumen)&lt;>0 THEN SUM(z.Volumen) ELSE 1 END from STAT_Kunde z where a.Ebene1=z.Ebene1 and a.Ebene2=z.Ebene2 and a.Ebene3=z.Ebene3 and a.Ebene4=z.Ebene4 and a.Auftnr=z.Auftnr and Pauschale_Zaehler='Z' and a.PF_Kategorie=z.PF_Kategorie)&#xD;&#xA;WHEN 'ZP' in (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr) &#xD;&#xA;THEN (Select isnull(cast (x.Freikopien as float),0)/(Case When Volumen&lt;>0 then Volumen Else 1 End) from STAT_Kunde x &#xD;&#xA;where a.Ebene1=x.Ebene1 and  a.Ebene2=x.Ebene2 and a.Ebene3=x.Ebene3 and a.Ebene4=x.Ebene4 and a.Auftnr=x.Auftnr and x.Pauschale_Zaehler='ZP') &#xD;&#xA;ELSE 0 END&#xD;&#xA;from STAT_Kunde a where Pauschale_Zaehler='Z'&#xD;&#xA;&#xD;&#xA;update STAT_Kunde set STAT_Freikopien = Freikopien + isnull(Volumen,0)*(Select isnull(cast(x.Freikopien as float),0) from STAT_Kunde x &#xD;&#xA;where a.Ebene1=x.Ebene1 and a.Ebene2=x.Ebene2 and a.Ebene3=x.Ebene3 and a.Ebene4=x.Ebene4 and a.Auftnr=x.Auftnr and x.PF_Kategorie=a.PF_Kategorie and a.IDNR=x.IDNR and x.Pauschale_Zaehler='ZF')/&#xD;&#xA;(Select CASE WHEN SUM(z.Volumen)&lt;>0 THEN SUM(z.Volumen) ELSE 1 END from STAT_Kunde z where a.Ebene1=z.Ebene1 and a.Ebene2=z.Ebene2 and a.Ebene3=z.Ebene3 and a.Ebene4=z.Ebene4 and a.IDNR=z.IDNR and a.Auftnr=z.Auftnr and Pauschale_Zaehler='Z' and a.PF_Kategorie=z.PF_Kategorie)&#xD;&#xA;from STAT_Kunde a where Pauschale_Zaehler='Z' and 'ZF' IN (Select Pauschale_Zaehler from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.Auftnr=y.Auftnr and a.IDNR=y.IDNR)&#xD;&#xA;"/>
+        </SQL_FORM>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="ETL2 STAT_KUNDE"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

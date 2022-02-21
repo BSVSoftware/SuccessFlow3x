@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description=" linR STAT_TonerZaehlerYEARidp" ISN_2="1" LastIsn="1" id="87">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <ParametersAttributes/>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63032" date="22.10.2020" time="17:30:32"/>
+        </Header>
+        <Resource>
+          <Columns/>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="M"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="M"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="N"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="Y"/>
+            <AllowCreate val="Y"/>
+            <AllowDelete val="Y"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="DECLARE @b float,&#xD;&#xA;&#x9;&#x9;@m float; &#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;SET @b= (SELECT &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;AVG(c.Verbrauch_Cyan) - Avg(c.lfdNr)* (COUNT(c.lfdNr)*SUM(c.lfdNr*c.Verbrauch_Cyan)-SUM(c.Verbrauch_Cyan)*SUM(c.lfdNr))/(COUNT(c.lfdNr)*SUM(c.lfdNr*c.lfdNr)-SUM(c.lfdNr)*SUM(c.lfdNr))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM STAT_TonerZaehlerYEAR c &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE&#x9;c.Verbrauch_Cyan is not null and  c.lfdNr between 1 and 367)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;SET @m= (SELECT &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;(COUNT(c.lfdNr)*SUM(c.lfdNr*c.Verbrauch_Cyan)-SUM(c.Verbrauch_Cyan)*SUM(c.lfdNr))/(COUNT(c.lfdNr)*SUM(c.lfdNr*c.lfdNr)-SUM(c.lfdNr)*SUM(c.lfdNr))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM STAT_TonerZaehlerYEAR c &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE&#x9;c.Verbrauch_Cyan is not null and  c.lfdNr between 1 and 367)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;update  dbo.STAT_TonerZaehlerYEAR SET linReg_VerbCyan = (Select&#x9;lfdNr*@m+@b )from STAT_TonerZaehlerYEAR&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;SET @b= (SELECT &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;AVG(c.Verbrauch_magenta) - Avg(c.lfdNr)* (COUNT(c.lfdNr)*SUM(c.lfdNr*c.Verbrauch_magenta)-SUM(c.Verbrauch_magenta)*SUM(c.lfdNr))/(COUNT(c.lfdNr)*SUM(c.lfdNr*c.lfdNr)-SUM(c.lfdNr)*SUM(c.lfdNr))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM STAT_TonerZaehlerYEAR c &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE&#x9;c.Verbrauch_magenta is not null and  c.lfdNr between 1 and 367)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;SET @m= (SELECT &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;(COUNT(c.lfdNr)*SUM(c.lfdNr*c.Verbrauch_magenta)-SUM(c.Verbrauch_magenta)*SUM(c.lfdNr))/(COUNT(c.lfdNr)*SUM(c.lfdNr*c.lfdNr)-SUM(c.lfdNr)*SUM(c.lfdNr))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM STAT_TonerZaehlerYEAR c &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE&#x9;c.Verbrauch_magenta is not null and  c.lfdNr between 1 and 367)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;update  dbo.STAT_TonerZaehlerYEAR SET linReg_Verbmagenta = (Select&#x9;lfdNr*@m+@b )from STAT_TonerZaehlerYEAR&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;SET @b= (SELECT &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;AVG(c.Verbrauch_Yellow) - Avg(c.lfdNr)* (COUNT(c.lfdNr)*SUM(c.lfdNr*c.Verbrauch_Yellow)-SUM(c.Verbrauch_Yellow)*SUM(c.lfdNr))/(COUNT(c.lfdNr)*SUM(c.lfdNr*c.lfdNr)-SUM(c.lfdNr)*SUM(c.lfdNr))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM STAT_TonerZaehlerYEAR c &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE&#x9;c.Verbrauch_Yellow is not null and  c.lfdNr between 1 and 367)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;SET @m= (SELECT &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;(COUNT(c.lfdNr)*SUM(c.lfdNr*c.Verbrauch_Yellow)-SUM(c.Verbrauch_Yellow)*SUM(c.lfdNr))/(COUNT(c.lfdNr)*SUM(c.lfdNr*c.lfdNr)-SUM(c.lfdNr)*SUM(c.lfdNr))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM STAT_TonerZaehlerYEAR c &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE&#x9;c.Verbrauch_Yellow is not null and  c.lfdNr between 1 and 367)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;update  dbo.STAT_TonerZaehlerYEAR SET linReg_VerbYellow = (Select&#x9;lfdNr*@m+@b )from STAT_TonerZaehlerYEAR&#xD;&#xA;&#xD;&#xA;SET @b= (SELECT &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;AVG(c.Verbrauch_Black) - Avg(c.lfdNr)* (COUNT(c.lfdNr)*SUM(c.lfdNr*c.Verbrauch_Black)-SUM(c.Verbrauch_Black)*SUM(c.lfdNr))/(COUNT(c.lfdNr)*SUM(c.lfdNr*c.lfdNr)-SUM(c.lfdNr)*SUM(c.lfdNr))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM STAT_TonerZaehlerYEAR c &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE&#x9;c.Verbrauch_Black is not null and  c.lfdNr between 1 and 367)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;SET @m= (SELECT &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;(COUNT(c.lfdNr)*SUM(c.lfdNr*c.Verbrauch_Black)-SUM(c.Verbrauch_Black)*SUM(c.lfdNr))/(COUNT(c.lfdNr)*SUM(c.lfdNr*c.lfdNr)-SUM(c.lfdNr)*SUM(c.lfdNr))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM STAT_TonerZaehlerYEAR c &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE&#x9;c.Verbrauch_Black is not null and  c.lfdNr between 1 and 367)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;update  dbo.STAT_TonerZaehlerYEAR SET linReg_VerbBlack = (Select&#x9;lfdNr*@m+@b )from STAT_TonerZaehlerYEAR&#xD;&#xA;&#xD;&#xA;SET @b= (SELECT &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;AVG(c.Zaehler_Farbe) - Avg(c.lfdNr)* (COUNT(c.lfdNr)*SUM(c.lfdNr*c.Zaehler_Farbe)-SUM(c.Zaehler_Farbe)*SUM(c.lfdNr))/(COUNT(c.lfdNr)*SUM(c.lfdNr*c.lfdNr)-SUM(c.lfdNr)*SUM(c.lfdNr))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM STAT_TonerZaehlerYEAR c &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE&#x9;c.Zaehler_Farbe is not null and  c.lfdNr between 1 and 367)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;SET @m= (SELECT &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;(COUNT(c.lfdNr)*SUM(c.lfdNr*c.Zaehler_Farbe)-SUM(c.Zaehler_Farbe)*SUM(c.lfdNr))/(COUNT(c.lfdNr)*SUM(c.lfdNr*c.lfdNr)-SUM(c.lfdNr)*SUM(c.lfdNr))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM STAT_TonerZaehlerYEAR c &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE&#x9;c.Zaehler_Farbe is not null and  c.lfdNr between 1 and 367)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;update  dbo.STAT_TonerZaehlerYEAR SET linReg_Farbe = (Select&#x9;lfdNr*@m+@b )from STAT_TonerZaehlerYEAR&#xD;&#xA;&#xD;&#xA;SET @b= (SELECT &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;AVG(c.Zaehler_Gesamt) - Avg(c.lfdNr)* (COUNT(c.lfdNr)*SUM(c.lfdNr*c.Zaehler_Gesamt)-SUM(c.Zaehler_Gesamt)*SUM(c.lfdNr))/(COUNT(c.lfdNr)*SUM(c.lfdNr*c.lfdNr)-SUM(c.lfdNr)*SUM(c.lfdNr))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM STAT_TonerZaehlerYEAR c &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE&#x9;c.Zaehler_Gesamt is not null and  c.lfdNr between 1 and 367)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;SET @m= (SELECT &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;(COUNT(c.lfdNr)*SUM(c.lfdNr*c.Zaehler_Gesamt)-SUM(c.Zaehler_Gesamt)*SUM(c.lfdNr))/(COUNT(c.lfdNr)*SUM(c.lfdNr*c.lfdNr)-SUM(c.lfdNr)*SUM(c.lfdNr))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM STAT_TonerZaehlerYEAR c &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE&#x9;c.Zaehler_Gesamt is not null and  c.lfdNr between 1 and 367)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;update  dbo.STAT_TonerZaehlerYEAR SET linReg_Gesamt = (Select lfdNr*@m+@b )from STAT_TonerZaehlerYEAR&#xD;&#xA;&#xD;&#xA;Update dbo.STAT_TonerZaehlerYEAR SET linReg_VerbCyan = Null from STAT_TonerZaehlerYEAR where linReg_VerbCyan&lt;0 &#xD;&#xA;Update dbo.STAT_TonerZaehlerYEAR SET linReg_VerbMagenta = Null from STAT_TonerZaehlerYEAR where linReg_VerbMagenta&lt;0 &#xD;&#xA;Update dbo.STAT_TonerZaehlerYEAR SET linReg_VerbYellow = Null from STAT_TonerZaehlerYEAR where linReg_VerbYellow&lt;0 &#xD;&#xA;Update dbo.STAT_TonerZaehlerYEAR SET linReg_VerbBlack = Null from STAT_TonerZaehlerYEAR where linReg_VerbBlack&lt;0 &#xD;&#xA;Update dbo.STAT_TonerZaehlerYEAR SET linReg_Farbe = Null from STAT_TonerZaehlerYEAR where linReg_Farbe&lt;0 &#xD;&#xA;Update dbo.STAT_TonerZaehlerYEAR SET linReg_Gesamt = Null from STAT_TonerZaehlerYEAR where linReg_Gesamt&lt;0"/>
+        </SQL_FORM>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode=" linR STAT_TonerZaehlerYEARip"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>
