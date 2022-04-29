@@ -32,7 +32,7 @@
           <Offline val="N"/>
           <FormType val="M"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738195" _time="42374" date="09.02.2022" time="11:46:14"/>
+          <LastModified _date="738235" _time="31715" date="21.03.2022" time="08:48:35"/>
         </Header>
         <ItemIsn val="198"/>
         <Resource>
@@ -271,45 +271,6 @@
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_LOGICAL" id="1"/>
                 <_FieldStyle id="276" val="1"/>
-              </PropertyList>
-            </Column>
-            <Column id="27" name="RequesterId_v">
-              <PropertyList model="FIELD">
-                <Model attr_obj="FIELD_NUMERIC" id="1"/>
-                <Picture id="157" valUnicode="9"/>
-                <_Dec id="181"/>
-                <_Whole id="182" val="9"/>
-                <_Negative id="192"/>
-                <_FieldStyle id="276" val="1"/>
-              </PropertyList>
-            </Column>
-            <Column id="28" name="RequesterReturnCode_v">
-              <PropertyList model="FIELD">
-                <Model attr_obj="FIELD_NUMERIC" id="1"/>
-                <Picture id="157" valUnicode="N1"/>
-                <_Dec id="181"/>
-                <_Whole id="182" val="1"/>
-                <_Negative id="192" val="Y"/>
-                <_FieldStyle id="276" val="1"/>
-              </PropertyList>
-            </Column>
-            <Column id="29" name="ReasonCode_v">
-              <PropertyList model="FIELD">
-                <Model attr_obj="FIELD_NUMERIC" id="1"/>
-                <Picture id="157" valUnicode="N5"/>
-                <_Dec id="181"/>
-                <_Whole id="182" val="5"/>
-                <_Negative id="192" val="Y"/>
-                <_FieldStyle id="276" val="1"/>
-              </PropertyList>
-            </Column>
-            <Column id="30" name="MessageID_v">
-              <PropertyList model="FIELD">
-                <Model attr_obj="FIELD_ALPHA" id="1"/>
-                <Picture id="157" valUnicode="36"/>
-                <StoredAs id="173" val="1"/>
-                <Size id="174" val="36"/>
-                <_Flip id="194"/>
               </PropertyList>
             </Column>
           </Columns>
@@ -2823,54 +2784,6 @@
                   <Direction val="C"/>
                 </Select>
               </LogicLine>
-              <LogicLine>
-                <Select FieldID="194" FlowIsn="569" id="194">
-                  <Column val="27"/>
-                  <Type val="V"/>
-                  <ExposedToRoute val="N"/>
-                  <IsParameter val="N"/>
-                  <DIFF_UPDATE val="T"/>
-                  <Condition val="Y"/>
-                  <Modifier val="S"/>
-                  <Direction val="C"/>
-                </Select>
-              </LogicLine>
-              <LogicLine>
-                <Select FieldID="195" FlowIsn="570" id="195">
-                  <Column val="28"/>
-                  <Type val="V"/>
-                  <ExposedToRoute val="N"/>
-                  <IsParameter val="N"/>
-                  <DIFF_UPDATE val="T"/>
-                  <Condition val="Y"/>
-                  <Modifier val="S"/>
-                  <Direction val="C"/>
-                </Select>
-              </LogicLine>
-              <LogicLine>
-                <Select FieldID="196" FlowIsn="571" id="196">
-                  <Column val="29"/>
-                  <Type val="V"/>
-                  <ExposedToRoute val="N"/>
-                  <IsParameter val="N"/>
-                  <DIFF_UPDATE val="T"/>
-                  <Condition val="Y"/>
-                  <Modifier val="S"/>
-                  <Direction val="C"/>
-                </Select>
-              </LogicLine>
-              <LogicLine>
-                <Select FieldID="197" FlowIsn="572" id="197">
-                  <Column val="30"/>
-                  <Type val="V"/>
-                  <ExposedToRoute val="N"/>
-                  <IsParameter val="N"/>
-                  <DIFF_UPDATE val="T"/>
-                  <Condition val="Y"/>
-                  <Modifier val="S"/>
-                  <Direction val="C"/>
-                </Select>
-              </LogicLine>
             </LogicLines>
           </LogicUnit>
           <LogicUnit id="3" propagate="78">
@@ -2963,107 +2876,12 @@
             <ExecuteOn_ val="O"/>
             <LogicLines>
               <LogicLine>
-                <Update FlowIsn="626">
-                  <FieldID val="194"/>
-                  <WithValue val="41"/>
-                  <Incremental val="N"/>
-                  <ForcedUpdate val="Y"/>
-                  <Condition val="Y"/>
-                  <Modifier val="B"/>
-                  <Direction val="C"/>
-                </Update>
-              </LogicLine>
-              <LogicLine>
-                <Update FlowIsn="627">
-                  <FieldID val="195"/>
-                  <WithValue val="41"/>
-                  <Incremental val="N"/>
-                  <ForcedUpdate val="Y"/>
-                  <Condition val="Y"/>
-                  <Modifier val="B"/>
-                  <Direction val="C"/>
-                </Update>
-              </LogicLine>
-              <LogicLine>
-                <Update FlowIsn="628">
-                  <FieldID val="196"/>
-                  <WithValue val="41"/>
-                  <Incremental val="N"/>
-                  <ForcedUpdate val="Y"/>
-                  <Condition val="Y"/>
-                  <Modifier val="B"/>
-                  <Direction val="C"/>
-                </Update>
-              </LogicLine>
-              <LogicLine>
-                <Update FlowIsn="629">
-                  <FieldID val="197"/>
-                  <WithValue val="68"/>
-                  <Incremental val="N"/>
-                  <ForcedUpdate val="Y"/>
-                  <Condition val="Y"/>
-                  <Modifier val="B"/>
-                  <Direction val="C"/>
-                </Update>
-              </LogicLine>
-              <LogicLine>
                 <Evaluate FlowIsn="630">
                   <Expression val="69"/>
                   <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </Evaluate>
-              </LogicLine>
-              <LogicLine>
-                <CallTask FlowIsn="679">
-                  <OperationType val="P"/>
-                  <Event>
-                    <EventType val="N"/>
-                  </Event>
-                  <TaskID comp="2" obj="4167"/>
-                  <Lock val="N"/>
-                  <Arguments>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="21"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Variable val="194"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Expression val="33"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Skip val="Y"/>
-                    </Argument>
-                    <Argument>
-                      <Skip val="Y"/>
-                    </Argument>
-                    <Argument>
-                      <Skip val="Y"/>
-                    </Argument>
-                    <Argument>
-                      <Skip val="Y"/>
-                    </Argument>
-                    <Argument>
-                      <Expression val="70"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Expression val="71"/>
-                      <Skip val="N"/>
-                    </Argument>
-                  </Arguments>
-                  <Wait val="Y"/>
-                  <SyncData val="N"/>
-                  <RetainFocus val="N"/>
-                  <Condition val="Y"/>
-                  <Modifier val="B"/>
-                  <Direction val="C"/>
-                </CallTask>
               </LogicLine>
               <LogicLine>
                 <CallTask FlowIsn="680">
@@ -3082,21 +2900,20 @@
                 </CallTask>
               </LogicLine>
               <LogicLine>
-                <CallTask FlowIsn="681">
+                <CallTask FlowIsn="926">
                   <OperationType val="P"/>
                   <Event>
                     <EventType val="N"/>
                   </Event>
-                  <TaskID comp="2" obj="4164"/>
+                  <TaskID comp="-1" obj="3679"/>
                   <Lock val="N"/>
                   <Arguments>
                     <Argument>
-                      <Variable val="194"/>
+                      <Expression val="70"/>
                       <Skip val="N"/>
                     </Argument>
                     <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="21"/>
+                      <Expression val="71"/>
                       <Skip val="N"/>
                     </Argument>
                     <Argument>
@@ -3111,13 +2928,24 @@
                       <Skip val="Y"/>
                     </Argument>
                     <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="1184"/>
+                      <Expression val="33"/>
                       <Skip val="N"/>
                     </Argument>
                     <Argument>
+                      <Skip val="Y"/>
+                    </Argument>
+                    <Argument>
+                      <Skip val="Y"/>
+                    </Argument>
+                    <Argument>
+                      <Skip val="Y"/>
+                    </Argument>
+                    <Argument>
+                      <Skip val="Y"/>
+                    </Argument>
+                    <Argument>
                       <Parent val="32768"/>
-                      <Variable val="24"/>
+                      <Variable val="1184"/>
                       <Skip val="N"/>
                     </Argument>
                   </Arguments>
@@ -3138,215 +2966,12 @@
                 </Evaluate>
               </LogicLine>
               <LogicLine>
-                <RaiseEvent FlowIsn="684">
-                  <Event>
-                    <EventType val="U"/>
-                    <PublicObject comp="-1" obj="3"/>
-                  </Event>
-                  <Wait val="89"/>
-                  <Condition val="Y"/>
-                  <Modifier val="B"/>
-                  <Direction val="C"/>
-                </RaiseEvent>
-              </LogicLine>
-              <LogicLine>
-                <CallTask FlowIsn="685">
-                  <OperationType val="P"/>
-                  <Event>
-                    <EventType val="N"/>
-                  </Event>
-                  <TaskID comp="2" obj="4168"/>
-                  <Lock val="N"/>
-                  <Arguments>
-                    <Argument>
-                      <Variable val="194"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Expression val="70"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Expression val="71"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Variable val="195"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Variable val="196"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Variable val="197"/>
-                      <Skip val="N"/>
-                    </Argument>
-                  </Arguments>
-                  <Wait val="Y"/>
-                  <SyncData val="N"/>
-                  <RetainFocus val="N"/>
-                  <Condition val="Y"/>
-                  <Modifier val="B"/>
-                  <Direction val="C"/>
-                </CallTask>
-              </LogicLine>
-              <LogicLine>
-                <STP Buttons="O" DefaultButton="1" ERR_LOG_DEF_CHG="N" FlowIsn="686" IMG_DEF_CHG="N" Image="E" Mode="W" TTL_DEF_CHG="N" TXT="Job wurde eingestellt." TitleTxt="Warning" VR_DISP="B">
+                <STP Buttons="O" DefaultButton="1" ERR_LOG_DEF_CHG="N" Exp="73" FlowIsn="686" IMG_DEF_CHG="N" Image="E" Mode="W" TTL_DEF_CHG="N" TXT="Job wurde eingestellt." TitleTxt="Warning" VR_DISP="B">
                   <AppendToErrorLog val="N"/>
                   <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </STP>
-              </LogicLine>
-            </LogicLines>
-          </LogicUnit>
-          <LogicUnit id="9" propagate="78">
-            <Level val="H"/>
-            <Type val="U"/>
-            <Scope val="T"/>
-            <EngineDirective val="S"/>
-            <ShowMessage val="Y"/>
-            <Condition val="89"/>
-            <Event>
-              <EventType val="U"/>
-              <PublicObject comp="-1" obj="3"/>
-            </Event>
-            <Expanded val="1"/>
-            <ExecuteOn_ val="O"/>
-            <LogicLines>
-              <LogicLine>
-                <Invoke FieldID1="195" FieldID2="196" FieldID3="197" FlowIsn="631">
-                  <OperationType val="R"/>
-                  <Event>
-                    <EventType val="N"/>
-                  </Event>
-                  <TaskID comp="-1"/>
-                  <Lock val="N"/>
-                  <Arguments>
-                    <Argument>
-                      <Variable val="194"/>
-                      <Skip val="N"/>
-                      <Name val="RequesterId_v"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="1"/>
-                      <Skip val="N"/>
-                      <Name val="Ebene1_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="2"/>
-                      <Skip val="N"/>
-                      <Name val="Ebene2_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="3"/>
-                      <Skip val="N"/>
-                      <Name val="Ebene3_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="4"/>
-                      <Skip val="N"/>
-                      <Name val="Ebene4_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="5"/>
-                      <Skip val="N"/>
-                      <Name val="Ebene1Z_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="6"/>
-                      <Skip val="N"/>
-                      <Name val="Ebene2Z_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="7"/>
-                      <Skip val="N"/>
-                      <Name val="Ebene3Z_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="8"/>
-                      <Skip val="N"/>
-                      <Name val="Ebene4Z_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="1440"/>
-                      <Skip val="N"/>
-                      <Name val="DBSQL_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="1441"/>
-                      <Skip val="N"/>
-                      <Name val="DBAUTO_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="1442"/>
-                      <Skip val="N"/>
-                      <Name val="DBSTAT_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="1449"/>
-                      <Skip val="N"/>
-                      <Name val="ControlPersistencyPfad_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="1450"/>
-                      <Skip val="N"/>
-                      <Name val="DatabaseServer_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="1451"/>
-                      <Skip val="N"/>
-                      <Name val="DatabaseUsername_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="1452"/>
-                      <Skip val="N"/>
-                      <Name val="DatabasePassword_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="1470"/>
-                      <Skip val="N"/>
-                      <Name val="Vorlagen_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="1471"/>
-                      <Skip val="N"/>
-                      <Name val="ContextInactivityTimeout_gv"/>
-                    </Argument>
-                    <Argument>
-                      <Parent val="32768"/>
-                      <Variable val="1486"/>
-                      <Skip val="N"/>
-                      <Name val="Language_gv"/>
-                    </Argument>
-                  </Arguments>
-                  <Service val="SuccessFlow"/>
-                  <Operation val="Batch starten"/>
-                  <Wait val="N"/>
-                  <SyncData val="N"/>
-                  <RetainFocus val="N"/>
-                  <Condition val="Y"/>
-                  <Modifier val="B"/>
-                  <Direction val="C"/>
-                </Invoke>
               </LogicLine>
             </LogicLines>
           </LogicUnit>
@@ -4062,10 +3687,6 @@
             <ExpSyntax val="{0,2}"/>
             <ExpAttribute val="N"/>
           </Expression>
-          <Expression id="41">
-            <ExpSyntax val="0"/>
-            <ExpAttribute val="N"/>
-          </Expression>
           <Expression id="44">
             <ExpSyntax val="'ARTIKEL'"/>
             <ExpAttribute val="A"/>
@@ -4086,10 +3707,6 @@
             <ExpSyntax val="{0,31}"/>
             <ExpAttribute val="B"/>
           </Expression>
-          <Expression id="68">
-            <ExpSyntax val="''"/>
-            <ExpAttribute val="A"/>
-          </Expression>
           <Expression id="69">
             <ExpSyntax val="DbDel('{4683,2}'DSOURCE,'')"/>
             <ExpAttribute val="B"/>
@@ -4106,6 +3723,10 @@
             <ExpSyntax val="MTblGet('{4683,2}'DSOURCE,'')"/>
             <ExpAttribute val="O"/>
           </Expression>
+          <Expression id="73">
+            <ExpSyntax val="MlsTrans('Der Serverjob wurde zur Verarbeitung eingetragen.')"/>
+            <ExpAttribute val="U"/>
+          </Expression>
         </Expressions>
         <EVNT DESC="starten" FORCE_EXIT="E" id="1">
           <Event>
@@ -4113,11 +3734,6 @@
           </Event>
         </EVNT>
         <EVNT DESC="Struktur" FORCE_EXIT="E" id="2">
-          <Event>
-            <EventType val="N"/>
-          </Event>
-        </EVNT>
-        <EVNT DESC="StartBatch" FORCE_EXIT="N" id="3">
           <Event>
             <EventType val="N"/>
           </Event>

@@ -42,7 +42,7 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738181" _time="50443" date="26.01.2022" time="14:00:43"/>
+          <LastModified _date="738183" _time="54638" date="28.01.2022" time="15:10:38"/>
         </Header>
         <ItemIsn val="80"/>
         <Resource>
@@ -1405,7 +1405,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738181" _time="50443" date="26.01.2022" time="14:00:43"/>
+            <LastModified _date="738183" _time="54638" date="28.01.2022" time="15:10:38"/>
           </Header>
           <ItemIsn val="72"/>
           <Resource>
@@ -1528,9 +1528,9 @@
               <Column id="10" name="db_connectionstring_v">
                 <PropertyList model="FIELD">
                   <Model attr_obj="FIELD_ALPHA" id="1"/>
-                  <Picture id="157" valUnicode="128"/>
+                  <Picture id="157" valUnicode="1024"/>
                   <StoredAs id="173" val="1"/>
-                  <Size id="174" val="128"/>
+                  <Size id="174" val="1024"/>
                   <_Flip id="194"/>
                 </PropertyList>
               </Column>
@@ -2911,6 +2911,33 @@
                   </Remark>
                 </LogicLine>
                 <LogicLine>
+                  <BLOCK EndBlock="481" EndBlockSegment="482" FlowIsn="480" Type="I">
+                    <Expanded val="1"/>
+                    <Condition Exp="59"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </BLOCK>
+                </LogicLine>
+                <LogicLine>
+                  <Update FlowIsn="483">
+                    <FieldID val="62"/>
+                    <WithValue val="60"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Update>
+                </LogicLine>
+                <LogicLine>
+                  <BLOCK EndBlock="481" EndBlockSegment="481" FlowIsn="482" Type="E">
+                    <Expanded val="1"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </BLOCK>
+                </LogicLine>
+                <LogicLine>
                   <Update FlowIsn="90">
                     <FieldID val="62"/>
                     <WithValue val="28"/>
@@ -2931,6 +2958,25 @@
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </Update>
+                </LogicLine>
+                <LogicLine>
+                  <END_BLK FlowIsn="481"/>
+                </LogicLine>
+                <LogicLine>
+                  <Evaluate FlowIsn="513">
+                    <Expression val="62"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Evaluate>
+                </LogicLine>
+                <LogicLine>
+                  <Evaluate FlowIsn="512">
+                    <Expression val="61"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Evaluate>
                 </LogicLine>
                 <LogicLine>
                   <Invoke FieldID2="57" FlowIsn="92">
@@ -3156,7 +3202,7 @@
                     <Option val="M"/>
                     <RetainFocus val="Y"/>
                     <Condition Exp="57"/>
-                    <Modifier val="S"/>
+                    <Modifier val="B"/>
                     <Direction val="C"/>
                   </Invoke>
                 </LogicLine>
@@ -3215,7 +3261,7 @@
                     <SyncData val="N"/>
                     <RetainFocus val="N"/>
                     <Condition Exp="54"/>
-                    <Modifier val="S"/>
+                    <Modifier val="B"/>
                     <Direction val="C"/>
                   </CallTask>
                 </LogicLine>
@@ -3715,7 +3761,7 @@
                     <SyncData val="N"/>
                     <RetainFocus val="N"/>
                     <Condition Exp="53"/>
-                    <Modifier val="S"/>
+                    <Modifier val="B"/>
                     <Direction val="C"/>
                   </CallTask>
                 </LogicLine>
@@ -4032,6 +4078,22 @@
             </Expression>
             <Expression id="58">
               <ExpSyntax val="NOT {1,72}"/>
+              <ExpAttribute val="B"/>
+            </Expression>
+            <Expression id="59">
+              <ExpSyntax val="{32768,140}&lt;>''"/>
+              <ExpAttribute val="B"/>
+            </Expression>
+            <Expression id="60">
+              <ExpSyntax val="'Data Source='&amp;Trim({32768,147})&amp;';Initial Catalog='&amp;Trim({32768,140})&amp;';Integrated Security=False;User='&amp;Trim({32768,148})&amp;';Password='&amp;Trim({32768,149})"/>
+              <ExpAttribute val="A"/>
+            </Expression>
+            <Expression id="61">
+              <ExpSyntax val="FlwMtr('ConnectionString: '&amp;Trim({0,62}) ,'FALSE'LOG)"/>
+              <ExpAttribute val="B"/>
+            </Expression>
+            <Expression id="62">
+              <ExpSyntax val="FlwMtr('DBSQL: '&amp;Trim({32768,140}),'FALSE'LOG)"/>
               <ExpAttribute val="B"/>
             </Expression>
           </Expressions>

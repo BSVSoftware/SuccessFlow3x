@@ -2,7 +2,7 @@
 <Application>
 
   <Header>
-    <Version val="14070.00"/>
+    <Version val="14071.00"/>
     <WithIsn val="Y"/>
     <_InternalTask val="N"/>
     <IsRoot val="N"/>
@@ -13,7 +13,7 @@
   <ProgramsRepository>
     <Programs>
       <Task MainProgram="N">
-        <Header Description="ProjektGanttRechnen" ISN_2="1" LastIsn="3" id="1773">
+        <Header Description="ProjektGanttRechnen" ISN_2="1" LastIsn="2" id="1773">
           <ExecutionRight comp="-1"/>
           <Resident val="Y"/>
           <SQL val="N"/>
@@ -32,7 +32,7 @@
           <Offline val="N"/>
           <FormType val="M"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="737720" _time="62685" date="22.10.2020" time="17:24:45"/>
+          <LastModified _date="738230" _time="30609" date="16.03.2022" time="08:30:09"/>
         </Header>
         <ItemIsn val="33"/>
         <Resource>
@@ -799,7 +799,7 @@
                   <WithValue val="10"/>
                   <Incremental val="N"/>
                   <ForcedUpdate val="Y"/>
-                  <Condition val="Y"/>
+                  <Condition Exp="39"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </Update>
@@ -867,6 +867,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="66" EndBlockSegment="66" FlowIsn="58" Type="I">
+                  <Expanded val="1"/>
                   <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -885,6 +886,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="65" EndBlockSegment="65" FlowIsn="60" Type="I">
+                  <Expanded val="1"/>
                   <Condition Exp="16"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -1020,6 +1022,10 @@
             <ExpSyntax val="{32768,1}"/>
             <ExpAttribute val="N"/>
           </Expression>
+          <Expression id="39">
+            <ExpSyntax val="{0,11}>'01/01/1901'DATE OR {0,13}>'01/01/1901'DATE"/>
+            <ExpAttribute val="B"/>
+          </Expression>
           <Expression id="2">
             <ExpSyntax val="{32768,2}"/>
             <ExpAttribute val="N"/>
@@ -1053,7 +1059,7 @@
             <ExpAttribute val="A"/>
           </Expression>
           <Expression id="10">
-            <ExpSyntax val="Trim({0,18})&amp;' start_date:&quot;'&amp;Trim(DStr({0,11},'DD.MM.YYYY'))&amp;'&quot;,'"/>
+            <ExpSyntax val="Trim({0,18})&amp;' start_date:&quot;'&amp;Trim(DStr(IF({0,11}&lt;='01/01/1901'DATE,{0,13},{0,11}),'DD.MM.YYYY'))&amp;'&quot;,'"/>
             <ExpAttribute val="A"/>
           </Expression>
           <Expression id="11">
@@ -1176,7 +1182,7 @@
         <VarRangeInfo Mode="E" VarRangeVeeIsn="7" id="5"/>
         <VarRangeInfo Mode="E" VarRangeVeeIsn="33" id="6"/>
         <Task MainProgram="N">
-          <Header Description="ProjektVonBis" ISN_2="2" LastIsn="3" id="1773">
+          <Header Description="ProjektVonBis" ISN_2="2" LastIsn="2" id="1773">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -1189,7 +1195,7 @@
             <External val="N"/>
             <FormType val="M"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="736513" _time="48888" date="03.07.2017" time="13:34:48"/>
+            <LastModified _date="738230" _time="30609" date="16.03.2022" time="08:30:09"/>
           </Header>
           <ItemIsn val="15"/>
           <Resource>
@@ -1552,7 +1558,7 @@
               <ExpAttribute val="D"/>
             </Expression>
             <Expression id="9">
-              <ExpSyntax val="{1,20}&lt;='01/01/1901'DATE OR {0,9}&lt;{1,20}"/>
+              <ExpSyntax val="{1,20}&lt;='01/01/1901'DATE OR IF({0,9}&lt;'01/01/1901'DATE,{0,11},{0,9})&lt;{1,20}"/>
               <ExpAttribute val="B"/>
             </Expression>
             <Expression id="10">

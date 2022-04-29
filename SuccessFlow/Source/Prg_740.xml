@@ -13,7 +13,7 @@
   <ProgramsRepository>
     <Programs>
       <Task MainProgram="N">
-        <Header Description="Bestellvorschlag 3_prg" ISN_2="1" LastIsn="127" id="740">
+        <Header Description="Bestellvorschlag 3_prg" ISN_2="1" LastIsn="130" id="740">
           <Comment val="Screen AL 30.10.2008"/>
           <Public val="Bestellvorschlag3_prg"/>
           <ExecutionRight comp="-1"/>
@@ -33,7 +33,7 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738196" _time="37869" date="10.02.2022" time="10:31:09"/>
+          <LastModified _date="738235" _time="33405" date="21.03.2022" time="09:16:45"/>
         </Header>
         <ItemIsn val="125"/>
         <Resource>
@@ -2162,6 +2162,14 @@
                 </Update>
               </LogicLine>
               <LogicLine>
+                <Evaluate FlowIsn="1395">
+                  <Expression val="74"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
                 <STP Buttons="Y" DefaultButton="2" ERR_LOG_DEF_CHG="N" Exp="63" FlowIsn="925" IMG_DEF_CHG="Y" Image="Q" Mode="W" TTL_DEF_CHG="Y" TitleTxt="Frage" VR_DISP="B">
                   <AppendToErrorLog val="N"/>
                   <RetValVar val="122"/>
@@ -2662,7 +2670,7 @@
           <LogicUnit id="33" propagate="78">
             <Level val="H"/>
             <Type val="U"/>
-            <Scope val="S"/>
+            <Scope val="T"/>
             <EngineDirective val="S"/>
             <ShowMessage val="Y"/>
             <Condition val="89"/>
@@ -2823,6 +2831,14 @@
             <ExecuteOn_ val="O"/>
             <LogicLines>
               <LogicLine>
+                <Evaluate FlowIsn="1393">
+                  <Expression val="74"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
                 <RaiseEvent FlowIsn="474">
                   <Event>
                     <EventType val="U"/>
@@ -2888,6 +2904,14 @@
             <Expanded val="1"/>
             <ExecuteOn_ val="O"/>
             <LogicLines>
+              <LogicLine>
+                <Evaluate FlowIsn="1394">
+                  <Expression val="74"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
               <LogicLine>
                 <RaiseEvent FlowIsn="895">
                   <Event>
@@ -3729,6 +3753,10 @@
             <ExpSyntax val="{0,5}"/>
             <ExpAttribute val="N"/>
           </Expression>
+          <Expression id="74">
+            <ExpSyntax val="CtrlGoto('CTN_LFNR',0,0)"/>
+            <ExpAttribute val="B"/>
+          </Expression>
         </Expressions>
         <EVNT DESC="LieferantWechseln" FORCE_EXIT="N" id="1">
           <Event>
@@ -3772,7 +3800,7 @@
         <VarRangeInfo Mode="F" VarRangeVeeIsn="62" id="5"/>
         <VarRangeInfo Mode="T" VarRangeVeeIsn="62" id="6"/>
         <Task MainProgram="N">
-          <Header Description="Lieferant ändern" ISN_2="102" LastIsn="127" id="740">
+          <Header Description="Lieferant ändern" ISN_2="102" LastIsn="130" id="740">
             <ExecutionRight comp="-1"/>
             <Resident val="N"/>
             <SQL val="N"/>
@@ -3786,7 +3814,7 @@
             <External val="N"/>
             <FormType val="D"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738153" _time="60713" date="29.12.2021" time="16:51:53"/>
+            <LastModified _date="738216" _time="43563" date="02.03.2022" time="12:06:03"/>
           </Header>
           <ItemIsn val="43"/>
           <Resource>
@@ -4732,7 +4760,7 @@
             </LogicUnit>
           </TaskLogic>
           <TaskForms>
-            <FormEntry _last_isn="6" _last_test_id="6" id="1">
+            <FormEntry _last_isn="8" _last_test_id="8" id="1">
               <PropertyList model="FORM_RICH_CLIENT">
                 <Model comp="-1" id="1" obj="165"/>
                 <X id="21" val="190"/>
@@ -4891,7 +4919,7 @@
             </Event>
           </EVNT>
           <Task MainProgram="N">
-            <Header Description="Position umbuchen" ISN_2="103" LastIsn="127" id="740">
+            <Header Description="Position umbuchen" ISN_2="103" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -5454,7 +5482,7 @@
             <VarRangeInfo Mode="E" VarRangeVeeIsn="5" id="7"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Position integrieren" ISN_2="123" LastIsn="127" id="740">
+            <Header Description="Position integrieren" ISN_2="123" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -5467,9 +5495,9 @@
               <External val="N"/>
               <FormType val="M"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738153" _time="60713" date="29.12.2021" time="16:51:53"/>
+              <LastModified _date="738216" _time="43574" date="02.03.2022" time="12:06:14"/>
             </Header>
-            <ItemIsn val="22"/>
+            <ItemIsn val="23"/>
             <Resource>
               <DB id="1">
                 <DataObject comp="2" obj="741"/>
@@ -5987,7 +6015,7 @@
                   <LogicLine>
                     <Update FlowIsn="55">
                       <FieldID val="20"/>
-                      <WithValue val="23"/>
+                      <WithValue val="27"/>
                       <Incremental val="N"/>
                       <ForcedUpdate val="Y"/>
                       <Condition val="Y"/>
@@ -6089,8 +6117,8 @@
                 <ExpSyntax val="{102,42}+1"/>
                 <ExpAttribute val="N"/>
               </Expression>
-              <Expression id="23">
-                <ExpSyntax val="{102,36}+1"/>
+              <Expression id="27">
+                <ExpSyntax val="{102,36}+Counter(0)"/>
                 <ExpAttribute val="N"/>
               </Expression>
               <Expression id="24">
@@ -6109,7 +6137,7 @@
             <VarRangeInfo Mode="E" VarRangeVeeIsn="5" id="7"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Kopf umbuchen" ISN_2="104" LastIsn="127" id="740">
+            <Header Description="Kopf umbuchen" ISN_2="104" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -6265,7 +6293,7 @@
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Kopf updaten" ISN_2="126" LastIsn="127" id="740">
+            <Header Description="Kopf updaten" ISN_2="126" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -6421,7 +6449,7 @@
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="AltenKopfLöschen" ISN_2="127" LastIsn="127" id="740">
+            <Header Description="AltenKopfLöschen" ISN_2="127" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -6640,7 +6668,7 @@
           </Task>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Bestellkopf update" ISN_2="82" LastIsn="127" id="740">
+          <Header Description="Bestellkopf update" ISN_2="82" LastIsn="130" id="740">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -7042,7 +7070,7 @@
           <VarRangeInfo Mode="E" VarRangeVeeIsn="5" id="11"/>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Erstellen" ISN_2="2" LastIsn="127" id="740">
+          <Header Description="Erstellen" ISN_2="2" LastIsn="130" id="740">
             <ExecutionRight comp="-1"/>
             <Resident val="N"/>
             <SQL val="N"/>
@@ -7056,9 +7084,9 @@
             <External val="N"/>
             <FormType val="D"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738057" _time="36354" date="24.09.2021" time="10:05:54"/>
+            <LastModified _date="738235" _time="33405" date="21.03.2022" time="09:16:45"/>
           </Header>
-          <ItemIsn val="89"/>
+          <ItemIsn val="90"/>
           <Resource>
             <DB id="1">
               <DataObject comp="2" obj="108"/>
@@ -7165,6 +7193,12 @@
                   <CharSet id="172" val="1"/>
                   <StoredAs id="173" val="1"/>
                   <Definition id="175" val="2"/>
+                </PropertyList>
+              </Column>
+              <Column id="55" name="AuslaufartikelBerücksichtigen_v">
+                <PropertyList model="FIELD">
+                  <Model attr_obj="FIELD_LOGICAL" id="1"/>
+                  <_FieldStyle id="276" val="1"/>
                 </PropertyList>
               </Column>
               <Column id="12" name="von Sachbearbeiter_v">
@@ -7317,45 +7351,6 @@
               <Column id="32" name="STF4_TrendberechnungMitAltena_v">
                 <PropertyList model="FIELD">
                   <Model attr_obj="FIELD_LOGICAL" id="1"/>
-                  <_FieldStyle id="276" val="1"/>
-                </PropertyList>
-              </Column>
-              <Column id="38" name="RequestReturnCode_v">
-                <PropertyList model="FIELD">
-                  <Model attr_obj="FIELD_NUMERIC" id="1"/>
-                  <Picture id="157" valUnicode="N1"/>
-                  <_Dec id="181"/>
-                  <_Whole id="182" val="1"/>
-                  <_Negative id="192" val="Y"/>
-                  <_FieldStyle id="276" val="1"/>
-                </PropertyList>
-              </Column>
-              <Column id="39" name="ReasonCode_v">
-                <PropertyList model="FIELD">
-                  <Model attr_obj="FIELD_NUMERIC" id="1"/>
-                  <Picture id="157" valUnicode="N5"/>
-                  <_Dec id="181"/>
-                  <_Whole id="182" val="5"/>
-                  <_Negative id="192" val="Y"/>
-                  <_FieldStyle id="276" val="1"/>
-                </PropertyList>
-              </Column>
-              <Column id="40" name="MessageID_v">
-                <PropertyList model="FIELD">
-                  <Model attr_obj="FIELD_ALPHA" id="1"/>
-                  <Picture id="157" valUnicode="36"/>
-                  <StoredAs id="173" val="1"/>
-                  <Size id="174" val="36"/>
-                  <_Flip id="194"/>
-                </PropertyList>
-              </Column>
-              <Column id="37" name="RequestId_v">
-                <PropertyList model="FIELD">
-                  <Model attr_obj="FIELD_NUMERIC" id="1"/>
-                  <Picture id="157" valUnicode="9"/>
-                  <_Dec id="181"/>
-                  <_Whole id="182" val="9"/>
-                  <_Negative id="192"/>
                   <_FieldStyle id="276" val="1"/>
                 </PropertyList>
               </Column>
@@ -7778,13 +7773,26 @@
                   </Select>
                 </LogicLine>
                 <LogicLine>
+                  <Select FieldID="90" FlowIsn="596" id="90">
+                    <Column val="55"/>
+                    <Type val="V"/>
+                    <ExposedToRoute val="N"/>
+                    <IsParameter val="N"/>
+                    <_DitIndexForToolkit val="46"/>
+                    <DIFF_UPDATE val="T"/>
+                    <Condition val="Y"/>
+                    <Modifier val="S"/>
+                    <Direction val="C"/>
+                  </Select>
+                </LogicLine>
+                <LogicLine>
                   <Remark FlowIsn="30">
                     <Type val="2"/>
                     <Text val=" "/>
                   </Remark>
                 </LogicLine>
                 <LogicLine>
-                  <LNK Direction="A" EVL_CND="R" FlowIsn="31" Key="1" Mode="R" SortType="38" VIEW="19" VIEWS="6">
+                  <LNK Direction="A" EVL_CND="R" FlowIsn="31" Key="1" Mode="R" SortType="38" VIEW="20" VIEWS="6">
                     <DB comp="2" obj="108"/>
                     <Expanded val="1"/>
                     <Condition val="Y"/>
@@ -7915,7 +7923,7 @@
                     <Type val="V"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
-                    <_DitIndexForToolkit val="20"/>
+                    <_DitIndexForToolkit val="24"/>
                     <DIFF_UPDATE val="T"/>
                     <Condition val="Y"/>
                     <Modifier val="S"/>
@@ -7928,7 +7936,7 @@
                     <Type val="V"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
-                    <_DitIndexForToolkit val="48"/>
+                    <_DitIndexForToolkit val="49"/>
                     <DIFF_UPDATE val="T"/>
                     <Condition val="Y"/>
                     <Modifier val="S"/>
@@ -7977,7 +7985,7 @@
                       <v>58</v>
                       <v>59</v>
                     </INT_DIT_INFO>
-                    <_DitIndexForToolkit val="46"/>
+                    <_DitIndexForToolkit val="47"/>
                     <DIFF_UPDATE val="T"/>
                     <Condition val="Y"/>
                     <Modifier val="S"/>
@@ -8018,7 +8026,7 @@
                     <Type val="V"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
-                    <_DitIndexForToolkit val="50"/>
+                    <_DitIndexForToolkit val="51"/>
                     <DIFF_UPDATE val="T"/>
                     <Condition val="Y"/>
                     <Modifier val="S"/>
@@ -8032,7 +8040,7 @@
                     <Type val="V"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
-                    <_DitIndexForToolkit val="51"/>
+                    <_DitIndexForToolkit val="52"/>
                     <DIFF_UPDATE val="T"/>
                     <Condition val="Y"/>
                     <Modifier val="S"/>
@@ -8046,7 +8054,7 @@
                     <Type val="V"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
-                    <_DitIndexForToolkit val="52"/>
+                    <_DitIndexForToolkit val="53"/>
                     <DIFF_UPDATE val="T"/>
                     <Condition val="Y"/>
                     <Modifier val="S"/>
@@ -8059,7 +8067,7 @@
                     <Type val="V"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
-                    <_DitIndexForToolkit val="53"/>
+                    <_DitIndexForToolkit val="55"/>
                     <DIFF_UPDATE val="T"/>
                     <Condition val="Y"/>
                     <Modifier val="S"/>
@@ -8078,7 +8086,7 @@
                     <Type val="V"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
-                    <_DitIndexForToolkit val="49"/>
+                    <_DitIndexForToolkit val="50"/>
                     <DIFF_UPDATE val="T"/>
                     <Condition val="Y"/>
                     <Modifier val="S"/>
@@ -8088,54 +8096,6 @@
                 <LogicLine>
                   <Select FieldID="50" FlowIsn="61" id="50">
                     <Column val="32"/>
-                    <Type val="V"/>
-                    <ExposedToRoute val="N"/>
-                    <IsParameter val="N"/>
-                    <DIFF_UPDATE val="T"/>
-                    <Condition val="Y"/>
-                    <Modifier val="S"/>
-                    <Direction val="C"/>
-                  </Select>
-                </LogicLine>
-                <LogicLine>
-                  <Select FieldID="61" FlowIsn="193" id="61">
-                    <Column val="38"/>
-                    <Type val="V"/>
-                    <ExposedToRoute val="N"/>
-                    <IsParameter val="N"/>
-                    <DIFF_UPDATE val="T"/>
-                    <Condition val="Y"/>
-                    <Modifier val="S"/>
-                    <Direction val="C"/>
-                  </Select>
-                </LogicLine>
-                <LogicLine>
-                  <Select FieldID="62" FlowIsn="194" id="62">
-                    <Column val="39"/>
-                    <Type val="V"/>
-                    <ExposedToRoute val="N"/>
-                    <IsParameter val="N"/>
-                    <DIFF_UPDATE val="T"/>
-                    <Condition val="Y"/>
-                    <Modifier val="S"/>
-                    <Direction val="C"/>
-                  </Select>
-                </LogicLine>
-                <LogicLine>
-                  <Select FieldID="63" FlowIsn="195" id="63">
-                    <Column val="40"/>
-                    <Type val="V"/>
-                    <ExposedToRoute val="N"/>
-                    <IsParameter val="N"/>
-                    <DIFF_UPDATE val="T"/>
-                    <Condition val="Y"/>
-                    <Modifier val="S"/>
-                    <Direction val="C"/>
-                  </Select>
-                </LogicLine>
-                <LogicLine>
-                  <Select FieldID="60" FlowIsn="161" id="60">
-                    <Column val="37"/>
                     <Type val="V"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
@@ -8172,7 +8132,7 @@
                     <Type val="V"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
-                    <_DitIndexForToolkit val="22"/>
+                    <_DitIndexForToolkit val="26"/>
                     <DIFF_UPDATE val="T"/>
                     <PartOfDataview val="N"/>
                     <Condition val="Y"/>
@@ -8198,7 +8158,7 @@
                   </Select>
                 </LogicLine>
                 <LogicLine>
-                  <LNK Direction="A" EVL_CND="R" FlowIsn="286" Key="1" Mode="R" SortType="287" VIEW="47" VIEWS="6">
+                  <LNK Direction="A" EVL_CND="R" FlowIsn="286" Key="1" Mode="R" SortType="287" VIEW="44" VIEWS="6">
                     <DB comp="2" obj="151"/>
                     <Expanded val="1"/>
                     <Condition val="Y"/>
@@ -8304,7 +8264,7 @@
                   </Select>
                 </LogicLine>
                 <LogicLine>
-                  <LNK Direction="A" EVL_CND="R" FlowIsn="295" Key="1" Mode="R" SortType="296" VIEW="54" VIEWS="6">
+                  <LNK Direction="A" EVL_CND="R" FlowIsn="295" Key="1" Mode="R" SortType="296" VIEW="51" VIEWS="6">
                     <DB comp="2" obj="151"/>
                     <Expanded val="1"/>
                     <Condition val="Y"/>
@@ -8397,7 +8357,7 @@
                     <Type val="V"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
-                    <_DitIndexForToolkit val="25"/>
+                    <_DitIndexForToolkit val="20"/>
                     <DIFF_UPDATE val="T"/>
                     <PartOfDataview val="N"/>
                     <Condition val="Y"/>
@@ -8411,7 +8371,7 @@
                     <Type val="V"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
-                    <_DitIndexForToolkit val="27"/>
+                    <_DitIndexForToolkit val="22"/>
                     <DIFF_UPDATE val="T"/>
                     <PartOfDataview val="N"/>
                     <Condition val="Y"/>
@@ -8437,7 +8397,7 @@
                     <Type val="V"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
-                    <_DitIndexForToolkit val="47"/>
+                    <_DitIndexForToolkit val="48"/>
                     <DIFF_UPDATE val="T"/>
                     <Condition val="Y"/>
                     <Modifier val="S"/>
@@ -8710,50 +8670,6 @@
               <ExecuteOn_ val="O"/>
               <LogicLines>
                 <LogicLine>
-                  <Update FlowIsn="196">
-                    <FieldID val="61"/>
-                    <WithValue val="13"/>
-                    <Incremental val="N"/>
-                    <ForcedUpdate val="Y"/>
-                    <Condition val="Y"/>
-                    <Modifier val="B"/>
-                    <Direction val="C"/>
-                  </Update>
-                </LogicLine>
-                <LogicLine>
-                  <Update FlowIsn="197">
-                    <FieldID val="62"/>
-                    <WithValue val="13"/>
-                    <Incremental val="N"/>
-                    <ForcedUpdate val="Y"/>
-                    <Condition val="Y"/>
-                    <Modifier val="B"/>
-                    <Direction val="C"/>
-                  </Update>
-                </LogicLine>
-                <LogicLine>
-                  <Update FlowIsn="198">
-                    <FieldID val="63"/>
-                    <WithValue val="46"/>
-                    <Incremental val="N"/>
-                    <ForcedUpdate val="Y"/>
-                    <Condition val="Y"/>
-                    <Modifier val="B"/>
-                    <Direction val="C"/>
-                  </Update>
-                </LogicLine>
-                <LogicLine>
-                  <Update FlowIsn="162">
-                    <FieldID val="60"/>
-                    <WithValue val="13"/>
-                    <Incremental val="N"/>
-                    <ForcedUpdate val="Y"/>
-                    <Condition val="Y"/>
-                    <Modifier val="B"/>
-                    <Direction val="C"/>
-                  </Update>
-                </LogicLine>
-                <LogicLine>
                   <Evaluate FlowIsn="339">
                     <Expression val="42"/>
                     <Condition val="Y"/>
@@ -8779,57 +8695,6 @@
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </Update>
-                </LogicLine>
-                <LogicLine>
-                  <CallTask FlowIsn="92">
-                    <OperationType val="P"/>
-                    <Event>
-                      <EventType val="N"/>
-                    </Event>
-                    <TaskID comp="2" obj="4167"/>
-                    <Lock val="N"/>
-                    <Arguments>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="21"/>
-                        <Skip val="N"/>
-                      </Argument>
-                      <Argument>
-                        <Variable val="60"/>
-                        <Skip val="N"/>
-                      </Argument>
-                      <Argument>
-                        <Expression val="4"/>
-                        <Skip val="N"/>
-                      </Argument>
-                      <Argument>
-                        <Skip val="Y"/>
-                      </Argument>
-                      <Argument>
-                        <Skip val="Y"/>
-                      </Argument>
-                      <Argument>
-                        <Skip val="Y"/>
-                      </Argument>
-                      <Argument>
-                        <Skip val="Y"/>
-                      </Argument>
-                      <Argument>
-                        <Expression val="44"/>
-                        <Skip val="N"/>
-                      </Argument>
-                      <Argument>
-                        <Expression val="45"/>
-                        <Skip val="N"/>
-                      </Argument>
-                    </Arguments>
-                    <Wait val="Y"/>
-                    <SyncData val="N"/>
-                    <RetainFocus val="N"/>
-                    <Condition val="Y"/>
-                    <Modifier val="B"/>
-                    <Direction val="C"/>
-                  </CallTask>
                 </LogicLine>
                 <LogicLine>
                   <CallTask FlowIsn="103">
@@ -8880,21 +8745,20 @@
                   </CallTask>
                 </LogicLine>
                 <LogicLine>
-                  <CallTask FlowIsn="114">
+                  <CallTask FlowIsn="690">
                     <OperationType val="P"/>
                     <Event>
                       <EventType val="N"/>
                     </Event>
-                    <TaskID comp="2" obj="4164"/>
+                    <TaskID comp="-1" obj="3679"/>
                     <Lock val="N"/>
                     <Arguments>
                       <Argument>
-                        <Variable val="60"/>
+                        <Expression val="44"/>
                         <Skip val="N"/>
                       </Argument>
                       <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="21"/>
+                        <Expression val="45"/>
                         <Skip val="N"/>
                       </Argument>
                       <Argument>
@@ -8910,13 +8774,24 @@
                         <Skip val="N"/>
                       </Argument>
                       <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="1184"/>
+                        <Expression val="4"/>
                         <Skip val="N"/>
                       </Argument>
                       <Argument>
+                        <Skip val="Y"/>
+                      </Argument>
+                      <Argument>
+                        <Skip val="Y"/>
+                      </Argument>
+                      <Argument>
+                        <Skip val="Y"/>
+                      </Argument>
+                      <Argument>
+                        <Skip val="Y"/>
+                      </Argument>
+                      <Argument>
                         <Parent val="32768"/>
-                        <Variable val="24"/>
+                        <Variable val="1184"/>
                         <Skip val="N"/>
                       </Argument>
                     </Arguments>
@@ -8943,60 +8818,6 @@
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </Evaluate>
-                </LogicLine>
-                <LogicLine>
-                  <RaiseEvent FlowIsn="141">
-                    <Event>
-                      <EventType val="U"/>
-                      <PublicObject comp="-1" obj="2"/>
-                    </Event>
-                    <Wait val="89"/>
-                    <Condition val="Y"/>
-                    <Modifier val="B"/>
-                    <Direction val="C"/>
-                  </RaiseEvent>
-                </LogicLine>
-                <LogicLine>
-                  <CallTask FlowIsn="148">
-                    <OperationType val="P"/>
-                    <Event>
-                      <EventType val="N"/>
-                    </Event>
-                    <TaskID comp="2" obj="4168"/>
-                    <Lock val="N"/>
-                    <Arguments>
-                      <Argument>
-                        <Variable val="60"/>
-                        <Skip val="N"/>
-                      </Argument>
-                      <Argument>
-                        <Expression val="44"/>
-                        <Skip val="N"/>
-                      </Argument>
-                      <Argument>
-                        <Expression val="45"/>
-                        <Skip val="N"/>
-                      </Argument>
-                      <Argument>
-                        <Variable val="61"/>
-                        <Skip val="N"/>
-                      </Argument>
-                      <Argument>
-                        <Variable val="62"/>
-                        <Skip val="N"/>
-                      </Argument>
-                      <Argument>
-                        <Variable val="63"/>
-                        <Skip val="N"/>
-                      </Argument>
-                    </Arguments>
-                    <Wait val="Y"/>
-                    <SyncData val="N"/>
-                    <RetainFocus val="N"/>
-                    <Condition val="Y"/>
-                    <Modifier val="B"/>
-                    <Direction val="C"/>
-                  </CallTask>
                 </LogicLine>
                 <LogicLine>
                   <STP Buttons="O" DefaultButton="1" ERR_LOG_DEF_CHG="N" Exp="43" FlowIsn="126" IMG_DEF_CHG="Y" Image="I" Mode="W" TTL_DEF_CHG="Y" TitleTxt="Information" VR_DISP="B">
@@ -9032,155 +8853,6 @@
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </Update>
-                </LogicLine>
-              </LogicLines>
-            </LogicUnit>
-            <LogicUnit id="8" propagate="78">
-              <Level val="H"/>
-              <Type val="U"/>
-              <Scope val="T"/>
-              <EngineDirective val="S"/>
-              <ShowMessage val="Y"/>
-              <Condition val="89"/>
-              <Event>
-                <EventType val="U"/>
-                <PublicObject comp="-1" obj="2"/>
-              </Event>
-              <Expanded val="1"/>
-              <ExecuteOn_ val="O"/>
-              <LogicLines>
-                <LogicLine>
-                  <Invoke FieldID1="61" FieldID2="62" FieldID3="63" FlowIsn="149">
-                    <OperationType val="R"/>
-                    <Event>
-                      <EventType val="N"/>
-                    </Event>
-                    <TaskID comp="-1"/>
-                    <Lock val="N"/>
-                    <Arguments>
-                      <Argument>
-                        <Variable val="60"/>
-                        <Skip val="N"/>
-                        <Name val="RequestId_v"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="1"/>
-                        <Skip val="N"/>
-                        <Name val="Ebene1_gv"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="2"/>
-                        <Skip val="N"/>
-                        <Name val="Ebene2_gv"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="3"/>
-                        <Skip val="N"/>
-                        <Name val="Ebene3_gv"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="4"/>
-                        <Skip val="N"/>
-                        <Name val="Ebene4_gv"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="5"/>
-                        <Skip val="N"/>
-                        <Name val="Ebene1Z_gv"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="6"/>
-                        <Skip val="N"/>
-                        <Name val="Ebene2Z_gv"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="7"/>
-                        <Skip val="N"/>
-                        <Name val="Ebene3Z_gv"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="8"/>
-                        <Skip val="N"/>
-                        <Name val="Ebene4Z_gv"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="1440"/>
-                        <Skip val="N"/>
-                        <Name val="DBSQL"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="1441"/>
-                        <Skip val="N"/>
-                        <Name val="DBAUTO"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="1442"/>
-                        <Skip val="N"/>
-                        <Name val="DBSTAT"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="1449"/>
-                        <Skip val="N"/>
-                        <Name val="ControlPersistencyPfad"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="1450"/>
-                        <Skip val="N"/>
-                        <Name val="DatabaseServer"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="1451"/>
-                        <Skip val="N"/>
-                        <Name val="DatabaseUsername"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="1452"/>
-                        <Skip val="N"/>
-                        <Name val="DatabasePassword"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="1470"/>
-                        <Skip val="N"/>
-                        <Name val="Vorlagen_gv"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="1471"/>
-                        <Skip val="N"/>
-                        <Name val="ContextInactivityTimeout_gv"/>
-                      </Argument>
-                      <Argument>
-                        <Parent val="32768"/>
-                        <Variable val="1486"/>
-                        <Skip val="N"/>
-                        <Name val="Language_gv"/>
-                      </Argument>
-                    </Arguments>
-                    <Service val="SuccessFlow"/>
-                    <Operation val="Batch starten"/>
-                    <Wait val="N"/>
-                    <SyncData val="N"/>
-                    <RetainFocus val="N"/>
-                    <Condition val="Y"/>
-                    <Modifier val="B"/>
-                    <Direction val="C"/>
-                  </Invoke>
                 </LogicLine>
               </LogicLines>
             </LogicUnit>
@@ -9428,7 +9100,7 @@
             </LogicUnit>
           </TaskLogic>
           <TaskForms>
-            <FormEntry _last_isn="62" _last_test_id="62" id="1">
+            <FormEntry _last_isn="63" _last_test_id="63" id="1">
               <PropertyList model="FORM_RICH_CLIENT">
                 <Model comp="-1" id="1" obj="165"/>
                 <X id="21" val="13"/>
@@ -9436,14 +9108,12 @@
                 <_Comment id="218"/>
                 <FormName id="311" valUnicode="Erstellen"/>
                 <_TabbingOrder id="318" val="2"/>
-                <MinimumWidth id="418" val="998"/>
-                <MinimumHeight id="419" val="389"/>
               </PropertyList>
               <Control _test_id="2" id="2">
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="von Lieferant"/>
-                  <X id="21" val="53"/>
+                  <X id="21" val="57"/>
                   <Y id="22" val="9"/>
                   <Width id="23" val="77"/>
                   <Height id="24" val="12"/>
@@ -9455,7 +9125,7 @@
               <Control PDOD="5" _test_id="3" id="3">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="134"/>
+                  <X id="21" val="138"/>
                   <Y id="22" val="9"/>
                   <Width id="23" val="55"/>
                   <Height id="24" val="12"/>
@@ -9472,7 +9142,7 @@
               <Control _test_id="4" id="4">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
-                  <X id="21" val="195"/>
+                  <X id="21" val="199"/>
                   <Y id="22" val="9"/>
                   <Width id="23" val="112"/>
                   <Height id="24" val="12"/>
@@ -9489,7 +9159,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="bis Lieferant"/>
-                  <X id="21" val="53"/>
+                  <X id="21" val="57"/>
                   <Y id="22" val="23"/>
                   <Width id="23" val="77"/>
                   <Height id="24" val="12"/>
@@ -9501,7 +9171,7 @@
               <Control PDOD="5" _test_id="6" id="6">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="134"/>
+                  <X id="21" val="138"/>
                   <Y id="22" val="23"/>
                   <Width id="23" val="55"/>
                   <Height id="24" val="12"/>
@@ -9518,7 +9188,7 @@
               <Control _test_id="7" id="7">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
-                  <X id="21" val="195"/>
+                  <X id="21" val="199"/>
                   <Y id="22" val="23"/>
                   <Width id="23" val="112"/>
                   <Height id="24" val="12"/>
@@ -9535,8 +9205,8 @@
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="von Artikel Nr."/>
-                  <X id="21" val="53"/>
-                  <Y id="22" val="53"/>
+                  <X id="21" val="57"/>
+                  <Y id="22" val="55"/>
                   <Width id="23" val="77"/>
                   <Height id="24" val="12"/>
                   <Visible id="61"/>
@@ -9547,8 +9217,8 @@
               <Control _test_id="9" id="9">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="53"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="55"/>
                   <Width id="23" val="188"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="22" id="43"/>
@@ -9564,8 +9234,8 @@
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="bis Artikel Nr."/>
-                  <X id="21" val="53"/>
-                  <Y id="22" val="66"/>
+                  <X id="21" val="57"/>
+                  <Y id="22" val="68"/>
                   <Width id="23" val="77"/>
                   <Height id="24" val="12"/>
                   <Visible id="61"/>
@@ -9576,8 +9246,8 @@
               <Control _test_id="11" id="11">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="66"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="68"/>
                   <Width id="23" val="188"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="23" id="43"/>
@@ -9593,8 +9263,8 @@
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="von Artikelgruppe"/>
-                  <X id="21" val="53"/>
-                  <Y id="22" val="85"/>
+                  <X id="21" val="57"/>
+                  <Y id="22" val="91"/>
                   <Width id="23" val="77"/>
                   <Height id="24" val="12"/>
                   <_Orientation id="143"/>
@@ -9603,8 +9273,8 @@
               <Control PDOD="1" _test_id="47" id="47">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="85"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="91"/>
                   <Width id="23" val="74"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="67" id="43"/>
@@ -9616,8 +9286,8 @@
               <Control _test_id="49" id="49">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
-                  <X id="21" val="213"/>
-                  <Y id="22" val="85"/>
+                  <X id="21" val="217"/>
+                  <Y id="22" val="91"/>
                   <Width id="23" val="153"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="73" id="43"/>
@@ -9630,8 +9300,8 @@
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="bis Artikelgruppe"/>
-                  <X id="21" val="53"/>
-                  <Y id="22" val="98"/>
+                  <X id="21" val="57"/>
+                  <Y id="22" val="104"/>
                   <Width id="23" val="77"/>
                   <Height id="24" val="12"/>
                   <_Orientation id="143"/>
@@ -9640,8 +9310,8 @@
               <Control PDOD="1" _test_id="48" id="48">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="98"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="104"/>
                   <Width id="23" val="74"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="74" id="43"/>
@@ -9653,8 +9323,8 @@
               <Control _test_id="51" id="51">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
-                  <X id="21" val="213"/>
-                  <Y id="22" val="98"/>
+                  <X id="21" val="217"/>
+                  <Y id="22" val="104"/>
                   <Width id="23" val="153"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="80" id="43"/>
@@ -9667,8 +9337,8 @@
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="für Mitarbeiter"/>
-                  <X id="21" val="53"/>
-                  <Y id="22" val="118"/>
+                  <X id="21" val="57"/>
+                  <Y id="22" val="124"/>
                   <Width id="23" val="77"/>
                   <Height id="24" val="12"/>
                   <Visible id="61"/>
@@ -9679,8 +9349,8 @@
               <Control PDOD="5" _test_id="13" id="13">
                 <PropertyList FLD_FLAGS="256" model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="118"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="124"/>
                   <Width id="23" val="74"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="30" id="43"/>
@@ -9692,13 +9362,68 @@
                   <AllowedDirection id="317" val="1"/>
                 </PropertyList>
               </Control>
+              <Control _test_id="55" id="55">
+                <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                  <Model comp="-1" id="1" obj="35"/>
+                  <Text id="19" valUnicode="Betrachtungszeitraum für Durchschn."/>
+                  <X id="21" val="6"/>
+                  <Y id="22" val="144"/>
+                  <Width id="23" val="128"/>
+                  <Height id="24" val="25"/>
+                  <VerticalAlignment id="66" val="1"/>
+                  <MultiLineEdit id="71" val="Y"/>
+                  <_VerticalScroll id="73" val="Y"/>
+                  <RightToLeft id="130"/>
+                  <_Orientation id="143"/>
+                </PropertyList>
+              </Control>
+              <Control PDOD="128" _test_id="52" id="52">
+                <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                  <Model comp="-1" id="1" obj="33"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="144"/>
+                  <Width id="23" val="55"/>
+                  <Height id="24" val="12"/>
+                  <Data FieldID="81" id="43"/>
+                  <ControlName id="46" val="vonZeitraum_v"/>
+                  <MultiLineEdit id="71"/>
+                  <Format id="82" valUnicode="##/##/####"/>
+                  <TabOrder id="314" val="34"/>
+                </PropertyList>
+              </Control>
+              <Control _test_id="54" id="54">
+                <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                  <Model comp="-1" id="1" obj="35"/>
+                  <Text id="19" valUnicode="-"/>
+                  <X id="21" val="198"/>
+                  <Y id="22" val="144"/>
+                  <Width id="23" val="12"/>
+                  <Height id="24" val="12"/>
+                  <HorizontalAlignment id="65" val="2"/>
+                  <_Orientation id="143"/>
+                </PropertyList>
+              </Control>
+              <Control PDOD="128" _test_id="53" id="53">
+                <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                  <Model comp="-1" id="1" obj="33"/>
+                  <X id="21" val="214"/>
+                  <Y id="22" val="144"/>
+                  <Width id="23" val="55"/>
+                  <Height id="24" val="12"/>
+                  <Data FieldID="82" id="43"/>
+                  <ControlName id="46" val="BisZeitraum_v"/>
+                  <MultiLineEdit id="71"/>
+                  <Format id="82" valUnicode="##/##/####"/>
+                  <TabOrder id="314" val="35"/>
+                </PropertyList>
+              </Control>
               <Control _test_id="14" id="14">
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Bevorratungstage"/>
-                  <X id="21" val="53"/>
-                  <Y id="22" val="146"/>
-                  <Width id="23" val="77"/>
+                  <X id="21" val="279"/>
+                  <Y id="22" val="168"/>
+                  <Width id="23" val="90"/>
                   <Height id="24" val="12"/>
                   <Visible id="61"/>
                   <Enabled Exp="17" id="62"/>
@@ -9709,9 +9434,9 @@
               <Control PDOD="1" _test_id="15" id="15">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="146"/>
-                  <Width id="23" val="29"/>
+                  <X id="21" val="374"/>
+                  <Y id="22" val="168"/>
+                  <Width id="23" val="26"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="33" id="43"/>
                   <ControlName id="46" val="Bevorratungstage_v"/>
@@ -9727,8 +9452,8 @@
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="für"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="179"/>
+                  <X id="21" val="356"/>
+                  <Y id="22" val="182"/>
                   <Width id="23" val="13"/>
                   <Height id="24" val="12"/>
                   <_Orientation id="143"/>
@@ -9737,8 +9462,8 @@
               <Control PDOD="1" _test_id="41" id="41">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="152"/>
-                  <Y id="22" val="179"/>
+                  <X id="21" val="374"/>
+                  <Y id="22" val="182"/>
                   <Width id="23" val="27"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="66" id="43"/>
@@ -9751,70 +9476,19 @@
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Monat(e)"/>
-                  <X id="21" val="185"/>
-                  <Y id="22" val="179"/>
+                  <X id="21" val="406"/>
+                  <Y id="22" val="182"/>
                   <Width id="23" val="40"/>
                   <Height id="24" val="12"/>
                   <_Orientation id="143"/>
-                </PropertyList>
-              </Control>
-              <Control _test_id="55" id="55">
-                <PropertyList model="CTRL_RICH_CLIENT_LABEL">
-                  <Model comp="-1" id="1" obj="35"/>
-                  <Text id="19" valUnicode="Betrachtungszeitraum für Durchschn."/>
-                  <X id="21" val="52"/>
-                  <Y id="22" val="194"/>
-                  <Width id="23" val="166"/>
-                  <Height id="24" val="12"/>
-                  <_Orientation id="143"/>
-                </PropertyList>
-              </Control>
-              <Control PDOD="128" _test_id="52" id="52">
-                <PropertyList model="CTRL_RICH_CLIENT_EDIT">
-                  <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="223"/>
-                  <Y id="22" val="194"/>
-                  <Width id="23" val="55"/>
-                  <Height id="24" val="12"/>
-                  <Data FieldID="81" id="43"/>
-                  <ControlName id="46" val="vonZeitraum_v"/>
-                  <MultiLineEdit id="71"/>
-                  <Format id="82" valUnicode="##/##/####"/>
-                  <TabOrder id="314" val="34"/>
-                </PropertyList>
-              </Control>
-              <Control _test_id="54" id="54">
-                <PropertyList model="CTRL_RICH_CLIENT_LABEL">
-                  <Model comp="-1" id="1" obj="35"/>
-                  <Text id="19" valUnicode="-"/>
-                  <X id="21" val="283"/>
-                  <Y id="22" val="194"/>
-                  <Width id="23" val="12"/>
-                  <Height id="24" val="12"/>
-                  <HorizontalAlignment id="65" val="2"/>
-                  <_Orientation id="143"/>
-                </PropertyList>
-              </Control>
-              <Control PDOD="128" _test_id="53" id="53">
-                <PropertyList model="CTRL_RICH_CLIENT_EDIT">
-                  <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="298"/>
-                  <Y id="22" val="194"/>
-                  <Width id="23" val="55"/>
-                  <Height id="24" val="12"/>
-                  <Data FieldID="82" id="43"/>
-                  <ControlName id="46" val="BisZeitraum_v"/>
-                  <MultiLineEdit id="71"/>
-                  <Format id="82" valUnicode="##/##/####"/>
-                  <TabOrder id="314" val="35"/>
                 </PropertyList>
               </Control>
               <Control _test_id="60" id="60">
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="von Datum"/>
-                  <X id="21" val="275"/>
-                  <Y id="22" val="239"/>
+                  <X id="21" val="283"/>
+                  <Y id="22" val="249"/>
                   <Width id="23" val="55"/>
                   <Height id="24" val="12"/>
                   <Visible id="61"/>
@@ -9825,8 +9499,8 @@
               <Control PDOD="128" _test_id="57" id="57">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="335"/>
-                  <Y id="22" val="239"/>
+                  <X id="21" val="343"/>
+                  <Y id="22" val="249"/>
                   <Width id="23" val="55"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="85" id="43"/>
@@ -9842,8 +9516,8 @@
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="bis"/>
-                  <X id="21" val="389"/>
-                  <Y id="22" val="239"/>
+                  <X id="21" val="397"/>
+                  <Y id="22" val="249"/>
                   <Width id="23" val="18"/>
                   <Height id="24" val="12"/>
                   <Visible id="61"/>
@@ -9855,8 +9529,8 @@
               <Control PDOD="128" _test_id="59" id="59">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="413"/>
-                  <Y id="22" val="239"/>
+                  <X id="21" val="421"/>
+                  <Y id="22" val="249"/>
                   <Width id="23" val="55"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="86" id="43"/>
@@ -9937,15 +9611,14 @@
               <Control PDOD="192" _test_id="16" id="16">
                 <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                   <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="37"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="41"/>
                   <Width id="23" val="84"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="21" id="43"/>
                   <Text id="45" valUnicode="alle Artikel"/>
                   <ControlName id="46" val="alle Artikel"/>
                   <Visible id="61"/>
-                  <Style id="63" val="1"/>
                   <AllowDrag id="283" val="Y"/>
                   <AllowDrop id="284" val="Y"/>
                   <TabOrder id="314" val="5"/>
@@ -9956,9 +9629,9 @@
               <Control PDOD="192" _test_id="17" id="17">
                 <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                   <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="132"/>
-                  <Width id="23" val="231"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="168"/>
+                  <Width id="23" val="140"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="32" id="43"/>
                   <Text id="45" valUnicode="Trendberechnung"/>
@@ -9975,9 +9648,9 @@
               <Control PDOD="192" _test_id="39" id="39">
                 <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                   <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="165"/>
-                  <Width id="23" val="231"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="182"/>
+                  <Width id="23" val="213"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="65" id="43"/>
                   <Text id="45" valUnicode="Monatsbestellung nach durchschn. Volumen"/>
@@ -10038,8 +9711,8 @@
               <Control PDOD="192" _test_id="20" id="20">
                 <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                   <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="210"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="205"/>
                   <Width id="23" val="231"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="35" id="43"/>
@@ -10057,8 +9730,8 @@
               <Control PDOD="192" _test_id="61" id="61">
                 <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                   <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="225"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="220"/>
                   <Width id="23" val="231"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="87" id="43"/>
@@ -10073,11 +9746,29 @@
                   <AllowedDirection id="317" val="1"/>
                 </PropertyList>
               </Control>
+              <Control PDOD="192" _test_id="63" id="63">
+                <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
+                  <Model comp="-1" id="1" obj="36"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="234"/>
+                  <Width id="23" val="161"/>
+                  <Height id="24" val="12"/>
+                  <Data FieldID="90" id="43"/>
+                  <Text id="45" valUnicode="Auslaufartikel berücksichtigen"/>
+                  <ControlName id="46" val="AuslaufartikelBerücksichtigen_v"/>
+                  <Visible id="61"/>
+                  <AllowDrag id="283" val="Y"/>
+                  <AllowDrop id="284" val="Y"/>
+                  <TabOrder id="314" val="41"/>
+                  <AllowParking id="315" val="Y"/>
+                  <AllowedDirection id="317" val="1"/>
+                </PropertyList>
+              </Control>
               <Control PDOD="192" _test_id="56" id="56">
                 <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                   <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="239"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="249"/>
                   <Width id="23" val="140"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="84" id="43"/>
@@ -10094,8 +9785,8 @@
               <Control PDOD="192" _test_id="62" id="62">
                 <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                   <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="253"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="265"/>
                   <Width id="23" val="161"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="89" id="43"/>
@@ -10112,8 +9803,8 @@
               <Control PDOD="192" _test_id="18" id="18">
                 <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                   <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="267"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="280"/>
                   <Width id="23" val="231"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="34" id="43"/>
@@ -10131,8 +9822,8 @@
               <Control PDOD="192" _test_id="19" id="19">
                 <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                   <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="282"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="296"/>
                   <Width id="23" val="231"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="49" id="43"/>
@@ -10144,9 +9835,9 @@
               <Control PDOD="192" _test_id="21" id="21">
                 <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                   <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="297"/>
-                  <Width id="23" val="231"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="312"/>
+                  <Width id="23" val="132"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="36" id="43"/>
                   <Text id="45" valUnicode="Listendruck"/>
@@ -10162,9 +9853,9 @@
               <Control PDOD="192" _test_id="26" id="26">
                 <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                   <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="312"/>
-                  <Width id="23" val="231"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="327"/>
+                  <Width id="23" val="132"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="41" id="43"/>
                   <Text id="45" valUnicode="günstigster Lieferant"/>
@@ -10180,9 +9871,9 @@
               <Control PDOD="192" _test_id="27" id="27">
                 <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                   <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="327"/>
-                  <Width id="23" val="231"/>
+                  <X id="21" val="138"/>
+                  <Y id="22" val="343"/>
+                  <Width id="23" val="132"/>
                   <Height id="24" val="12"/>
                   <Data FieldID="42" id="43"/>
                   <Text id="45" valUnicode="Anhängen"/>
@@ -10193,22 +9884,6 @@
                   <TabOrder id="314" val="18"/>
                   <AllowParking id="315" val="Y"/>
                   <AllowedDirection id="317" val="1"/>
-                </PropertyList>
-              </Control>
-              <Control PDOD="192" _test_id="28" id="28">
-                <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
-                  <Model comp="-1" id="1" obj="36"/>
-                  <X id="21" val="134"/>
-                  <Y id="22" val="345"/>
-                  <Width id="23" val="267"/>
-                  <Height id="24" val="12"/>
-                  <Data FieldID="43" id="43"/>
-                  <Text id="45" valUnicode="pro Positionen bestellen und Bedarfsvermerke schreiben"/>
-                  <ControlName id="46" val="NichtSummierenUndBedarfFüllen_v"/>
-                  <Visible Exp="1" id="61"/>
-                  <AllowDrag id="283" val="Y"/>
-                  <AllowDrop id="284" val="Y"/>
-                  <TabOrder id="314" val="19"/>
                 </PropertyList>
               </Control>
               <Control PDOD="128" _test_id="29" id="29">
@@ -10232,6 +9907,22 @@
                   <TabOrder id="314" val="20"/>
                   <AllowParking id="315" val="Y"/>
                   <AllowedDirection id="317" val="1"/>
+                </PropertyList>
+              </Control>
+              <Control PDOD="192" _test_id="28" id="28">
+                <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
+                  <Model comp="-1" id="1" obj="36"/>
+                  <X id="21" val="479"/>
+                  <Y id="22" val="371"/>
+                  <Width id="23" val="267"/>
+                  <Height id="24" val="12"/>
+                  <Data FieldID="43" id="43"/>
+                  <Text id="45" valUnicode="pro Positionen bestellen und Bedarfsvermerke schreiben"/>
+                  <ControlName id="46" val="NichtSummierenUndBedarfFüllen_v"/>
+                  <Visible Exp="1" id="61"/>
+                  <AllowDrag id="283" val="Y"/>
+                  <AllowDrop id="284" val="Y"/>
+                  <TabOrder id="314" val="19"/>
                 </PropertyList>
               </Control>
             </FormEntry>
@@ -10260,10 +9951,6 @@
             <Expression id="7">
               <ExpSyntax val="'TRUE'LOG"/>
               <ExpAttribute val="B"/>
-            </Expression>
-            <Expression id="13">
-              <ExpSyntax val="0"/>
-              <ExpAttribute val="N"/>
             </Expression>
             <Expression id="14">
               <ExpSyntax val="Val (Str({32768,21},'9Z'),'9')"/>
@@ -10330,7 +10017,7 @@
               <ExpAttribute val="N"/>
             </Expression>
             <Expression id="43">
-              <ExpSyntax val="MlsTrans('Der Job wurde erstellt.')"/>
+              <ExpSyntax val="MlsTrans('Der Serverjob wurde zur Verarbeitung eingetragen.')"/>
               <ExpAttribute val="U"/>
             </Expression>
             <Expression id="40">
@@ -10351,10 +10038,6 @@
             </Expression>
             <Expression id="45">
               <ExpSyntax val="'Bestellvorschlag 3'"/>
-              <ExpAttribute val="A"/>
-            </Expression>
-            <Expression id="46">
-              <ExpSyntax val="''"/>
               <ExpAttribute val="A"/>
             </Expression>
             <Expression id="47">
@@ -10407,13 +10090,8 @@
               <EventType val="N"/>
             </Event>
           </EVNT>
-          <EVNT DESC="BatchStarten" FORCE_EXIT="N" id="2">
-            <Event>
-              <EventType val="N"/>
-            </Event>
-          </EVNT>
           <Task MainProgram="N">
-            <Header Description="stf lesen" ISN_2="38" LastIsn="127" id="740">
+            <Header Description="stf lesen" ISN_2="38" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -10700,7 +10378,7 @@
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="MemoryEintrag1" ISN_2="83" LastIsn="127" id="740">
+            <Header Description="MemoryEintrag1" ISN_2="83" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -10713,9 +10391,9 @@
               <External val="N"/>
               <FormType val="M"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="737972" _time="60343" date="01.07.2021" time="16:45:43"/>
+              <LastModified _date="738216" _time="59798" date="02.03.2022" time="16:36:38"/>
             </Header>
-            <ItemIsn val="42"/>
+            <ItemIsn val="43"/>
             <Resource>
               <DB id="2">
                 <DataObject comp="2" obj="4444"/>
@@ -10807,7 +10485,7 @@
                     </DATAVIEW_SRC>
                   </LogicLine>
                   <LogicLine>
-                    <LNK Direction="A" EVL_CND="R" FlowIsn="3" Key="1" Mode="W" SortType="4" VIEW="1" VIEWS="35">
+                    <LNK Direction="A" EVL_CND="R" FlowIsn="3" Key="1" Mode="W" SortType="4" VIEW="1" VIEWS="36">
                       <DB comp="2" obj="4444"/>
                       <Expanded val="1"/>
                       <Condition val="Y"/>
@@ -11236,6 +10914,18 @@
                     </Select>
                   </LogicLine>
                   <LogicLine>
+                    <Select FieldID="43" FlowIsn="286" id="43">
+                      <Column val="45"/>
+                      <Type val="R"/>
+                      <ExposedToRoute val="N"/>
+                      <IsParameter val="N"/>
+                      <DIFF_UPDATE val="T"/>
+                      <Condition val="N"/>
+                      <Modifier val="S"/>
+                      <Direction val="C"/>
+                    </Select>
+                  </LogicLine>
+                  <LogicLine>
                     <END_LINK FlowIsn="4"/>
                   </LogicLine>
                 </LogicLines>
@@ -11626,6 +11316,17 @@
                       <Direction val="C"/>
                     </Update>
                   </LogicLine>
+                  <LogicLine>
+                    <Update FlowIsn="287">
+                      <FieldID val="43"/>
+                      <WithValue val="40"/>
+                      <Incremental val="N"/>
+                      <ForcedUpdate val="Y"/>
+                      <Condition val="Y"/>
+                      <Modifier val="B"/>
+                      <Direction val="C"/>
+                    </Update>
+                  </LogicLine>
                 </LogicLines>
               </LogicUnit>
             </TaskLogic>
@@ -11778,10 +11479,14 @@
                 <ExpSyntax val="{2,89}"/>
                 <ExpAttribute val="B"/>
               </Expression>
+              <Expression id="40">
+                <ExpSyntax val="{2,90}"/>
+                <ExpAttribute val="B"/>
+              </Expression>
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="MemoryEintrag2" ISN_2="96" LastIsn="127" id="740">
+            <Header Description="MemoryEintrag2" ISN_2="96" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -12220,7 +11925,7 @@
             <VarRangeInfo Mode="E" VarRangeVeeIsn="28" id="4"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="MemoryEintrag2 leer" ISN_2="113" LastIsn="127" id="740">
+            <Header Description="MemoryEintrag2 leer" ISN_2="113" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -12485,7 +12190,7 @@
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Bereich Artikelzuordnung" ISN_2="84" LastIsn="127" id="740">
+            <Header Description="Bereich Artikelzuordnung" ISN_2="84" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -12818,7 +12523,7 @@
             <VarRangeInfo Mode="E" VarRangeVeeIsn="6" id="6"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Bereich Rechnungsempfänger" ISN_2="87" LastIsn="127" id="740">
+            <Header Description="Bereich Rechnungsempfänger" ISN_2="87" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -13375,7 +13080,7 @@
             <VarRangeInfo Mode="E" VarRangeVeeIsn="7" id="7"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Bereich Geschäfsfälle" ISN_2="90" LastIsn="127" id="740">
+            <Header Description="Bereich Geschäfsfälle" ISN_2="90" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -13936,7 +13641,7 @@
             <VarRangeInfo Mode="E" VarRangeVeeIsn="6" id="8"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Bereich Artikelklassifizierung" ISN_2="93" LastIsn="127" id="740">
+            <Header Description="Bereich Artikelklassifizierung" ISN_2="93" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -14312,7 +14017,7 @@
           </Task>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Bearbeiten" ISN_2="39" LastIsn="127" id="740">
+          <Header Description="Bearbeiten" ISN_2="39" LastIsn="130" id="740">
             <ExecutionRight comp="-1"/>
             <Resident val="N"/>
             <SQL val="N"/>
@@ -14329,9 +14034,9 @@
             <External val="N"/>
             <FormType val="D"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738153" _time="60745" date="29.12.2021" time="16:52:25"/>
+            <LastModified _date="738223" _time="30192" date="09.03.2022" time="08:23:12"/>
           </Header>
-          <ItemIsn val="240"/>
+          <ItemIsn val="242"/>
           <Resource>
             <DB id="1">
               <DataObject comp="2" obj="107"/>
@@ -14640,6 +14345,16 @@
                   <_Negative id="192" val="Y"/>
                   <_FieldPhysical Name="Bestellmenge" PIC_U="N9.2CZ" Size="8" allowed_null="Y" attribute="N" context_cookies="Y" database_definition="2" id="231" storage="6" translate="1"/>
                   <PartOfDatetime id="244"/>
+                  <_FieldStyle id="276" val="1"/>
+                </PropertyList>
+              </Column>
+              <Column id="41" name="BestMengeBeiguenstLief_v">
+                <PropertyList model="FIELD">
+                  <Model attr_obj="FIELD_NUMERIC" id="1"/>
+                  <Picture id="157" valUnicode="N9.2"/>
+                  <_Dec id="181" val="2"/>
+                  <_Whole id="182" val="9"/>
+                  <_Negative id="192" val="Y"/>
                   <_FieldStyle id="276" val="1"/>
                 </PropertyList>
               </Column>
@@ -17993,6 +17708,7 @@
                 <EventType val="S"/>
                 <KeyCombinationID val="129"/>
               </Event>
+              <Disabled val="1"/>
               <ExecuteOn_ val="O"/>
             </LogicUnit>
             <LogicUnit id="3" propagate="78">
@@ -18504,12 +18220,27 @@
                   </Select>
                 </LogicLine>
                 <LogicLine>
-                  <BLOCK EndBlock="229" EndBlockSegment="229" FlowIsn="224" Type="I">
-                    <Expanded val="1"/>
-                    <Condition Exp="94"/>
+                  <Select FieldID="242" FlowIsn="2438" id="242">
+                    <Column val="41"/>
+                    <Type val="V"/>
+                    <ExposedToRoute val="N"/>
+                    <IsParameter val="N"/>
+                    <DIFF_UPDATE val="T"/>
+                    <Condition val="Y"/>
+                    <Modifier val="S"/>
+                    <Direction val="C"/>
+                  </Select>
+                </LogicLine>
+                <LogicLine>
+                  <Update FlowIsn="2439">
+                    <FieldID val="242"/>
+                    <WithValue val="19"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition val="Y"/>
                     <Modifier val="B"/>
-                    <Direction val="F"/>
-                  </BLOCK>
+                    <Direction val="C"/>
+                  </Update>
                 </LogicLine>
                 <LogicLine>
                   <CallTask FlowIsn="2257">
@@ -18617,16 +18348,24 @@
                   </Update>
                 </LogicLine>
                 <LogicLine>
-                  <STP Buttons="O" DefaultButton="1" ERR_LOG_DEF_CHG="N" FlowIsn="225" IMG_DEF_CHG="N" Image="C" Mode="E" TTL_DEF_CHG="N" TXT="Falsche Losgröße!" TitleTxt="Error" VR_DISP="S">
-                    <AppendToErrorLog val="Y"/>
+                  <BLOCK EndBlock="2322" EndBlockSegment="2322" FlowIsn="2320" Type="I">
+                    <Expanded val="1"/>
+                    <Condition Exp="139"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </BLOCK>
+                </LogicLine>
+                <LogicLine>
+                  <STP Buttons="O" DefaultButton="1" ERR_LOG_DEF_CHG="Y" FlowIsn="225" IMG_DEF_CHG="N" Image="C" Mode="E" TTL_DEF_CHG="N" TXT="Falsche Losgröße!" TitleTxt="Error" VR_DISP="B">
+                    <AppendToErrorLog val="N"/>
                     <Condition Exp="30"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </STP>
                 </LogicLine>
                 <LogicLine>
-                  <STP Buttons="O" DefaultButton="1" ERR_LOG_DEF_CHG="N" FlowIsn="226" IMG_DEF_CHG="N" Image="C" Mode="E" TTL_DEF_CHG="N" TXT="Mindestmenge nicht erreicht!" TitleTxt="Error" VR_DISP="S">
-                    <AppendToErrorLog val="Y"/>
+                  <STP Buttons="O" DefaultButton="1" ERR_LOG_DEF_CHG="Y" FlowIsn="226" IMG_DEF_CHG="N" Image="C" Mode="E" TTL_DEF_CHG="N" TXT="Mindestmenge nicht erreicht!" TitleTxt="Error" VR_DISP="B">
+                    <AppendToErrorLog val="N"/>
                     <Condition Exp="25"/>
                     <Modifier val="B"/>
                     <Direction val="F"/>
@@ -18691,6 +18430,14 @@
                         <Variable val="176"/>
                         <Skip val="N"/>
                       </Argument>
+                      <Argument>
+                        <Variable val="242"/>
+                        <Skip val="N"/>
+                      </Argument>
+                      <Argument>
+                        <Variable val="69"/>
+                        <Skip val="N"/>
+                      </Argument>
                     </Arguments>
                     <Wait val="Y"/>
                     <SyncData val="N"/>
@@ -18738,7 +18485,7 @@
                   </STP>
                 </LogicLine>
                 <LogicLine>
-                  <END_BLK FlowIsn="229"/>
+                  <END_BLK FlowIsn="2322"/>
                 </LogicLine>
                 <LogicLine>
                   <Update FlowIsn="2202">
@@ -18750,6 +18497,37 @@
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </Update>
+                </LogicLine>
+              </LogicLines>
+            </LogicUnit>
+            <LogicUnit id="113" propagate="78">
+              <Level val="H"/>
+              <Type val="U"/>
+              <Scope val="T"/>
+              <EngineDirective val="S"/>
+              <ShowMessage val="Y"/>
+              <Condition val="89"/>
+              <Event>
+                <EventType val="U"/>
+                <PublicObject comp="-1" obj="9"/>
+              </Event>
+              <Expanded val="1"/>
+              <ExecuteOn_ val="O"/>
+              <LogicLines>
+                <LogicLine>
+                  <CallTask FlowIsn="2383">
+                    <OperationType val="T"/>
+                    <Event>
+                      <EventType val="N"/>
+                    </Event>
+                    <TaskID comp="-1" obj="41"/>
+                    <Lock val="N"/>
+                    <SyncData val="N"/>
+                    <RetainFocus val="N"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </CallTask>
                 </LogicLine>
               </LogicLines>
             </LogicUnit>
@@ -19920,7 +19698,7 @@
             </LogicUnit>
           </TaskLogic>
           <TaskForms>
-            <FormEntry _last_isn="184" _last_test_id="184" id="1">
+            <FormEntry _last_isn="185" _last_test_id="185" id="1">
               <PropertyList model="FORM_RICH_CLIENT">
                 <Model comp="-1" id="1" obj="165"/>
                 <X id="21" val="10"/>
@@ -19993,7 +19771,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Monat"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="632"/>
                   <Y id="22" val="420"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -20009,7 +19787,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="verkaufte Stück"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="627"/>
+                  <X id="21" val="674"/>
                   <Y id="22" val="420"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -20025,7 +19803,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Einkauf"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="705"/>
+                  <X id="21" val="752"/>
                   <Y id="22" val="420"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -20074,7 +19852,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="632"/>
                   <Y id="22" val="433"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -20093,7 +19871,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="627"/>
+                  <X id="21" val="674"/>
                   <Y id="22" val="433"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -20112,7 +19890,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="704"/>
+                  <X id="21" val="751"/>
                   <Y id="22" val="433"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -20131,7 +19909,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Trend"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="602"/>
                   <Y id="22" val="422"/>
                   <Width id="23" val="99"/>
                   <Height id="24" val="12"/>
@@ -20145,7 +19923,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="696"/>
+                  <X id="21" val="713"/>
                   <Y id="22" val="422"/>
                   <Width id="23" val="99"/>
                   <Height id="24" val="12"/>
@@ -20198,7 +19976,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="632"/>
                   <Y id="22" val="445"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -20217,7 +19995,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="627"/>
+                  <X id="21" val="674"/>
                   <Y id="22" val="445"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -20236,7 +20014,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="704"/>
+                  <X id="21" val="751"/>
                   <Y id="22" val="445"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -20287,11 +20065,11 @@
               <Control ISN_FATHER="33" _test_id="53" id="53">
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
-                  <Text id="19" valUnicode="monatl. Umschlag"/>
+                  <Text id="19" valUnicode="monatl. Umschlag l. 9 Mon."/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="579"/>
                   <Y id="22" val="434"/>
-                  <Width id="23" val="99"/>
+                  <Width id="23" val="122"/>
                   <Height id="24" val="12"/>
                   <ControlLayer id="25" val="3"/>
                   <Visible id="61"/>
@@ -20303,7 +20081,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="696"/>
+                  <X id="21" val="713"/>
                   <Y id="22" val="434"/>
                   <Width id="23" val="99"/>
                   <Height id="24" val="12"/>
@@ -20322,7 +20100,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="632"/>
                   <Y id="22" val="457"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -20341,7 +20119,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="627"/>
+                  <X id="21" val="674"/>
                   <Y id="22" val="457"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -20360,7 +20138,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="704"/>
+                  <X id="21" val="751"/>
                   <Y id="22" val="457"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -20413,7 +20191,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Vorgabe Lieferzeit"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="602"/>
                   <Y id="22" val="446"/>
                   <Width id="23" val="99"/>
                   <Height id="24" val="12"/>
@@ -20427,7 +20205,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="696"/>
+                  <X id="21" val="713"/>
                   <Y id="22" val="446"/>
                   <Width id="23" val="31"/>
                   <Height id="24" val="12"/>
@@ -20479,7 +20257,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="632"/>
                   <Y id="22" val="469"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -20498,7 +20276,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="627"/>
+                  <X id="21" val="674"/>
                   <Y id="22" val="469"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -20517,7 +20295,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="704"/>
+                  <X id="21" val="751"/>
                   <Y id="22" val="469"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -20536,7 +20314,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="ermittelte Lieferzeit"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="602"/>
                   <Y id="22" val="458"/>
                   <Width id="23" val="99"/>
                   <Height id="24" val="12"/>
@@ -20550,7 +20328,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="696"/>
+                  <X id="21" val="713"/>
                   <Y id="22" val="458"/>
                   <Width id="23" val="31"/>
                   <Height id="24" val="12"/>
@@ -20585,9 +20363,9 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="992"/>
+                  <X id="21" val="995"/>
                   <Y id="22" val="505"/>
-                  <Width id="23" val="60"/>
+                  <Width id="23" val="57"/>
                   <Height id="24" val="12"/>
                   <ControlLayer id="25" val="1"/>
                   <Data FieldID="178" id="43"/>
@@ -20605,7 +20383,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="632"/>
                   <Y id="22" val="481"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -20624,7 +20402,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="627"/>
+                  <X id="21" val="674"/>
                   <Y id="22" val="481"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -20643,7 +20421,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="704"/>
+                  <X id="21" val="751"/>
                   <Y id="22" val="481"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -20693,7 +20471,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Bestellhäufigkeit"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="602"/>
                   <Y id="22" val="470"/>
                   <Width id="23" val="99"/>
                   <Height id="24" val="12"/>
@@ -20707,7 +20485,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="696"/>
+                  <X id="21" val="713"/>
                   <Y id="22" val="470"/>
                   <Width id="23" val="99"/>
                   <Height id="24" val="12"/>
@@ -20726,7 +20504,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="632"/>
                   <Y id="22" val="493"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -20745,7 +20523,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="627"/>
+                  <X id="21" val="674"/>
                   <Y id="22" val="493"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -20764,7 +20542,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="704"/>
+                  <X id="21" val="751"/>
                   <Y id="22" val="493"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -20783,7 +20561,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Umlagerung Warehouse"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="725"/>
+                  <X id="21" val="728"/>
                   <Y id="22" val="421"/>
                   <Width id="23" val="110"/>
                   <Height id="24" val="12"/>
@@ -20798,7 +20576,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="843"/>
+                  <X id="21" val="846"/>
                   <Y id="22" val="421"/>
                   <Width id="23" val="60"/>
                   <Height id="24" val="12"/>
@@ -20816,7 +20594,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="787"/>
+                  <X id="21" val="834"/>
                   <Y id="22" val="433"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -20835,7 +20613,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="828"/>
+                  <X id="21" val="875"/>
                   <Y id="22" val="433"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -20854,7 +20632,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="906"/>
+                  <X id="21" val="953"/>
                   <Y id="22" val="433"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -20873,7 +20651,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="mögl.Umlagermenge"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="602"/>
                   <Y id="22" val="482"/>
                   <Width id="23" val="99"/>
                   <Height id="24" val="12"/>
@@ -20887,7 +20665,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="696"/>
+                  <X id="21" val="713"/>
                   <Y id="22" val="482"/>
                   <Width id="23" val="99"/>
                   <Height id="24" val="12"/>
@@ -20907,7 +20685,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Mindestabnahme"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="725"/>
+                  <X id="21" val="728"/>
                   <Y id="22" val="433"/>
                   <Width id="23" val="110"/>
                   <Height id="24" val="12"/>
@@ -20922,7 +20700,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="843"/>
+                  <X id="21" val="846"/>
                   <Y id="22" val="433"/>
                   <Width id="23" val="60"/>
                   <Height id="24" val="12"/>
@@ -20941,7 +20719,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="787"/>
+                  <X id="21" val="834"/>
                   <Y id="22" val="445"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -20960,7 +20738,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="828"/>
+                  <X id="21" val="875"/>
                   <Y id="22" val="445"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -20979,7 +20757,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="906"/>
+                  <X id="21" val="953"/>
                   <Y id="22" val="445"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -20998,7 +20776,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Bestell.-Nr."/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="602"/>
                   <Y id="22" val="494"/>
                   <Width id="23" val="99"/>
                   <Height id="24" val="12"/>
@@ -21012,7 +20790,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="696"/>
+                  <X id="21" val="713"/>
                   <Y id="22" val="494"/>
                   <Width id="23" val="99"/>
                   <Height id="24" val="12"/>
@@ -21030,7 +20808,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Losgröße"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="725"/>
+                  <X id="21" val="728"/>
                   <Y id="22" val="445"/>
                   <Width id="23" val="110"/>
                   <Height id="24" val="12"/>
@@ -21045,7 +20823,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="843"/>
+                  <X id="21" val="846"/>
                   <Y id="22" val="445"/>
                   <Width id="23" val="60"/>
                   <Height id="24" val="12"/>
@@ -21064,7 +20842,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="787"/>
+                  <X id="21" val="834"/>
                   <Y id="22" val="457"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -21083,7 +20861,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="828"/>
+                  <X id="21" val="875"/>
                   <Y id="22" val="457"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -21102,7 +20880,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="906"/>
+                  <X id="21" val="953"/>
                   <Y id="22" val="457"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -21120,7 +20898,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="787"/>
+                  <X id="21" val="834"/>
                   <Y id="22" val="469"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -21139,7 +20917,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="828"/>
+                  <X id="21" val="875"/>
                   <Y id="22" val="469"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -21158,7 +20936,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="906"/>
+                  <X id="21" val="953"/>
                   <Y id="22" val="469"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -21177,7 +20955,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Zuordnung"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="585"/>
+                  <X id="21" val="602"/>
                   <Y id="22" val="506"/>
                   <Width id="23" val="99"/>
                   <Height id="24" val="12"/>
@@ -21192,7 +20970,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Standard-Bestellmenge"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="725"/>
+                  <X id="21" val="728"/>
                   <Y id="22" val="457"/>
                   <Width id="23" val="110"/>
                   <Height id="24" val="12"/>
@@ -21207,7 +20985,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="843"/>
+                  <X id="21" val="846"/>
                   <Y id="22" val="457"/>
                   <Width id="23" val="60"/>
                   <Height id="24" val="12"/>
@@ -21225,7 +21003,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="696"/>
+                  <X id="21" val="713"/>
                   <Y id="22" val="506"/>
                   <Width id="23" val="31"/>
                   <Height id="24" val="12"/>
@@ -21242,7 +21020,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="787"/>
+                  <X id="21" val="834"/>
                   <Y id="22" val="481"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -21261,7 +21039,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="828"/>
+                  <X id="21" val="875"/>
                   <Y id="22" val="481"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -21280,7 +21058,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="906"/>
+                  <X id="21" val="953"/>
                   <Y id="22" val="481"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -21299,7 +21077,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Verbrauch letzter Monat"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="725"/>
+                  <X id="21" val="728"/>
                   <Y id="22" val="469"/>
                   <Width id="23" val="110"/>
                   <Height id="24" val="12"/>
@@ -21314,7 +21092,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="843"/>
+                  <X id="21" val="846"/>
                   <Y id="22" val="469"/>
                   <Width id="23" val="60"/>
                   <Height id="24" val="12"/>
@@ -21333,7 +21111,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="34"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="787"/>
+                  <X id="21" val="834"/>
                   <Y id="22" val="493"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -21352,7 +21130,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="828"/>
+                  <X id="21" val="875"/>
                   <Y id="22" val="493"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -21371,7 +21149,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="906"/>
+                  <X id="21" val="953"/>
                   <Y id="22" val="493"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -21390,7 +21168,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Verbrauch 6 Monate"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="725"/>
+                  <X id="21" val="728"/>
                   <Y id="22" val="481"/>
                   <Width id="23" val="110"/>
                   <Height id="24" val="12"/>
@@ -21405,7 +21183,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="843"/>
+                  <X id="21" val="846"/>
                   <Y id="22" val="481"/>
                   <Width id="23" val="60"/>
                   <Height id="24" val="12"/>
@@ -21425,7 +21203,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Verbrauch 12 Monate"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="725"/>
+                  <X id="21" val="728"/>
                   <Y id="22" val="493"/>
                   <Width id="23" val="110"/>
                   <Height id="24" val="12"/>
@@ -21440,7 +21218,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="843"/>
+                  <X id="21" val="846"/>
                   <Y id="22" val="493"/>
                   <Width id="23" val="60"/>
                   <Height id="24" val="12"/>
@@ -21458,11 +21236,11 @@
               <Control ISN_FATHER="33" _test_id="119" id="119">
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
-                  <Text id="19" valUnicode="Summe"/>
+                  <Text id="19" valUnicode="Summe l. 12 Mon."/>
                   <Placement id="20" top="100"/>
                   <X id="21" val="579"/>
                   <Y id="22" val="506"/>
-                  <Width id="23" val="39"/>
+                  <Width id="23" val="88"/>
                   <Height id="24" val="12"/>
                   <ControlLayer id="25" val="2"/>
                   <Color id="51" val="103"/>
@@ -21475,7 +21253,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="627"/>
+                  <X id="21" val="674"/>
                   <Y id="22" val="506"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="11"/>
@@ -21495,7 +21273,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Rabatt% 1"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="913"/>
+                  <X id="21" val="916"/>
                   <Y id="22" val="421"/>
                   <Width id="23" val="71"/>
                   <Height id="24" val="12"/>
@@ -21510,7 +21288,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Vorjahr"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="787"/>
+                  <X id="21" val="834"/>
                   <Y id="22" val="506"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -21525,7 +21303,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="828"/>
+                  <X id="21" val="875"/>
                   <Y id="22" val="506"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="11"/>
@@ -21543,7 +21321,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="907"/>
+                  <X id="21" val="954"/>
                   <Y id="22" val="506"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="11"/>
@@ -21561,7 +21339,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="992"/>
+                  <X id="21" val="995"/>
                   <Y id="22" val="421"/>
                   <Width id="23" val="57"/>
                   <Height id="24" val="12"/>
@@ -21579,7 +21357,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="992"/>
+                  <X id="21" val="995"/>
                   <Y id="22" val="433"/>
                   <Width id="23" val="57"/>
                   <Height id="24" val="12"/>
@@ -21597,7 +21375,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="992"/>
+                  <X id="21" val="995"/>
                   <Y id="22" val="445"/>
                   <Width id="23" val="57"/>
                   <Height id="24" val="12"/>
@@ -21615,7 +21393,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="992"/>
+                  <X id="21" val="995"/>
                   <Y id="22" val="457"/>
                   <Width id="23" val="57"/>
                   <Height id="24" val="12"/>
@@ -21633,7 +21411,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="992"/>
+                  <X id="21" val="995"/>
                   <Y id="22" val="469"/>
                   <Width id="23" val="57"/>
                   <Height id="24" val="12"/>
@@ -21652,7 +21430,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Staffelpreis ab"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="725"/>
+                  <X id="21" val="728"/>
                   <Y id="22" val="505"/>
                   <Width id="23" val="110"/>
                   <Height id="24" val="12"/>
@@ -21667,7 +21445,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="843"/>
+                  <X id="21" val="846"/>
                   <Y id="22" val="505"/>
                   <Width id="23" val="60"/>
                   <Height id="24" val="12"/>
@@ -21686,7 +21464,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="günst .EK-Preis"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="913"/>
+                  <X id="21" val="916"/>
                   <Y id="22" val="481"/>
                   <Width id="23" val="71"/>
                   <Height id="24" val="12"/>
@@ -21701,7 +21479,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="992"/>
+                  <X id="21" val="995"/>
                   <Y id="22" val="481"/>
                   <Width id="23" val="57"/>
                   <Height id="24" val="12"/>
@@ -21721,7 +21499,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Währung"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="913"/>
+                  <X id="21" val="916"/>
                   <Y id="22" val="493"/>
                   <Width id="23" val="71"/>
                   <Height id="24" val="12"/>
@@ -21736,7 +21514,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="992"/>
+                  <X id="21" val="995"/>
                   <Y id="22" val="493"/>
                   <Width id="23" val="57"/>
                   <Height id="24" val="12"/>
@@ -21771,7 +21549,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="verkaufte Stück"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="828"/>
+                  <X id="21" val="875"/>
                   <Y id="22" val="420"/>
                   <Width id="23" val="66"/>
                   <Height id="24" val="12"/>
@@ -21787,7 +21565,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Monat"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="787"/>
+                  <X id="21" val="834"/>
                   <Y id="22" val="420"/>
                   <Width id="23" val="33"/>
                   <Height id="24" val="12"/>
@@ -21803,7 +21581,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Einkauf"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="907"/>
+                  <X id="21" val="954"/>
                   <Y id="22" val="420"/>
                   <Width id="23" val="65"/>
                   <Height id="24" val="12"/>
@@ -21819,7 +21597,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Rabatt% 2"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="913"/>
+                  <X id="21" val="916"/>
                   <Y id="22" val="433"/>
                   <Width id="23" val="71"/>
                   <Height id="24" val="12"/>
@@ -21834,7 +21612,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Rabatt% 3"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="913"/>
+                  <X id="21" val="916"/>
                   <Y id="22" val="445"/>
                   <Width id="23" val="71"/>
                   <Height id="24" val="12"/>
@@ -21849,7 +21627,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Rabatt% 4"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="913"/>
+                  <X id="21" val="916"/>
                   <Y id="22" val="457"/>
                   <Width id="23" val="71"/>
                   <Height id="24" val="12"/>
@@ -21864,7 +21642,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Rabatt% 5"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="913"/>
+                  <X id="21" val="916"/>
                   <Y id="22" val="469"/>
                   <Width id="23" val="71"/>
                   <Height id="24" val="12"/>
@@ -21878,7 +21656,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
                   <Model comp="-1" id="1" obj="46"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="907"/>
+                  <X id="21" val="910"/>
                   <Y id="22" val="505"/>
                   <Width id="23" val="20"/>
                   <Height id="24" val="12"/>
@@ -21896,7 +21674,7 @@
               <Control ISN_FATHER="33" PDOD="22" _test_id="173" id="173">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="912"/>
+                  <X id="21" val="929"/>
                   <Y id="22" val="434"/>
                   <Width id="23" val="77"/>
                   <Height id="24" val="12"/>
@@ -21911,7 +21689,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Gesamtbestand"/>
-                  <X id="21" val="836"/>
+                  <X id="21" val="853"/>
                   <Y id="22" val="434"/>
                   <Width id="23" val="73"/>
                   <Height id="24" val="12"/>
@@ -21924,7 +21702,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Bedarf Serviceauftrag"/>
-                  <X id="21" val="808"/>
+                  <X id="21" val="825"/>
                   <Y id="22" val="494"/>
                   <Width id="23" val="100"/>
                   <Height id="24" val="12"/>
@@ -21937,7 +21715,7 @@
               <Control ISN_FATHER="33" PDOD="5" _test_id="176" id="176">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="912"/>
+                  <X id="21" val="929"/>
                   <Y id="22" val="494"/>
                   <Width id="23" val="77"/>
                   <Height id="24" val="12"/>
@@ -21953,7 +21731,7 @@
               <Control ISN_FATHER="33" PDOD="5" _test_id="179" id="179">
                 <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                   <Model comp="-1" id="1" obj="33"/>
-                  <X id="21" val="993"/>
+                  <X id="21" val="1010"/>
                   <Y id="22" val="494"/>
                   <Width id="23" val="34"/>
                   <Height id="24" val="12"/>
@@ -21971,7 +21749,7 @@
                   <Model comp="-1" id="1" obj="35"/>
                   <Text id="19" valUnicode="Bedarf aktuell"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="925"/>
+                  <X id="21" val="928"/>
                   <Y id="22" val="505"/>
                   <Width id="23" val="62"/>
                   <Height id="24" val="12"/>
@@ -22114,8 +21892,8 @@
                 <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
                   <Model comp="-1" id="1" obj="48"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="478"/>
-                  <Y id="22" val="517"/>
+                  <X id="21" val="479"/>
+                  <Y id="22" val="498"/>
                   <Width id="23" val="92"/>
                   <Height id="24" val="16"/>
                   <ControlName id="46" val="Varianten"/>
@@ -22153,7 +21931,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
                   <Model comp="-1" id="1" obj="48"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="382"/>
+                  <X id="21" val="479"/>
                   <Y id="22" val="517"/>
                   <Width id="23" val="92"/>
                   <Height id="24" val="16"/>
@@ -22608,7 +22386,7 @@
                 <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
                   <Model comp="-1" id="1" obj="48"/>
                   <Placement id="20" top="100"/>
-                  <X id="21" val="285"/>
+                  <X id="21" val="382"/>
                   <Y id="22" val="517"/>
                   <Width id="23" val="92"/>
                   <Height id="24" val="16"/>
@@ -22646,6 +22424,23 @@
                   <Visible id="61"/>
                   <_VerticalScroll id="73"/>
                   <_Orientation id="143"/>
+                </PropertyList>
+              </Control>
+              <Control PDOD="128" _test_id="185" id="185">
+                <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
+                  <Model comp="-1" id="1" obj="48"/>
+                  <Placement id="20" top="100"/>
+                  <X id="21" val="286"/>
+                  <Y id="22" val="517"/>
+                  <Width id="23" val="92"/>
+                  <Height id="24" val="16"/>
+                  <Visible id="61"/>
+                  <Format id="82" valUnicode="Lieferantenpreise"/>
+                  <RaiseEvent id="234">
+                    <EventType val="U"/>
+                    <PublicObject comp="-1" obj="9"/>
+                  </RaiseEvent>
+                  <TabOrder id="314" val="109"/>
                 </PropertyList>
               </Control>
             </FormEntry>
@@ -22975,10 +22770,6 @@
               <ExpSyntax val="{32768,1165} AND {0,180}"/>
               <ExpAttribute val="B"/>
             </Expression>
-            <Expression id="94">
-              <ExpSyntax val="{0,187}=0"/>
-              <ExpAttribute val="B"/>
-            </Expression>
             <Expression id="95">
               <ExpSyntax val="{0,143}"/>
               <ExpAttribute val="N"/>
@@ -23100,7 +22891,7 @@
               <ExpAttribute val="N"/>
             </Expression>
             <Expression id="130">
-              <ExpSyntax val="'Achtung! Nicht der günstigste Lieferant! Vorschlag: '&amp;Trim(Str ({0,176},'9'))&amp;' '&amp;Trim({0,232})"/>
+              <ExpSyntax val="'Achtung! Nicht der günstigste Lieferant!'&amp;ASCIIChr(13)&amp;ASCIIChr(10)&amp;'Vorschlag: '&amp;Trim(Str ({0,176},'9'))&amp;' '&amp;Trim({0,232})&amp;&#xD;&#xA;IF({0,242}&lt;>{0,81},' bei einer Bestellmenge von '&amp;Trim(Str({0,242},'N9.2')),'')"/>
               <ExpAttribute val="A"/>
             </Expression>
             <Expression id="131">
@@ -23122,6 +22913,10 @@
             <Expression id="138">
               <ExpSyntax val="IF({0,81}&lt;>0,{0,81},{0,80})"/>
               <ExpAttribute val="N"/>
+            </Expression>
+            <Expression id="139">
+              <ExpSyntax val="{0,81}>0"/>
+              <ExpAttribute val="B"/>
             </Expression>
           </Expressions>
           <EVNT DESC="Bedarf" FORCE_EXIT="N" id="1">
@@ -23159,6 +22954,11 @@
               <EventType val="N"/>
             </Event>
           </EVNT>
+          <EVNT DESC="ArtikelLieferanten" FORCE_EXIT="N" id="9">
+            <Event>
+              <EventType val="N"/>
+            </Event>
+          </EVNT>
           <VarRangeInfo Mode="F" VarRangeVeeIsn="14" id="1"/>
           <VarRangeInfo Mode="T" VarRangeVeeIsn="14" id="2"/>
           <VarRangeInfo Mode="F" VarRangeVeeIsn="15" id="3"/>
@@ -23170,7 +22970,7 @@
           <VarRangeInfo Mode="F" VarRangeVeeIsn="18" id="9"/>
           <VarRangeInfo Mode="T" VarRangeVeeIsn="18" id="10"/>
           <Task MainProgram="N">
-            <Header Description="Lieferantenpreise abfragen" ISN_2="41" LastIsn="127" id="740">
+            <Header Description="Lieferantenpreise abfragen" ISN_2="41" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -23184,9 +22984,9 @@
               <External val="N"/>
               <FormType val="D"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738047" _time="40143" date="14.09.2021" time="11:09:03"/>
+              <LastModified _date="738223" _time="54056" date="09.03.2022" time="15:00:56"/>
             </Header>
-            <ItemIsn val="37"/>
+            <ItemIsn val="39"/>
             <Resource>
               <DB id="1">
                 <DataObject comp="2" obj="122"/>
@@ -23247,7 +23047,7 @@
               <Range Direction="A"/>
               <VarRange LastIsn="10"/>
               <TaskProperties>
-                <SelectionTable val="Y"/>
+                <SelectionTable val="N"/>
                 <ConfirmUpdate CNFU="N"/>
                 <ConfirmCancel val="N"/>
                 <ErrorStrategy val="A"/>
@@ -23391,7 +23191,7 @@
                         <v>11</v>
                         <v>47</v>
                       </INT_RCMP_INFO>
-                      <_DitIndexForToolkit val="13"/>
+                      <_DitIndexForToolkit val="16"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -23487,7 +23287,7 @@
                       <ExposedToRoute val="N"/>
                       <IsParameter val="N"/>
                       <DisplayName val="Matchcode"/>
-                      <_DitIndexForToolkit val="14"/>
+                      <_DitIndexForToolkit val="17"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -23507,7 +23307,7 @@
                       <INT_DIT_INFO>
                         <v>8</v>
                       </INT_DIT_INFO>
-                      <_DitIndexForToolkit val="15"/>
+                      <_DitIndexForToolkit val="18"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -23524,7 +23324,7 @@
                       <INT_DIT_INFO>
                         <v>8</v>
                       </INT_DIT_INFO>
-                      <_DitIndexForToolkit val="16"/>
+                      <_DitIndexForToolkit val="20"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -23625,7 +23425,7 @@
                       <ExposedToRoute val="N"/>
                       <IsParameter val="N"/>
                       <DisplayName val="Währung"/>
-                      <_DitIndexForToolkit val="17"/>
+                      <_DitIndexForToolkit val="24"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -23639,7 +23439,7 @@
                       <ExposedToRoute val="N"/>
                       <IsParameter val="N"/>
                       <DisplayName val="Kurs"/>
-                      <_DitIndexForToolkit val="18"/>
+                      <_DitIndexForToolkit val="25"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -23656,7 +23456,7 @@
                       <ExposedToRoute val="N"/>
                       <IsParameter val="N"/>
                       <DisplayName val="Bestell.-Nr."/>
-                      <_DitIndexForToolkit val="21"/>
+                      <_DitIndexForToolkit val="23"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -23670,7 +23470,7 @@
                       <ExposedToRoute val="N"/>
                       <IsParameter val="N"/>
                       <DisplayName val="Inhalt"/>
-                      <_DitIndexForToolkit val="22"/>
+                      <_DitIndexForToolkit val="19"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -23684,7 +23484,7 @@
                       <ExposedToRoute val="N"/>
                       <IsParameter val="N"/>
                       <DisplayName val="Lieferzeit"/>
-                      <_DitIndexForToolkit val="20"/>
+                      <_DitIndexForToolkit val="22"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -23716,6 +23516,34 @@
                     </Select>
                   </LogicLine>
                   <LogicLine>
+                    <Select FieldID="38" FlowIsn="73" id="38">
+                      <Column val="26"/>
+                      <Type val="R"/>
+                      <ExposedToRoute val="N"/>
+                      <IsParameter val="N"/>
+                      <_DitIndexForToolkit val="15"/>
+                      <DIFF_UPDATE val="T"/>
+                      <Condition val="Y"/>
+                      <Modifier val="S"/>
+                      <Direction val="C"/>
+                    </Select>
+                  </LogicLine>
+                  <LogicLine>
+                    <Select FieldID="39" FlowIsn="74" id="39">
+                      <Column val="27"/>
+                      <Type val="R"/>
+                      <ExposedToRoute val="N"/>
+                      <IsParameter val="N"/>
+                      <INT_DIT_INFO>
+                        <v>29</v>
+                      </INT_DIT_INFO>
+                      <DIFF_UPDATE val="T"/>
+                      <Condition val="Y"/>
+                      <Modifier val="S"/>
+                      <Direction val="C"/>
+                    </Select>
+                  </LogicLine>
+                  <LogicLine>
                     <Select FieldID="37" FlowIsn="56" id="37">
                       <Column val="3"/>
                       <Type val="V"/>
@@ -23732,7 +23560,7 @@
                     </Select>
                   </LogicLine>
                   <LogicLine>
-                    <LNK Direction="A" EVL_CND="R" FieldID="37" FlowIsn="47" Key="1" Mode="R" SortType="48" VIEW="29" VIEWS="7">
+                    <LNK Direction="A" EVL_CND="R" FieldID="37" FlowIsn="47" Key="1" Mode="R" SortType="48" VIEW="31" VIEWS="7">
                       <DB comp="2" obj="436"/>
                       <Expanded val="1"/>
                       <Condition val="Y"/>
@@ -23833,82 +23661,6 @@
                   </LogicLine>
                 </LogicLines>
               </LogicUnit>
-              <LogicUnit id="4" propagate="78">
-                <Level val="H"/>
-                <Type val="U"/>
-                <Scope val="S"/>
-                <EngineDirective val="S"/>
-                <ShowMessage val="Y"/>
-                <Condition val="89"/>
-                <Event>
-                  <EventType val="I"/>
-                  <InternalEventID val="42"/>
-                </Event>
-                <Expanded val="1"/>
-                <ExecuteOn_ val="O"/>
-                <LogicLines>
-                  <LogicLine>
-                    <Update FlowIsn="38">
-                      <Parent val="39"/>
-                      <FieldID val="20"/>
-                      <WithValue val="15"/>
-                      <Incremental val="N"/>
-                      <ForcedUpdate val="N"/>
-                      <Condition val="Y"/>
-                      <Modifier val="B"/>
-                      <Direction val="C"/>
-                    </Update>
-                  </LogicLine>
-                  <LogicLine>
-                    <Update FlowIsn="39">
-                      <Parent val="39"/>
-                      <FieldID val="143"/>
-                      <WithValue val="13"/>
-                      <Incremental val="N"/>
-                      <ForcedUpdate val="N"/>
-                      <Condition val="Y"/>
-                      <Modifier val="B"/>
-                      <Direction val="C"/>
-                    </Update>
-                  </LogicLine>
-                  <LogicLine>
-                    <Update FlowIsn="40">
-                      <Parent val="39"/>
-                      <FieldID val="149"/>
-                      <WithValue val="11"/>
-                      <Incremental val="N"/>
-                      <ForcedUpdate val="N"/>
-                      <Condition val="Y"/>
-                      <Modifier val="B"/>
-                      <Direction val="C"/>
-                    </Update>
-                  </LogicLine>
-                  <LogicLine>
-                    <Update FlowIsn="41">
-                      <Parent val="39"/>
-                      <FieldID val="156"/>
-                      <WithValue val="10"/>
-                      <Incremental val="N"/>
-                      <ForcedUpdate val="N"/>
-                      <Condition val="Y"/>
-                      <Modifier val="B"/>
-                      <Direction val="C"/>
-                    </Update>
-                  </LogicLine>
-                  <LogicLine>
-                    <RaiseEvent FlowIsn="42">
-                      <Event>
-                        <EventType val="I"/>
-                        <InternalEventID val="13"/>
-                      </Event>
-                      <Wait val="78"/>
-                      <Condition val="Y"/>
-                      <Modifier val="B"/>
-                      <Direction val="C"/>
-                    </RaiseEvent>
-                  </LogicLine>
-                </LogicLines>
-              </LogicUnit>
               <LogicUnit id="7" propagate="78">
                 <Level val="H"/>
                 <Type val="U"/>
@@ -23954,7 +23706,7 @@
               </LogicUnit>
             </TaskLogic>
             <TaskForms>
-              <FormEntry _last_isn="25" _last_test_id="25" id="1">
+              <FormEntry _last_isn="29" _last_test_id="29" id="1">
                 <PropertyList model="FORM_RICH_CLIENT">
                   <Model comp="-1" id="1" obj="165"/>
                   <X id="21" val="2"/>
@@ -23982,11 +23734,11 @@
                     <Model comp="-1" id="1" obj="20"/>
                     <X id="21" val="20"/>
                     <Y id="22" val="7"/>
-                    <Width id="23" val="379"/>
+                    <Width id="23" val="386"/>
                     <Height id="24" val="301"/>
                     <_TitleHeight id="79" val="14"/>
-                    <RowHeight id="80" val="14"/>
-                    <Elements id="81" val="10"/>
+                    <RowHeight id="80" val="15"/>
+                    <Elements id="81" val="12"/>
                     <ColumnDivider id="189" val="Y"/>
                     <_WindowWidth id="241" val="371"/>
                   </PropertyList>
@@ -23996,6 +23748,7 @@
                     <Model comp="-1" id="1" obj="17"/>
                     <Width id="23" val="22"/>
                     <ControlLayer id="25" val="1"/>
+                    <Placement Exp="26" id="138"/>
                     <ColumnTitle id="139" valUnicode="Lieferant"/>
                   </PropertyList>
                 </Control>
@@ -24004,55 +23757,72 @@
                     <Model comp="-1" id="1" obj="17"/>
                     <Width id="23" val="45"/>
                     <ControlLayer id="25" val="2"/>
+                    <Placement Exp="26" id="138"/>
                     <ColumnTitle id="139" valUnicode="Matchcode"/>
                   </PropertyList>
                 </Control>
                 <Control ISN_FATHER="1" PDOD="128" _test_id="14" id="14">
                   <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
                     <Model comp="-1" id="1" obj="17"/>
-                    <Width id="23" val="53"/>
+                    <Width id="23" val="39"/>
                     <ControlLayer id="25" val="3"/>
+                    <Placement Exp="26" id="138"/>
                     <ColumnTitle id="139" valUnicode="Preis"/>
+                  </PropertyList>
+                </Control>
+                <Control ISN_FATHER="1" PDOD="128" _test_id="21" id="21">
+                  <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
+                    <Model comp="-1" id="1" obj="17"/>
+                    <Width id="23" val="21"/>
+                    <ControlLayer id="25" val="4"/>
+                    <Placement Exp="26" id="138"/>
+                    <ColumnTitle id="139" valUnicode="Teilung"/>
                   </PropertyList>
                 </Control>
                 <Control ISN_FATHER="1" PDOD="128" _test_id="15" id="15">
                   <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
                     <Model comp="-1" id="1" obj="17"/>
                     <Width id="23" val="19"/>
-                    <ControlLayer id="25" val="4"/>
-                    <ColumnTitle id="139" valUnicode="Rabatt %"/>
-                  </PropertyList>
-                </Control>
-                <Control ISN_FATHER="1" PDOD="128" _test_id="16" id="16">
-                  <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
-                    <Model comp="-1" id="1" obj="17"/>
-                    <Width id="23" val="23"/>
                     <ControlLayer id="25" val="5"/>
-                    <ColumnTitle id="139" valUnicode="Währung"/>
-                  </PropertyList>
-                </Control>
-                <Control ISN_FATHER="1" PDOD="128" _test_id="17" id="17">
-                  <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
-                    <Model comp="-1" id="1" obj="17"/>
-                    <Width id="23" val="41"/>
-                    <ControlLayer id="25" val="6"/>
-                    <ColumnTitle id="139" valUnicode="Kurs"/>
+                    <Placement Exp="26" id="138"/>
+                    <ColumnTitle id="139" valUnicode="Rabatt %"/>
                   </PropertyList>
                 </Control>
                 <Control ISN_FATHER="1" PDOD="128" _test_id="18" id="18">
                   <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
                     <Model comp="-1" id="1" obj="17"/>
-                    <Width id="23" val="51"/>
+                    <Width id="23" val="33"/>
+                    <ControlLayer id="25" val="6"/>
+                    <_Sortable id="134"/>
+                    <Placement Exp="26" id="138"/>
+                    <ColumnTitle id="139" valUnicode="Netto EK"/>
+                  </PropertyList>
+                </Control>
+                <Control ISN_FATHER="1" PDOD="128" _test_id="28" id="28">
+                  <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
+                    <Model comp="-1" id="1" obj="17"/>
+                    <Width id="23" val="31"/>
                     <ControlLayer id="25" val="7"/>
                     <_Sortable id="134"/>
-                    <ColumnTitle Exp="6" id="139" valUnicode=""/>
+                    <Placement Exp="26" id="138"/>
+                    <ColumnTitle id="139" valUnicode="Best. in Losgröße"/>
+                  </PropertyList>
+                </Control>
+                <Control ISN_FATHER="1" PDOD="128" _test_id="26" id="26">
+                  <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
+                    <Model comp="-1" id="1" obj="17"/>
+                    <Width id="23" val="28"/>
+                    <ControlLayer id="25" val="8"/>
+                    <Placement Exp="26" id="138"/>
+                    <ColumnTitle id="139" valUnicode="Losgröße"/>
                   </PropertyList>
                 </Control>
                 <Control ISN_FATHER="1" PDOD="128" _test_id="19" id="19">
                   <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
                     <Model comp="-1" id="1" obj="17"/>
-                    <Width id="23" val="28"/>
-                    <ControlLayer id="25" val="8"/>
+                    <Width id="23" val="23"/>
+                    <ControlLayer id="25" val="9"/>
+                    <Placement Exp="26" id="138"/>
                     <ColumnTitle id="139" valUnicode="Lieferzeit"/>
                   </PropertyList>
                 </Control>
@@ -24060,16 +23830,42 @@
                   <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
                     <Model comp="-1" id="1" obj="17"/>
                     <Width id="23" val="59"/>
-                    <ControlLayer id="25" val="9"/>
+                    <ControlLayer id="25" val="10"/>
+                    <Placement Exp="26" id="138"/>
                     <ColumnTitle id="139" valUnicode="Bestell.-Nr."/>
                   </PropertyList>
                 </Control>
-                <Control ISN_FATHER="1" PDOD="128" _test_id="21" id="21">
+                <Control ISN_FATHER="1" PDOD="128" _test_id="16" id="16">
                   <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
                     <Model comp="-1" id="1" obj="17"/>
-                    <Width id="23" val="21"/>
-                    <ControlLayer id="25" val="10"/>
-                    <ColumnTitle id="139" valUnicode="Inhalt"/>
+                    <Width id="23" val="23"/>
+                    <ControlLayer id="25" val="11"/>
+                    <Placement Exp="26" id="138"/>
+                    <ColumnTitle id="139" valUnicode="Währung"/>
+                  </PropertyList>
+                </Control>
+                <Control ISN_FATHER="1" PDOD="128" _test_id="17" id="17">
+                  <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
+                    <Model comp="-1" id="1" obj="17"/>
+                    <Width id="23" val="35"/>
+                    <ControlLayer id="25" val="12"/>
+                    <Placement Exp="26" id="138"/>
+                    <ColumnTitle id="139" valUnicode="Kurs"/>
+                  </PropertyList>
+                </Control>
+                <Control ISN_FATHER="1" PDOD="1" _test_id="27" id="27">
+                  <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                    <Model comp="-1" id="1" obj="22"/>
+                    <X id="21" val="232"/>
+                    <Y id="22" val="23"/>
+                    <Width id="23" val="24"/>
+                    <Height id="24" val="12"/>
+                    <ControlLayer id="25" val="8"/>
+                    <Data FieldID="38" id="43"/>
+                    <ControlName id="46" val="VE"/>
+                    <_Style id="63" val="1"/>
+                    <TabOrder id="314" val="13"/>
+                    <CornerRadius id="668"/>
                   </PropertyList>
                 </Control>
                 <Control ISN_FATHER="1" PDOD="1" _test_id="2" id="2">
@@ -24115,9 +23911,9 @@
                   <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                     <Model comp="-1" id="1" obj="22"/>
                     <Placement id="20" right="100"/>
-                    <X id="21" val="88"/>
+                    <X id="21" val="89"/>
                     <Y id="22" val="24"/>
-                    <Width id="23" val="51"/>
+                    <Width id="23" val="36"/>
                     <Height id="24" val="12"/>
                     <ControlLayer id="25" val="3"/>
                     <Data FieldID="14" id="43"/>
@@ -24130,15 +23926,34 @@
                     <AllowedDirection id="317" val="1"/>
                   </PropertyList>
                 </Control>
+                <Control ISN_FATHER="1" PDOD="5" _test_id="11" id="11">
+                  <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                    <Model comp="-1" id="1" obj="22"/>
+                    <Placement id="20" right="100"/>
+                    <X id="21" val="129"/>
+                    <Y id="22" val="24"/>
+                    <Width id="23" val="18"/>
+                    <Height id="24" val="12"/>
+                    <ControlLayer id="25" val="4"/>
+                    <Data FieldID="25" id="43"/>
+                    <ControlName id="46" val="_008"/>
+                    <Visible id="61"/>
+                    <_Style id="63" val="1"/>
+                    <MultiLineEdit id="71"/>
+                    <TabOrder id="314" val="10"/>
+                    <AllowParking id="315" val="Y"/>
+                    <AllowedDirection id="317" val="1"/>
+                  </PropertyList>
+                </Control>
                 <Control ISN_FATHER="1" PDOD="21" _test_id="5" id="5">
                   <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                     <Model comp="-1" id="1" obj="22"/>
                     <Placement id="20" right="100"/>
-                    <X id="21" val="143"/>
+                    <X id="21" val="150"/>
                     <Y id="22" val="24"/>
                     <Width id="23" val="15"/>
                     <Height id="24" val="12"/>
-                    <ControlLayer id="25" val="4"/>
+                    <ControlLayer id="25" val="5"/>
                     <Data FieldID="15" id="43"/>
                     <ControlName id="46" val="_004"/>
                     <Visible id="61"/>
@@ -24150,53 +23965,15 @@
                     <AllowedDirection id="317" val="1"/>
                   </PropertyList>
                 </Control>
-                <Control ISN_FATHER="1" _test_id="6" id="6">
-                  <PropertyList model="CTRL_RICH_CLIENT_EDIT">
-                    <Model comp="-1" id="1" obj="22"/>
-                    <Placement id="20" right="100"/>
-                    <X id="21" val="161"/>
-                    <Y id="22" val="24"/>
-                    <Width id="23" val="19"/>
-                    <Height id="24" val="12"/>
-                    <ControlLayer id="25" val="5"/>
-                    <Data FieldID="22" id="43"/>
-                    <ControlName id="46" val="_005"/>
-                    <Visible id="61"/>
-                    <_Style id="63" val="1"/>
-                    <TabOrder id="314" val="5"/>
-                    <AllowParking id="315"/>
-                    <AllowedDirection id="317" val="1"/>
-                  </PropertyList>
-                </Control>
-                <Control ISN_FATHER="1" PDOD="22" _test_id="7" id="7">
-                  <PropertyList model="CTRL_RICH_CLIENT_EDIT">
-                    <Model comp="-1" id="1" obj="22"/>
-                    <Placement id="20" right="100"/>
-                    <X id="21" val="183"/>
-                    <Y id="22" val="24"/>
-                    <Width id="23" val="39"/>
-                    <Height id="24" val="12"/>
-                    <ControlLayer id="25" val="6"/>
-                    <Data FieldID="23" id="43"/>
-                    <ControlName id="46" val="_006"/>
-                    <Visible id="61"/>
-                    <_Style id="63" val="1"/>
-                    <MultiLineEdit id="71"/>
-                    <Format id="82" valUnicode="N7.5CZ"/>
-                    <TabOrder id="314" val="6"/>
-                    <AllowParking id="315"/>
-                    <AllowedDirection id="317" val="1"/>
-                  </PropertyList>
-                </Control>
                 <Control ISN_FATHER="1" PDOD="23" _test_id="8" id="8">
                   <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                     <Model comp="-1" id="1" obj="22"/>
                     <Placement id="20" right="100"/>
-                    <X id="21" val="225"/>
+                    <X id="21" val="168"/>
                     <Y id="22" val="24"/>
-                    <Width id="23" val="48"/>
+                    <Width id="23" val="30"/>
                     <Height id="24" val="12"/>
-                    <ControlLayer id="25" val="7"/>
+                    <ControlLayer id="25" val="6"/>
                     <Data Exp="5" id="43"/>
                     <Visible id="61"/>
                     <_Style id="63" val="1"/>
@@ -24211,11 +23988,11 @@
                   <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                     <Model comp="-1" id="1" obj="22"/>
                     <Placement id="20" right="100"/>
-                    <X id="21" val="278"/>
+                    <X id="21" val="262"/>
                     <Y id="22" val="24"/>
                     <Width id="23" val="13"/>
                     <Height id="24" val="12"/>
-                    <ControlLayer id="25" val="8"/>
+                    <ControlLayer id="25" val="9"/>
                     <Data FieldID="26" id="43"/>
                     <ControlName id="46" val="_009"/>
                     <Visible id="61"/>
@@ -24231,11 +24008,11 @@
                   <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                     <Model comp="-1" id="1" obj="22"/>
                     <Placement id="20" right="100"/>
-                    <X id="21" val="304"/>
+                    <X id="21" val="283"/>
                     <Y id="22" val="24"/>
                     <Width id="23" val="56"/>
                     <Height id="24" val="12"/>
-                    <ControlLayer id="25" val="9"/>
+                    <ControlLayer id="25" val="10"/>
                     <Data FieldID="24" id="43"/>
                     <ControlName id="46" val="_007"/>
                     <Visible id="61"/>
@@ -24246,32 +24023,65 @@
                     <AllowedDirection id="317" val="1"/>
                   </PropertyList>
                 </Control>
-                <Control ISN_FATHER="1" PDOD="5" _test_id="11" id="11">
+                <Control ISN_FATHER="1" _test_id="6" id="6">
+                  <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                    <Model comp="-1" id="1" obj="22"/>
+                    <Placement id="20" right="100"/>
+                    <X id="21" val="342"/>
+                    <Y id="22" val="24"/>
+                    <Width id="23" val="19"/>
+                    <Height id="24" val="12"/>
+                    <ControlLayer id="25" val="11"/>
+                    <Data FieldID="22" id="43"/>
+                    <ControlName id="46" val="_005"/>
+                    <Visible id="61"/>
+                    <_Style id="63" val="1"/>
+                    <TabOrder id="314" val="5"/>
+                    <AllowParking id="315"/>
+                    <AllowedDirection id="317" val="1"/>
+                  </PropertyList>
+                </Control>
+                <Control ISN_FATHER="1" PDOD="22" _test_id="7" id="7">
                   <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                     <Model comp="-1" id="1" obj="22"/>
                     <Placement id="20" right="100"/>
                     <X id="21" val="364"/>
                     <Y id="22" val="24"/>
-                    <Width id="23" val="18"/>
+                    <Width id="23" val="32"/>
                     <Height id="24" val="12"/>
-                    <ControlLayer id="25" val="10"/>
-                    <Data FieldID="25" id="43"/>
-                    <ControlName id="46" val="_008"/>
+                    <ControlLayer id="25" val="12"/>
+                    <Data FieldID="23" id="43"/>
+                    <ControlName id="46" val="_006"/>
                     <Visible id="61"/>
                     <_Style id="63" val="1"/>
                     <MultiLineEdit id="71"/>
-                    <TabOrder id="314" val="10"/>
-                    <AllowParking id="315" val="Y"/>
+                    <Format id="82" valUnicode="N7.5CZ"/>
+                    <TabOrder id="314" val="6"/>
+                    <AllowParking id="315"/>
                     <AllowedDirection id="317" val="1"/>
+                  </PropertyList>
+                </Control>
+                <Control ISN_FATHER="1" PDOD="128" _test_id="29" id="29">
+                  <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
+                    <Model comp="-1" id="1" obj="23"/>
+                    <X id="21" val="201"/>
+                    <Y id="22" val="24"/>
+                    <Width id="23" val="8"/>
+                    <Height id="24" val="12"/>
+                    <ControlLayer id="25" val="7"/>
+                    <Data Exp="25" id="43"/>
+                    <Text id="45"/>
+                    <TabOrder id="314" val="14"/>
                   </PropertyList>
                 </Control>
                 <Control PDOD="128" _test_id="22" id="22">
                   <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
                     <Model comp="-1" id="1" obj="48"/>
+                    <Placement id="20" top="100"/>
                     <X id="21" val="20"/>
-                    <Y id="22" val="311"/>
+                    <Y id="22" val="310"/>
                     <Width id="23" val="45"/>
-                    <Height id="24" val="12"/>
+                    <Height id="24" val="14"/>
                     <Data id="43"/>
                     <ControlName id="46" val="Staffel_b"/>
                     <Visible id="61"/>
@@ -24309,10 +24119,6 @@
                 <ExpSyntax val="{0,14}-{0,14}*{0,15}"/>
                 <ExpAttribute val="N"/>
               </Expression>
-              <Expression id="6">
-                <ExpSyntax val="INIGet ('[CAS_DATEN]CURRENCY1')"/>
-                <ExpAttribute val="A"/>
-              </Expression>
               <Expression id="7">
                 <ExpSyntax val="{0,16}"/>
                 <ExpAttribute val="N"/>
@@ -24325,25 +24131,9 @@
                 <ExpSyntax val="IF ({0,12}={39,20},137,545)"/>
                 <ExpAttribute val="N"/>
               </Expression>
-              <Expression id="10">
-                <ExpSyntax val="{0,25}"/>
-                <ExpAttribute val="N"/>
-              </Expression>
-              <Expression id="11">
-                <ExpSyntax val="{0,24}"/>
-                <ExpAttribute val="A"/>
-              </Expression>
               <Expression id="12">
                 <ExpSyntax val="{39,38}"/>
                 <ExpAttribute val="A"/>
-              </Expression>
-              <Expression id="13">
-                <ExpSyntax val="{0,14}*IF ({0,25}>0,{0,25},1)"/>
-                <ExpAttribute val="N"/>
-              </Expression>
-              <Expression id="15">
-                <ExpSyntax val="{0,6}"/>
-                <ExpAttribute val="N"/>
               </Expression>
               <Expression id="16">
                 <ExpSyntax val="{0,6}"/>
@@ -24369,6 +24159,14 @@
                 <ExpSyntax val="{0,37}"/>
                 <ExpAttribute val="B"/>
               </Expression>
+              <Expression id="25">
+                <ExpSyntax val="{0,39}=1"/>
+                <ExpAttribute val="B"/>
+              </Expression>
+              <Expression id="26">
+                <ExpSyntax val="NOT (IsMobileClient())"/>
+                <ExpAttribute val="B"/>
+              </Expression>
             </Expressions>
             <EVNT DESC="Staffel" FORCE_EXIT="N" id="1">
               <Event>
@@ -24386,7 +24184,7 @@
             <VarRangeInfo Mode="F" VarRangeVeeIsn="5" id="9"/>
             <VarRangeInfo Mode="T" VarRangeVeeIsn="5" id="10"/>
             <Task MainProgram="N">
-              <Header Description="Staffelpreise" ISN_2="42" LastIsn="127" id="740">
+              <Header Description="Staffelpreise" ISN_2="42" LastIsn="130" id="740">
                 <ExecutionRight comp="-1"/>
                 <Resident val="N"/>
                 <SQL val="N"/>
@@ -24793,7 +24591,7 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Bezeichnung ändern" ISN_2="43" LastIsn="127" id="740">
+            <Header Description="Bezeichnung ändern" ISN_2="43" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -25121,7 +24919,7 @@
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Warehouse" ISN_2="46" LastIsn="127" id="740">
+            <Header Description="Warehouse" ISN_2="46" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -25782,7 +25580,7 @@
             <VarRangeInfo Mode="T" VarRangeVeeIsn="4" id="8"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Bestellkopferstellen/aktual." ISN_2="47" LastIsn="127" id="740">
+            <Header Description="Bestellkopferstellen/aktual." ISN_2="47" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -26037,7 +25835,7 @@
             <VarRangeInfo Mode="T" VarRangeVeeIsn="5" id="10"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Warnung günstig" ISN_2="49" LastIsn="127" id="740">
+            <Header Description="Warnung günstig" ISN_2="49" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -26414,7 +26212,7 @@
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Bedarf aus Splittung" ISN_2="50" LastIsn="127" id="740">
+            <Header Description="Bedarf aus Splittung" ISN_2="50" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -27191,7 +26989,7 @@
             <VarRangeInfo Mode="E" VarRangeVeeIsn="16" id="6"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="bedarf ermittlen" ISN_2="51" LastIsn="127" id="740">
+            <Header Description="bedarf ermittlen" ISN_2="51" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -27813,7 +27611,7 @@
             <VarRangeInfo Mode="F" VarRangeVeeIsn="8" id="6"/>
             <VarRangeInfo Mode="T" VarRangeVeeIsn="8" id="7"/>
             <Task MainProgram="N">
-              <Header Description="update" ISN_2="52" LastIsn="127" id="740">
+              <Header Description="update" ISN_2="52" LastIsn="130" id="740">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -28086,7 +27884,7 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Min./Max. Bestand bearbeiten" ISN_2="53" LastIsn="127" id="740">
+            <Header Description="Min./Max. Bestand bearbeiten" ISN_2="53" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -28439,7 +28237,7 @@
               </Event>
             </EVNT>
             <Task MainProgram="N">
-              <Header Description="MinMax update" ISN_2="120" LastIsn="127" id="740">
+              <Header Description="MinMax update" ISN_2="120" LastIsn="130" id="740">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -28797,7 +28595,7 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Lieferant ändern" ISN_2="97" LastIsn="127" id="740">
+            <Header Description="Lieferant ändern" ISN_2="97" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -29681,7 +29479,7 @@
               </Event>
             </EVNT>
             <Task MainProgram="N">
-              <Header Description="Position umbuchen" ISN_2="98" LastIsn="127" id="740">
+              <Header Description="Position umbuchen" ISN_2="98" LastIsn="130" id="740">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -30079,7 +29877,7 @@
               </Expressions>
             </Task>
             <Task MainProgram="N">
-              <Header Description="Kopf anlegen" ISN_2="99" LastIsn="127" id="740">
+              <Header Description="Kopf anlegen" ISN_2="99" LastIsn="130" id="740">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -30695,7 +30493,7 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Projekt_EKPreise" ISN_2="117" LastIsn="127" id="740">
+            <Header Description="Projekt_EKPreise" ISN_2="117" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -31405,7 +31203,7 @@
           </Task>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Generieren" ISN_2="55" LastIsn="127" id="740">
+          <Header Description="Generieren" ISN_2="55" LastIsn="130" id="740">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -31421,7 +31219,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738196" _time="36436" date="10.02.2022" time="10:07:16"/>
+            <LastModified _date="738216" _time="50592" date="02.03.2022" time="14:03:12"/>
           </Header>
           <ItemIsn val="138"/>
           <Resource>
@@ -33686,6 +33484,17 @@
                   </Update>
                 </LogicLine>
                 <LogicLine>
+                  <Update FlowIsn="868">
+                    <FieldID val="88"/>
+                    <WithValue val="15"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Update>
+                </LogicLine>
+                <LogicLine>
                   <CallTask FlowIsn="828">
                     <OperationType val="P"/>
                     <Event>
@@ -33703,7 +33512,8 @@
                         <Skip val="N"/>
                       </Argument>
                       <Argument>
-                        <Skip val="Y"/>
+                        <Expression val="15"/>
+                        <Skip val="N"/>
                       </Argument>
                     </Arguments>
                     <Wait val="Y"/>
@@ -34045,7 +33855,7 @@
           <VarRangeInfo Mode="T" VarRangeVeeIsn="5" id="10"/>
           <VarRangeInfo Mode="E" VarRangeVeeIsn="8" id="11"/>
           <Task MainProgram="N">
-            <Header Description="Serviceauftrag_Bestellung" ISN_2="116" LastIsn="127" id="740">
+            <Header Description="Serviceauftrag_Bestellung" ISN_2="116" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -34971,7 +34781,7 @@
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Bestellvorschlag löschen" ISN_2="56" LastIsn="127" id="740">
+            <Header Description="Bestellvorschlag löschen" ISN_2="56" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -35237,7 +35047,7 @@
             <VarRangeInfo Mode="F" VarRangeVeeIsn="5" id="9"/>
             <VarRangeInfo Mode="T" VarRangeVeeIsn="5" id="10"/>
             <Task MainProgram="N">
-              <Header Description="Pos. löschen" ISN_2="57" LastIsn="127" id="740">
+              <Header Description="Pos. löschen" ISN_2="57" LastIsn="130" id="740">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -35463,7 +35273,7 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Varianten POS umbuchen" ISN_2="58" LastIsn="127" id="740">
+            <Header Description="Varianten POS umbuchen" ISN_2="58" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -35867,7 +35677,7 @@
             <VarRangeInfo Mode="E" VarRangeVeeIsn="7" id="7"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Anlegen Kopf" ISN_2="59" LastIsn="127" id="740">
+            <Header Description="Anlegen Kopf" ISN_2="59" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -37550,7 +37360,7 @@
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="lösche Nullsätze" ISN_2="60" LastIsn="127" id="740">
+            <Header Description="lösche Nullsätze" ISN_2="60" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -37794,7 +37604,7 @@
             <VarRangeInfo Mode="T" VarRangeVeeIsn="6" id="12"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="auf Zeilen prüfen" ISN_2="61" LastIsn="127" id="740">
+            <Header Description="auf Zeilen prüfen" ISN_2="61" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -38030,7 +37840,7 @@
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="markieren" ISN_2="62" LastIsn="127" id="740">
+            <Header Description="markieren" ISN_2="62" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -38315,7 +38125,7 @@
             <VarRangeInfo Mode="T" VarRangeVeeIsn="6" id="12"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Zeilen anlegen" ISN_2="63" LastIsn="127" id="740">
+            <Header Description="Zeilen anlegen" ISN_2="63" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -39702,7 +39512,7 @@
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Kopf aktualisieren" ISN_2="64" LastIsn="127" id="740">
+            <Header Description="Kopf aktualisieren" ISN_2="64" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -40045,7 +39855,7 @@
             <VarRangeInfo Mode="F" VarRangeVeeIsn="5" id="9"/>
             <VarRangeInfo Mode="T" VarRangeVeeIsn="5" id="10"/>
             <Task MainProgram="N">
-              <Header Description="Zeilen" ISN_2="65" LastIsn="127" id="740">
+              <Header Description="Zeilen" ISN_2="65" LastIsn="130" id="740">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -40313,7 +40123,7 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Bestellmenge NULL" ISN_2="66" LastIsn="127" id="740">
+            <Header Description="Bestellmenge NULL" ISN_2="66" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -40585,7 +40395,7 @@
             <VarRangeInfo Mode="T" VarRangeVeeIsn="5" id="10"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="verteilen auf aufträge" ISN_2="67" LastIsn="127" id="740">
+            <Header Description="verteilen auf aufträge" ISN_2="67" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -42878,7 +42688,7 @@
             <VarRangeInfo Mode="T" VarRangeVeeIsn="19" id="6"/>
             <VarRangeInfo Mode="E" VarRangeVeeIsn="10" id="7"/>
             <Task MainProgram="N">
-              <Header Description="246 füllen" ISN_2="68" LastIsn="127" id="740">
+              <Header Description="246 füllen" ISN_2="68" LastIsn="130" id="740">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -44167,7 +43977,7 @@
                 </Expression>
               </Expressions>
               <Task MainProgram="N">
-                <Header Description="1333 füllen" ISN_2="69" LastIsn="127" id="740">
+                <Header Description="1333 füllen" ISN_2="69" LastIsn="130" id="740">
                   <ExecutionRight comp="-1"/>
                   <Resident val="Y"/>
                   <SQL val="N"/>
@@ -44895,7 +44705,7 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="stf lesen" ISN_2="70" LastIsn="127" id="740">
+            <Header Description="stf lesen" ISN_2="70" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -45266,7 +45076,7 @@
           </Task>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Drucken" ISN_2="71" LastIsn="127" id="740">
+          <Header Description="Drucken" ISN_2="71" LastIsn="130" id="740">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -47997,7 +47807,7 @@
           <VarRangeInfo Mode="F" VarRangeVeeIsn="6" id="9"/>
           <VarRangeInfo Mode="T" VarRangeVeeIsn="6" id="10"/>
           <Task MainProgram="N">
-            <Header Description="Bedarf drucken" ISN_2="72" LastIsn="127" id="740">
+            <Header Description="Bedarf drucken" ISN_2="72" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -49164,7 +48974,7 @@
             <VarRangeInfo Mode="T" VarRangeVeeIsn="18" id="10"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Staffel vorhanden?" ISN_2="73" LastIsn="127" id="740">
+            <Header Description="Staffel vorhanden?" ISN_2="73" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -49529,7 +49339,7 @@
             <VarRangeInfo Mode="T" VarRangeVeeIsn="6" id="12"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Mindestbestellwert" ISN_2="74" LastIsn="127" id="740">
+            <Header Description="Mindestbestellwert" ISN_2="74" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -49827,7 +49637,7 @@
           </Task>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Löschen" ISN_2="75" LastIsn="127" id="740">
+          <Header Description="Löschen" ISN_2="75" LastIsn="130" id="740">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -49844,7 +49654,7 @@
             <External val="N"/>
             <FormType val="M"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738196" _time="37869" date="10.02.2022" time="10:31:09"/>
+            <LastModified _date="738216" _time="51644" date="02.03.2022" time="14:20:44"/>
           </Header>
           <ItemIsn val="9"/>
           <Resource>
@@ -50136,7 +49946,7 @@
           <VarRangeInfo Mode="F" VarRangeVeeIsn="5" id="9"/>
           <VarRangeInfo Mode="T" VarRangeVeeIsn="5" id="10"/>
           <Task MainProgram="N">
-            <Header Description="Positionen" ISN_2="76" LastIsn="127" id="740">
+            <Header Description="Positionen" ISN_2="76" LastIsn="130" id="740">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -50362,7 +50172,7 @@
           </Task>
         </Task>
         <Task MainProgram="N">
-          <Header Description="STF lesen" ISN_2="79" LastIsn="127" id="740">
+          <Header Description="STF lesen" ISN_2="79" LastIsn="130" id="740">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>

@@ -19,7 +19,7 @@
           <SQL val="N"/>
           <ReturnValue>
             <ReturnValueAttr/>
-            <TSK_PARAMS val="20"/>
+            <TSK_PARAMS val="21"/>
             <ParametersAttributes>
               <Attr MgAttr="N"/>
               <Attr MgAttr="N"/>
@@ -41,6 +41,7 @@
               <Attr MgAttr="A"/>
               <Attr MgAttr="A"/>
               <Attr MgAttr="B"/>
+              <Attr MgAttr="B"/>
             </ParametersAttributes>
           </ReturnValue>
           <SqlWhereExist val="N"/>
@@ -49,9 +50,9 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738047" _time="40499" date="14.09.2021" time="11:14:59"/>
+          <LastModified _date="738203" _time="40001" date="17.02.2022" time="11:06:41"/>
         </Header>
-        <ItemIsn val="205"/>
+        <ItemIsn val="206"/>
         <Resource>
           <DB id="1">
             <DataObject comp="2" obj="105"/>
@@ -360,6 +361,12 @@
               </PropertyList>
             </Column>
             <Column id="39" name="Fehler_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_LOGICAL" id="1"/>
+                <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
+            <Column id="40" name="GF_KomTrotzRENR_p">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_LOGICAL" id="1"/>
                 <_FieldStyle id="276" val="1"/>
@@ -969,6 +976,18 @@
                 </Select>
               </LogicLine>
               <LogicLine>
+                <Select FieldID="206" FlowIsn="1743" id="206">
+                  <Column val="40"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
                 <Remark FlowIsn="488">
                   <Type val="0"/>
                   <Text val=" "/>
@@ -1409,7 +1428,7 @@
                 </Select>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="49" Key="1" Mode="R" SortType="60" VIEW="50" VIEWS="9">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="49" Key="1" Mode="R" SortType="60" VIEW="51" VIEWS="9">
                   <DB comp="2" obj="107"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -1532,7 +1551,7 @@
                 <END_LINK FlowIsn="60"/>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="61" Key="1" Mode="R" SortType="69" VIEW="59" VIEWS="7">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="61" Key="1" Mode="R" SortType="69" VIEW="60" VIEWS="7">
                   <DB comp="2" obj="120"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -1632,7 +1651,7 @@
                 <END_LINK FlowIsn="69"/>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="70" Key="1" Mode="R" SortType="78" VIEW="66" VIEWS="7">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="70" Key="1" Mode="R" SortType="78" VIEW="67" VIEWS="7">
                   <DB comp="2" obj="120"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -1732,7 +1751,7 @@
                 <END_LINK FlowIsn="78"/>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="79" Key="5" Mode="R" SortType="87" VIEW="73" VIEWS="8">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="79" Key="5" Mode="R" SortType="87" VIEW="74" VIEWS="8">
                   <DB comp="2" obj="716"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -1857,7 +1876,7 @@
                 </Select>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FieldID="77" FlowIsn="89" Key="1" Mode="R" SortType="95" VIEW="82" VIEWS="5">
+                <LNK Direction="A" EVL_CND="R" FieldID="77" FlowIsn="89" Key="1" Mode="R" SortType="95" VIEW="83" VIEWS="5">
                   <DB comp="2" obj="307"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -1968,7 +1987,7 @@
                 </Select>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="99" Key="1" Mode="R" SortType="106" VIEW="90" VIEWS="6">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="99" Key="1" Mode="R" SortType="106" VIEW="91" VIEWS="6">
                   <DB comp="2" obj="848"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -2055,7 +2074,7 @@
                 <END_LINK FlowIsn="106"/>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="107" Key="3" Mode="R" SortType="115" VIEW="96" VIEWS="7">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="107" Key="3" Mode="R" SortType="115" VIEW="97" VIEWS="7">
                   <DB comp="2" obj="849"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -2144,6 +2163,7 @@
                   <Type val="R"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
+                  <REAL_VNAME_TXT val="RechnungsNr_AuftragRNR"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -2220,7 +2240,7 @@
                 </Select>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FieldID="103" FlowIsn="122" Key="1" Mode="R" SortType="129" VIEW="108" VIEWS="6">
+                <LNK Direction="A" EVL_CND="R" FieldID="103" FlowIsn="122" Key="1" Mode="R" SortType="129" VIEW="109" VIEWS="6">
                   <DB comp="2" obj="350"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -2308,7 +2328,7 @@
                 <END_LINK FlowIsn="129"/>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="130" Key="1" Mode="R" SortType="144" VIEW="114" VIEWS="13">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="130" Key="1" Mode="R" SortType="144" VIEW="115" VIEWS="13">
                   <DB comp="2" obj="113"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -2488,7 +2508,7 @@
                 <END_LINK FlowIsn="144"/>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="145" Key="1" Mode="R" SortType="152" VIEW="127" VIEWS="6">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="145" Key="1" Mode="R" SortType="152" VIEW="128" VIEWS="6">
                   <DB comp="2" obj="586"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -2575,7 +2595,7 @@
                 <END_LINK FlowIsn="152"/>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="153" Key="1" Mode="R" SortType="161" VIEW="133" VIEWS="7">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="153" Key="1" Mode="R" SortType="161" VIEW="134" VIEWS="7">
                   <DB comp="2" obj="414"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -2687,7 +2707,7 @@
                 </Select>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="163" Key="4" Mode="R" SortType="173" VIEW="141" VIEWS="8">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="163" Key="4" Mode="R" SortType="173" VIEW="142" VIEWS="8">
                   <DB comp="2" obj="1613"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -2892,7 +2912,7 @@
                 </Select>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="180" Key="1" Mode="R" SortType="193" VIEW="155" VIEWS="12">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="180" Key="1" Mode="R" SortType="193" VIEW="156" VIEWS="12">
                   <DB comp="2" obj="1630"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -3056,7 +3076,7 @@
                 <END_LINK FlowIsn="193"/>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="194" Key="1" Mode="R" SortType="201" VIEW="167" VIEWS="6">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="194" Key="1" Mode="R" SortType="201" VIEW="168" VIEWS="6">
                   <DB comp="2" obj="105"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -3191,7 +3211,7 @@
                 </Select>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="476" Key="1" Mode="R" SortType="477" VIEW="177" VIEWS="7">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="476" Key="1" Mode="R" SortType="477" VIEW="178" VIEWS="7">
                   <DB comp="2" obj="355"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -3515,6 +3535,7 @@
             <LogicLines>
               <LogicLine>
                 <BLOCK EndBlock="232" EndBlockSegment="234" FlowIsn="211" Type="I">
+                  <Expanded val="1"/>
                   <Condition Exp="28"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -3522,6 +3543,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="217" EndBlockSegment="739" FlowIsn="212" Type="I">
+                  <Expanded val="1"/>
                   <Condition Exp="37"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -3611,6 +3633,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="217" EndBlockSegment="217" FlowIsn="739" Type="E">
+                  <Expanded val="1"/>
                   <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -3805,6 +3828,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="230" EndBlockSegment="230" FlowIsn="223" Type="I">
+                  <Expanded val="1"/>
                   <Condition Exp="42"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -4019,6 +4043,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="232" EndBlockSegment="232" FlowIsn="234" Type="E">
+                  <Expanded val="1"/>
                   <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -4497,7 +4522,7 @@
             <ExpAttribute val="A"/>
           </Expression>
           <Expression id="28">
-            <ExpSyntax val="({0,51} AND NOT({0,171} AND {0,168}) AND {0,26}&lt;1 AND NOT ({0,69}) AND IF ({0,7},{0,8}&lt;>IF ({0,32}=NULL (),0,{0,32}),'TRUE'LOG) AND NOT ({0,55}) AND NOT({0,172}>'' AND InStr({0,172},{0,36})>0) AND NOT({0,169} AND {0,162}>'01/01/1901'DATE AND {0,162}-Date() &lt; {0,170}) AND IF({0,128},{0,120}&lt;2,'TRUE'LOG)) OR (({0,115}={0,195} AND Trim({0,195})&lt;>'') OR ({0,115}={0,196} AND Trim({0,196})&lt;>''))"/>
+            <ExpSyntax val="(&#xD;&#xA;{0,51} AND &#xD;&#xA;NOT({0,171} AND {0,168}) &#xD;&#xA;AND {0,26}&lt;1 &#xD;&#xA;AND NOT ({0,69}) &#xD;&#xA;AND IF ({0,7},{0,8}&lt;>IF ({0,32}=NULL (),0,{0,32}),'TRUE'LOG) &#xD;&#xA;AND NOT ({0,55}) &#xD;&#xA;AND NOT({0,172}>'' AND InStr({0,172},{0,36})>0) &#xD;&#xA;AND NOT({0,169} AND {0,162}>'01/01/1901'DATE AND {0,162}-Date() &lt; {0,170}) &#xD;&#xA;AND IF({0,128},{0,120}&lt;2,'TRUE'LOG)&#xD;&#xA;) &#xD;&#xA;OR (&#xD;&#xA;({0,115}={0,195} AND Trim({0,195})&lt;>'') &#xD;&#xA;OR ({0,115}={0,196} AND Trim({0,196})&lt;>'')&#xD;&#xA;)"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="29">
@@ -4533,7 +4558,7 @@
             <ExpAttribute val="N"/>
           </Expression>
           <Expression id="37">
-            <ExpSyntax val="NOT ({0,77}) AND {0,91}=0 AND {0,98}=0"/>
+            <ExpSyntax val="NOT ({0,77}) AND (ISNULL({0,91}) OR {0,91}=0) AND IF(NOT({0,206}),ISNULL({0,98}) OR {0,98}=0,'TRUE'LOG)"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="38">

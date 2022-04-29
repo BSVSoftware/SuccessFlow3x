@@ -34,9 +34,9 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738159" _time="40015" date="04.01.2022" time="11:06:55"/>
+          <LastModified _date="738243" _time="57392" date="29.03.2022" time="15:56:32"/>
         </Header>
-        <ItemIsn val="114"/>
+        <ItemIsn val="115"/>
         <Resource>
           <DB id="1">
             <DataObject comp="-1" obj="3"/>
@@ -331,6 +331,12 @@
             <Column id="23" name="STF1_MwSt_Datum_v">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_DATE" id="1"/>
+                <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
+            <Column id="24" name="STF5_KontenProSteuer_v">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_LOGICAL" id="1"/>
                 <_FieldStyle id="276" val="1"/>
               </PropertyList>
             </Column>
@@ -1939,6 +1945,18 @@
                   <Direction val="C"/>
                 </Select>
               </LogicLine>
+              <LogicLine>
+                <Select FieldID="115" FlowIsn="156" id="115">
+                  <Column val="24"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
             </LogicLines>
           </LogicUnit>
           <LogicUnit id="3" propagate="78">
@@ -2111,6 +2129,10 @@
                     <Argument>
                       <Skip val="Y"/>
                     </Argument>
+                    <Argument>
+                      <Expression val="33"/>
+                      <Skip val="N"/>
+                    </Argument>
                   </Arguments>
                   <Wait val="Y"/>
                   <SyncData val="N"/>
@@ -2122,6 +2144,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="147" EndBlockSegment="147" FlowIsn="141" Type="I">
+                  <Expanded val="1"/>
                   <Condition Exp="5"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -2464,6 +2487,10 @@
             <ExpSyntax val="IF({0,34}>'01/01/1901'DATE,{0,34},{0,15})"/>
             <ExpAttribute val="D"/>
           </Expression>
+          <Expression id="33">
+            <ExpSyntax val="{0,115}"/>
+            <ExpAttribute val="B"/>
+          </Expression>
         </Expressions>
         <VarRangeInfo Mode="E" VarRangeVeeIsn="5" id="1"/>
         <VarRangeInfo Mode="E" VarRangeVeeIsn="6" id="2"/>
@@ -2474,7 +2501,7 @@
         <VarRangeInfo Mode="E" VarRangeVeeIsn="26" id="7"/>
         <VarRangeInfo Mode="E" VarRangeVeeIsn="18" id="8"/>
         <Task MainProgram="N">
-          <Header Description="Positionen anlegen" ISN_2="2" id="200">
+          <Header Description="Positionen anlegen" ISN_2="2" LastIsn="5" id="200">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -4645,7 +4672,7 @@
           <VarRangeInfo Mode="E" VarRangeVeeIsn="5" id="5"/>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Kopf anlegen" ISN_2="3" id="200">
+          <Header Description="Kopf anlegen" ISN_2="3" LastIsn="5" id="200">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -6244,7 +6271,7 @@
           </Expressions>
         </Task>
         <Task MainProgram="N">
-          <Header Description="STF auslesen" ISN_2="4" id="200">
+          <Header Description="STF auslesen" ISN_2="4" LastIsn="5" id="200">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -6257,9 +6284,9 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="737630" _time="42030" date="24.07.2020" time="11:40:30"/>
+            <LastModified _date="738243" _time="57379" date="29.03.2022" time="15:56:19"/>
           </Header>
-          <ItemIsn val="32"/>
+          <ItemIsn val="33"/>
           <Resource>
             <DB id="1">
               <DataObject comp="-1" obj="7"/>
@@ -6471,7 +6498,7 @@
                   <END_LINK FlowIsn="11"/>
                 </LogicLine>
                 <LogicLine>
-                  <LNK Direction="A" EVL_CND="R" FlowIsn="12" Key="1" Mode="R" SortType="20" VIEW="8" VIEWS="7">
+                  <LNK Direction="A" EVL_CND="R" FlowIsn="12" Key="1" Mode="R" SortType="20" VIEW="8" VIEWS="8">
                     <DB comp="-1" obj="208"/>
                     <Expanded val="1"/>
                     <Condition val="Y"/>
@@ -6567,10 +6594,22 @@
                   </Select>
                 </LogicLine>
                 <LogicLine>
+                  <Select FieldID="33" FlowIsn="55" id="33">
+                    <Column val="270"/>
+                    <Type val="R"/>
+                    <ExposedToRoute val="N"/>
+                    <IsParameter val="N"/>
+                    <DIFF_UPDATE val="T"/>
+                    <Condition val="N"/>
+                    <Modifier val="S"/>
+                    <Direction val="C"/>
+                  </Select>
+                </LogicLine>
+                <LogicLine>
                   <END_LINK FlowIsn="20"/>
                 </LogicLine>
                 <LogicLine>
-                  <LNK Direction="A" EVL_CND="R" FlowIsn="21" Key="1" Mode="R" SortType="28" VIEW="15" VIEWS="6">
+                  <LNK Direction="A" EVL_CND="R" FlowIsn="21" Key="1" Mode="R" SortType="28" VIEW="16" VIEWS="6">
                     <DB comp="-1" obj="192"/>
                     <Expanded val="1"/>
                     <Condition val="Y"/>
@@ -6657,7 +6696,7 @@
                   <END_LINK FlowIsn="28"/>
                 </LogicLine>
                 <LogicLine>
-                  <LNK Direction="A" EVL_CND="R" FlowIsn="29" Key="1" Mode="R" SortType="42" VIEW="21" VIEWS="12">
+                  <LNK Direction="A" EVL_CND="R" FlowIsn="29" Key="1" Mode="R" SortType="42" VIEW="22" VIEWS="12">
                     <DB comp="-1" obj="7"/>
                     <Expanded val="1"/>
                     <Condition val="Y"/>
@@ -6973,6 +7012,18 @@
                     <Direction val="C"/>
                   </Update>
                 </LogicLine>
+                <LogicLine>
+                  <Update FlowIsn="56">
+                    <Parent val="1"/>
+                    <FieldID val="115"/>
+                    <WithValue val="18"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Update>
+                </LogicLine>
               </LogicLines>
             </LogicUnit>
           </TaskLogic>
@@ -7054,10 +7105,14 @@
               <ExpSyntax val="{0,32}"/>
               <ExpAttribute val="D"/>
             </Expression>
+            <Expression id="18">
+              <ExpSyntax val="{0,33}"/>
+              <ExpAttribute val="B"/>
+            </Expression>
           </Expressions>
         </Task>
         <Task MainProgram="N">
-          <Header Description="maxAbgerchnetBisErmitteln" ISN_2="5" id="200">
+          <Header Description="maxAbgerchnetBisErmitteln" ISN_2="5" LastIsn="5" id="200">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>

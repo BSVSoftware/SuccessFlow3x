@@ -32,7 +32,7 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738007" _time="60391" date="05.08.2021" time="16:46:31"/>
+          <LastModified _date="738246" _time="35768" date="01.04.2022" time="09:56:08"/>
         </Header>
         <ItemIsn val="56"/>
         <Resource>
@@ -1921,7 +1921,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="737795" _time="57734" date="05.01.2021" time="16:02:14"/>
+            <LastModified _date="738246" _time="35768" date="01.04.2022" time="09:56:08"/>
           </Header>
           <ItemIsn val="143"/>
           <Resource>
@@ -4376,6 +4376,18 @@
                     <Direction val="C"/>
                   </Evaluate>
                 </LogicLine>
+                <LogicLine>
+                  <Update FlowIsn="659">
+                    <Parent val="1"/>
+                    <FieldID val="45"/>
+                    <WithValue val="46"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Update>
+                </LogicLine>
               </LogicLines>
             </LogicUnit>
             <LogicUnit id="4" propagate="78">
@@ -5837,15 +5849,15 @@
               <ExpAttribute val="A"/>
             </Expression>
             <Expression id="60">
-              <ExpSyntax val="Left(LTrim(Trim({0,25})&amp;' ')&amp;Trim({0,26}),50)>''"/>
+              <ExpSyntax val="Len(LTrim(Trim({0,25})&amp;' ')&amp;Trim({0,26}))>=50"/>
               <ExpAttribute val="B"/>
             </Expression>
             <Expression id="61">
-              <ExpSyntax val="Trim({0,122})&amp;'&quot;'&amp;Trim({0,27})&amp;'&quot;;'"/>
+              <ExpSyntax val="Trim({0,122})&amp;'&quot;'&amp;Left(LTrim(Trim({0,25})&amp;' ')&amp;Trim({0,26})&amp;' '&amp;Trim({0,27}),50)&amp;'&quot;;'"/>
               <ExpAttribute val="A"/>
             </Expression>
             <Expression id="62">
-              <ExpSyntax val="Left(LTrim(Trim({0,25})&amp;' ')&amp;Trim({0,26}),50)=''"/>
+              <ExpSyntax val="Len(LTrim(Trim({0,25})&amp;' ')&amp;Trim({0,26}))&lt;50"/>
               <ExpAttribute val="B"/>
             </Expression>
             <Expression id="63">

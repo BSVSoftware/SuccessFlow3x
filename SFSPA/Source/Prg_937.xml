@@ -13,7 +13,7 @@
   <ProgramsRepository>
     <Programs>
       <Task MainProgram="N">
-        <Header Description="2799 FleetDaten bereinigen" ISN_2="1" LastIsn="23" id="937">
+        <Header Description="2799 FleetDaten bereinigen" ISN_2="1" LastIsn="24" id="937">
           <ExecutionRight comp="-1"/>
           <Resident val="Y"/>
           <SQL val="N"/>
@@ -36,7 +36,7 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738144" _time="40283" date="20.12.2021" time="11:11:23"/>
+          <LastModified _date="738214" _time="33515" date="28.02.2022" time="09:18:35"/>
         </Header>
         <ItemIsn val="37"/>
         <Resource>
@@ -1172,10 +1172,20 @@
                 <END_BLK FlowIsn="250"/>
               </LogicLine>
               <LogicLine>
-                <Remark FlowIsn="137">
-                  <Type val="2"/>
-                  <Text val=" "/>
-                </Remark>
+                <CallTask FlowIsn="137">
+                  <OperationType val="T"/>
+                  <Event>
+                    <EventType val="N"/>
+                  </Event>
+                  <TaskID comp="-1" obj="24"/>
+                  <Lock val="N"/>
+                  <Wait val="Y"/>
+                  <SyncData val="N"/>
+                  <RetainFocus val="N"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </CallTask>
               </LogicLine>
               <LogicLine>
                 <CallTask FlowIsn="132">
@@ -1394,7 +1404,7 @@
           </Expression>
         </Expressions>
         <Task MainProgram="N">
-          <Header Description="Daten löschen" ISN_2="2" LastIsn="23" id="937">
+          <Header Description="Daten löschen" ISN_2="2" LastIsn="24" id="937">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="Y"/>
@@ -1591,7 +1601,7 @@
           </Expressions>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Daten zählen" ISN_2="19" LastIsn="23" id="937">
+          <Header Description="Daten zählen" ISN_2="19" LastIsn="24" id="937">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="Y"/>
@@ -1848,7 +1858,7 @@
           </Expressions>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Daten löschen SCFleet" ISN_2="20" LastIsn="23" id="937">
+          <Header Description="Daten löschen SCFleet" ISN_2="20" LastIsn="24" id="937">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="Y"/>
@@ -2057,7 +2067,7 @@
           </Expressions>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Daten zählen SCFleet" ISN_2="23" LastIsn="23" id="937">
+          <Header Description="Daten zählen SCFleet" ISN_2="23" LastIsn="24" id="937">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="Y"/>
@@ -2310,6 +2320,129 @@
             <Expression id="2">
               <ExpSyntax val="{0,7}"/>
               <ExpAttribute val="N"/>
+            </Expression>
+          </Expressions>
+        </Task>
+        <Task MainProgram="N">
+          <Header Description="ws_jobs" ISN_2="24" LastIsn="24" id="937">
+            <ExecutionRight comp="-1"/>
+            <Resident val="N"/>
+            <SQL val="Y"/>
+            <ReturnValue>
+              <ReturnValueAttr/>
+              <ParametersAttributes/>
+            </ReturnValue>
+            <SqlWhereExist val="N"/>
+            <TaskType val="B"/>
+            <External val="N"/>
+            <FormType val="N"/>
+            <DotNetObjectExists val="N"/>
+            <LastModified _date="738214" _time="33515" date="28.02.2022" time="09:18:35"/>
+          </Header>
+          <Resource>
+            <Columns/>
+          </Resource>
+          <Information>
+            <Key>
+              <Mode val="N"/>
+            </Key>
+            <DB comp="-1"/>
+            <Sort>
+              <CLS val="A"/>
+            </Sort>
+            <ForceRecordDelete DEL="N"/>
+            <EndTaskCondition val="Y"/>
+            <EvaluateEndCondition val="A"/>
+            <InitialMode val="E"/>
+            <Locate Direction="A"/>
+            <Range Direction="A"/>
+            <VarRange/>
+            <TaskProperties>
+              <SelectionTable val="N"/>
+              <ConfirmUpdate CNFU="N"/>
+              <ConfirmCancel val="N"/>
+              <ErrorStrategy val="A"/>
+              <LockingStrategy val="I"/>
+              <CacheStrategy val="N"/>
+              <ForceRecordSuffix val="N"/>
+              <TransactionMode val="W"/>
+              <TransactionBegin val="T"/>
+              <PreloadView val="N"/>
+              <AllowEmptyDataview val="N"/>
+              <KeepCreatedContext val="N"/>
+            </TaskProperties>
+            <SIDE_WIN>
+              <AllowOptions val="N"/>
+              <AllowQuery val="Y"/>
+              <AllowModify val="N"/>
+              <AllowCreate val="N"/>
+              <AllowDelete val="N"/>
+              <AllowLocate val="Y"/>
+              <AllowRange val="Y"/>
+              <AllowIndexChange val="N"/>
+              <AllowSorting val="Y"/>
+              <AllowIOFiles val="Y"/>
+              <RecordCycle val="Y"/>
+              <AllowEvents val="N"/>
+              <AllowIndexOptimization val="Y"/>
+              <AllowLocationInQuery val="Y"/>
+              <AllowPrintingData val="N"/>
+            </SIDE_WIN>
+            <WIN>
+              <OpenTaskWindow val="N"/>
+              <CloseTaskWindow val="Y"/>
+              <ForegroundWindow val="Y"/>
+              <FlipFld val="N"/>
+              <RefreshTaskWindow ReturnValue="N"/>
+            </WIN>
+            <BOX>
+              <Direction val="V"/>
+            </BOX>
+          </Information>
+          <SQL_FORM DB="SQLWS" RESTAB="SQLWS">
+            <SQL_STMT_U val="delete from fleet_jobs where Empfangen &lt; ':1'"/>
+            <INARG>
+              <Arguments>
+                <Argument>
+                  <Exp val="1"/>
+                </Argument>
+              </Arguments>
+            </INARG>
+          </SQL_FORM>
+          <TaskLogic>
+            <LogicUnit id="1" propagate="78">
+              <Level val="R"/>
+              <Type val="M"/>
+              <Scope val="S"/>
+              <EngineDirective val="S"/>
+              <ShowMessage val="Y"/>
+              <Condition val="89"/>
+              <Event>
+                <EventType val="S"/>
+              </Event>
+              <LogicLines>
+                <LogicLine>
+                  <DATAVIEW_SRC FlowIsn="1" Type="Q">
+                    <Condition val="N"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </DATAVIEW_SRC>
+                </LogicLine>
+              </LogicLines>
+            </LogicUnit>
+          </TaskLogic>
+          <TaskForms>
+            <FormEntry id="1">
+              <PropertyList model="FORM_GUI0">
+                <_Comment id="218"/>
+                <FormName id="311" valUnicode="ws_jobs"/>
+              </PropertyList>
+            </FormEntry>
+          </TaskForms>
+          <Expressions>
+            <Expression id="1">
+              <ExpSyntax val="DStr(AddDate(Date(),0,0,-14),'DD.MM.YYYY')"/>
+              <ExpAttribute val="U"/>
             </Expression>
           </Expressions>
         </Task>

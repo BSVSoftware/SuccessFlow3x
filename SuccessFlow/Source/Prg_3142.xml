@@ -19,7 +19,7 @@
           <SQL val="N"/>
           <ReturnValue>
             <ReturnValueAttr/>
-            <TSK_PARAMS val="14"/>
+            <TSK_PARAMS val="15"/>
             <ParametersAttributes>
               <Attr MgAttr="N"/>
               <Attr MgAttr="N"/>
@@ -35,6 +35,7 @@
               <Attr MgAttr="N"/>
               <Attr MgAttr="A"/>
               <Attr MgAttr="A"/>
+              <Attr MgAttr="B"/>
             </ParametersAttributes>
           </ReturnValue>
           <SqlWhereExist val="N"/>
@@ -44,9 +45,9 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738113" _time="61011" date="19.11.2021" time="16:56:51"/>
+          <LastModified _date="738231" _time="59235" date="17.03.2022" time="16:27:15"/>
         </Header>
-        <ItemIsn val="77"/>
+        <ItemIsn val="78"/>
         <Resource>
           <Columns>
             <Column id="27" name="Ebene1_p">
@@ -181,6 +182,12 @@
                 <StoredAs id="173" val="1"/>
                 <Size id="174" val="1000"/>
                 <_Flip id="194"/>
+              </PropertyList>
+            </Column>
+            <Column id="35" name="DruckenQNichtLöschen_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_LOGICAL" id="1"/>
+                <_FieldStyle id="276" val="1"/>
               </PropertyList>
             </Column>
             <Column id="13" name="An_v">
@@ -603,6 +610,18 @@
                     <v>18</v>
                   </INT_DIT_INFO>
                   <_DitIndexForToolkit val="10"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="78" FlowIsn="326" id="78">
+                  <Column val="35"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -1344,7 +1363,7 @@
                   <Wait val="Y"/>
                   <SyncData val="N"/>
                   <RetainFocus val="N"/>
-                  <Condition val="Y"/>
+                  <Condition Exp="43"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </CallTask>
@@ -1679,6 +1698,10 @@
           </Expression>
           <Expression id="42">
             <ExpSyntax val="'TRUE'LOG"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="43">
+            <ExpSyntax val="NOT ({0,78})"/>
             <ExpAttribute val="B"/>
           </Expression>
         </Expressions>

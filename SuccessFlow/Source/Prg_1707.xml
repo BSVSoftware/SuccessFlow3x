@@ -32,7 +32,7 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738007" _time="60358" date="05.08.2021" time="16:45:58"/>
+          <LastModified _date="738256" _time="50635" date="11.04.2022" time="14:03:55"/>
         </Header>
         <ItemIsn val="64"/>
         <Resource>
@@ -2633,7 +2633,7 @@
           </Expression>
         </Expressions>
         <Task MainProgram="N">
-          <Header Description="Daten ausgeben" ISN_2="2" LastIsn="5" id="1707">
+          <Header Description="Daten ausgeben" ISN_2="2" LastIsn="12" id="1707">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -2650,7 +2650,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="737873" _time="27482" date="24.03.2021" time="07:38:02"/>
+            <LastModified _date="738256" _time="50531" date="11.04.2022" time="14:02:11"/>
           </Header>
           <ItemIsn val="116"/>
           <Resource>
@@ -3093,7 +3093,6 @@
             </BOX>
           </Information>
           <INT_CMP_LIST_INFO>
-            <v>3</v>
             <v>2</v>
           </INT_CMP_LIST_INFO>
           <TaskLogic>
@@ -4561,6 +4560,17 @@
                     <Direction val="C"/>
                   </FormIO>
                 </LogicLine>
+                <LogicLine>
+                  <Update FlowIsn="435">
+                    <FieldID val="95"/>
+                    <WithValue val="22"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Update>
+                </LogicLine>
               </LogicLines>
             </LogicUnit>
             <LogicUnit id="4" propagate="78">
@@ -4695,7 +4705,7 @@
                     <WithValue val="42"/>
                     <Incremental val="N"/>
                     <ForcedUpdate val="Y"/>
-                    <Condition Exp="54"/>
+                    <Condition Exp="67"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </Update>
@@ -4706,7 +4716,7 @@
                     <WithValue val="56"/>
                     <Incremental val="N"/>
                     <ForcedUpdate val="Y"/>
-                    <Condition Exp="55"/>
+                    <Condition Exp="68"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </Update>
@@ -4957,7 +4967,7 @@
                     <Event>
                       <EventType val="N"/>
                     </Event>
-                    <TaskID comp="3" obj="308"/>
+                    <TaskID comp="2" obj="4840"/>
                     <Lock val="Y"/>
                     <Arguments>
                       <Argument>
@@ -6091,16 +6101,16 @@
               <ExpSyntax val="Trim({0,94})&amp;'&quot;&quot;;&quot;'&amp;Trim({0,49})&amp;'&quot;;'"/>
               <ExpAttribute val="A"/>
             </Expression>
-            <Expression id="54">
-              <ExpSyntax val="Left(LTrim(Trim({0,25})&amp;' ')&amp;Trim({0,26}),50)>''"/>
+            <Expression id="67">
+              <ExpSyntax val="Len(LTrim(Trim({0,25})&amp;' ')&amp;Trim({0,26}))>=50"/>
               <ExpAttribute val="B"/>
             </Expression>
-            <Expression id="55">
-              <ExpSyntax val="Left(LTrim(Trim({0,25})&amp;' ')&amp;Trim({0,26}),50)=''"/>
+            <Expression id="68">
+              <ExpSyntax val="Len(LTrim(Trim({0,25})&amp;' ')&amp;Trim({0,26}))&lt;50"/>
               <ExpAttribute val="B"/>
             </Expression>
             <Expression id="56">
-              <ExpSyntax val="Trim({0,94})&amp;'&quot;'&amp;Trim({0,27})&amp;'&quot;;'"/>
+              <ExpSyntax val="Trim({0,94})&amp;'&quot;'&amp;Left(LTrim(Trim({0,25})&amp;' ')&amp;Trim({0,26})&amp;' '&amp;Trim({0,27}),50)&amp;'&quot;;'"/>
               <ExpAttribute val="A"/>
             </Expression>
             <Expression id="57">
@@ -6145,7 +6155,7 @@
           <VarRangeInfo Mode="F" VarRangeVeeIsn="54" id="7"/>
           <VarRangeInfo Mode="T" VarRangeVeeIsn="54" id="8"/>
           <Task MainProgram="N">
-            <Header Description="Erlöskonten /RNr" ISN_2="3" LastIsn="4" id="1707">
+            <Header Description="Erlöskonten /RNr" ISN_2="3" LastIsn="12" id="1707">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -6158,7 +6168,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="737873" _time="27482" date="24.03.2021" time="07:38:02"/>
+              <LastModified _date="738256" _time="50635" date="11.04.2022" time="14:03:55"/>
             </Header>
             <ItemIsn val="36"/>
             <Resource>
@@ -6955,6 +6965,43 @@
                   </LogicLine>
                 </LogicLines>
               </LogicUnit>
+              <LogicUnit id="11" propagate="78">
+                <Level val="G"/>
+                <Type val="P"/>
+                <FieldID val="3"/>
+                <Scope val="S"/>
+                <EngineDirective val="S"/>
+                <ShowMessage val="Y"/>
+                <Condition val="89"/>
+                <Event>
+                  <EventType val="S"/>
+                </Event>
+                <Expanded val="1"/>
+                <LogicLines>
+                  <LogicLine>
+                    <Update FlowIsn="261">
+                      <FieldID val="10"/>
+                      <WithValue val="15"/>
+                      <Incremental val="N"/>
+                      <ForcedUpdate val="Y"/>
+                      <Condition val="Y"/>
+                      <Modifier val="B"/>
+                      <Direction val="C"/>
+                    </Update>
+                  </LogicLine>
+                  <LogicLine>
+                    <Update FlowIsn="262">
+                      <FieldID val="11"/>
+                      <WithValue val="15"/>
+                      <Incremental val="N"/>
+                      <ForcedUpdate val="Y"/>
+                      <Condition val="Y"/>
+                      <Modifier val="B"/>
+                      <Direction val="C"/>
+                    </Update>
+                  </LogicLine>
+                </LogicLines>
+              </LogicUnit>
               <LogicUnit id="5" propagate="78">
                 <Level val="G"/>
                 <Type val="P"/>
@@ -7007,7 +7054,7 @@
               <LogicUnit id="7" propagate="78">
                 <Level val="G"/>
                 <Type val="S"/>
-                <FieldID val="6"/>
+                <FieldID val="3"/>
                 <Scope val="S"/>
                 <EngineDirective val="S"/>
                 <ShowMessage val="Y"/>
@@ -7023,6 +7070,7 @@
                       <WithValue val="6"/>
                       <Incremental val="N"/>
                       <ForcedUpdate val="Y"/>
+                      <Disabled val="1"/>
                       <Condition val="Y"/>
                       <Modifier val="B"/>
                       <Direction val="C"/>
@@ -7034,6 +7082,7 @@
                       <WithValue val="5"/>
                       <Incremental val="N"/>
                       <ForcedUpdate val="Y"/>
+                      <Disabled val="1"/>
                       <Condition val="Y"/>
                       <Modifier val="B"/>
                       <Direction val="C"/>
@@ -7078,6 +7127,7 @@
                       <Wait val="Y"/>
                       <SyncData val="N"/>
                       <RetainFocus val="N"/>
+                      <Disabled val="1"/>
                       <Condition Exp="4"/>
                       <Modifier val="S"/>
                       <Direction val="C"/>
@@ -7094,6 +7144,7 @@
                       <FormEntryInfo>
                         <FormEntryIndex val="2"/>
                       </FormEntryInfo>
+                      <Disabled val="1"/>
                       <Condition Exp="4"/>
                       <Modifier val="B"/>
                       <Direction val="C"/>
@@ -7112,6 +7163,7 @@
                       <WithValue val="13"/>
                       <Incremental val="N"/>
                       <ForcedUpdate val="Y"/>
+                      <Disabled val="1"/>
                       <Condition val="Y"/>
                       <Modifier val="B"/>
                       <Direction val="C"/>
@@ -7119,6 +7171,134 @@
                   </LogicLine>
                   <LogicLine>
                     <Update FlowIsn="36">
+                      <Parent val="2"/>
+                      <FieldID val="2"/>
+                      <WithValue val="12"/>
+                      <Incremental val="N"/>
+                      <ForcedUpdate val="Y"/>
+                      <Disabled val="1"/>
+                      <Condition val="Y"/>
+                      <Modifier val="B"/>
+                      <Direction val="C"/>
+                    </Update>
+                  </LogicLine>
+                </LogicLines>
+              </LogicUnit>
+              <LogicUnit id="10" propagate="78">
+                <Level val="G"/>
+                <Type val="S"/>
+                <FieldID val="6"/>
+                <Scope val="S"/>
+                <EngineDirective val="S"/>
+                <ShowMessage val="Y"/>
+                <Condition val="89"/>
+                <Event>
+                  <EventType val="S"/>
+                </Event>
+                <Expanded val="1"/>
+                <LogicLines>
+                  <LogicLine>
+                    <Update FlowIsn="253">
+                      <FieldID val="12"/>
+                      <WithValue val="6"/>
+                      <Incremental val="N"/>
+                      <ForcedUpdate val="Y"/>
+                      <Condition val="Y"/>
+                      <Modifier val="B"/>
+                      <Direction val="C"/>
+                    </Update>
+                  </LogicLine>
+                  <LogicLine>
+                    <Update FlowIsn="254">
+                      <FieldID val="11"/>
+                      <WithValue val="5"/>
+                      <Incremental val="N"/>
+                      <ForcedUpdate val="Y"/>
+                      <Condition val="Y"/>
+                      <Modifier val="B"/>
+                      <Direction val="C"/>
+                    </Update>
+                  </LogicLine>
+                  <LogicLine>
+                    <Remark FlowIsn="255">
+                      <Type val="2"/>
+                      <Text val=" "/>
+                    </Remark>
+                  </LogicLine>
+                  <LogicLine>
+                    <CallTask FlowIsn="256">
+                      <OperationType val="T"/>
+                      <Event>
+                        <EventType val="N"/>
+                      </Event>
+                      <TaskID comp="-1" obj="4"/>
+                      <Lock val="N"/>
+                      <Arguments>
+                        <Argument>
+                          <Expression val="45"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Expression val="40"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Variable val="6"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Expression val="44"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Expression val="51"/>
+                          <Skip val="N"/>
+                        </Argument>
+                      </Arguments>
+                      <Wait val="Y"/>
+                      <SyncData val="N"/>
+                      <RetainFocus val="N"/>
+                      <Condition Exp="4"/>
+                      <Modifier val="B"/>
+                      <Direction val="C"/>
+                    </CallTask>
+                  </LogicLine>
+                  <LogicLine>
+                    <FormIO FlowIsn="257">
+                      <OperationType val="O"/>
+                      <Page val="A"/>
+                      <IODeviceInfo>
+                        <IoDeviceParent val="2"/>
+                        <IoDeviceIndex val="1"/>
+                      </IODeviceInfo>
+                      <FormEntryInfo>
+                        <FormEntryIndex val="2"/>
+                      </FormEntryInfo>
+                      <Condition Exp="4"/>
+                      <Modifier val="B"/>
+                      <Direction val="C"/>
+                    </FormIO>
+                  </LogicLine>
+                  <LogicLine>
+                    <Remark FlowIsn="258">
+                      <Type val="2"/>
+                      <Text val=" "/>
+                    </Remark>
+                  </LogicLine>
+                  <LogicLine>
+                    <Update FlowIsn="259">
+                      <Parent val="2"/>
+                      <FieldID val="4"/>
+                      <WithValue val="13"/>
+                      <Incremental val="N"/>
+                      <ForcedUpdate val="Y"/>
+                      <Condition val="Y"/>
+                      <Modifier val="B"/>
+                      <Direction val="C"/>
+                    </Update>
+                  </LogicLine>
+                  <LogicLine>
+                    <Update FlowIsn="260">
                       <Parent val="2"/>
                       <FieldID val="2"/>
                       <WithValue val="12"/>
@@ -8321,7 +8501,7 @@
             </Expressions>
             <VarRangeInfo Mode="E" VarRangeVeeIsn="1" id="1"/>
             <Task MainProgram="N">
-              <Header Description="ausgabestring bauen" ISN_2="4" LastIsn="4" id="1707">
+              <Header Description="ausgabestring bauen" ISN_2="4" LastIsn="12" id="1707">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -9053,7 +9233,7 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="tmp erstellen" ISN_2="5" LastIsn="5" id="1707">
+            <Header Description="tmp erstellen" ISN_2="5" LastIsn="12" id="1707">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -9677,7 +9857,7 @@
           </Task>
         </Task>
         <Task MainProgram="N">
-          <Header Description="memory table löschen" ISN_2="11" LastIsn="11" id="1707">
+          <Header Description="memory table löschen" ISN_2="11" LastIsn="12" id="1707">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>

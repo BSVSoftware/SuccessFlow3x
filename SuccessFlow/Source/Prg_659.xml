@@ -38,7 +38,7 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738008" _time="55140" date="06.08.2021" time="15:19:00"/>
+          <LastModified _date="738235" _time="35057" date="21.03.2022" time="09:44:17"/>
         </Header>
         <ItemIsn val="84"/>
         <Resource>
@@ -575,7 +575,7 @@
                   <INT_RCMP_INFO>
                     <v>32</v>
                   </INT_RCMP_INFO>
-                  <_DitIndexForToolkit val="15"/>
+                  <_DitIndexForToolkit val="16"/>
                   <DIFF_UPDATE val="T"/>
                   <PartOfDataview val="Y"/>
                   <Condition val="Y"/>
@@ -913,7 +913,7 @@
                   <Type val="R"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
-                  <_DitIndexForToolkit val="16"/>
+                  <_DitIndexForToolkit val="17"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="N"/>
                   <Modifier val="S"/>
@@ -1384,7 +1384,7 @@
                     <v>18</v>
                     <v>20</v>
                   </INT_DIT_INFO>
-                  <_DitIndexForToolkit val="18"/>
+                  <_DitIndexForToolkit val="19"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -1564,7 +1564,7 @@
                   <Type val="V"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
-                  <_DitIndexForToolkit val="20"/>
+                  <_DitIndexForToolkit val="21"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -1589,7 +1589,7 @@
                   <Type val="V"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
-                  <_DitIndexForToolkit val="19"/>
+                  <_DitIndexForToolkit val="20"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -1739,6 +1739,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="114" EndBlockSegment="114" FlowIsn="113" Type="I">
+                  <Expanded val="1"/>
                   <Condition Exp="42"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -2040,7 +2041,7 @@
           </LogicUnit>
         </TaskLogic>
         <TaskForms>
-          <FormEntry _last_isn="24" _last_test_id="24" id="1">
+          <FormEntry _last_isn="25" _last_test_id="25" id="1">
             <PropertyList model="FORM_RICH_CLIENT">
               <Model comp="-1" id="1" obj="165"/>
               <X id="21" val="9"/>
@@ -2246,6 +2247,16 @@
                 <TabOrder id="314" val="8"/>
                 <AllowParking id="315"/>
                 <AllowedDirection id="317" val="1"/>
+              </PropertyList>
+            </Control>
+            <Control ISN_FATHER="6" _test_id="25" id="25">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="112"/>
+                <Text Exp="47" id="19" valUnicode="Kunde ist Interessent oder Betreiber"/>
+                <X id="21" val="83"/>
+                <Y id="22" val="156"/>
+                <Width id="23" val="251"/>
+                <Height id="24" val="11"/>
               </PropertyList>
             </Control>
             <Control PDOD="128" _test_id="13" id="13">
@@ -2477,11 +2488,11 @@
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="20">
-            <ExpSyntax val="{0,55}='I'"/>
+            <ExpSyntax val="{0,55}='I' OR {0,55}='B'"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="21">
-            <ExpSyntax val="{0,55}&lt;>'I'"/>
+            <ExpSyntax val="NOT({0,55}='I' OR {0,55}='B')"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="22">
@@ -2529,8 +2540,8 @@
             <ExpAttribute val="N"/>
           </Expression>
           <Expression id="33">
-            <ExpSyntax val="'Auftrag konnte nicht erzeugt werden. Ausgewählter Adressat ist nur Interessent.'"/>
-            <ExpAttribute val="A"/>
+            <ExpSyntax val="MlsTrans('Auftrag konnte nicht erzeugt werden. Ausgewählter Adressat ist nur Interessent oder ein Betreiber!')"/>
+            <ExpAttribute val="U"/>
           </Expression>
           <Expression id="34">
             <ExpSyntax val="999999999"/>
@@ -2541,7 +2552,7 @@
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="36">
-            <ExpSyntax val="MlsTrans('Der Serviceauftrag wurde angelegt!')"/>
+            <ExpSyntax val="MlsTrans('Der Serviceauftrag wurde angelegt.')"/>
             <ExpAttribute val="U"/>
           </Expression>
           <Expression id="37">
@@ -2580,6 +2591,10 @@
             <ExpSyntax val="{0,82}"/>
             <ExpAttribute val="N"/>
           </Expression>
+          <Expression id="47">
+            <ExpSyntax val="MlsTrans('Kunde ist Interessent oder Betreiber!')"/>
+            <ExpAttribute val="U"/>
+          </Expression>
         </Expressions>
         <EVNT DESC="Ausfuehren" FORCE_EXIT="N" id="1">
           <Event>
@@ -2605,7 +2620,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="736318" _time="59467" date="20.12.2016" time="16:31:07"/>
+            <LastModified _date="738235" _time="34809" date="21.03.2022" time="09:40:09"/>
           </Header>
           <ItemIsn val="21"/>
           <Resource>
@@ -3061,6 +3076,7 @@
               <LogicLines>
                 <LogicLine>
                   <BLOCK EndBlock="31" EndBlockSegment="31" FlowIsn="26" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="4"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -3145,6 +3161,7 @@
               <LogicLines>
                 <LogicLine>
                   <BLOCK EndBlock="37" EndBlockSegment="37" FlowIsn="32" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="4"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -3228,6 +3245,7 @@
               <LogicLines>
                 <LogicLine>
                   <BLOCK EndBlock="42" EndBlockSegment="42" FlowIsn="38" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="3"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -3388,7 +3406,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="737334" _time="61114" date="02.10.2019" time="16:58:34"/>
+              <LastModified _date="738235" _time="34809" date="21.03.2022" time="09:40:09"/>
             </Header>
             <ItemIsn val="100"/>
             <Resource>
@@ -5070,6 +5088,56 @@
                         <Argument>
                           <Skip val="Y"/>
                         </Argument>
+                        <Argument>
+                          <Parent val="32768"/>
+                          <Variable val="1440"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Parent val="32768"/>
+                          <Variable val="1441"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Parent val="32768"/>
+                          <Variable val="1442"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Parent val="32768"/>
+                          <Variable val="1449"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Parent val="32768"/>
+                          <Variable val="1450"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Parent val="32768"/>
+                          <Variable val="1451"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Parent val="32768"/>
+                          <Variable val="1452"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Parent val="32768"/>
+                          <Variable val="1470"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Parent val="32768"/>
+                          <Variable val="1471"/>
+                          <Skip val="N"/>
+                        </Argument>
+                        <Argument>
+                          <Parent val="32768"/>
+                          <Variable val="1486"/>
+                          <Skip val="N"/>
+                        </Argument>
                       </Arguments>
                       <Wait val="Y"/>
                       <SyncData val="N"/>
@@ -5127,6 +5195,7 @@
                   </LogicLine>
                   <LogicLine>
                     <BLOCK EndBlock="124" EndBlockSegment="124" FlowIsn="120" Type="I">
+                      <Expanded val="1"/>
                       <Condition Exp="38"/>
                       <Modifier val="B"/>
                       <Direction val="C"/>

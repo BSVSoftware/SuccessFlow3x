@@ -34,7 +34,7 @@
           <Offline val="N"/>
           <FormType val="U"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738082" _time="60804" date="19.10.2021" time="16:53:24"/>
+          <LastModified _date="738211" _time="32348" date="25.02.2022" time="08:59:08"/>
         </Header>
         <CHUNK val="26"/>
         <ItemIsn val="13"/>
@@ -300,7 +300,7 @@
                   <IsParameter val="N"/>
                   <DisplayName val="Fehlerkategorie"/>
                   <Range MAX="2" MIN="2"/>
-                  <_DitIndexForToolkit val="8"/>
+                  <_DitIndexForToolkit val="9"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -314,6 +314,7 @@
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
                   <Range MAX="1" MIN="1"/>
+                  <_DitIndexForToolkit val="10"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -327,7 +328,7 @@
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
                   <DisplayName val="Beschreibung"/>
-                  <_DitIndexForToolkit val="9"/>
+                  <_DitIndexForToolkit val="11"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -510,7 +511,7 @@
           <LogicUnit id="6" propagate="78">
             <Level val="H"/>
             <Type val="U"/>
-            <Scope val="S"/>
+            <Scope val="T"/>
             <EngineDirective val="S"/>
             <ShowMessage val="Y"/>
             <Condition val="89"/>
@@ -571,7 +572,7 @@
           <LogicUnit id="8" propagate="78">
             <Level val="H"/>
             <Type val="U"/>
-            <Scope val="S"/>
+            <Scope val="T"/>
             <EngineDirective val="S"/>
             <ShowMessage val="Y"/>
             <Condition val="89"/>
@@ -620,7 +621,7 @@
           <LogicUnit id="9" propagate="78">
             <Level val="H"/>
             <Type val="U"/>
-            <Scope val="S"/>
+            <Scope val="T"/>
             <EngineDirective val="S"/>
             <ShowMessage val="Y"/>
             <Condition val="89"/>
@@ -655,7 +656,7 @@
           <LogicUnit id="10" propagate="78">
             <Level val="H"/>
             <Type val="U"/>
-            <Scope val="S"/>
+            <Scope val="T"/>
             <EngineDirective val="S"/>
             <ShowMessage val="Y"/>
             <Condition val="89"/>
@@ -784,7 +785,7 @@
           <LogicUnit id="11" propagate="78">
             <Level val="H"/>
             <Type val="U"/>
-            <Scope val="S"/>
+            <Scope val="T"/>
             <EngineDirective val="S"/>
             <ShowMessage val="Y"/>
             <Condition val="-19"/>
@@ -814,7 +815,7 @@
           <LogicUnit id="12" propagate="78">
             <Level val="H"/>
             <Type val="U"/>
-            <Scope val="S"/>
+            <Scope val="T"/>
             <EngineDirective val="S"/>
             <ShowMessage val="Y"/>
             <Condition val="89"/>
@@ -854,9 +855,40 @@
               </LogicLine>
             </LogicLines>
           </LogicUnit>
+          <LogicUnit id="13" propagate="78">
+            <Level val="H"/>
+            <Type val="U"/>
+            <Scope val="T"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="U"/>
+              <Parent val="32768"/>
+              <PublicObject comp="-1" obj="2"/>
+            </Event>
+            <TXT val="lfdNr"/>
+            <Expanded val="1"/>
+            <ExecuteOn_ val="O"/>
+            <LogicLines>
+              <LogicLine>
+                <RaiseEvent FlowIsn="55">
+                  <Event>
+                    <EventType val="U"/>
+                    <Parent val="32768"/>
+                    <PublicObject comp="-1" obj="60"/>
+                  </Event>
+                  <Wait val="78"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </RaiseEvent>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
         </TaskLogic>
         <TaskForms>
-          <FormEntry _last_isn="12" _last_test_id="16" id="1">
+          <FormEntry _last_isn="14" _last_test_id="18" id="1">
             <PropertyList model="FORM_RICH_CLIENT">
               <Model comp="-1" id="1" obj="163"/>
               <X id="21" val="7"/>
@@ -952,18 +984,13 @@
             <Control _test_id="1" id="5">
               <PropertyList model="CTRL_RICH_CLIENT_TABLE">
                 <Model comp="-1" id="1" obj="19"/>
-                <Placement bottom="100" id="20" right="100"/>
                 <X id="21" val="10"/>
                 <Y id="22" val="42"/>
                 <Width id="23" val="1509"/>
                 <Height id="24" val="514"/>
-                <Color id="51" val="1"/>
-                <Visible id="61"/>
                 <_TitleHeight id="79" val="14"/>
                 <RowHeight id="80" val="14"/>
-                <Elements id="81" val="2"/>
-                <ColumnDivider id="189" val="Y"/>
-                <AllowColumnResize id="191" val="Y"/>
+                <Elements id="81" val="3"/>
                 <_WindowWidth id="241" val="1509"/>
                 <_LastDivider id="260" val="Y"/>
               </PropertyList>
@@ -971,17 +998,25 @@
             <Control ISN_FATHER="5" PDOD="128" _test_id="4" id="6">
               <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
                 <Model comp="-1" id="1" obj="17"/>
-                <Width id="23" val="290"/>
+                <Width id="23" val="86"/>
                 <ControlLayer id="25" val="1"/>
                 <_Sortable id="134" val="Y"/>
                 <ColumnTitle id="139" valUnicode="Fehlerkategorie"/>
               </PropertyList>
             </Control>
+            <Control ISN_FATHER="5" PDOD="128" _test_id="17" id="13">
+              <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
+                <Model comp="-1" id="1" obj="17"/>
+                <Width id="23" val="45"/>
+                <ControlLayer id="25" val="2"/>
+                <ColumnTitle id="139" valUnicode="Sprache"/>
+              </PropertyList>
+            </Control>
             <Control ISN_FATHER="5" PDOD="128" _test_id="5" id="8">
               <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
                 <Model comp="-1" id="1" obj="17"/>
-                <Width id="23" val="731"/>
-                <ControlLayer id="25" val="2"/>
+                <Width id="23" val="360"/>
+                <ControlLayer id="25" val="3"/>
                 <_Sortable id="134" val="Y"/>
                 <ColumnTitle id="139" valUnicode="Beschreibung"/>
               </PropertyList>
@@ -992,7 +1027,7 @@
                 <Placement id="20" right="100"/>
                 <X id="21" val="13"/>
                 <Y id="22" val="58"/>
-                <Width id="23" val="287"/>
+                <Width id="23" val="81"/>
                 <Height id="24" val="12"/>
                 <ControlLayer id="25" val="1"/>
                 <Data FieldID="8" id="43"/>
@@ -1003,17 +1038,35 @@
                 <AllowDrag id="283" val="Y"/>
                 <TabOrder id="314" val="2"/>
                 <Border id="452"/>
+                <ShowZoomButton id="718" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control ISN_FATHER="5" _test_id="18" id="14">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="22"/>
+                <Placement bottom="100" id="20" right="100"/>
+                <X id="21" val="101"/>
+                <Y id="22" val="58"/>
+                <Width id="23" val="38"/>
+                <Height id="24" val="12"/>
+                <ControlLayer id="25" val="2"/>
+                <Data FieldID="9" id="43"/>
+                <ControlName id="46" val="Sprache"/>
+                <_Style id="63" val="1"/>
+                <TabOrder id="314" val="11"/>
+                <Border id="452"/>
+                <CornerRadius id="668"/>
               </PropertyList>
             </Control>
             <Control ISN_FATHER="5" _test_id="3" id="11">
               <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                 <Model comp="-1" id="1" obj="22"/>
                 <Placement id="20" right="100"/>
-                <X id="21" val="305"/>
+                <X id="21" val="145"/>
                 <Y id="22" val="58"/>
-                <Width id="23" val="716"/>
+                <Width id="23" val="350"/>
                 <Height id="24" val="12"/>
-                <ControlLayer id="25" val="2"/>
+                <ControlLayer id="25" val="3"/>
                 <Data FieldID="10" id="43"/>
                 <ControlName id="46" val="Beschreibung"/>
                 <_Style id="63" val="1"/>

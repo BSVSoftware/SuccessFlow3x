@@ -2,7 +2,7 @@
 <Application>
 
   <Header>
-    <Version val="14070.00"/>
+    <Version val="14071.00"/>
     <WithIsn val="Y"/>
     <_InternalTask val="N"/>
     <IsRoot val="N"/>
@@ -27,9 +27,9 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="737720" _time="61276" date="22.10.2020" time="17:01:16"/>
+          <LastModified _date="738243" _time="59079" date="29.03.2022" time="16:24:39"/>
         </Header>
-        <ItemIsn val="101"/>
+        <ItemIsn val="102"/>
         <Resource>
           <DB id="7">
             <DataObject comp="2" obj="112"/>
@@ -845,7 +845,7 @@
                 <END_LINK FlowIsn="45"/>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="46" Key="1" Mode="R" SortType="56" VIEW="38" VIEWS="9">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="46" Key="1" Mode="R" SortType="56" VIEW="38" VIEWS="10">
                   <DB comp="2" obj="354"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -965,10 +965,22 @@
                 </Select>
               </LogicLine>
               <LogicLine>
+                <Select FieldID="102" FlowIsn="190" id="102">
+                  <Column val="270"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
                 <END_LINK FlowIsn="56"/>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="114" Key="1" Mode="R" SortType="115" VIEW="47" VIEWS="12">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="114" Key="1" Mode="R" SortType="115" VIEW="48" VIEWS="12">
                   <DB comp="2" obj="112"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -1127,7 +1139,7 @@
                 <END_LINK FlowIsn="115"/>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="57" Key="1" Mode="R" SortType="73" VIEW="59" VIEWS="15">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="57" Key="1" Mode="R" SortType="73" VIEW="60" VIEWS="15">
                   <DB comp="2" obj="965"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -1321,7 +1333,7 @@
                 <END_LINK FlowIsn="73"/>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="74" Key="1" Mode="R" SortType="94" VIEW="74" VIEWS="19">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="74" Key="1" Mode="R" SortType="94" VIEW="75" VIEWS="19">
                   <DB comp="2" obj="966"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -1607,7 +1619,7 @@
                 </Select>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="99" Key="1" Mode="R" SortType="106" VIEW="96" VIEWS="6">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="99" Key="1" Mode="R" SortType="106" VIEW="97" VIEWS="6">
                   <DB comp="2" obj="116"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -1720,6 +1732,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="113" EndBlockSegment="113" FlowIsn="108" Type="I">
+                  <Expanded val="1"/>
                   <Condition Exp="2"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -8387,7 +8400,7 @@
           <VarRangeInfo Mode="F" VarRangeVeeIsn="147" id="15"/>
           <VarRangeInfo Mode="T" VarRangeVeeIsn="147" id="16"/>
           <Task MainProgram="N">
-            <Header Description="Rechnungsbuch" ISN_2="3" LastIsn="3" id="463">
+            <Header Description="Rechnungsbuch" ISN_2="3" LastIsn="16" id="463">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -8400,7 +8413,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="737584" _time="30442" date="08.06.2020" time="08:27:22"/>
+              <LastModified _date="738243" _time="59079" date="29.03.2022" time="16:24:39"/>
             </Header>
             <ItemIsn val="55"/>
             <Resource>
@@ -9452,6 +9465,10 @@
                           <Expression val="1"/>
                           <Skip val="N"/>
                         </Argument>
+                        <Argument>
+                          <Expression val="64"/>
+                          <Skip val="N"/>
+                        </Argument>
                       </Arguments>
                       <SyncData val="N"/>
                       <RetainFocus val="N"/>
@@ -10302,6 +10319,10 @@
               </Expression>
               <Expression id="62">
                 <ExpSyntax val="{2,173}='E' AND {2,49}=0"/>
+                <ExpAttribute val="B"/>
+              </Expression>
+              <Expression id="64">
+                <ExpSyntax val="{1,102}"/>
                 <ExpAttribute val="B"/>
               </Expression>
             </Expressions>

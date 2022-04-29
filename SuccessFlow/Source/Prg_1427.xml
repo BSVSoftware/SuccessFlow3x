@@ -37,7 +37,7 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738062" _time="45758" date="29.09.2021" time="12:42:38"/>
+          <LastModified _date="738216" _time="31764" date="02.03.2022" time="08:49:24"/>
         </Header>
         <ItemIsn val="28"/>
         <Resource>
@@ -62,7 +62,7 @@
                 <_Flip id="194"/>
               </PropertyList>
             </Column>
-            <Column id="2" name="Trendfaktor">
+            <Column id="2" name="Trendfaktor_p">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_NUMERIC" id="1"/>
                 <Picture id="157" valUnicode="3.2"/>
@@ -72,7 +72,7 @@
                 <_FieldStyle id="276" val="1"/>
               </PropertyList>
             </Column>
-            <Column id="3" name="verkStück">
+            <Column id="3" name="verkStück_p">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_NUMERIC" id="1"/>
                 <Picture id="157" valUnicode="9"/>
@@ -82,7 +82,7 @@
                 <_FieldStyle id="276" val="1"/>
               </PropertyList>
             </Column>
-            <Column id="4" name="verkStückLetzterMonat">
+            <Column id="4" name="verkStückLetzterMonat_p">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_NUMERIC" id="1"/>
                 <Picture id="157" valUnicode="9"/>
@@ -92,7 +92,7 @@
                 <_FieldStyle id="276" val="1"/>
               </PropertyList>
             </Column>
-            <Column id="5" name="verkStückVorletzterMonat">
+            <Column id="5" name="verkStückVorletzterMonat_p">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_NUMERIC" id="1"/>
                 <Picture id="157" valUnicode="9"/>
@@ -102,7 +102,7 @@
                 <_FieldStyle id="276" val="1"/>
               </PropertyList>
             </Column>
-            <Column id="6" name="monatlUmschlag">
+            <Column id="6" name="monatlUmschlag_p">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_NUMERIC" id="1"/>
                 <Picture id="157" valUnicode="9"/>
@@ -112,7 +112,7 @@
                 <_FieldStyle id="276" val="1"/>
               </PropertyList>
             </Column>
-            <Column id="7" name="VerkaufVorjahr">
+            <Column id="7" name="VerkaufVorjahr_p">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_NUMERIC" id="1"/>
                 <Picture id="157" valUnicode="9"/>
@@ -131,7 +131,7 @@
                 <UserType id="180"/>
               </PropertyList>
             </Column>
-            <Column id="9" name="rechnen">
+            <Column id="9" name="rechnen_v">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_LOGICAL" id="1"/>
                 <_FieldStyle id="276" val="1"/>
@@ -633,12 +633,76 @@
             <Expanded val="1"/>
             <LogicLines>
               <LogicLine>
-                <BLOCK EndBlock="43" EndBlockSegment="43" FlowIsn="34" Type="I">
-                  <Expanded val="1"/>
+                <Update FlowIsn="44">
+                  <FieldID val="2"/>
+                  <WithValue val="13"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
                   <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
-                </BLOCK>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="45">
+                  <FieldID val="3"/>
+                  <WithValue val="13"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="46">
+                  <FieldID val="4"/>
+                  <WithValue val="13"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="47">
+                  <FieldID val="5"/>
+                  <WithValue val="13"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="48">
+                  <FieldID val="6"/>
+                  <WithValue val="13"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="51">
+                  <FieldID val="7"/>
+                  <WithValue val="13"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Remark FlowIsn="50">
+                  <Type val="2"/>
+                  <Text val=" "/>
+                </Remark>
               </LogicLine>
               <LogicLine>
                 <CallTask FlowIsn="35">
@@ -732,9 +796,6 @@
                   <Direction val="C"/>
                 </Update>
               </LogicLine>
-              <LogicLine>
-                <END_BLK FlowIsn="43"/>
-              </LogicLine>
             </LogicLines>
           </LogicUnit>
         </TaskLogic>
@@ -793,7 +854,7 @@
             <ExpAttribute val="N"/>
           </Expression>
           <Expression id="10">
-            <ExpSyntax val="{0,17}+{0,18}+{0,19}+{0,20}+{0,21}+{0,22}+{0,23}+{0,24}+{0,25}"/>
+            <ExpSyntax val="{0,14}+{0,15}+{0,16}+{0,17}+{0,18}+{0,19}+{0,20}+{0,21}+{0,22}+{0,23}+{0,24}+{0,25}"/>
             <ExpAttribute val="N"/>
           </Expression>
           <Expression id="11">
@@ -803,6 +864,10 @@
           <Expression id="12">
             <ExpSyntax val="{0,28}"/>
             <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="13">
+            <ExpSyntax val="0"/>
+            <ExpAttribute val="N"/>
           </Expression>
         </Expressions>
         <Task MainProgram="N">
@@ -819,7 +884,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738062" _time="45738" date="29.09.2021" time="12:42:18"/>
+            <LastModified _date="738216" _time="30899" date="02.03.2022" time="08:34:59"/>
           </Header>
           <ItemIsn val="22"/>
           <Resource>
@@ -1266,6 +1331,7 @@
               <LogicLines>
                 <LogicLine>
                   <BLOCK EndBlock="42" EndBlockSegment="42" FlowIsn="29" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="45"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -1434,6 +1500,7 @@
               <LogicLines>
                 <LogicLine>
                   <BLOCK EndBlock="56" EndBlockSegment="56" FlowIsn="43" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="1"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>

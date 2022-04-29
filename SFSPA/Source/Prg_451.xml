@@ -19,7 +19,7 @@
           <SQL val="N"/>
           <ReturnValue>
             <ReturnValueAttr/>
-            <TSK_PARAMS val="15"/>
+            <TSK_PARAMS val="17"/>
             <ParametersAttributes>
               <Attr MgAttr="N"/>
               <Attr MgAttr="N"/>
@@ -36,6 +36,8 @@
               <Attr MgAttr="A"/>
               <Attr MgAttr="B"/>
               <Attr MgAttr="N"/>
+              <Attr MgAttr="O"/>
+              <Attr MgAttr="O"/>
             </ParametersAttributes>
           </ReturnValue>
           <SqlWhereExist val="N"/>
@@ -44,9 +46,9 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738123" _time="34762" date="29.11.2021" time="09:39:22"/>
+          <LastModified _date="738203" _time="28972" date="17.02.2022" time="08:02:52"/>
         </Header>
-        <ItemIsn val="31"/>
+        <ItemIsn val="41"/>
         <Resource>
           <Columns>
             <Column id="1" name="Ebene1_p">
@@ -181,6 +183,26 @@
                 <_FieldStyle id="276" val="1"/>
               </PropertyList>
             </Column>
+            <Column id="36" name="XMLDateienBlob_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_BLOB" id="1"/>
+                <StoredAs id="173" val="33"/>
+                <Size id="174" val="28"/>
+                <Definition id="175" val="1"/>
+                <_FieldStyle id="276" val="1"/>
+                <Content id="434" val="1"/>
+              </PropertyList>
+            </Column>
+            <Column id="39" name="PDFDateienBlob_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_BLOB" id="1"/>
+                <StoredAs id="173" val="33"/>
+                <Size id="174" val="28"/>
+                <Definition id="175" val="1"/>
+                <_FieldStyle id="276" val="1"/>
+                <Content id="434" val="1"/>
+              </PropertyList>
+            </Column>
             <Column id="15" name="001_ausgegeben_v">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_LOGICAL" id="1"/>
@@ -296,6 +318,48 @@
                 <StoredAs id="173" val="1"/>
                 <Size id="174" val="512"/>
                 <_Flip id="194"/>
+              </PropertyList>
+            </Column>
+            <Column id="37" name="XMLDateienVec_v">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_BLOB" comp="2" id="1" obj="3565"/>
+                <StoredAs id="173" val="29"/>
+                <Size id="174" val="28"/>
+                <Definition id="175" val="1"/>
+                <DbColumnName id="178"/>
+                <Type id="179"/>
+                <UserType id="180"/>
+              </PropertyList>
+            </Column>
+            <Column id="38" name="XMLVecZaehler_v">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" id="1"/>
+                <Picture id="157" valUnicode="1"/>
+                <_Dec id="181"/>
+                <_Whole id="182" val="1"/>
+                <_Negative id="192"/>
+                <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
+            <Column id="40" name="PDFDateienVec_v">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_BLOB" comp="2" id="1" obj="3565"/>
+                <StoredAs id="173" val="29"/>
+                <Size id="174" val="28"/>
+                <Definition id="175" val="1"/>
+                <DbColumnName id="178"/>
+                <Type id="179"/>
+                <UserType id="180"/>
+              </PropertyList>
+            </Column>
+            <Column id="41" name="PDFVecZaehler_v">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" id="1"/>
+                <Picture id="157" valUnicode="1"/>
+                <_Dec id="181"/>
+                <_Whole id="182" val="1"/>
+                <_Negative id="192"/>
+                <_FieldStyle id="276" val="1"/>
               </PropertyList>
             </Column>
           </Columns>
@@ -566,6 +630,30 @@
                 </Select>
               </LogicLine>
               <LogicLine>
+                <Select FieldID="36" FlowIsn="136" id="36">
+                  <Column val="36"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="39" FlowIsn="191" id="39">
+                  <Column val="39"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
                 <Select FieldID="15" FlowIsn="17" id="15">
                   <Column val="15"/>
                   <Type val="V"/>
@@ -745,6 +833,56 @@
                   <Direction val="C"/>
                 </Select>
               </LogicLine>
+              <LogicLine>
+                <Select FieldID="37" FlowIsn="140" id="37">
+                  <Column val="37"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="38" FlowIsn="142" id="38">
+                  <Column val="38"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="40" FlowIsn="192" id="40">
+                  <Column val="40"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="41" FlowIsn="239" id="41">
+                  <Column val="41"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
             </LogicLines>
           </LogicUnit>
           <LogicUnit id="3" propagate="78">
@@ -807,6 +945,39 @@
                 <Update FlowIsn="36">
                   <FieldID val="29"/>
                   <WithValue val="4"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="141">
+                  <FieldID val="37"/>
+                  <WithValue val="25"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="143">
+                  <FieldID val="38"/>
+                  <WithValue val="27"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="240">
+                  <FieldID val="41"/>
+                  <WithValue val="27"/>
                   <Incremental val="N"/>
                   <ForcedUpdate val="Y"/>
                   <Condition val="Y"/>
@@ -919,7 +1090,230 @@
                 </Evaluate>
               </LogicLine>
               <LogicLine>
+                <BLOCK EndBlock="271" EndBlockSegment="271" FlowIsn="272" Type="I">
+                  <Expanded val="1"/>
+                  <Condition Exp="29"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
+              </LogicLine>
+              <LogicLine>
+                <Evaluate FlowIsn="137">
+                  <Expression val="26"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="138">
+                  <FieldID val="38"/>
+                  <WithValue val="28"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Evaluate FlowIsn="274">
+                  <Expression val="37"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="275">
+                  <FieldID val="41"/>
+                  <WithValue val="38"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <END_BLK FlowIsn="271"/>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="278" EndBlockSegment="278" FlowIsn="276" Type="I">
+                  <Expanded val="1"/>
+                  <Condition Exp="33"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
+              </LogicLine>
+              <LogicLine>
+                <Evaluate FlowIsn="144">
+                  <Expression val="32"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="145">
+                  <FieldID val="38"/>
+                  <WithValue val="28"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Evaluate FlowIsn="286">
+                  <Expression val="41"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="287">
+                  <FieldID val="41"/>
+                  <WithValue val="38"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <END_BLK FlowIsn="278"/>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="281" EndBlockSegment="281" FlowIsn="279" Type="I">
+                  <Expanded val="1"/>
+                  <Condition Exp="34"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
+              </LogicLine>
+              <LogicLine>
+                <Evaluate FlowIsn="146">
+                  <Expression val="31"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="147">
+                  <FieldID val="38"/>
+                  <WithValue val="28"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Evaluate FlowIsn="288">
+                  <Expression val="42"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="289">
+                  <FieldID val="41"/>
+                  <WithValue val="38"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <END_BLK FlowIsn="281"/>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="284" EndBlockSegment="284" FlowIsn="282" Type="I">
+                  <Expanded val="1"/>
+                  <Condition Exp="35"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
+              </LogicLine>
+              <LogicLine>
+                <Evaluate FlowIsn="148">
+                  <Expression val="30"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="149">
+                  <FieldID val="38"/>
+                  <WithValue val="28"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Evaluate FlowIsn="290">
+                  <Expression val="40"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="291">
+                  <FieldID val="41"/>
+                  <WithValue val="38"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <END_BLK FlowIsn="284"/>
+              </LogicLine>
+              <LogicLine>
                 <END_BLK FlowIsn="44"/>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="308" EndBlockSegment="308" FlowIsn="307" Type="I">
+                  <Expanded val="1"/>
+                  <Condition Exp="14"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
+              </LogicLine>
+              <LogicLine>
+                <Evaluate FlowIsn="309">
+                  <Expression val="40"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="310">
+                  <FieldID val="41"/>
+                  <WithValue val="38"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
               </LogicLine>
               <LogicLine>
                 <CallTask FlowIsn="45">
@@ -932,10 +1326,35 @@
                   <Wait val="Y"/>
                   <SyncData val="N"/>
                   <RetainFocus val="N"/>
-                  <Condition Exp="14"/>
+                  <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </CallTask>
+              </LogicLine>
+              <LogicLine>
+                <END_BLK FlowIsn="308"/>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="150">
+                  <FieldID val="36"/>
+                  <WithValue val="36"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="285">
+                  <FieldID val="39"/>
+                  <WithValue val="39"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
               </LogicLine>
             </LogicLines>
           </LogicUnit>
@@ -970,12 +1389,20 @@
             <ExpSyntax val="FileExist({0,29}) AND FileInfo({0,29},5)=0"/>
             <ExpAttribute val="B"/>
           </Expression>
+          <Expression id="35">
+            <ExpSyntax val="FileExist({0,29}) AND FileInfo({0,29},5)>0"/>
+            <ExpAttribute val="B"/>
+          </Expression>
           <Expression id="6">
             <ExpSyntax val="FileDelete({0,29})"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="7">
             <ExpSyntax val="FileExist({0,28}) AND FileInfo({0,28},5)=0"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="34">
+            <ExpSyntax val="FileExist({0,28}) AND FileInfo({0,28},5)>0"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="8">
@@ -986,12 +1413,20 @@
             <ExpSyntax val="FileExist({0,27}) AND FileInfo({0,27},5)=0"/>
             <ExpAttribute val="B"/>
           </Expression>
+          <Expression id="33">
+            <ExpSyntax val="FileExist({0,27}) AND FileInfo({0,27},5)>0"/>
+            <ExpAttribute val="B"/>
+          </Expression>
           <Expression id="10">
             <ExpSyntax val="FileDelete({0,27})"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="11">
             <ExpSyntax val="FileExist({0,26}) AND FileInfo({0,26},5)=0"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="29">
+            <ExpSyntax val="FileExist({0,26}) AND FileInfo({0,26},5)>0"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="12">
@@ -1024,6 +1459,62 @@
           </Expression>
           <Expression id="19">
             <ExpSyntax val="FileDelete({0,11})"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="25">
+            <ExpSyntax val="NULL()"/>
+            <ExpAttribute val="*"/>
+          </Expression>
+          <Expression id="26">
+            <ExpSyntax val="VecSet('{0,37}'VAR,{0,38},Trim({0,26}))"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="32">
+            <ExpSyntax val="VecSet('{0,37}'VAR,{0,38},Trim({0,27}))"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="31">
+            <ExpSyntax val="VecSet('{0,37}'VAR,{0,38},Trim({0,28}))"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="30">
+            <ExpSyntax val="VecSet('{0,37}'VAR,{0,38},Trim({0,29}))"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="27">
+            <ExpSyntax val="1"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="28">
+            <ExpSyntax val="{0,38}+1"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="36">
+            <ExpSyntax val="Trim({0,37})"/>
+            <ExpAttribute val="A"/>
+          </Expression>
+          <Expression id="39">
+            <ExpSyntax val="Trim({0,40})"/>
+            <ExpAttribute val="A"/>
+          </Expression>
+          <Expression id="37">
+            <ExpSyntax val="VecSet('{0,40}'VAR,{0,41},Trim({0,8}))"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="38">
+            <ExpSyntax val="{0,41}+1"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="40">
+            <ExpSyntax val="VecSet('{0,40}'VAR,{0,41},Trim({0,9}))"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="41">
+            <ExpSyntax val="VecSet('{0,40}'VAR,{0,41},Trim({0,11}))"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="42">
+            <ExpSyntax val="VecSet('{0,40}'VAR,{0,41},Trim({0,10}))"/>
             <ExpAttribute val="B"/>
           </Expression>
         </Expressions>
@@ -9571,9 +10062,9 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738123" _time="34659" date="29.11.2021" time="09:37:39"/>
+            <LastModified _date="738202" _time="60789" date="16.02.2022" time="16:53:09"/>
           </Header>
-          <ItemIsn val="12"/>
+          <ItemIsn val="15"/>
           <Resource>
             <DB id="1">
               <DataObject comp="2" obj="3471"/>
@@ -9604,7 +10095,7 @@
               <FlipLines val="N"/>
             </IO>
             <IO id="2">
-              <Description val="Protokoll_2"/>
+              <Description val="Protokoll_Ueberw"/>
               <IOExpression val="11"/>
               <OpenPrintDialog Exp="12"/>
               <PaperSize val="68"/>
@@ -9630,6 +10121,33 @@
                   <Picture id="157" valUnicode="60"/>
                   <StoredAs id="173" val="1"/>
                   <Size id="174" val="60"/>
+                  <_Flip id="194"/>
+                </PropertyList>
+              </Column>
+              <Column id="2" name="XML_008_Dateiname_v">
+                <PropertyList model="FIELD">
+                  <Model attr_obj="FIELD_ALPHA" id="1"/>
+                  <Picture id="157" valUnicode="512"/>
+                  <StoredAs id="173" val="1"/>
+                  <Size id="174" val="512"/>
+                  <_Flip id="194"/>
+                </PropertyList>
+              </Column>
+              <Column id="3" name="XML_001_Dateiname_v">
+                <PropertyList model="FIELD">
+                  <Model attr_obj="FIELD_ALPHA" id="1"/>
+                  <Picture id="157" valUnicode="512"/>
+                  <StoredAs id="173" val="1"/>
+                  <Size id="174" val="512"/>
+                  <_Flip id="194"/>
+                </PropertyList>
+              </Column>
+              <Column id="4" name="PDF_008_Dateiname_v">
+                <PropertyList model="FIELD">
+                  <Model attr_obj="FIELD_ALPHA" id="1"/>
+                  <Picture id="157" valUnicode="512"/>
+                  <StoredAs id="173" val="1"/>
+                  <Size id="174" val="512"/>
                   <_Flip id="194"/>
                 </PropertyList>
               </Column>
@@ -9865,6 +10383,42 @@
                     <Direction val="C"/>
                   </Select>
                 </LogicLine>
+                <LogicLine>
+                  <Select FieldID="13" FlowIsn="20" id="13">
+                    <Column val="2"/>
+                    <Type val="V"/>
+                    <ExposedToRoute val="N"/>
+                    <IsParameter val="N"/>
+                    <DIFF_UPDATE val="T"/>
+                    <Condition val="Y"/>
+                    <Modifier val="S"/>
+                    <Direction val="C"/>
+                  </Select>
+                </LogicLine>
+                <LogicLine>
+                  <Select FieldID="14" FlowIsn="21" id="14">
+                    <Column val="3"/>
+                    <Type val="V"/>
+                    <ExposedToRoute val="N"/>
+                    <IsParameter val="N"/>
+                    <DIFF_UPDATE val="T"/>
+                    <Condition val="Y"/>
+                    <Modifier val="S"/>
+                    <Direction val="C"/>
+                  </Select>
+                </LogicLine>
+                <LogicLine>
+                  <Select FieldID="15" FlowIsn="35" id="15">
+                    <Column val="4"/>
+                    <Type val="V"/>
+                    <ExposedToRoute val="N"/>
+                    <IsParameter val="N"/>
+                    <DIFF_UPDATE val="T"/>
+                    <Condition val="Y"/>
+                    <Modifier val="S"/>
+                    <Direction val="C"/>
+                  </Select>
+                </LogicLine>
               </LogicLines>
             </LogicUnit>
             <LogicUnit id="3" propagate="78">
@@ -9938,6 +10492,122 @@
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </Update>
+                </LogicLine>
+                <LogicLine>
+                  <Update FlowIsn="22">
+                    <FieldID val="13"/>
+                    <WithValue val="15"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Update>
+                </LogicLine>
+                <LogicLine>
+                  <Evaluate FlowIsn="18">
+                    <Expression val="14"/>
+                    <Condition Exp="16"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Evaluate>
+                </LogicLine>
+                <LogicLine>
+                  <Update FlowIsn="24">
+                    <Parent val="1"/>
+                    <FieldID val="38"/>
+                    <WithValue val="17"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition Exp="16"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Update>
+                </LogicLine>
+                <LogicLine>
+                  <Remark FlowIsn="25">
+                    <Type val="2"/>
+                    <Text val=" "/>
+                  </Remark>
+                </LogicLine>
+                <LogicLine>
+                  <Update FlowIsn="23">
+                    <FieldID val="14"/>
+                    <WithValue val="18"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Update>
+                </LogicLine>
+                <LogicLine>
+                  <Evaluate FlowIsn="26">
+                    <Expression val="19"/>
+                    <Condition Exp="20"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Evaluate>
+                </LogicLine>
+                <LogicLine>
+                  <Update FlowIsn="27">
+                    <Parent val="1"/>
+                    <FieldID val="38"/>
+                    <WithValue val="17"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition Exp="20"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Update>
+                </LogicLine>
+                <LogicLine>
+                  <Remark FlowIsn="33">
+                    <Type val="2"/>
+                    <Text val=" "/>
+                  </Remark>
+                </LogicLine>
+                <LogicLine>
+                  <BLOCK EndBlock="39" EndBlockSegment="39" FlowIsn="37" Type="I">
+                    <Expanded val="1"/>
+                    <Condition Exp="23"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </BLOCK>
+                </LogicLine>
+                <LogicLine>
+                  <Update FlowIsn="36">
+                    <FieldID val="15"/>
+                    <WithValue val="9"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Update>
+                </LogicLine>
+                <LogicLine>
+                  <Evaluate FlowIsn="34">
+                    <Expression val="21"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Evaluate>
+                </LogicLine>
+                <LogicLine>
+                  <Update FlowIsn="40">
+                    <Parent val="1"/>
+                    <FieldID val="41"/>
+                    <WithValue val="24"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Update>
+                </LogicLine>
+                <LogicLine>
+                  <END_BLK FlowIsn="39"/>
                 </LogicLine>
                 <LogicLine>
                   <CallTask FlowIsn="17">
@@ -10020,6 +10690,46 @@
               <ExpSyntax val="Trim(ExpCalc('9'EXP))&lt;>''"/>
               <ExpAttribute val="B"/>
             </Expression>
+            <Expression id="14">
+              <ExpSyntax val="VecSet('{1,37}'VAR,{1,38},Trim({0,13}))"/>
+              <ExpAttribute val="B"/>
+            </Expression>
+            <Expression id="15">
+              <ExpSyntax val="IF(Trim({0,5})='R',Trim({1,13})&amp;'\SEPA_008_'&amp;Trim({0,12})&amp;'.XML','')"/>
+              <ExpAttribute val="A"/>
+            </Expression>
+            <Expression id="16">
+              <ExpSyntax val="Trim({0,13})&lt;>''"/>
+              <ExpAttribute val="B"/>
+            </Expression>
+            <Expression id="17">
+              <ExpSyntax val="{1,38}+1"/>
+              <ExpAttribute val="N"/>
+            </Expression>
+            <Expression id="18">
+              <ExpSyntax val="IF(Trim({0,5})='G',Trim({1,13})&amp;'\SEPA_001'&amp;IF({0,12}>'','_'&amp;Trim({0,12}),'')&amp;'.XML','')"/>
+              <ExpAttribute val="A"/>
+            </Expression>
+            <Expression id="19">
+              <ExpSyntax val="VecSet('{1,37}'VAR,{1,38},Trim({0,14}))"/>
+              <ExpAttribute val="B"/>
+            </Expression>
+            <Expression id="20">
+              <ExpSyntax val="Trim({0,14})&lt;>''"/>
+              <ExpAttribute val="B"/>
+            </Expression>
+            <Expression id="21">
+              <ExpSyntax val="VecSet('{1,40}'VAR,{1,41},Trim({0,15}))"/>
+              <ExpAttribute val="B"/>
+            </Expression>
+            <Expression id="23">
+              <ExpSyntax val="Trim({0,15})='' OR Trim({0,15})&lt;>ExpCalc('9'EXP)"/>
+              <ExpAttribute val="B"/>
+            </Expression>
+            <Expression id="24">
+              <ExpSyntax val="{1,41}+1"/>
+              <ExpAttribute val="N"/>
+            </Expression>
           </Expressions>
           <VarRangeInfo Mode="E" VarRangeVeeIsn="1" id="1"/>
           <VarRangeInfo Mode="E" VarRangeVeeIsn="2" id="2"/>
@@ -10039,7 +10749,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738123" _time="34762" date="29.11.2021" time="09:39:22"/>
+              <LastModified _date="738202" _time="60270" date="16.02.2022" time="16:44:30"/>
             </Header>
             <ItemIsn val="110"/>
             <Resource>
@@ -10093,7 +10803,7 @@
               </DB>
               <IO id="3">
                 <Description val="SEPA_008_Lastschrift"/>
-                <IOExpression val="18"/>
+                <IOExpression val="114"/>
                 <OpenPrintDialog val="N"/>
                 <PaperSize val="68"/>
                 <Format val="L"/>
@@ -10111,7 +10821,7 @@
               </IO>
               <IO id="4">
                 <Description val="SEPA_001"/>
-                <IOExpression val="19"/>
+                <IOExpression val="115"/>
                 <OpenPrintDialog val="N"/>
                 <PaperSize val="68"/>
                 <Format val="L"/>
@@ -15029,8 +15739,16 @@
                 <ExpSyntax val="IF(Trim({6,5})='R',Trim({1,13})&amp;'\SEPA_008_'&amp;Trim({6,12})&amp;'.XML','')"/>
                 <ExpAttribute val="A"/>
               </Expression>
+              <Expression id="114">
+                <ExpSyntax val="Trim({6,13})"/>
+                <ExpAttribute val="A"/>
+              </Expression>
               <Expression id="19">
                 <ExpSyntax val="IF(Trim({6,5})='G',Trim({1,13})&amp;'\SEPA_001'&amp;IF({6,12}>'','_'&amp;Trim({6,12}),'')&amp;'.XML','')"/>
+                <ExpAttribute val="A"/>
+              </Expression>
+              <Expression id="115">
+                <ExpSyntax val="Trim({6,14})"/>
                 <ExpAttribute val="A"/>
               </Expression>
               <Expression id="20">

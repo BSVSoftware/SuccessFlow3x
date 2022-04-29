@@ -2,7 +2,7 @@
 <Application>
 
   <Header>
-    <Version val="14070.00"/>
+    <Version val="14071.00"/>
     <WithIsn val="Y"/>
     <_InternalTask val="N"/>
     <IsRoot val="N"/>
@@ -20,7 +20,7 @@
           <SQL val="N"/>
           <ReturnValue>
             <ReturnValueAttr/>
-            <TSK_PARAMS val="16"/>
+            <TSK_PARAMS val="18"/>
             <ParametersAttributes>
               <Attr MgAttr="N"/>
               <Attr MgAttr="N"/>
@@ -38,6 +38,8 @@
               <Attr MgAttr="B"/>
               <Attr MgAttr="B"/>
               <Attr MgAttr="N"/>
+              <Attr MgAttr="O"/>
+              <Attr MgAttr="O"/>
             </ParametersAttributes>
           </ReturnValue>
           <SqlWhereExist val="N"/>
@@ -46,9 +48,9 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="737720" _time="61275" date="22.10.2020" time="17:01:15"/>
+          <LastModified _date="738202" _time="58950" date="16.02.2022" time="16:22:30"/>
         </Header>
-        <ItemIsn val="17"/>
+        <ItemIsn val="23"/>
         <Resource>
           <Columns>
             <Column id="1" name="Ebene1_p">
@@ -184,6 +186,26 @@
                 <_Whole id="182" val="10"/>
                 <_Negative id="192"/>
                 <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
+            <Column id="22" name="XMLDateienBlob_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_BLOB" id="1"/>
+                <StoredAs id="173" val="33"/>
+                <Size id="174" val="28"/>
+                <Definition id="175" val="1"/>
+                <_FieldStyle id="276" val="1"/>
+                <Content id="434" val="1"/>
+              </PropertyList>
+            </Column>
+            <Column id="23" name="PDFDateienBlob_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_BLOB" id="1"/>
+                <StoredAs id="173" val="33"/>
+                <Size id="174" val="28"/>
+                <Definition id="175" val="1"/>
+                <_FieldStyle id="276" val="1"/>
+                <Content id="434" val="1"/>
               </PropertyList>
             </Column>
             <Column id="16" name="STF5_DTAUSRE_PFAD_v">
@@ -465,6 +487,30 @@
               <LogicLine>
                 <Select FieldID="17" FlowIsn="34" id="17">
                   <Column val="17"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="22" FlowIsn="57" id="22">
+                  <Column val="22"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="23" FlowIsn="67" id="23">
+                  <Column val="23"/>
                   <Type val="V"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="Y"/>
@@ -757,6 +803,14 @@
                       <Variable val="17"/>
                       <Skip val="N"/>
                     </Argument>
+                    <Argument>
+                      <Variable val="22"/>
+                      <Skip val="N"/>
+                    </Argument>
+                    <Argument>
+                      <Variable val="23"/>
+                      <Skip val="N"/>
+                    </Argument>
                   </Arguments>
                   <Wait val="Y"/>
                   <SyncData val="N"/>
@@ -813,7 +867,7 @@
           </Expression>
         </Expressions>
         <Task MainProgram="N">
-          <Header Description="DTAUS_SEPA TMP füllen" ISN_2="2" LastIsn="5" id="448">
+          <Header Description="DTAUS_SEPA TMP füllen" ISN_2="2" LastIsn="8" id="448">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -2234,7 +2288,7 @@
           <VarRangeInfo Mode="T" VarRangeVeeIsn="8" id="10"/>
           <VarRangeInfo Mode="E" VarRangeVeeIsn="23" id="11"/>
           <Task MainProgram="N">
-            <Header Description="Steuerfile lesen" ISN_2="3" LastIsn="3" id="448">
+            <Header Description="Steuerfile lesen" ISN_2="3" LastIsn="8" id="448">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -2721,7 +2775,7 @@
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Mandatref/Bankdat aus ZVertrag" ISN_2="4" LastIsn="4" id="448">
+            <Header Description="Mandatref/Bankdat aus ZVertrag" ISN_2="4" LastIsn="8" id="448">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -3498,7 +3552,7 @@
             <VarRangeInfo Mode="E" VarRangeVeeIsn="5" id="5"/>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Mandatref/Bankda aus MWVertrag" ISN_2="5" LastIsn="5" id="448">
+            <Header Description="Mandatref/Bankda aus MWVertrag" ISN_2="5" LastIsn="8" id="448">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -4291,7 +4345,7 @@
           </Task>
         </Task>
         <Task MainProgram="N">
-          <Header Description="DTAUS_SEPA TMP Summe" ISN_2="6" LastIsn="7" id="448">
+          <Header Description="DTAUS_SEPA TMP Summe" ISN_2="6" LastIsn="8" id="448">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -4721,7 +4775,7 @@
           <VarRangeInfo Mode="T" VarRangeVeeIsn="4" id="8"/>
           <VarRangeInfo Mode="E" VarRangeVeeIsn="6" id="9"/>
           <Task MainProgram="N">
-            <Header Description="DTAUS_SEPA TMP Update" ISN_2="7" LastIsn="7" id="448">
+            <Header Description="DTAUS_SEPA TMP Update" ISN_2="7" LastIsn="8" id="448">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>

@@ -2,7 +2,7 @@
 <Application>
 
   <Header>
-    <Version val="14070.00"/>
+    <Version val="14071.00"/>
     <WithIsn val="Y"/>
     <_InternalTask val="N"/>
     <IsRoot val="N"/>
@@ -13,7 +13,7 @@
   <ProgramsRepository>
     <Programs>
       <Task MainProgram="N">
-        <Header Description="POS_S_BON_Abschluß" ISN_2="1" LastIsn="25" id="1569">
+        <Header Description="POS_S_BON_Abschluß" ISN_2="1" LastIsn="26" id="1569">
           <Comment val="Screen AL 19.11.2008"/>
           <ExecutionRight comp="-1"/>
           <Resident val="N"/>
@@ -71,7 +71,7 @@
           <Offline val="N"/>
           <FormType val="M"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="737777" _time="42075" date="18.12.2020" time="11:41:15"/>
+          <LastModified _date="738249" _time="42965" date="04.04.2022" time="11:56:05"/>
         </Header>
         <ItemIsn val="67"/>
         <Resource>
@@ -1520,7 +1520,7 @@
                   <Wait val="Y"/>
                   <SyncData val="N"/>
                   <RetainFocus val="N"/>
-                  <Condition Exp="1"/>
+                  <Condition Exp="11"/>
                   <Modifier val="S"/>
                   <Direction val="C"/>
                 </CallTask>
@@ -1587,10 +1587,6 @@
           </FormEntry>
         </TaskForms>
         <Expressions>
-          <Expression id="1">
-            <ExpSyntax val="{32768,719}"/>
-            <ExpAttribute val="B"/>
-          </Expression>
           <Expression id="2">
             <ExpSyntax val="{0,8}"/>
             <ExpAttribute val="N"/>
@@ -1624,12 +1620,16 @@
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="10">
-            <ExpSyntax val="{32768,674} AND {32768,737}"/>
+            <ExpSyntax val="{32768,675} AND {32768,738}"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="11">
+            <ExpSyntax val="{32768,720}"/>
             <ExpAttribute val="B"/>
           </Expression>
         </Expressions>
         <Task MainProgram="N">
-          <Header Description="POS_S_BON_Abschluß" ISN_2="2" LastIsn="22" id="1569">
+          <Header Description="POS_S_BON_Abschluß" ISN_2="2" LastIsn="26" id="1569">
             <ExecutionRight comp="-1"/>
             <Resident val="N"/>
             <SQL val="N"/>
@@ -1643,9 +1643,9 @@
             <External val="N"/>
             <FormType val="M"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="737739" _time="42749" date="10.11.2020" time="11:52:29"/>
+            <LastModified _date="738249" _time="42914" date="04.04.2022" time="11:55:14"/>
           </Header>
-          <ItemIsn val="20"/>
+          <ItemIsn val="21"/>
           <Resource>
             <DB id="1">
               <DataObject comp="2" obj="873"/>
@@ -1707,6 +1707,12 @@
                   <Picture id="157" valUnicode="U10"/>
                   <Size id="174" val="10"/>
                   <_Flip id="194"/>
+                  <_FieldStyle id="276" val="1"/>
+                </PropertyList>
+              </Column>
+              <Column id="6" name="FolgeGS_Drucken_v">
+                <PropertyList model="FIELD">
+                  <Model attr_obj="FIELD_LOGICAL" id="1"/>
                   <_FieldStyle id="276" val="1"/>
                 </PropertyList>
               </Column>
@@ -2063,6 +2069,18 @@
                     <Direction val="C"/>
                   </Select>
                 </LogicLine>
+                <LogicLine>
+                  <Select FieldID="21" FlowIsn="67" id="21">
+                    <Column val="6"/>
+                    <Type val="V"/>
+                    <ExposedToRoute val="N"/>
+                    <IsParameter val="N"/>
+                    <DIFF_UPDATE val="T"/>
+                    <Condition val="Y"/>
+                    <Modifier val="S"/>
+                    <Direction val="C"/>
+                  </Select>
+                </LogicLine>
               </LogicLines>
             </LogicUnit>
             <LogicUnit id="3" propagate="78">
@@ -2149,6 +2167,12 @@
                     </Event>
                     <TaskID comp="-1" obj="20"/>
                     <Lock val="N"/>
+                    <Arguments>
+                      <Argument>
+                        <Variable val="21"/>
+                        <Skip val="N"/>
+                      </Argument>
+                    </Arguments>
                     <Wait val="Y"/>
                     <SyncData val="N"/>
                     <RetainFocus val="N"/>
@@ -2165,6 +2189,12 @@
                     </Event>
                     <TaskID comp="-1" obj="6"/>
                     <Lock val="N"/>
+                    <Arguments>
+                      <Argument>
+                        <Variable val="21"/>
+                        <Skip val="N"/>
+                      </Argument>
+                    </Arguments>
                     <Wait val="Y"/>
                     <SyncData val="N"/>
                     <RetainFocus val="N"/>
@@ -2206,6 +2236,7 @@
               <LogicLines>
                 <LogicLine>
                   <BLOCK EndBlock="65" EndBlockSegment="65" FlowIsn="32" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="37"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -2213,6 +2244,7 @@
                 </LogicLine>
                 <LogicLine>
                   <BLOCK EndBlock="37" EndBlockSegment="37" FlowIsn="33" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="25"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -2259,6 +2291,7 @@
                 </LogicLine>
                 <LogicLine>
                   <BLOCK EndBlock="42" EndBlockSegment="42" FlowIsn="38" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="24"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -2427,6 +2460,7 @@
                 </LogicLine>
                 <LogicLine>
                   <BLOCK EndBlock="55" EndBlockSegment="55" FlowIsn="46" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="9"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -2726,7 +2760,7 @@
                     <Wait val="Y"/>
                     <SyncData val="N"/>
                     <RetainFocus val="N"/>
-                    <Condition Exp="26"/>
+                    <Condition Exp="55"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </CallTask>
@@ -2753,7 +2787,7 @@
                     <WithValue val="16"/>
                     <Incremental val="N"/>
                     <ForcedUpdate val="Y"/>
-                    <Condition Exp="26"/>
+                    <Condition Exp="55"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </Update>
@@ -2785,7 +2819,7 @@
                     <SyncData val="N"/>
                     <Convention val="C"/>
                     <RetainFocus val="N"/>
-                    <Condition Exp="28"/>
+                    <Condition Exp="55"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </Invoke>
@@ -3068,16 +3102,12 @@
               <ExpSyntax val="NOT ({1,18})"/>
               <ExpAttribute val="B"/>
             </Expression>
-            <Expression id="26">
-              <ExpSyntax val="{0,8}>0 AND {0,9}-{0,10}>0"/>
+            <Expression id="55">
+              <ExpSyntax val="({0,8}>0 AND {0,9}-{0,10}>0) OR {0,21}"/>
               <ExpAttribute val="B"/>
             </Expression>
             <Expression id="27">
               <ExpSyntax val="{0,18}>0 AND NOT({32768,613})"/>
-              <ExpAttribute val="B"/>
-            </Expression>
-            <Expression id="28">
-              <ExpSyntax val="{0,8}>0 AND {0,9}-{0,10}>0 AND {0,1}=0 AND NOT ({1,36})"/>
               <ExpAttribute val="B"/>
             </Expression>
             <Expression id="29">
@@ -3186,7 +3216,7 @@
             </Expression>
           </Expressions>
           <Task MainProgram="N">
-            <Header Description="Belegkopf vervollständigen" ISN_2="3" LastIsn="5" id="1569">
+            <Header Description="Belegkopf vervollständigen" ISN_2="3" LastIsn="26" id="1569">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -4275,7 +4305,7 @@
               </Expression>
             </Expressions>
             <Task MainProgram="N">
-              <Header Description="Pos_Bestand_Update" ISN_2="4" LastIsn="4" id="1569">
+              <Header Description="Pos_Bestand_Update" ISN_2="4" LastIsn="26" id="1569">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -5074,7 +5104,7 @@
               <VarRangeInfo Mode="T" VarRangeVeeIsn="5" id="10"/>
             </Task>
             <Task MainProgram="N">
-              <Header Description="MWST_Betrag ermitteln" ISN_2="5" LastIsn="5" id="1569">
+              <Header Description="MWST_Betrag ermitteln" ISN_2="5" LastIsn="26" id="1569">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -5649,13 +5679,16 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="Gutschriften" ISN_2="6" LastIsn="9" id="1569">
+            <Header Description="Gutschriften" ISN_2="6" LastIsn="26" id="1569">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
               <ReturnValue>
                 <ReturnValueAttr/>
-                <ParametersAttributes/>
+                <TSK_PARAMS val="1"/>
+                <ParametersAttributes>
+                  <Attr MgAttr="B"/>
+                </ParametersAttributes>
               </ReturnValue>
               <SqlWhereExist val="N"/>
               <TaskType val="C"/>
@@ -5663,9 +5696,9 @@
               <External val="N"/>
               <FormType val="M"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="737739" _time="42699" date="10.11.2020" time="11:51:39"/>
+              <LastModified _date="738249" _time="42962" date="04.04.2022" time="11:56:02"/>
             </Header>
-            <ItemIsn val="11"/>
+            <ItemIsn val="12"/>
             <Resource>
               <DB id="1">
                 <DataObject comp="2" obj="892"/>
@@ -5676,6 +5709,12 @@
                 <IdentifyRowModifications val="84"/>
               </DB>
               <Columns>
+                <Column id="6" name="GutscheinDrucken_p">
+                  <PropertyList model="FIELD">
+                    <Model attr_obj="FIELD_LOGICAL" id="1"/>
+                    <_FieldStyle id="276" val="1"/>
+                  </PropertyList>
+                </Column>
                 <Column id="1" name="keypos_v">
                   <PropertyList model="FIELD">
                     <Model attr_obj="FIELD_NUMERIC" id="1"/>
@@ -5816,6 +5855,18 @@
                     </DATAVIEW_SRC>
                   </LogicLine>
                   <LogicLine>
+                    <Select FieldID="12" FlowIsn="34" id="12">
+                      <Column val="6"/>
+                      <Type val="V"/>
+                      <ExposedToRoute val="N"/>
+                      <IsParameter val="Y"/>
+                      <DIFF_UPDATE val="T"/>
+                      <Condition val="Y"/>
+                      <Modifier val="S"/>
+                      <Direction val="C"/>
+                    </Select>
+                  </LogicLine>
+                  <LogicLine>
                     <Select FieldID="1" FlowIsn="3" id="1">
                       <Column val="1"/>
                       <Type val="V"/>
@@ -5867,7 +5918,7 @@
                     </Select>
                   </LogicLine>
                   <LogicLine>
-                    <LNK Direction="A" EVL_CND="R" FlowIsn="7" Key="1" Mode="R" SortType="14" VIEW="5" VIEWS="6">
+                    <LNK Direction="A" EVL_CND="R" FlowIsn="7" Key="1" Mode="R" SortType="14" VIEW="6" VIEWS="6">
                       <DB comp="2" obj="892"/>
                       <Expanded val="1"/>
                       <Condition val="Y"/>
@@ -6320,6 +6371,17 @@
                     </CallTask>
                   </LogicLine>
                   <LogicLine>
+                    <Update FlowIsn="35">
+                      <FieldID val="12"/>
+                      <WithValue val="7"/>
+                      <Incremental val="N"/>
+                      <ForcedUpdate val="Y"/>
+                      <Condition val="Y"/>
+                      <Modifier val="B"/>
+                      <Direction val="C"/>
+                    </Update>
+                  </LogicLine>
+                  <LogicLine>
                     <RaiseEvent FlowIsn="33">
                       <Event>
                         <EventType val="I"/>
@@ -6373,6 +6435,7 @@
                     <Font id="50" val="164"/>
                     <Color id="51" val="102"/>
                     <Style id="63" val="7"/>
+                    <HorizontalAlignment id="65" val="2"/>
                     <MultiLineEdit id="71" val="Y"/>
                     <_VerticalScroll id="73"/>
                     <_Orientation id="143"/>
@@ -6527,7 +6590,7 @@
               </Expression>
             </Expressions>
             <Task MainProgram="N">
-              <Header Description="Keyposition" ISN_2="7" LastIsn="7" id="1569">
+              <Header Description="Keyposition" ISN_2="7" LastIsn="26" id="1569">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -6768,7 +6831,7 @@
               </Expressions>
             </Task>
             <Task MainProgram="N">
-              <Header Description="Gutschriften eintragen" ISN_2="8" LastIsn="8" id="1569">
+              <Header Description="Gutschriften eintragen" ISN_2="8" LastIsn="26" id="1569">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -7229,7 +7292,7 @@
               </Expressions>
             </Task>
             <Task MainProgram="N">
-              <Header Description="gutschein erstellen" ISN_2="9" LastIsn="9" id="1569">
+              <Header Description="gutschein erstellen" ISN_2="9" LastIsn="26" id="1569">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -8082,7 +8145,7 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="OPOS Kassenlade abwarten" ISN_2="10" LastIsn="10" id="1569">
+            <Header Description="OPOS Kassenlade abwarten" ISN_2="10" LastIsn="26" id="1569">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -8327,7 +8390,7 @@
             </Expressions>
           </Task>
           <Task MainProgram="N">
-            <Header Description="IDNR_Buchungen" ISN_2="11" LastIsn="14" id="1569">
+            <Header Description="IDNR_Buchungen" ISN_2="11" LastIsn="26" id="1569">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -8917,7 +8980,7 @@
             <VarRangeInfo Mode="F" VarRangeVeeIsn="7" id="13"/>
             <VarRangeInfo Mode="T" VarRangeVeeIsn="7" id="14"/>
             <Task MainProgram="N">
-              <Header Description="IDNR buchen" ISN_2="12" LastIsn="13" id="1569">
+              <Header Description="IDNR buchen" ISN_2="12" LastIsn="26" id="1569">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -10922,7 +10985,7 @@
                 </Expression>
               </Expressions>
               <Task MainProgram="N">
-                <Header Description="mod_datum_zeit_uebertragen" ISN_2="13" LastIsn="13" id="1569">
+                <Header Description="mod_datum_zeit_uebertragen" ISN_2="13" LastIsn="26" id="1569">
                   <ExecutionRight comp="-1"/>
                   <Resident val="Y"/>
                   <SQL val="N"/>
@@ -11389,7 +11452,7 @@
               </Task>
             </Task>
             <Task MainProgram="N">
-              <Header Description="Variante_IDNR" ISN_2="14" LastIsn="14" id="1569">
+              <Header Description="Variante_IDNR" ISN_2="14" LastIsn="26" id="1569">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -11654,7 +11717,7 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="op_prüfen" ISN_2="15" LastIsn="16" id="1569">
+            <Header Description="op_prüfen" ISN_2="15" LastIsn="26" id="1569">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -11937,7 +12000,7 @@
             <VarRangeInfo Mode="F" VarRangeVeeIsn="6" id="11"/>
             <VarRangeInfo Mode="T" VarRangeVeeIsn="6" id="12"/>
             <Task MainProgram="N">
-              <Header Description="op_table_fuellen" ISN_2="16" LastIsn="16" id="1569">
+              <Header Description="op_table_fuellen" ISN_2="16" LastIsn="26" id="1569">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -12714,7 +12777,7 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="OP_updaten" ISN_2="17" LastIsn="19" id="1569">
+            <Header Description="OP_updaten" ISN_2="17" LastIsn="26" id="1569">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
@@ -12882,7 +12945,7 @@
               </Expression>
             </Expressions>
             <Task MainProgram="N">
-              <Header Description="op_Kasse_updaten" ISN_2="18" LastIsn="18" id="1569">
+              <Header Description="op_Kasse_updaten" ISN_2="18" LastIsn="26" id="1569">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -13158,7 +13221,7 @@
               <VarRangeInfo Mode="T" VarRangeVeeIsn="5" id="10"/>
             </Task>
             <Task MainProgram="N">
-              <Header Description="op_Rechb._updaten" ISN_2="19" LastIsn="19" id="1569">
+              <Header Description="op_Rechb._updaten" ISN_2="19" LastIsn="26" id="1569">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -14394,22 +14457,25 @@
             </Task>
           </Task>
           <Task MainProgram="N">
-            <Header Description="gutscheine" ISN_2="20" LastIsn="22" id="1569">
+            <Header Description="gutscheine" ISN_2="20" LastIsn="26" id="1569">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>
               <ReturnValue>
                 <ReturnValueAttr/>
-                <ParametersAttributes/>
+                <TSK_PARAMS val="1"/>
+                <ParametersAttributes>
+                  <Attr MgAttr="B"/>
+                </ParametersAttributes>
               </ReturnValue>
               <SqlWhereExist val="N"/>
               <TaskType val="B"/>
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="737739" _time="42753" date="10.11.2020" time="11:52:33"/>
+              <LastModified _date="738249" _time="41767" date="04.04.2022" time="11:36:07"/>
             </Header>
-            <ItemIsn val="36"/>
+            <ItemIsn val="37"/>
             <Resource>
               <DB id="1">
                 <DataObject comp="2" obj="873"/>
@@ -14428,6 +14494,12 @@
                 <IdentifyRowModifications val="84"/>
               </DB>
               <Columns>
+                <Column id="2" name="FolgeGS_p">
+                  <PropertyList model="FIELD">
+                    <Model attr_obj="FIELD_LOGICAL" id="1"/>
+                    <_FieldStyle id="276" val="1"/>
+                  </PropertyList>
+                </Column>
                 <Column id="1" name="neueNummer_v">
                   <PropertyList model="FIELD">
                     <Model attr_obj="FIELD_NUMERIC" id="1"/>
@@ -14519,6 +14591,18 @@
                       <Modifier val="B"/>
                       <Direction val="C"/>
                     </DATAVIEW_SRC>
+                  </LogicLine>
+                  <LogicLine>
+                    <Select FieldID="37" FlowIsn="51" id="37">
+                      <Column val="2"/>
+                      <Type val="V"/>
+                      <ExposedToRoute val="N"/>
+                      <IsParameter val="Y"/>
+                      <DIFF_UPDATE val="T"/>
+                      <Condition val="Y"/>
+                      <Modifier val="S"/>
+                      <Direction val="C"/>
+                    </Select>
                   </LogicLine>
                   <LogicLine>
                     <Select FieldID="1" FlowIsn="3" id="1">
@@ -14626,7 +14710,7 @@
                     </Select>
                   </LogicLine>
                   <LogicLine>
-                    <LNK Direction="A" EVL_CND="R" FlowIsn="10" Key="1" Mode="R" SortType="39" VIEW="8" VIEWS="28">
+                    <LNK Direction="A" EVL_CND="R" FlowIsn="10" Key="1" Mode="R" SortType="39" VIEW="9" VIEWS="28">
                       <DB comp="2" obj="873"/>
                       <Expanded val="1"/>
                       <Condition val="Y"/>
@@ -15109,6 +15193,17 @@
                       <Direction val="C"/>
                     </CallTask>
                   </LogicLine>
+                  <LogicLine>
+                    <Update FlowIsn="50">
+                      <FieldID val="37"/>
+                      <WithValue val="19"/>
+                      <Incremental val="N"/>
+                      <ForcedUpdate val="Y"/>
+                      <Condition Exp="18"/>
+                      <Modifier val="B"/>
+                      <Direction val="C"/>
+                    </Update>
+                  </LogicLine>
                 </LogicLines>
               </LogicUnit>
             </TaskLogic>
@@ -15194,6 +15289,10 @@
                 <ExpSyntax val="{0,29}>0"/>
                 <ExpAttribute val="B"/>
               </Expression>
+              <Expression id="19">
+                <ExpSyntax val="'TRUE'LOG"/>
+                <ExpAttribute val="B"/>
+              </Expression>
             </Expressions>
             <VarRangeInfo Mode="E" VarRangeVeeIsn="1" id="1"/>
             <VarRangeInfo Mode="E" VarRangeVeeIsn="2" id="2"/>
@@ -15203,7 +15302,7 @@
             <VarRangeInfo Mode="F" VarRangeVeeIsn="6" id="6"/>
             <VarRangeInfo Mode="T" VarRangeVeeIsn="6" id="7"/>
             <Task MainProgram="N">
-              <Header Description="neue nummer" ISN_2="21" LastIsn="21" id="1569">
+              <Header Description="neue nummer" ISN_2="21" LastIsn="26" id="1569">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -15473,7 +15572,7 @@
               </Expressions>
             </Task>
             <Task MainProgram="N">
-              <Header Description="folgegutschein" ISN_2="22" LastIsn="22" id="1569">
+              <Header Description="folgegutschein" ISN_2="22" LastIsn="26" id="1569">
                 <ExecutionRight comp="-1"/>
                 <Resident val="Y"/>
                 <SQL val="N"/>
@@ -16253,7 +16352,7 @@
           </Task>
         </Task>
         <Task MainProgram="N">
-          <Header Description="OXID Bestand aktualisieren" ISN_2="23" LastIsn="23" id="1569">
+          <Header Description="OXID Bestand aktualisieren" ISN_2="23" LastIsn="26" id="1569">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -16556,7 +16655,7 @@
           <VarRangeInfo Mode="E" VarRangeVeeIsn="5" id="5"/>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Ebay Bestand aktualisieren" ISN_2="24" LastIsn="24" id="1569">
+          <Header Description="Ebay Bestand aktualisieren" ISN_2="24" LastIsn="26" id="1569">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -16961,7 +17060,7 @@
           <VarRangeInfo Mode="E" VarRangeVeeIsn="5" id="5"/>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Veyton Bestand aktualisieren" ISN_2="25" LastIsn="25" id="1569">
+          <Header Description="Veyton Bestand aktualisieren" ISN_2="25" LastIsn="26" id="1569">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>

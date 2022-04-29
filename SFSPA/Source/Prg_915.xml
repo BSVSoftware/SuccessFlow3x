@@ -2,7 +2,7 @@
 <Application>
 
   <Header>
-    <Version val="14070.00"/>
+    <Version val="14071.00"/>
     <WithIsn val="Y"/>
     <_InternalTask val="N"/>
     <IsRoot val="N"/>
@@ -33,7 +33,7 @@
           <Offline val="N"/>
           <FormType val="M"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="737720" _time="61284" date="22.10.2020" time="17:01:24"/>
+          <LastModified _date="738189" _time="73234" date="03.02.2022" time="20:20:34"/>
         </Header>
         <ItemIsn val="22"/>
         <Resource>
@@ -424,6 +424,7 @@
             <LogicLines>
               <LogicLine>
                 <BLOCK EndBlock="60" EndBlockSegment="60" FlowIsn="43" Type="I">
+                  <Expanded val="1"/>
                   <Condition Exp="19"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -431,6 +432,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="35" EndBlockSegment="29" FlowIsn="28" Type="I">
+                  <Expanded val="1"/>
                   <Condition Exp="8"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -449,6 +451,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="35" EndBlockSegment="35" FlowIsn="29" Type="E">
+                  <Expanded val="1"/>
                   <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -456,6 +459,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="34" EndBlockSegment="31" FlowIsn="30" Type="I">
+                  <Expanded val="1"/>
                   <Condition Exp="10"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -485,6 +489,7 @@
               </LogicLine>
               <LogicLine>
                 <BLOCK EndBlock="34" EndBlockSegment="34" FlowIsn="31" Type="E">
+                  <Expanded val="1"/>
                   <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -669,9 +674,9 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="737077" _time="49047" date="18.01.2019" time="13:37:27"/>
+            <LastModified _date="738189" _time="44109" date="03.02.2022" time="12:15:09"/>
           </Header>
-          <ItemIsn val="37"/>
+          <ItemIsn val="38"/>
           <Resource>
             <DB id="1">
               <DataObject comp="2" obj="4528"/>
@@ -724,6 +729,16 @@
                   <_Whole id="182" val="3"/>
                   <_Negative id="192"/>
                   <_FieldStyle id="276" val="1"/>
+                </PropertyList>
+              </Column>
+              <Column id="3" name="Result_v">
+                <PropertyList model="FIELD">
+                  <Model attr_obj="FIELD_BLOB" id="1"/>
+                  <StoredAs id="173" val="33"/>
+                  <Size id="174" val="28"/>
+                  <Definition id="175" val="1"/>
+                  <_FieldStyle id="276" val="1"/>
+                  <Content id="434" val="1"/>
                 </PropertyList>
               </Column>
             </Columns>
@@ -1315,6 +1330,18 @@
                     <Direction val="C"/>
                   </Select>
                 </LogicLine>
+                <LogicLine>
+                  <Select FieldID="38" FlowIsn="73" id="38">
+                    <Column val="3"/>
+                    <Type val="V"/>
+                    <ExposedToRoute val="N"/>
+                    <IsParameter val="N"/>
+                    <DIFF_UPDATE val="T"/>
+                    <Condition val="Y"/>
+                    <Modifier val="S"/>
+                    <Direction val="C"/>
+                  </Select>
+                </LogicLine>
               </LogicLines>
             </LogicUnit>
             <LogicUnit id="2" propagate="78">
@@ -1331,6 +1358,7 @@
               <LogicLines>
                 <LogicLine>
                   <BLOCK EndBlock="53" EndBlockSegment="53" FlowIsn="46" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="15"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -1349,6 +1377,7 @@
                 </LogicLine>
                 <LogicLine>
                   <BLOCK EndBlock="51" EndBlockSegment="51" FlowIsn="50" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="17"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -1383,6 +1412,71 @@
                         <Variable val="12"/>
                         <Skip val="N"/>
                         <Name val="JSON"/>
+                      </Argument>
+                      <Argument>
+                        <Variable val="38"/>
+                        <Skip val="N"/>
+                        <Name val="Result_v"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="32768"/>
+                        <Variable val="140"/>
+                        <Skip val="N"/>
+                        <Name val="DBSQL"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="32768"/>
+                        <Variable val="141"/>
+                        <Skip val="N"/>
+                        <Name val="DBAUTO"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="32768"/>
+                        <Variable val="142"/>
+                        <Skip val="N"/>
+                        <Name val="DBSTAT"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="32768"/>
+                        <Variable val="146"/>
+                        <Skip val="N"/>
+                        <Name val="ControlsPersistencyPath"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="32768"/>
+                        <Variable val="147"/>
+                        <Skip val="N"/>
+                        <Name val="DatabaseServer"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="32768"/>
+                        <Variable val="148"/>
+                        <Skip val="N"/>
+                        <Name val="DatabaseUserName"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="32768"/>
+                        <Variable val="149"/>
+                        <Skip val="N"/>
+                        <Name val="DatabaseUserPassword"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="32768"/>
+                        <Variable val="158"/>
+                        <Skip val="N"/>
+                        <Name val="Vorlagen"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="32768"/>
+                        <Variable val="159"/>
+                        <Skip val="N"/>
+                        <Name val="ContextInactivityTimeout"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="32768"/>
+                        <Variable val="160"/>
+                        <Skip val="N"/>
+                        <Name val="EventNumber"/>
                       </Argument>
                     </Arguments>
                     <Service val="SuccessFlow"/>

@@ -19,7 +19,7 @@
           <SQL val="N"/>
           <ReturnValue>
             <ReturnValueAttr/>
-            <TSK_PARAMS val="9"/>
+            <TSK_PARAMS val="10"/>
             <ParametersAttributes>
               <Attr MgAttr="B"/>
               <Attr MgAttr="N"/>
@@ -30,6 +30,7 @@
               <Attr MgAttr="A"/>
               <Attr MgAttr="B"/>
               <Attr MgAttr="N"/>
+              <Attr MgAttr="A"/>
             </ParametersAttributes>
           </ReturnValue>
           <SqlWhereExist val="N"/>
@@ -39,10 +40,10 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738006" _time="48939" date="04.08.2021" time="13:35:39"/>
+          <LastModified _date="738231" _time="59756" date="17.03.2022" time="16:35:56"/>
         </Header>
         <CHUNK val="52"/>
-        <ItemIsn val="28"/>
+        <ItemIsn val="31"/>
         <Resource>
           <Columns>
             <Column id="8" name="StandardDrucker_p">
@@ -120,6 +121,24 @@
                 <_Whole id="182" val="3"/>
                 <_Negative id="192"/>
                 <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
+            <Column id="23" name="Mailadresse_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_ALPHA" comp="2" id="1" obj="99"/>
+                <StoredAs id="173" val="1"/>
+                <DbColumnName id="178"/>
+                <Type id="179"/>
+                <UserType id="180"/>
+              </PropertyList>
+            </Column>
+            <Column id="22" name="Mailadresse_v">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_ALPHA" comp="2" id="1" obj="99"/>
+                <StoredAs id="173" val="1"/>
+                <DbColumnName id="178"/>
+                <Type id="179"/>
+                <UserType id="180"/>
               </PropertyList>
             </Column>
             <Column id="2" name="DruckSeitenPDFMail_v">
@@ -422,8 +441,35 @@
                   <Type val="V"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="Y"/>
-                  <_DitIndexForToolkit val="9"/>
+                  <_DitIndexForToolkit val="11"/>
                   <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="31" FlowIsn="455" id="31">
+                  <Column val="23"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="30" FlowIsn="406" id="30">
+                  <Column val="22"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="4"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
                   <Direction val="C"/>
@@ -437,11 +483,13 @@
                   <IsParameter val="N"/>
                   <INT_DIT_INFO>
                     <v>20</v>
+                    <v>22</v>
+                    <v>21</v>
                     <v>19</v>
                     <v>4</v>
                     <v>12</v>
                   </INT_DIT_INFO>
-                  <_DitIndexForToolkit val="7"/>
+                  <_DitIndexForToolkit val="9"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -457,7 +505,7 @@
                   <INT_DIT_INFO>
                     <v>12</v>
                   </INT_DIT_INFO>
-                  <_DitIndexForToolkit val="10"/>
+                  <_DitIndexForToolkit val="12"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -470,7 +518,7 @@
                   <Type val="V"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
-                  <_DitIndexForToolkit val="6"/>
+                  <_DitIndexForToolkit val="8"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -483,7 +531,7 @@
                   <Type val="V"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
-                  <_DitIndexForToolkit val="11"/>
+                  <_DitIndexForToolkit val="13"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -501,7 +549,7 @@
                     <v>4</v>
                     <v>12</v>
                   </INT_DIT_INFO>
-                  <_DitIndexForToolkit val="8"/>
+                  <_DitIndexForToolkit val="10"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -576,6 +624,17 @@
                 <Update FlowIsn="36">
                   <FieldID val="7"/>
                   <WithValue val="33"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="456">
+                  <FieldID val="30"/>
+                  <WithValue val="55"/>
                   <Incremental val="N"/>
                   <ForcedUpdate val="Y"/>
                   <Condition val="Y"/>
@@ -820,10 +879,15 @@
                 </STP>
               </LogicLine>
               <LogicLine>
-                <Remark FlowIsn="64">
-                  <Type val="2"/>
-                  <Text val=" "/>
-                </Remark>
+                <Update FlowIsn="64">
+                  <FieldID val="31"/>
+                  <WithValue val="56"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition Exp="54"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
               </LogicLine>
               <LogicLine>
                 <Update FlowIsn="27">
@@ -1109,13 +1173,13 @@
           </LogicUnit>
         </TaskLogic>
         <TaskForms>
-          <FormEntry _last_isn="20" _last_test_id="21" id="1">
+          <FormEntry _last_isn="22" _last_test_id="23" id="1">
             <PropertyList model="FORM_RICH_CLIENT">
               <Model comp="-1" id="1" obj="168"/>
               <X id="21" val="224"/>
               <Y id="22" val="78"/>
               <Width id="23" val="370"/>
-              <Height id="24" val="208"/>
+              <Height id="24" val="213"/>
               <SystemMenu id="27"/>
               <BorderStyle id="64" val="1"/>
               <_Comment id="218"/>
@@ -1149,12 +1213,37 @@
                 <_Orientation id="143"/>
               </PropertyList>
             </Control>
+            <Control _test_id="23" id="22">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="35"/>
+                <Text id="19" valUnicode="Mailadresse"/>
+                <X id="21" val="10"/>
+                <Y id="22" val="86"/>
+                <Width id="23" val="63"/>
+                <Height id="24" val="12"/>
+                <Visible Exp="54" id="61"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="22" id="21">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="33"/>
+                <X id="21" val="78"/>
+                <Y id="22" val="86"/>
+                <Width id="23" val="274"/>
+                <Height id="24" val="12"/>
+                <Data FieldID="30" id="43"/>
+                <ControlName id="46" val="Mailadresse_p"/>
+                <Visible Exp="54" id="61"/>
+                <TabOrder id="314" val="10"/>
+              </PropertyList>
+            </Control>
             <Control _test_id="17" id="16">
               <PropertyList model="CTRL_RICH_CLIENT_LABEL">
                 <Model comp="-1" id="1" obj="115"/>
                 <Text id="19" valUnicode="Drucker"/>
                 <X id="21" val="10"/>
-                <Y id="22" val="94"/>
+                <Y id="22" val="103"/>
                 <Width id="23" val="342"/>
                 <Height id="24" val="12"/>
                 <_Orientation id="143"/>
@@ -1165,7 +1254,7 @@
                 <Model comp="-1" id="1" obj="115"/>
                 <Text id="19" valUnicode="Exemplare"/>
                 <X id="21" val="10"/>
-                <Y id="22" val="147"/>
+                <Y id="22" val="156"/>
                 <Width id="23" val="343"/>
                 <Height id="24" val="12"/>
                 <_Orientation id="143"/>
@@ -1176,7 +1265,7 @@
                 <Model comp="2" id="1" obj="4150"/>
                 <Text id="19" valUnicode="Anzahl"/>
                 <X id="21" val="38"/>
-                <Y id="22" val="164"/>
+                <Y id="22" val="173"/>
                 <Width id="23" val="55"/>
                 <Height id="24" val="12"/>
                 <Font id="50" val="111"/>
@@ -1188,7 +1277,7 @@
               <PropertyList model="CTRL_RICH_CLIENT_EDIT">
                 <Model comp="-1" id="1" obj="33"/>
                 <X id="21" val="98"/>
-                <Y id="22" val="164"/>
+                <Y id="22" val="173"/>
                 <Width id="23" val="42"/>
                 <Height id="24" val="12"/>
                 <Data FieldID="4" id="43"/>
@@ -1204,12 +1293,13 @@
                 <Width id="23" val="174"/>
                 <Height id="24" val="44"/>
                 <Data FieldID="2" id="43"/>
-                <ItemsList id="45" valUnicode="Drucker, Seitenansicht,  Mail"/>
+                <ItemsList id="45" valUnicode="D,S,M"/>
                 <ControlName id="46" val="DruckSeitenPDFMail"/>
                 <Enabled Exp="6" id="62"/>
                 <HorizontalAlignment id="65" val="1"/>
                 <VerticalAlignment id="66" val="1"/>
                 <ChoiceColumns id="67" val="1"/>
+                <DisplayList id="303" valUnicode="Drucker, Seitenansicht/Export,  Mail"/>
                 <TabOrder id="314" val="2"/>
               </PropertyList>
             </Control>
@@ -1252,7 +1342,7 @@
               <PropertyList model="CTRL_RICH_CLIENT_CHECKBOX">
                 <Model comp="-1" id="1" obj="36"/>
                 <X id="21" val="38"/>
-                <Y id="22" val="109"/>
+                <Y id="22" val="118"/>
                 <Width id="23" val="147"/>
                 <Height id="24" val="12"/>
                 <Data FieldID="3" id="43"/>
@@ -1269,7 +1359,7 @@
               <PropertyList model="CTRL_RICH_CLIENT_COMBOBOX">
                 <Model comp="-1" id="1" obj="37"/>
                 <X id="21" val="38"/>
-                <Y id="22" val="126"/>
+                <Y id="22" val="135"/>
                 <Width id="23" val="314"/>
                 <Height id="24" val="13"/>
                 <Data FieldID="7" id="43"/>
@@ -1310,7 +1400,7 @@
               <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
                 <Model comp="-1" id="1" obj="48"/>
                 <X id="21" val="10"/>
-                <Y id="22" val="186"/>
+                <Y id="22" val="190"/>
                 <Width id="23" val="121"/>
                 <Height id="24" val="16"/>
                 <Format id="82" valUnicode="&amp;Abbruch"/>
@@ -1326,7 +1416,7 @@
                 <Model comp="-1" id="1" obj="45"/>
                 <Placement id="20"/>
                 <X id="21" val="232"/>
-                <Y id="22" val="186"/>
+                <Y id="22" val="190"/>
                 <Width id="23" val="121"/>
                 <Height id="24" val="16"/>
                 <ControlName id="46" val="Starten"/>
@@ -1504,6 +1594,18 @@
           <Expression id="52">
             <ExpSyntax val="1"/>
             <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="54">
+            <ExpSyntax val="{0,2}='M'"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="55">
+            <ExpSyntax val="{0,31}"/>
+            <ExpAttribute val="A"/>
+          </Expression>
+          <Expression id="56">
+            <ExpSyntax val="{0,30}"/>
+            <ExpAttribute val="A"/>
           </Expression>
         </Expressions>
         <EVNT DESC="StartenBTN" FORCE_EXIT="E" id="1">

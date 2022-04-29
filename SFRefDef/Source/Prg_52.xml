@@ -37,9 +37,9 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="737720" _time="60618" date="22.10.2020" time="16:50:18"/>
+          <LastModified _date="738216" _time="53523" date="02.03.2022" time="14:52:03"/>
         </Header>
-        <ItemIsn val="65"/>
+        <ItemIsn val="66"/>
         <Resource>
           <DB id="1">
             <DataObject comp="-1" obj="59"/>
@@ -326,7 +326,7 @@
                 <_Negative id="192"/>
               </PropertyList>
             </Column>
-            <Column id="14" name="vertrag_v">
+            <Column id="14" name="vertragszeiten_retcd">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_LOGICAL" id="1"/>
                 <NullValue id="167"/>
@@ -335,7 +335,7 @@
                 <Definition id="175" val="2"/>
               </PropertyList>
             </Column>
-            <Column id="15" name="Fehlerkat_vertr_v">
+            <Column id="15" name="Fehlerkat_vertr_retcd">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_LOGICAL" id="1"/>
                 <NullValue id="167"/>
@@ -344,7 +344,7 @@
                 <Definition id="175" val="2"/>
               </PropertyList>
             </Column>
-            <Column id="16" name="Fehlerkat_default_v">
+            <Column id="16" name="Fehlerkat_retcd">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_LOGICAL" id="1"/>
                 <NullValue id="167"/>
@@ -656,6 +656,12 @@
                   <Modifier val="S"/>
                   <Direction val="C"/>
                 </Select>
+              </LogicLine>
+              <LogicLine>
+                <Remark FlowIsn="98">
+                  <Type val="0"/>
+                  <Text val=" "/>
+                </Remark>
               </LogicLine>
               <LogicLine>
                 <Select FieldID="14" FlowIsn="17" id="14">
@@ -999,6 +1005,7 @@
                   <Type val="R"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
+                  <REAL_VNAME_TXT val="Reaktionszeit_vtr"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -1111,6 +1118,7 @@
                   <Type val="R"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
+                  <REAL_VNAME_TXT val="Reaktionszeit_vtr_kat"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -1123,6 +1131,7 @@
                   <Type val="R"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
+                  <REAL_VNAME_TXT val="Abschlusstage_vtr_kat"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -1135,6 +1144,7 @@
                   <Type val="R"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
+                  <REAL_VNAME_TXT val="Abschlusszeit_vtr_kat"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -1246,6 +1256,7 @@
                   <Type val="R"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
+                  <REAL_VNAME_TXT val="Reaktionszeit_kat"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -1258,6 +1269,7 @@
                   <Type val="R"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
+                  <REAL_VNAME_TXT val="Abschlusstage_kat"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -1270,6 +1282,7 @@
                   <Type val="R"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
+                  <REAL_VNAME_TXT val="Abschlusszeit_kat"/>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
                   <Modifier val="S"/>
@@ -1368,13 +1381,15 @@
             <LogicLines>
               <LogicLine>
                 <BLOCK EndBlock="96" EndBlockSegment="96" FlowIsn="76" Type="I">
+                  <Expanded val="1"/>
                   <Condition Exp="1"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </BLOCK>
               </LogicLine>
               <LogicLine>
-                <BLOCK EndBlock="85" EndBlockSegment="85" FlowIsn="77" Type="I">
+                <BLOCK EndBlock="112" EndBlockSegment="112" FlowIsn="77" Type="I">
+                  <Expanded val="1"/>
                   <Condition Exp="9"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -1390,6 +1405,12 @@
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </Update>
+              </LogicLine>
+              <LogicLine>
+                <Remark FlowIsn="99">
+                  <Type val="2"/>
+                  <Text val=" "/>
+                </Remark>
               </LogicLine>
               <LogicLine>
                 <Update FlowIsn="79">
@@ -1425,6 +1446,12 @@
                 </Update>
               </LogicLine>
               <LogicLine>
+                <Remark FlowIsn="101">
+                  <Type val="2"/>
+                  <Text val=" "/>
+                </Remark>
+              </LogicLine>
+              <LogicLine>
                 <Update FlowIsn="82">
                   <FieldID val="2"/>
                   <WithValue val="8"/>
@@ -1447,18 +1474,54 @@
                 </Update>
               </LogicLine>
               <LogicLine>
+                <BLOCK EndBlock="106" EndBlockSegment="106" FlowIsn="103" Type="I">
+                  <Expanded val="1"/>
+                  <Condition Exp="38"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
+              </LogicLine>
+              <LogicLine>
                 <Update FlowIsn="84">
                   <FieldID val="2"/>
                   <WithValue val="12"/>
                   <Incremental val="N"/>
                   <ForcedUpdate val="Y"/>
-                  <Condition Exp="11"/>
+                  <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </Update>
               </LogicLine>
               <LogicLine>
-                <END_BLK FlowIsn="85"/>
+                <Update FlowIsn="105">
+                  <FieldID val="62"/>
+                  <WithValue val="21"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+              <LogicLine>
+                <END_BLK FlowIsn="106"/>
+              </LogicLine>
+              <LogicLine>
+                <END_BLK FlowIsn="112"/>
+              </LogicLine>
+              <LogicLine>
+                <Remark FlowIsn="111">
+                  <Type val="2"/>
+                  <Text val=" "/>
+                </Remark>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="108" EndBlockSegment="108" FlowIsn="109" Type="I">
+                  <Expanded val="1"/>
+                  <Condition Exp="39"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
               </LogicLine>
               <LogicLine>
                 <Update FlowIsn="86">
@@ -1669,6 +1732,9 @@
                 </Update>
               </LogicLine>
               <LogicLine>
+                <END_BLK FlowIsn="108"/>
+              </LogicLine>
+              <LogicLine>
                 <END_BLK FlowIsn="96"/>
               </LogicLine>
               <LogicLine>
@@ -1743,6 +1809,10 @@
           </Expression>
           <Expression id="11">
             <ExpSyntax val="{0,5}='A'"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="38">
+            <ExpSyntax val="{0,5}='A' AND {0,64}&lt;>0"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="12">
@@ -1849,9 +1919,13 @@
             <ExpSyntax val="{32768,8}"/>
             <ExpAttribute val="N"/>
           </Expression>
+          <Expression id="39">
+            <ExpSyntax val="NOT(ExpCalc('38'EXP))"/>
+            <ExpAttribute val="B"/>
+          </Expression>
         </Expressions>
         <Task MainProgram="N">
-          <Header Description="Reaktionszeitberechnung Neu" ISN_2="2" id="52">
+          <Header Description="Reaktionszeitberechnung Neu" ISN_2="2" LastIsn="2" id="52">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -1864,12 +1938,12 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="734190" _time="59438" date="22.02.2011" time="16:30:38"/>
+            <LastModified _date="738216" _time="53255" date="02.03.2022" time="14:47:35"/>
           </Header>
           <ItemIsn val="2"/>
           <Resource>
             <Columns>
-              <Column id="1" name="V_R_von Tag">
+              <Column id="1" name="vonUhrzeit">
                 <PropertyList model="FIELD">
                   <Model attr_obj="FIELD_TIME" id="1"/>
                   <Picture id="157" valUnicode="HH:MM"/>
@@ -1892,7 +1966,7 @@
                   <Definition id="175" val="2"/>
                 </PropertyList>
               </Column>
-              <Column id="2" name="V_R_bis Tag">
+              <Column id="2" name="bisUhrzeit">
                 <PropertyList model="FIELD">
                   <Model attr_obj="FIELD_TIME" id="1"/>
                   <Picture id="157" valUnicode="HH:MM"/>
@@ -2036,6 +2110,7 @@
               <LogicLines>
                 <LogicLine>
                   <BLOCK EndBlock="24" EndBlockSegment="24" FlowIsn="5" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="19"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -2073,6 +2148,7 @@
                 </LogicLine>
                 <LogicLine>
                   <BLOCK EndBlock="13" EndBlockSegment="13" FlowIsn="9" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="12"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -2155,6 +2231,7 @@
                 </LogicLine>
                 <LogicLine>
                   <BLOCK EndBlock="22" EndBlockSegment="22" FlowIsn="18" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="5"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -2216,6 +2293,7 @@
                 </LogicLine>
                 <LogicLine>
                   <BLOCK EndBlock="42" EndBlockSegment="42" FlowIsn="26" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="17"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -2247,6 +2325,7 @@
                 </LogicLine>
                 <LogicLine>
                   <BLOCK EndBlock="33" EndBlockSegment="33" FlowIsn="29" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="12"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -2311,6 +2390,7 @@
                 </LogicLine>
                 <LogicLine>
                   <BLOCK EndBlock="40" EndBlockSegment="40" FlowIsn="36" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="6"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -2372,6 +2452,7 @@
                 </LogicLine>
                 <LogicLine>
                   <BLOCK EndBlock="63" EndBlockSegment="63" FlowIsn="44" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="20"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -2409,6 +2490,7 @@
                 </LogicLine>
                 <LogicLine>
                   <BLOCK EndBlock="52" EndBlockSegment="52" FlowIsn="48" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="12"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -2491,6 +2573,7 @@
                 </LogicLine>
                 <LogicLine>
                   <BLOCK EndBlock="61" EndBlockSegment="61" FlowIsn="57" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="5"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>

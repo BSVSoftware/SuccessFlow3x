@@ -36,7 +36,7 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738188" _time="60021" date="02.02.2022" time="16:40:21"/>
+          <LastModified _date="738245" _time="60429" date="31.03.2022" time="16:47:09"/>
         </Header>
         <CHUNK val="84"/>
         <ItemIsn val="1045"/>
@@ -24377,6 +24377,30 @@
               </LogicLine>
             </LogicLines>
           </LogicUnit>
+          <LogicUnit id="526" propagate="78">
+            <Level val="C"/>
+            <Type val="V"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <TXT val="_009"/>
+            <Expanded val="1"/>
+            <ExecuteOn_ val="O"/>
+            <LogicLines>
+              <LogicLine>
+                <STP Buttons="O" DefaultButton="1" ERR_LOG_DEF_CHG="N" Exp="710" FlowIsn="33608" IMG_DEF_CHG="N" Image="E" Mode="W" TTL_DEF_CHG="N" TitleTxt="Warning" VR_DISP="B">
+                  <AppendToErrorLog val="N"/>
+                  <Condition Exp="711"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </STP>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
           <LogicUnit id="70" propagate="78">
             <Level val="V"/>
             <Type val="C"/>
@@ -25583,14 +25607,10 @@
               <Model comp="-1" id="1" obj="164"/>
               <X id="21"/>
               <Y id="22"/>
-              <Width id="23" val="998"/>
-              <Height id="24" val="389"/>
               <_Comment id="218"/>
               <FormName Exp="500" id="311" valUnicode="IDNR-Stamm"/>
               <_TabbingOrder id="318" val="1"/>
               <DefaultButton Exp="523" id="408"/>
-              <MinimumWidth id="418" val="998"/>
-              <MinimumHeight id="419" val="389"/>
             </PropertyList>
             <Control PDOD="1" _test_id="273" id="2">
               <PropertyList model="CTRL_RICH_CLIENT_TAB">
@@ -34150,6 +34170,14 @@
           <Expression id="709">
             <ExpSyntax val="{0,233}"/>
             <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="710">
+            <ExpSyntax val="'S/N enthält ungültige Zeichen (Tabulator)!'"/>
+            <ExpAttribute val="A"/>
+          </Expression>
+          <Expression id="711">
+            <ExpSyntax val="InStr({0,93},ASCIIChr(9))>0"/>
+            <ExpAttribute val="B"/>
           </Expression>
         </Expressions>
         <EVNT DESC="Features" FORCE_EXIT="N" id="13">

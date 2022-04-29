@@ -34,7 +34,7 @@
           <Offline val="N"/>
           <FormType val="U"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738075" _time="34270" date="12.10.2021" time="09:31:10"/>
+          <LastModified _date="738250" _time="43400" date="05.04.2022" time="12:03:20"/>
         </Header>
         <CHUNK val="55"/>
         <ItemIsn val="228"/>
@@ -10048,7 +10048,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738057" _time="55603" date="24.09.2021" time="15:26:43"/>
+            <LastModified _date="738243" _time="54614" date="29.03.2022" time="15:10:14"/>
           </Header>
           <ItemIsn val="413"/>
           <Resource>
@@ -17833,6 +17833,10 @@
                         <Variable val="20"/>
                         <Skip val="N"/>
                       </Argument>
+                      <Argument>
+                        <Expression val="298"/>
+                        <Skip val="N"/>
+                      </Argument>
                     </Arguments>
                     <Wait val="Y"/>
                     <SyncData val="N"/>
@@ -23210,6 +23214,10 @@
             </Expression>
             <Expression id="297">
               <ExpSyntax val="({0,7}+{0,8}+{0,9})*IF ({1,145},- (1),1)"/>
+              <ExpAttribute val="N"/>
+            </Expression>
+            <Expression id="298">
+              <ExpSyntax val="IF(ISNULL({1,29}),0,{1,29})"/>
               <ExpAttribute val="N"/>
             </Expression>
           </Expressions>
@@ -40208,9 +40216,9 @@
               <External val="N"/>
               <FormType val="D"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738005" _time="41779" date="03.08.2021" time="11:36:19"/>
+              <LastModified _date="738250" _time="43400" date="05.04.2022" time="12:03:20"/>
             </Header>
-            <ItemIsn val="11"/>
+            <ItemIsn val="12"/>
             <Resource>
               <DB id="1">
                 <DataObject comp="2" obj="635"/>
@@ -40412,7 +40420,7 @@
                       <INT_OLESUBFORM_INFO>
                         <v>10</v>
                       </INT_OLESUBFORM_INFO>
-                      <_DitIndexForToolkit val="7"/>
+                      <_DitIndexForToolkit val="9"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -40426,7 +40434,7 @@
                       <ExposedToRoute val="N"/>
                       <IsParameter val="N"/>
                       <DisplayName val="Betrag"/>
-                      <_DitIndexForToolkit val="8"/>
+                      <_DitIndexForToolkit val="10"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -40440,7 +40448,7 @@
                       <ExposedToRoute val="N"/>
                       <IsParameter val="N"/>
                       <DisplayName val="Konto"/>
-                      <_DitIndexForToolkit val="9"/>
+                      <_DitIndexForToolkit val="11"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -40454,7 +40462,20 @@
                       <ExposedToRoute val="N"/>
                       <IsParameter val="N"/>
                       <DisplayName val="Kostenstelle"/>
-                      <_DitIndexForToolkit val="10"/>
+                      <_DitIndexForToolkit val="12"/>
+                      <DIFF_UPDATE val="T"/>
+                      <Condition val="Y"/>
+                      <Modifier val="S"/>
+                      <Direction val="C"/>
+                    </Select>
+                  </LogicLine>
+                  <LogicLine>
+                    <Select FieldID="12" FlowIsn="14" id="12">
+                      <Column val="12"/>
+                      <Type val="R"/>
+                      <ExposedToRoute val="N"/>
+                      <IsParameter val="N"/>
+                      <_DitIndexForToolkit val="8"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -40465,7 +40486,7 @@
               </LogicUnit>
             </TaskLogic>
             <TaskForms>
-              <FormEntry _last_isn="12" _last_test_id="12" id="1">
+              <FormEntry _last_isn="14" _last_test_id="14" id="1">
                 <PropertyList model="FORM_RICH_CLIENT">
                   <Model comp="-1" id="1" obj="165"/>
                   <X id="21" val="111"/>
@@ -40529,8 +40550,8 @@
                     <Width id="23" val="670"/>
                     <Height id="24" val="118"/>
                     <_TitleHeight id="79" val="14"/>
-                    <RowHeight id="80" val="14"/>
-                    <Elements id="81" val="4"/>
+                    <RowHeight id="80" val="15"/>
+                    <Elements id="81" val="5"/>
                     <_WindowWidth id="241" val="670"/>
                   </PropertyList>
                 </Control>
@@ -40539,6 +40560,7 @@
                     <Model comp="-1" id="1" obj="17"/>
                     <Width id="23" val="86"/>
                     <ControlLayer id="25" val="1"/>
+                    <Placement Exp="9" id="138"/>
                     <ColumnTitle id="139" valUnicode="Verwendung"/>
                   </PropertyList>
                 </Control>
@@ -40547,6 +40569,7 @@
                     <Model comp="-1" id="1" obj="17"/>
                     <Width id="23" val="104"/>
                     <ControlLayer id="25" val="2"/>
+                    <Placement Exp="9" id="138"/>
                     <ColumnTitle id="139" valUnicode="Betrag"/>
                   </PropertyList>
                 </Control>
@@ -40555,6 +40578,7 @@
                     <Model comp="-1" id="1" obj="17"/>
                     <Width id="23" val="86"/>
                     <ControlLayer id="25" val="3"/>
+                    <Placement Exp="9" id="138"/>
                     <ColumnTitle id="139" valUnicode="Konto"/>
                   </PropertyList>
                 </Control>
@@ -40563,7 +40587,33 @@
                     <Model comp="-1" id="1" obj="17"/>
                     <Width id="23" val="76"/>
                     <ControlLayer id="25" val="4"/>
+                    <Placement Exp="9" id="138"/>
                     <ColumnTitle id="139" valUnicode="Kostenstelle"/>
+                  </PropertyList>
+                </Control>
+                <Control ISN_FATHER="1" PDOD="128" _test_id="13" id="13">
+                  <PropertyList model="CTRL_RICH_CLIENT_COLUMN">
+                    <Model comp="-1" id="1" obj="17"/>
+                    <Width id="23" val="54"/>
+                    <ControlLayer id="25" val="5"/>
+                    <Placement Exp="9" id="138"/>
+                    <ColumnTitle id="139" valUnicode="Steuercode"/>
+                  </PropertyList>
+                </Control>
+                <Control ISN_FATHER="1" PDOD="1" _test_id="14" id="14">
+                  <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                    <Model comp="-1" id="1" obj="22"/>
+                    <Placement bottom="100" id="20" right="100"/>
+                    <X id="21" val="366"/>
+                    <Y id="22" val="41"/>
+                    <Width id="23" val="47"/>
+                    <Height id="24" val="12"/>
+                    <ControlLayer id="25" val="5"/>
+                    <Data FieldID="12" id="43"/>
+                    <ControlName id="46" val="Steuercode"/>
+                    <_Style id="63" val="1"/>
+                    <TabOrder id="314" val="7"/>
+                    <CornerRadius id="668"/>
                   </PropertyList>
                 </Control>
                 <Control ISN_FATHER="1" _test_id="2" id="2">
@@ -40692,6 +40742,10 @@
               </Expression>
               <Expression id="8">
                 <ExpSyntax val="'TRUE'LOG"/>
+                <ExpAttribute val="B"/>
+              </Expression>
+              <Expression id="9">
+                <ExpSyntax val="NOT IsMobileClient()"/>
                 <ExpAttribute val="B"/>
               </Expression>
             </Expressions>
