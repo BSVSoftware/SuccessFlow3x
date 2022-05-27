@@ -13,7 +13,7 @@
   <ProgramsRepository>
     <Programs>
       <Task MainProgram="N">
-        <Header Description="Lieferscheinausdruck prüfen" ISN_2="1" LastIsn="7" id="223">
+        <Header Description="Lieferscheinausdruck prüfen" ISN_2="1" LastIsn="6" id="223">
           <ExecutionRight comp="-1"/>
           <Resident val="N"/>
           <SQL val="N"/>
@@ -34,7 +34,7 @@
           <Offline val="N"/>
           <FormType val="M"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738046" _time="52335" date="13.09.2021" time="14:32:15"/>
+          <LastModified _date="738300" _time="32183" date="25.05.2022" time="08:56:23"/>
         </Header>
         <ItemIsn val="74"/>
         <Resource>
@@ -305,11 +305,11 @@
             <ConfirmUpdate CNFU="N"/>
             <ConfirmCancel val="N"/>
             <ErrorStrategy val="A"/>
-            <LockingStrategy val="I"/>
+            <LockingStrategy val="M"/>
             <CacheStrategy val="T"/>
             <ForceRecordSuffix val="N"/>
             <TransactionMode val="P"/>
-            <TransactionBegin val="T"/>
+            <TransactionBegin val="N"/>
             <PreloadView val="N"/>
             <AllowEmptyDataview val="N"/>
             <KeepCreatedContext val="N"/>
@@ -857,6 +857,7 @@
               </LogicLine>
               <LogicLine>
                 <Select FieldID="56" FlowIsn="72" id="56">
+                  <ASS val="39"/>
                   <Column val="5"/>
                   <Type val="V"/>
                   <ExposedToRoute val="N"/>
@@ -1411,9 +1412,13 @@
             <ExpSyntax val="{0,2}"/>
             <ExpAttribute val="B"/>
           </Expression>
+          <Expression id="39">
+            <ExpSyntax val="NOT({32768,150}) AND NOT ({32768,154})"/>
+            <ExpAttribute val="B"/>
+          </Expression>
         </Expressions>
         <Task MainProgram="N">
-          <Header Description="Lieferscheinausdruck prüfen" ISN_2="2" LastIsn="7" id="223">
+          <Header Description="Lieferscheinausdruck prüfen" ISN_2="2" LastIsn="6" id="223">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -1429,7 +1434,7 @@
             <External val="N"/>
             <FormType val="M"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="737826" _time="56966" date="05.02.2021" time="15:49:26"/>
+            <LastModified _date="738300" _time="32042" date="25.05.2022" time="08:54:02"/>
           </Header>
           <ItemIsn val="19"/>
           <Resource>
@@ -1500,11 +1505,11 @@
               <ConfirmUpdate CNFU="N"/>
               <ConfirmCancel val="N"/>
               <ErrorStrategy val="A"/>
-              <LockingStrategy val="I"/>
+              <LockingStrategy val="M"/>
               <CacheStrategy val="D"/>
               <ForceRecordSuffix val="N"/>
-              <TransactionMode val="W"/>
-              <TransactionBegin val="T"/>
+              <TransactionMode val="P"/>
+              <TransactionBegin val="N"/>
               <PreloadView val="N"/>
               <AllowEmptyDataview val="N"/>
               <KeepCreatedContext val="N"/>
@@ -2082,7 +2087,7 @@
           <VarRangeInfo Mode="F" VarRangeVeeIsn="7" id="9"/>
           <VarRangeInfo Mode="T" VarRangeVeeIsn="7" id="10"/>
           <Task MainProgram="N">
-            <Header Description="117 zaehlen" ISN_2="3" LastIsn="7" id="223">
+            <Header Description="117 zaehlen" ISN_2="3" LastIsn="6" id="223">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="Y"/>
@@ -2095,7 +2100,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738046" _time="52335" date="13.09.2021" time="14:32:15"/>
+              <LastModified _date="738300" _time="32183" date="25.05.2022" time="08:56:23"/>
             </Header>
             <ItemIsn val="7"/>
             <Resource>
@@ -2138,7 +2143,7 @@
                 <LockingStrategy val="M"/>
                 <CacheStrategy val="T"/>
                 <ForceRecordSuffix val="N"/>
-                <TransactionMode val="W"/>
+                <TransactionMode val="P"/>
                 <TransactionBegin val="N"/>
                 <PreloadView val="N"/>
                 <AllowEmptyDataview val="N"/>
@@ -2173,7 +2178,7 @@
               </BOX>
             </Information>
             <SQL_FORM DB="SQL" RESTAB="SQL">
-              <SQL_STMT_U val="select COUNT(*) from POSITION_GERAETE WITH(NOLOCK)&#xD;&#xA;where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and Auftrags_Nr=:5 and Zeile=:6"/>
+              <SQL_STMT_U val="select COUNT(*) from POSITION_GERAETE WITH(NOLOCK, index(POSITION_GERAETE_POS_IDNR))&#xD;&#xA;where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and Auftrags_Nr=:5 and Zeile=:6"/>
               <INARG>
                 <Arguments>
                   <Argument Parent="2" Variable="3"/>
@@ -2297,7 +2302,7 @@
           </Task>
         </Task>
         <Task MainProgram="N">
-          <Header Description="STF lesen" ISN_2="6" LastIsn="7" id="223">
+          <Header Description="STF lesen" ISN_2="6" LastIsn="6" id="223">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>

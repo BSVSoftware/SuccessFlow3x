@@ -13,7 +13,7 @@
   <ProgramsRepository>
     <Programs>
       <Task MainProgram="N">
-        <Header Description="SCFleet Steuerfile" ISN_2="1" LastIsn="2" id="2177">
+        <Header Description="SCFleet Steuerfile" ISN_2="1" LastIsn="3" id="2177">
           <Public val="SCFleet Steuerfile"/>
           <ExecutionRight comp="-1"/>
           <Resident val="N"/>
@@ -29,9 +29,9 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738007" _time="63091" date="05.08.2021" time="17:31:31"/>
+          <LastModified _date="738264" _time="57900" date="19.04.2022" time="16:05:00"/>
         </Header>
-        <ItemIsn val="33"/>
+        <ItemIsn val="35"/>
         <Resource>
           <DB id="1">
             <DataObject comp="2" obj="4042"/>
@@ -50,6 +50,15 @@
                 <_Whole id="182" val="2"/>
                 <_Negative id="192"/>
                 <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="Return_v">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_ALPHA" id="1"/>
+                <Picture id="157" valUnicode="200"/>
+                <StoredAs id="173" val="1"/>
+                <Size id="174" val="200"/>
+                <_Flip id="194"/>
               </PropertyList>
             </Column>
           </Columns>
@@ -578,6 +587,18 @@
                   <Direction val="C"/>
                 </Select>
               </LogicLine>
+              <LogicLine>
+                <Select FieldID="35" FlowIsn="68" id="35">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
             </LogicLines>
           </LogicUnit>
           <LogicUnit id="3" propagate="78">
@@ -731,9 +752,56 @@
               </LogicLine>
             </LogicLines>
           </LogicUnit>
+          <LogicUnit id="10" propagate="78">
+            <Level val="H"/>
+            <Type val="U"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="U"/>
+              <Parent val="32768"/>
+              <PublicObject comp="-1" obj="18"/>
+            </Event>
+            <Expanded val="1"/>
+            <ExecuteOn_ val="O"/>
+            <LogicLines>
+              <LogicLine>
+                <CallTask FlowIsn="67">
+                  <OperationType val="T"/>
+                  <Event>
+                    <EventType val="N"/>
+                  </Event>
+                  <TaskID comp="-1" obj="3"/>
+                  <Lock val="N"/>
+                  <Arguments>
+                    <Argument>
+                      <Variable val="35"/>
+                      <Skip val="N"/>
+                    </Argument>
+                  </Arguments>
+                  <Wait val="Y"/>
+                  <SyncData val="N"/>
+                  <RetainFocus val="N"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </CallTask>
+              </LogicLine>
+              <LogicLine>
+                <STP Buttons="O" DefaultButton="1" ERR_LOG_DEF_CHG="N" Exp="17" FlowIsn="69" IMG_DEF_CHG="N" Image="E" Mode="W" TTL_DEF_CHG="N" TitleTxt="Warning" VR_DISP="B">
+                  <AppendToErrorLog val="N"/>
+                  <Condition Exp="18"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </STP>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
         </TaskLogic>
         <TaskForms>
-          <FormEntry _last_isn="49" _last_test_id="55" id="1">
+          <FormEntry _last_isn="50" _last_test_id="56" id="1">
             <PropertyList model="FORM_RICH_CLIENT">
               <Model comp="-1" id="1" obj="164"/>
               <_Comment id="218"/>
@@ -1432,6 +1500,23 @@
                 <TabOrder id="314" val="31"/>
               </PropertyList>
             </Control>
+            <Control ISN_FATHER="2" PDOD="128" _test_id="56" id="50">
+              <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
+                <Model comp="-1" id="1" obj="48"/>
+                <X id="21" val="408"/>
+                <Y id="22" val="346"/>
+                <Width id="23" val="100"/>
+                <Height id="24" val="16"/>
+                <ControlLayer id="25" val="1"/>
+                <Format id="82" valUnicode="&amp;Test Rückmeldung"/>
+                <RaiseEvent id="234">
+                  <EventType val="U"/>
+                  <Parent val="32768"/>
+                  <PublicObject comp="-1" obj="18"/>
+                </RaiseEvent>
+                <TabOrder id="314" val="32"/>
+              </PropertyList>
+            </Control>
           </FormEntry>
         </TaskForms>
         <Expressions>
@@ -1491,6 +1576,14 @@
             <ExpSyntax val="NOT {0,33}"/>
             <ExpAttribute val="B"/>
           </Expression>
+          <Expression id="17">
+            <ExpSyntax val="'Meldung von DLL: '&amp;Trim({0,35})"/>
+            <ExpAttribute val="A"/>
+          </Expression>
+          <Expression id="18">
+            <ExpSyntax val="{0,35}&lt;>''"/>
+            <ExpAttribute val="B"/>
+          </Expression>
         </Expressions>
         <VarRangeInfo Mode="E" VarRangeVeeIsn="1" id="1"/>
         <VarRangeInfo Mode="E" VarRangeVeeIsn="2" id="2"/>
@@ -1498,7 +1591,7 @@
         <VarRangeInfo Mode="E" VarRangeVeeIsn="4" id="4"/>
         <VarRangeInfo Mode="E" VarRangeVeeIsn="5" id="5"/>
         <Task MainProgram="N">
-          <Header Description="Lager" ISN_2="2" LastIsn="2" id="2177">
+          <Header Description="Lager" ISN_2="2" LastIsn="3" id="2177">
             <ExecutionRight comp="-1"/>
             <Resident val="N"/>
             <SQL val="N"/>
@@ -2104,6 +2197,255 @@
           <VarRangeInfo Mode="E" VarRangeVeeIsn="2" id="2"/>
           <VarRangeInfo Mode="E" VarRangeVeeIsn="3" id="3"/>
           <VarRangeInfo Mode="E" VarRangeVeeIsn="4" id="4"/>
+        </Task>
+        <Task MainProgram="N">
+          <Header Description="batch rückmeldung" ISN_2="3" LastIsn="3" id="2177">
+            <ExecutionRight comp="-1"/>
+            <Resident val="N"/>
+            <SQL val="N"/>
+            <ReturnValue>
+              <ReturnValueAttr/>
+              <TSK_PARAMS val="1"/>
+              <ParametersAttributes>
+                <Attr MgAttr="A"/>
+              </ParametersAttributes>
+            </ReturnValue>
+            <SqlWhereExist val="N"/>
+            <TaskType val="B"/>
+            <External val="N"/>
+            <FormType val="M"/>
+            <DotNetObjectExists val="N"/>
+            <LastModified _date="738264" _time="57900" date="19.04.2022" time="16:05:00"/>
+          </Header>
+          <ItemIsn val="2"/>
+          <Resource>
+            <Columns>
+              <Column id="2" name="Return">
+                <PropertyList model="FIELD">
+                  <Model attr_obj="FIELD_ALPHA" id="1"/>
+                  <Picture id="157" valUnicode="200"/>
+                  <Size id="174" val="200"/>
+                  <_Flip id="194"/>
+                  <_FieldStyle id="276" val="1"/>
+                </PropertyList>
+              </Column>
+              <Column id="1" name="OLE">
+                <PropertyList model="FIELD">
+                  <Model attr_obj="FIELD_BLOB" id="1"/>
+                  <Size id="174" val="28"/>
+                  <Definition id="175" val="1"/>
+                  <_FieldStyle id="276" val="3"/>
+                  <SubObjectName id="277"/>
+                  <TypeLibrary GUID="{91C35574-C2A7-44E7-A685-280665F7E317}" MAJOR="1" id="281" name="SCFleetLink (Ver 1.0)"/>
+                  <ObjectName CanCreate="1" GUID="{49D79072-C8DA-4EEE-BC50-99BBE17288EA}" id="282" name="SucFleet"/>
+                  <_COMLicenseKey id="291"/>
+                </PropertyList>
+              </Column>
+            </Columns>
+          </Resource>
+          <Information>
+            <Key>
+              <Mode val="N"/>
+            </Key>
+            <DB comp="-1"/>
+            <Sort>
+              <CLS val="A"/>
+            </Sort>
+            <ForceRecordDelete DEL="N"/>
+            <EndTaskCondition val="Y"/>
+            <EvaluateEndCondition val="A"/>
+            <InitialMode val="M"/>
+            <Locate Direction="A"/>
+            <Range Direction="A"/>
+            <VarRange/>
+            <TaskProperties>
+              <SelectionTable val="N"/>
+              <ConfirmUpdate CNFU="N"/>
+              <ConfirmCancel val="N"/>
+              <ErrorStrategy val="A"/>
+              <LockingStrategy val="I"/>
+              <CacheStrategy val="N"/>
+              <ForceRecordSuffix val="N"/>
+              <TransactionMode val="W"/>
+              <TransactionBegin val="T"/>
+              <PreloadView val="N"/>
+              <AllowEmptyDataview val="N"/>
+              <KeepCreatedContext val="N"/>
+            </TaskProperties>
+            <SIDE_WIN>
+              <AllowOptions val="N"/>
+              <AllowQuery val="Y"/>
+              <AllowModify val="Y"/>
+              <AllowCreate val="Y"/>
+              <AllowDelete val="Y"/>
+              <AllowLocate val="Y"/>
+              <AllowRange val="Y"/>
+              <AllowIndexChange val="Y"/>
+              <AllowSorting val="Y"/>
+              <AllowIOFiles val="N"/>
+              <RecordCycle val="Y"/>
+              <AllowEvents val="N"/>
+              <AllowIndexOptimization val="Y"/>
+              <AllowLocationInQuery val="Y"/>
+              <AllowPrintingData val="N"/>
+            </SIDE_WIN>
+            <WIN>
+              <OpenTaskWindow val="N"/>
+              <CloseTaskWindow val="Y"/>
+              <ForegroundWindow val="Y"/>
+              <FlipFld val="N"/>
+              <RefreshTaskWindow ReturnValue="N"/>
+            </WIN>
+            <BOX>
+              <Direction val="V"/>
+            </BOX>
+          </Information>
+          <TaskLogic>
+            <LogicUnit id="1" propagate="78">
+              <Level val="R"/>
+              <Type val="M"/>
+              <Scope val="S"/>
+              <EngineDirective val="S"/>
+              <ShowMessage val="Y"/>
+              <Condition val="89"/>
+              <Event>
+                <EventType val="S"/>
+              </Event>
+              <LogicLines>
+                <LogicLine>
+                  <DATAVIEW_SRC FlowIsn="1" Type="M">
+                    <Condition val="N"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </DATAVIEW_SRC>
+                </LogicLine>
+                <LogicLine>
+                  <Select FieldID="2" FlowIsn="7" id="2">
+                    <Column val="2"/>
+                    <Type val="V"/>
+                    <ExposedToRoute val="N"/>
+                    <IsParameter val="Y"/>
+                    <DIFF_UPDATE val="T"/>
+                    <Condition val="Y"/>
+                    <Modifier val="S"/>
+                    <Direction val="C"/>
+                  </Select>
+                </LogicLine>
+                <LogicLine>
+                  <Select FieldID="1" FlowIsn="2" id="1">
+                    <Column val="1"/>
+                    <Type val="V"/>
+                    <ExposedToRoute val="N"/>
+                    <IsParameter val="N"/>
+                    <DIFF_UPDATE val="T"/>
+                    <Condition val="Y"/>
+                    <Modifier val="S"/>
+                    <Direction val="C"/>
+                  </Select>
+                </LogicLine>
+              </LogicLines>
+            </LogicUnit>
+            <LogicUnit id="3" propagate="78">
+              <Level val="R"/>
+              <Type val="S"/>
+              <Scope val="S"/>
+              <EngineDirective val="S"/>
+              <ShowMessage val="Y"/>
+              <Condition val="89"/>
+              <Event>
+                <EventType val="S"/>
+              </Event>
+              <Expanded val="1"/>
+              <LogicLines>
+                <LogicLine>
+                  <Invoke FieldID2="1" FlowIsn="4">
+                    <OperationType val="C"/>
+                    <Event>
+                      <EventType val="N"/>
+                    </Event>
+                    <TaskID comp="-1"/>
+                    <Lock val="Y"/>
+                    <Arguments>
+                      <Argument>
+                        <Variable val="2"/>
+                        <Skip val="Y"/>
+                        <Name val="Return Value"/>
+                        <Type val="8"/>
+                        <VT_Type val="8"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="1"/>
+                        <Variable val="7"/>
+                        <Skip val="N"/>
+                        <Name val="url"/>
+                        <Type val="8"/>
+                        <VT_Type val="10"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="1"/>
+                        <Variable val="8"/>
+                        <Skip val="N"/>
+                        <Name val="benutzer"/>
+                        <Type val="8"/>
+                        <VT_Type val="10"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="1"/>
+                        <Variable val="9"/>
+                        <Skip val="N"/>
+                        <Name val="passwort"/>
+                        <Type val="8"/>
+                        <VT_Type val="10"/>
+                      </Argument>
+                      <Argument>
+                        <Expression val="1"/>
+                        <Skip val="N"/>
+                        <Name val="agentid"/>
+                        <Type val="8"/>
+                        <VT_Type val="10"/>
+                      </Argument>
+                      <Argument>
+                        <Expression val="1"/>
+                        <Skip val="N"/>
+                        <Name val="deviceid"/>
+                        <Type val="8"/>
+                        <VT_Type val="10"/>
+                      </Argument>
+                      <Argument>
+                        <Expression val="1"/>
+                        <Skip val="N"/>
+                        <Name val="orderid"/>
+                        <Type val="8"/>
+                        <VT_Type val="10"/>
+                      </Argument>
+                    </Arguments>
+                    <MethodName val="GetOrderStatus"/>
+                    <Wait val="Y"/>
+                    <SyncData val="N"/>
+                    <Option val="M"/>
+                    <RetainFocus val="Y"/>
+                    <Condition val="Y"/>
+                    <Modifier val="S"/>
+                    <Direction val="C"/>
+                  </Invoke>
+                </LogicLine>
+              </LogicLines>
+            </LogicUnit>
+          </TaskLogic>
+          <TaskForms>
+            <FormEntry id="1">
+              <PropertyList model="FORM_GUI0">
+                <_Comment id="218"/>
+                <FormName id="311" valUnicode="batach rückmeldung"/>
+              </PropertyList>
+            </FormEntry>
+          </TaskForms>
+          <Expressions>
+            <Expression id="1">
+              <ExpSyntax val="'1'"/>
+              <ExpAttribute val="A"/>
+            </Expression>
+          </Expressions>
         </Task>
       </Task>
     </Programs>

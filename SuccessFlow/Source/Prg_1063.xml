@@ -29,7 +29,7 @@
           <Offline val="N"/>
           <FormType val="M"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738053" _time="55287" date="20.09.2021" time="15:21:27"/>
+          <LastModified _date="738300" _time="64888" date="25.05.2022" time="18:01:28"/>
         </Header>
         <ItemIsn val="40"/>
         <Resource>
@@ -128,8 +128,8 @@
             <LockingStrategy val="M"/>
             <CacheStrategy val="D"/>
             <ForceRecordSuffix val="N"/>
-            <TransactionMode val="D"/>
-            <TransactionBegin val="P"/>
+            <TransactionMode val="O"/>
+            <TransactionBegin val="N"/>
             <PreloadView val="N"/>
             <AllowEmptyDataview val="Y"/>
             <KeepCreatedContext val="N"/>
@@ -163,7 +163,7 @@
           </BOX>
         </Information>
         <SQL_FORM DB="SQL" RESTAB="SQL">
-          <SQL_STMT_U val="select c.ebene1,c.ebene2,c.ebene3,c.ebene4,c.idnr from geraete c WITH(NOLOCK) left outer join idnr_zusatz a WITH(NOLOCK) on (a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4 and a.idnr=c.idnr) join kunden b WITH(NOLOCK) on ( c.Ebene1=b.Ebene1 and c.Ebene2=b.Ebene2 and c.Ebene3=b.Ebene3 and c.Ebene4=b.Ebene4 and c.betreiber=b.kdnr) join kunden d WITH(NOLOCK) on ( c.Ebene1=d.Ebene1 and c.Ebene2=d.Ebene2 and c.Ebene3=d.Ebene3 and c.Ebene4=d.Ebene4 and c.rechnungsempfnger=d.kdnr) where (a.flsprioritaethoch='Hoch' or a.flsverspaetung='vermeiden' or a.flsverspaetung='streng verm' or a.flsverspaetung='verbieten' or b.flsprioritaethoch='Hoch' or b.flsverspaetung='vermeiden' or b.flsverspaetung='streng verm' or b.flsverspaetung='verbieten' or d.flsprioritaethoch='Hoch' or d.flsverspaetung='vermeiden' or d.flsverspaetung='streng verm' or d.flsverspaetung='verbieten') and c.Ebene1=:1 and c.Ebene2=:2 and c.Ebene3=:3 and c.Ebene4=:4 order by c.IDNR"/>
+          <SQL_STMT_U val="select c.ebene1,c.ebene2,c.ebene3,c.ebene4,c.idnr from &#xD;&#xA;geraete c WITH(NOLOCK,index(Geraete_IDNR)) &#xD;&#xA;left outer join idnr_zusatz a WITH(NOLOCK,index(IDNR_GARANTIE_ZUSATZ_IDNR)) on (a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4 and a.idnr=c.idnr) &#xD;&#xA;join kunden b WITH(NOLOCK,index(Kunden_KDNR)) on ( c.Ebene1=b.Ebene1 and c.Ebene2=b.Ebene2 and c.Ebene3=b.Ebene3 and c.Ebene4=b.Ebene4 and c.betreiber=b.kdnr) &#xD;&#xA;join kunden d WITH(NOLOCK,index(Kunden_KDNR)) on ( c.Ebene1=d.Ebene1 and c.Ebene2=d.Ebene2 and c.Ebene3=d.Ebene3 and c.Ebene4=d.Ebene4 and c.rechnungsempfnger=d.kdnr) &#xD;&#xA;where (a.flsprioritaethoch='Hoch' or a.flsverspaetung='vermeiden' or a.flsverspaetung='streng verm' or a.flsverspaetung='verbieten' or b.flsprioritaethoch='Hoch' or &#xD;&#xA;b.flsverspaetung='vermeiden' or b.flsverspaetung='streng verm' or b.flsverspaetung='verbieten' or d.flsprioritaethoch='Hoch' or d.flsverspaetung='vermeiden' or&#xD;&#xA; d.flsverspaetung='streng verm' or d.flsverspaetung='verbieten') and c.Ebene1=:1 and c.Ebene2=:2 and c.Ebene3=:3 and c.Ebene4=:4 &#xD;&#xA; order by c.IDNR"/>
           <INARG>
             <Arguments>
               <Argument>

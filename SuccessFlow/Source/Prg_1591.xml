@@ -36,7 +36,7 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738243" _time="57613" date="29.03.2022" time="16:00:13"/>
+          <LastModified _date="738280" _time="59268" date="05.05.2022" time="16:27:48"/>
         </Header>
         <DISPLAY val="2"/>
         <ItemIsn val="180"/>
@@ -5039,6 +5039,9 @@
                     <Argument>
                       <Skip val="Y"/>
                     </Argument>
+                    <Argument>
+                      <Skip val="Y"/>
+                    </Argument>
                   </Arguments>
                   <SyncData val="N"/>
                   <RetainFocus val="N"/>
@@ -5219,6 +5222,11 @@
                   </Event>
                   <TaskID comp="-1" obj="34"/>
                   <Lock val="N"/>
+                  <Arguments>
+                    <Argument>
+                      <Skip val="Y"/>
+                    </Argument>
+                  </Arguments>
                   <SyncData val="N"/>
                   <RetainFocus val="N"/>
                   <Condition val="Y"/>
@@ -8381,6 +8389,9 @@
                     <Argument>
                       <Skip val="Y"/>
                     </Argument>
+                    <Argument>
+                      <Skip val="Y"/>
+                    </Argument>
                   </Arguments>
                   <Wait val="Y"/>
                   <SyncData val="N"/>
@@ -9248,6 +9259,11 @@
                   </Event>
                   <TaskID comp="-1" obj="34"/>
                   <Lock val="N"/>
+                  <Arguments>
+                    <Argument>
+                      <Skip val="Y"/>
+                    </Argument>
+                  </Arguments>
                   <Wait val="Y"/>
                   <SyncData val="N"/>
                   <RetainFocus val="N"/>
@@ -15132,9 +15148,9 @@
             <External val="N"/>
             <FormType val="M"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738057" _time="39037" date="24.09.2021" time="10:50:37"/>
+            <LastModified _date="738280" _time="56779" date="05.05.2022" time="15:46:19"/>
           </Header>
-          <ItemIsn val="72"/>
+          <ItemIsn val="73"/>
           <Resource>
             <DB id="1">
               <DataObject comp="2" obj="107"/>
@@ -17909,6 +17925,11 @@
                       </Argument>
                       <Argument>
                         <Expression val="12"/>
+                        <Skip val="N"/>
+                      </Argument>
+                      <Argument>
+                        <Parent val="1"/>
+                        <Variable val="98"/>
                         <Skip val="N"/>
                       </Argument>
                     </Arguments>
@@ -38043,16 +38064,19 @@
             <SQL val="N"/>
             <ReturnValue>
               <ReturnValueAttr/>
-              <ParametersAttributes/>
+              <TSK_PARAMS val="1"/>
+              <ParametersAttributes>
+                <Attr MgAttr="A"/>
+              </ParametersAttributes>
             </ReturnValue>
             <SqlWhereExist val="N"/>
             <TaskType val="B"/>
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="737398" _time="28395" date="05.12.2019" time="07:53:15"/>
+            <LastModified _date="738280" _time="56710" date="05.05.2022" time="15:45:10"/>
           </Header>
-          <ItemIsn val="31"/>
+          <ItemIsn val="32"/>
           <Resource>
             <DB id="1">
               <DataObject comp="2" obj="105"/>
@@ -38070,7 +38094,17 @@
               <Cache val="Y"/>
               <IdentifyRowModifications val="84"/>
             </DB>
-            <Columns/>
+            <Columns>
+              <Column id="1" name="MengeFix">
+                <PropertyList model="FIELD">
+                  <Model attr_obj="FIELD_ALPHA" id="1"/>
+                  <Picture id="157" valUnicode="11"/>
+                  <StoredAs id="173" val="1"/>
+                  <Size id="174" val="11"/>
+                  <_Flip id="194"/>
+                </PropertyList>
+              </Column>
+            </Columns>
           </Resource>
           <Information>
             <Key>
@@ -38152,6 +38186,18 @@
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </DATAVIEW_SRC>
+                </LogicLine>
+                <LogicLine>
+                  <Select FieldID="32" FlowIsn="50" id="32">
+                    <Column val="1"/>
+                    <Type val="V"/>
+                    <ExposedToRoute val="N"/>
+                    <IsParameter val="Y"/>
+                    <DIFF_UPDATE val="T"/>
+                    <Condition val="Y"/>
+                    <Modifier val="S"/>
+                    <Direction val="C"/>
+                  </Select>
                 </LogicLine>
                 <LogicLine>
                   <Select FieldID="1" FlowIsn="3" id="1">
@@ -38460,7 +38506,7 @@
                   </Select>
                 </LogicLine>
                 <LogicLine>
-                  <LNK Direction="A" EVL_CND="R" FlowIsn="28" Key="1" Mode="R" SortType="35" VIEW="26" VIEWS="6">
+                  <LNK Direction="A" EVL_CND="R" FlowIsn="28" Key="1" Mode="R" SortType="35" VIEW="27" VIEWS="6">
                     <DB comp="2" obj="105"/>
                     <Expanded val="1"/>
                     <Condition val="Y"/>
@@ -38562,6 +38608,7 @@
               <LogicLines>
                 <LogicLine>
                   <BLOCK EndBlock="49" EndBlockSegment="49" FlowIsn="36" Type="I">
+                    <Expanded val="1"/>
                     <Condition Exp="20"/>
                     <Modifier val="B"/>
                     <Direction val="C"/>
@@ -38931,7 +38978,7 @@
               <ExpAttribute val="A"/>
             </Expression>
             <Expression id="20">
-              <ExpSyntax val="Val ({1,64},'9.2CZ')&lt;>0"/>
+              <ExpSyntax val="Val({1,64},'9.2CZ')&lt;>0"/>
               <ExpAttribute val="B"/>
             </Expression>
             <Expression id="21">
@@ -44119,7 +44166,7 @@
             <External val="N"/>
             <FormType val="M"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738013" _time="43914" date="11.08.2021" time="12:11:54"/>
+            <LastModified _date="738280" _time="59268" date="05.05.2022" time="16:27:48"/>
           </Header>
           <ItemIsn val="19"/>
           <Resource>
@@ -45036,6 +45083,12 @@
                   </CallTask>
                 </LogicLine>
                 <LogicLine>
+                  <Remark FlowIsn="102">
+                    <Type val="2"/>
+                    <Text val="92 - POS Beleg"/>
+                  </Remark>
+                </LogicLine>
+                <LogicLine>
                   <CallTask FlowIsn="46">
                     <OperationType val="P"/>
                     <Event>
@@ -45414,6 +45467,12 @@
                   </CallTask>
                 </LogicLine>
                 <LogicLine>
+                  <Remark FlowIsn="103">
+                    <Type val="2"/>
+                    <Text val="94 - POS Gutschein"/>
+                  </Remark>
+                </LogicLine>
+                <LogicLine>
                   <CallTask FlowIsn="54">
                     <OperationType val="P"/>
                     <Event>
@@ -45522,6 +45581,12 @@
                     <Modifier val="B"/>
                     <Direction val="C"/>
                   </CallTask>
+                </LogicLine>
+                <LogicLine>
+                  <Remark FlowIsn="104">
+                    <Type val="2"/>
+                    <Text val="103 - POS Anzahlung"/>
+                  </Remark>
                 </LogicLine>
                 <LogicLine>
                   <CallTask FlowIsn="55">

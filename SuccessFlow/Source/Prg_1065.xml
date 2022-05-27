@@ -21,7 +21,10 @@
           <SQL val="N"/>
           <ReturnValue>
             <ReturnValueAttr/>
-            <ParametersAttributes/>
+            <TSK_PARAMS val="1"/>
+            <ParametersAttributes>
+              <Attr MgAttr="B"/>
+            </ParametersAttributes>
           </ReturnValue>
           <SqlWhereExist val="N"/>
           <TaskType val="C"/>
@@ -30,9 +33,9 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738012" _time="52506" date="10.08.2021" time="14:35:06"/>
+          <LastModified _date="738270" _time="54884" date="25.04.2022" time="15:14:44"/>
         </Header>
-        <ItemIsn val="28"/>
+        <ItemIsn val="29"/>
         <Resource>
           <DB id="1">
             <DataObject comp="2" obj="107"/>
@@ -51,6 +54,12 @@
             <IdentifyRowModifications val="84"/>
           </DB>
           <Columns>
+            <Column id="13" name="Dummy_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_LOGICAL" id="1"/>
+                <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
             <Column id="1" name="Artikelnummer_v">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_ALPHA" comp="2" id="1" obj="19"/>
@@ -182,7 +191,7 @@
             <LockingStrategy val="M"/>
             <CacheStrategy val="D"/>
             <ForceRecordSuffix val="N"/>
-            <TransactionMode val="D"/>
+            <TransactionMode val="N"/>
             <TransactionBegin val="P"/>
             <PreloadView val="N"/>
             <AllowEmptyDataview val="Y"/>
@@ -243,6 +252,18 @@
                 </DATAVIEW_SRC>
               </LogicLine>
               <LogicLine>
+                <Select FieldID="29" FlowIsn="45" id="29">
+                  <Column val="13"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
                 <Select FieldID="1" FlowIsn="3" id="1">
                   <Column val="1"/>
                   <Type val="V"/>
@@ -259,7 +280,7 @@
                 </Select>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="4" Key="1" Mode="R" SortType="15" VIEW="2" VIEWS="10">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="4" Key="1" Mode="R" SortType="15" VIEW="3" VIEWS="10">
                   <DB comp="2" obj="107"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -485,7 +506,7 @@
                 </Select>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FlowIsn="27" Key="1" Mode="R" SortType="34" VIEW="18" VIEWS="6">
+                <LNK Direction="A" EVL_CND="R" FlowIsn="27" Key="1" Mode="R" SortType="34" VIEW="19" VIEWS="6">
                   <DB comp="2" obj="477"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>
@@ -1403,7 +1424,7 @@
           </Expression>
         </Expressions>
         <Task MainProgram="N">
-          <Header Description="EK_Eintrag" ISN_2="2" LastIsn="2" id="1065">
+          <Header Description="EK_Eintrag" ISN_2="2" LastIsn="3" id="1065">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>

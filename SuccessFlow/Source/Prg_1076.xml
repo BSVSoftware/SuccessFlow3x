@@ -38,7 +38,7 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738046" _time="55552" date="13.09.2021" time="15:25:52"/>
+          <LastModified _date="738300" _time="64960" date="25.05.2022" time="18:02:40"/>
         </Header>
         <ItemIsn val="17"/>
         <Resource>
@@ -4240,7 +4240,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738046" _time="55552" date="13.09.2021" time="15:25:52"/>
+            <LastModified _date="738300" _time="64960" date="25.05.2022" time="18:02:40"/>
           </Header>
           <ItemIsn val="1"/>
           <Resource>
@@ -4281,11 +4281,11 @@
               <ConfirmUpdate CNFU="N"/>
               <ConfirmCancel val="N"/>
               <ErrorStrategy val="A"/>
-              <LockingStrategy val="I"/>
+              <LockingStrategy val="M"/>
               <CacheStrategy val="N"/>
               <ForceRecordSuffix val="N"/>
-              <TransactionMode val="W"/>
-              <TransactionBegin val="T"/>
+              <TransactionMode val="P"/>
+              <TransactionBegin val="N"/>
               <PreloadView val="N"/>
               <AllowEmptyDataview val="N"/>
               <KeepCreatedContext val="N"/>
@@ -4319,7 +4319,7 @@
             </BOX>
           </Information>
           <SQL_FORM DB="SQL" RESTAB="SQL">
-            <SQL_STMT_U val="select max (POSNR) from positionen WITH(NOLOCK) where ebene1=:1 and ebene2=:2 and ebene3=:3 and ebene4=:4 and AUFTNR=:5"/>
+            <SQL_STMT_U val="select max (POSNR) from positionen WITH(NOLOCK,index(Positionen_AUFTNR_POSNR)) where ebene1=:1 and ebene2=:2 and ebene3=:3 and ebene4=:4 and AUFTNR=:5"/>
             <INARG>
               <Arguments>
                 <Argument Parent="1" Variable="13"/>

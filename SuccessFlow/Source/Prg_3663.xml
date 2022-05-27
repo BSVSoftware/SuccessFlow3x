@@ -13,14 +13,19 @@
   <ProgramsRepository>
     <Programs>
       <Task MainProgram="N">
-        <Header Description="JahresabschlussBatch" ISN_2="30" LastIsn="8" id="3663">
+        <Header Description="JahresabschlussBatch" ISN_2="30" LastIsn="30" id="3663">
           <Public val="JahresabschlussBatch"/>
           <ExecutionRight comp="-1"/>
           <Resident val="Y"/>
           <SQL val="N"/>
           <ReturnValue>
             <ReturnValueAttr/>
-            <ParametersAttributes/>
+            <TSK_PARAMS val="3"/>
+            <ParametersAttributes>
+              <Attr MgAttr="B"/>
+              <Attr MgAttr="B"/>
+              <Attr MgAttr="B"/>
+            </ParametersAttributes>
           </ReturnValue>
           <SqlWhereExist val="N"/>
           <TaskType val="B"/>
@@ -28,10 +33,30 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738162" _time="43625" date="07.01.2022" time="12:07:05"/>
+          <LastModified _date="738284" _time="29894" date="09.05.2022" time="08:18:14"/>
         </Header>
+        <ItemIsn val="3"/>
         <Resource>
-          <Columns/>
+          <Columns>
+            <Column id="1" name="KDUmsatz_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_LOGICAL" id="1"/>
+                <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="LFUmsatz_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_LOGICAL" id="1"/>
+                <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
+            <Column id="3" name="AusgefWartReset_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_LOGICAL" id="1"/>
+                <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
+          </Columns>
         </Resource>
         <Information>
           <Key>
@@ -112,6 +137,42 @@
                   <Direction val="C"/>
                 </DATAVIEW_SRC>
               </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="6" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="7" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="3" FlowIsn="8" id="3">
+                  <Column val="3"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
             </LogicLines>
           </LogicUnit>
           <LogicUnit id="3" propagate="78">
@@ -137,7 +198,7 @@
                   <Wait val="Y"/>
                   <SyncData val="N"/>
                   <RetainFocus val="N"/>
-                  <Condition val="Y"/>
+                  <Condition Exp="1"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </CallTask>
@@ -152,7 +213,7 @@
                   <Lock val="N"/>
                   <SyncData val="N"/>
                   <RetainFocus val="N"/>
-                  <Condition val="Y"/>
+                  <Condition Exp="2"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </CallTask>
@@ -167,7 +228,7 @@
                   <Lock val="N"/>
                   <SyncData val="N"/>
                   <RetainFocus val="N"/>
-                  <Condition val="Y"/>
+                  <Condition Exp="3"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </CallTask>
@@ -191,8 +252,22 @@
             </PropertyList>
           </FormEntry>
         </TaskForms>
+        <Expressions>
+          <Expression id="1">
+            <ExpSyntax val="{0,3}"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="2">
+            <ExpSyntax val="{0,1}"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="3">
+            <ExpSyntax val="{0,2}"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+        </Expressions>
         <Task MainProgram="N">
-          <Header Description="ausgefuehrte Wartung 0 setzen" ISN_2="6" LastIsn="6" id="3663">
+          <Header Description="ausgefuehrte Wartung 0 setzen" ISN_2="6" LastIsn="30" id="3663">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -491,7 +566,7 @@
           <VarRangeInfo Mode="F" VarRangeVeeIsn="5" id="9"/>
           <VarRangeInfo Mode="T" VarRangeVeeIsn="5" id="10"/>
           <Task MainProgram="N">
-            <Header Description="mod_datum_zeit_uebertragen" ISN_2="7" LastIsn="7" id="3663">
+            <Header Description="mod_datum_zeit_uebertragen" ISN_2="7" LastIsn="30" id="3663">
               <ExecutionRight comp="-1"/>
               <Resident val="Y"/>
               <SQL val="N"/>

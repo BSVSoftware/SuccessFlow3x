@@ -32,7 +32,7 @@
           <Offline val="N"/>
           <FormType val="M"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738169" _time="34021" date="14.01.2022" time="09:27:01"/>
+          <LastModified _date="738294" _time="35553" date="19.05.2022" time="09:52:33"/>
         </Header>
         <ItemIsn val="4"/>
         <Resource>
@@ -198,6 +198,8 @@
                     <v>8</v>
                     <v>9</v>
                     <v>13</v>
+                    <v>18</v>
+                    <v>11</v>
                   </INT_DIT_INFO>
                   <DIFF_UPDATE val="T"/>
                   <Condition val="Y"/>
@@ -220,8 +222,8 @@
             </Event>
             <ExecuteOn_ val="O"/>
           </LogicUnit>
-          <LogicUnit id="24" propagate="78">
-            <Level val="R"/>
+          <LogicUnit id="68" propagate="78">
+            <Level val="T"/>
             <Type val="P"/>
             <Scope val="S"/>
             <EngineDirective val="S"/>
@@ -231,23 +233,27 @@
               <EventType val="S"/>
             </Event>
             <Expanded val="1"/>
-            <ExecuteOn_ val="O"/>
+            <ExecuteOn_ val="S"/>
             <LogicLines>
               <LogicLine>
-                <CallTask FlowIsn="54">
-                  <OperationType val="T"/>
-                  <Event>
-                    <EventType val="N"/>
-                  </Event>
-                  <TaskID comp="-1" obj="2"/>
-                  <Lock val="N"/>
-                  <Wait val="Y"/>
-                  <SyncData val="N"/>
-                  <RetainFocus val="N"/>
-                  <Condition Exp="6"/>
+                <Evaluate FlowIsn="117">
+                  <Expression val="7"/>
+                  <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
-                </CallTask>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
+                <RaiseEvent FlowIsn="143">
+                  <Event>
+                    <EventType val="U"/>
+                    <PublicObject comp="-1" obj="10"/>
+                  </Event>
+                  <Wait val="89"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </RaiseEvent>
               </LogicLine>
             </LogicLines>
           </LogicUnit>
@@ -813,9 +819,78 @@
               </LogicLine>
             </LogicLines>
           </LogicUnit>
+          <LogicUnit id="66" propagate="78">
+            <Level val="H"/>
+            <Type val="U"/>
+            <Scope val="T"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="U"/>
+              <PublicObject comp="-1" obj="17"/>
+            </Event>
+            <Expanded val="1"/>
+            <ExecuteOn_ val="O"/>
+            <LogicLines>
+              <LogicLine>
+                <CallTask FlowIsn="89">
+                  <OperationType val="P"/>
+                  <Event>
+                    <EventType val="N"/>
+                  </Event>
+                  <TaskID comp="-1" obj="119"/>
+                  <Lock val="N"/>
+                  <Arguments>
+                    <Argument>
+                      <Skip val="Y"/>
+                    </Argument>
+                  </Arguments>
+                  <Wait val="Y"/>
+                  <SyncData val="N"/>
+                  <RetainFocus val="N"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </CallTask>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+          <LogicUnit id="67" propagate="78">
+            <Level val="H"/>
+            <Type val="U"/>
+            <Scope val="T"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="U"/>
+              <PublicObject comp="-1" obj="18"/>
+            </Event>
+            <Expanded val="1"/>
+            <ExecuteOn_ val="O"/>
+            <LogicLines>
+              <LogicLine>
+                <CallTask FlowIsn="90">
+                  <OperationType val="P"/>
+                  <Event>
+                    <EventType val="N"/>
+                  </Event>
+                  <TaskID comp="-1" obj="124"/>
+                  <Lock val="N"/>
+                  <Wait val="Y"/>
+                  <SyncData val="N"/>
+                  <RetainFocus val="N"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </CallTask>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
         </TaskLogic>
         <TaskForms>
-          <FormEntry _last_isn="17" _last_test_id="17" id="1">
+          <FormEntry _last_isn="19" _last_test_id="19" id="1">
             <PropertyList model="FORM_RICH_CLIENT">
               <Model comp="-1" id="1" obj="3"/>
               <Width id="23" val="1444"/>
@@ -827,10 +902,10 @@
               <FormName id="311" valUnicode="CentralManager"/>
               <WindowType id="358" val="6"/>
             </PropertyList>
-            <Control PDOD="128" _test_id="11" id="11">
+            <Control PDOD="128" _test_id="19" id="19">
               <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
                 <Model comp="-1" id="1" obj="11"/>
-                <X id="21" val="12"/>
+                <X id="21" val="14"/>
                 <Y id="22" val="12"/>
                 <Width id="23" val="151"/>
                 <Height id="24" val="28"/>
@@ -1049,6 +1124,38 @@
                 <TabOrder id="314" val="14"/>
               </PropertyList>
             </Control>
+            <Control PDOD="128" _test_id="18" id="18">
+              <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
+                <Model comp="-1" id="1" obj="11"/>
+                <X id="21" val="14"/>
+                <Y id="22" val="523"/>
+                <Width id="23" val="151"/>
+                <Height id="24" val="28"/>
+                <Visible Exp="3" id="61"/>
+                <Format id="82" valUnicode="Log Dateien"/>
+                <RaiseEvent id="234">
+                  <EventType val="U"/>
+                  <PublicObject comp="-1" obj="17"/>
+                </RaiseEvent>
+                <TabOrder id="314" val="15"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="11" id="11">
+              <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
+                <Model comp="-1" id="1" obj="11"/>
+                <X id="21" val="14"/>
+                <Y id="22" val="557"/>
+                <Width id="23" val="151"/>
+                <Height id="24" val="28"/>
+                <Visible Exp="3" id="61"/>
+                <Format id="82" valUnicode="Monitoring"/>
+                <RaiseEvent id="234">
+                  <EventType val="U"/>
+                  <PublicObject comp="-1" obj="18"/>
+                </RaiseEvent>
+                <TabOrder id="314" val="16"/>
+              </PropertyList>
+            </Control>
             <Control PDOD="128" _test_id="5" id="5">
               <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
                 <Model comp="-1" id="1" obj="11"/>
@@ -1062,7 +1169,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="4"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="15"/>
+                <TabOrder id="314" val="17"/>
               </PropertyList>
             </Control>
           </FormEntry>
@@ -1071,6 +1178,10 @@
           <Expression id="1">
             <ExpSyntax val="2"/>
             <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="7">
+            <ExpSyntax val="INIPut('ContextInactivityTimeout=864000','FALSE'LOG)"/>
+            <ExpAttribute val="B"/>
           </Expression>
           <Expression id="3">
             <ExpSyntax val="{0,3}"/>
@@ -1084,10 +1195,6 @@
             <ExpSyntax val="{0,4}=6"/>
             <ExpAttribute val="B"/>
           </Expression>
-          <Expression id="6">
-            <ExpSyntax val="IsFirstRecordCycle(0)"/>
-            <ExpAttribute val="B"/>
-          </Expression>
         </Expressions>
         <EVNT DESC="Unternehmen" FORCE_EXIT="N" id="1">
           <Event>
@@ -1095,6 +1202,11 @@
           </Event>
         </EVNT>
         <EVNT DESC="Login" FORCE_EXIT="N" id="10">
+          <Event>
+            <EventType val="N"/>
+          </Event>
+        </EVNT>
+        <EVNT DESC="Monitoring" FORCE_EXIT="N" id="18">
           <Event>
             <EventType val="N"/>
           </Event>
@@ -1160,6 +1272,11 @@
           </Event>
         </EVNT>
         <EVNT DESC="BenPWKopieren" FORCE_EXIT="N" id="13">
+          <Event>
+            <EventType val="N"/>
+          </Event>
+        </EVNT>
+        <EVNT DESC="LogDaten" FORCE_EXIT="N" id="17">
           <Event>
             <EventType val="N"/>
           </Event>

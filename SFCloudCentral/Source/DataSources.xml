@@ -8,7 +8,7 @@
 
   <Exe comp="-1"/>
 
-  <LastIsn val="35"/>
+  <LastIsn val="48"/>
 
   <LastIsnFolder val="0"/>
 
@@ -17,7 +17,7 @@
 <DataRepositoryProperties/>
  <DataSourceRepository>
   <DataObjects>
-   
+      
 <DataObject PhysicalName="Unternehmen" Public="UnternehmenSQLCENTRAL" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="1" name="Unternehmen">
 
   <Encrypt val="N"/>
@@ -2068,7 +2068,7 @@
 
   <PositionIndex val="1"/>
 
-  <IndexesLastIsn val="3"/>
+  <IndexesLastIsn val="4"/>
 
   <MetaTreeRTIndex val="-1"/>
 
@@ -2197,6 +2197,18 @@
         <_FieldStyle id="276" val="1"/>
       </PropertyList>
     </Column>
+    <Column id="12" name="CTXID">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="30"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="30"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="CTXID"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="CTXID" PIC_U="30" Size="30" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
   </Columns>
 
   <Indexes>
@@ -2265,6 +2277,24 @@
         <Segment>
           <Size val="18"/>
           <Column val="10"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+    <Index id="4" name="LoginProtokollCTXID">
+      <Mode val="N"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="LoginProtokollCTXID"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="30"/>
+          <Column val="12"/>
           <Order val="A"/>
         </Segment>
       </Segments>
@@ -4311,25 +4341,27 @@
   <WebS/>
 
 </DataObject> 
-<DataObject PhysicalName="Dateienamen" Resident="N" UniqueISNConvState="12" data_source="Memory Tables" id="30" name="Dateienamen">
+<DataObject PhysicalName="ServerLogfiles" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="30" name="ServerLogfiles">
 
   <Encrypt val="N"/>
 
   <Cache val="D"/>
 
-  <IdentifyRowModifications val="P"/>
+  <IdentifyRowModifications val="U"/>
 
   <HasHint val="Y"/>
 
   <Cursor val="D"/>
 
-  <CheckExistence val="D"/>
+  <CheckExistence val="Y"/>
 
   <ObjectType val="T"/>
 
-  <PositionIndex val="-1"/>
+  <Position val="D"/>
 
-  <IndexesLastIsn val="1"/>
+  <PositionIndex val="1"/>
+
+  <IndexesLastIsn val="2"/>
 
   <MetaTreeRTIndex val="-1"/>
 
@@ -4338,54 +4370,59 @@
       <PropertyList model="FIELD">
         <Model attr_obj="FIELD_ALPHA" id="1"/>
         <Picture id="157" valUnicode="128"/>
-        <StoredAs id="173" val="1"/>
+        <StoredAs id="173" val="3"/>
         <Size id="174" val="128"/>
         <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Projekt"/>
         <_Flip id="194"/>
-        <_FieldPhysical PIC_U="128" Size="128" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="1" translate="1"/>
+        <_FieldPhysical Name="Projekt" PIC_U="128" Size="128" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
       </PropertyList>
     </Column>
     <Column id="4" name="Server">
       <PropertyList model="FIELD">
         <Model attr_obj="FIELD_ALPHA" id="1"/>
         <Picture id="157" valUnicode="36"/>
-        <StoredAs id="173" val="1"/>
+        <StoredAs id="173" val="3"/>
         <Size id="174" val="36"/>
         <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Server"/>
         <_Flip id="194"/>
-        <_FieldPhysical PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="1" translate="1"/>
+        <_FieldPhysical Name="Server" PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
       </PropertyList>
     </Column>
     <Column id="2" name="Logfile">
       <PropertyList model="FIELD">
         <Model attr_obj="FIELD_ALPHA" id="1"/>
         <Picture id="157" valUnicode="255"/>
-        <StoredAs id="173" val="1"/>
+        <StoredAs id="173" val="3"/>
         <Size id="174" val="255"/>
         <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Logfile"/>
         <_Flip id="194"/>
-        <_FieldPhysical PIC_U="255" Size="255" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="1" translate="1"/>
+        <_FieldPhysical Name="Logfile" PIC_U="255" Size="255" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
       </PropertyList>
     </Column>
     <Column id="3" name="IniFile">
       <PropertyList model="FIELD">
         <Model attr_obj="FIELD_ALPHA" id="1"/>
         <Picture id="157" valUnicode="255"/>
-        <StoredAs id="173" val="1"/>
+        <StoredAs id="173" val="3"/>
         <Size id="174" val="255"/>
         <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="IniFile"/>
         <_Flip id="194"/>
-        <_FieldPhysical PIC_U="255" Size="255" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="1" translate="1"/>
+        <_FieldPhysical Name="IniFile" PIC_U="255" Size="255" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
       </PropertyList>
     </Column>
   </Columns>
 
   <Indexes>
-    <Index id="1" name="Projekt_Server_Datei">
+    <Index id="1" name="ServerLogfiles_Projekt">
       <Mode val="S"/>
       <Order val="T"/>
       <Range val="Q"/>
       <IndexType val="R"/>
+      <PhysicalName val="ServerLogfiles_Projekt"/>
       <HasHint val="Y"/>
       <Clustered val="N"/>
       <DropOnReindex val="N"/>
@@ -4408,6 +4445,29 @@
         </Segment>
       </Segments>
     </Index>
+    <Index id="2" name="ServerLogfiles_Server">
+      <Mode val="N"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="ServerLogfiles_Server"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="36"/>
+          <Column val="4"/>
+          <Order val="A"/>
+        </Segment>
+        <Segment>
+          <Size val="128"/>
+          <Column val="1"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
   </Indexes>
 
   <ForeignKeys/>
@@ -4415,7 +4475,7 @@
   <WebS/>
 
 </DataObject> 
-<DataObject PhysicalName="Funktionen" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="31" name="Funktionen">
+<DataObject PhysicalName="LogfilesBlob" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="37" name="LogfilesBlob">
 
   <Encrypt val="N"/>
 
@@ -4435,9 +4495,215 @@
 
   <PositionIndex val="1"/>
 
-  <IndexesLastIsn val="1"/>
+  <IndexesLastIsn val="3"/>
+
+  <MetaTreeRTIndex val="-1"/>
 
   <Columns>
+    <Column id="1" name="ID">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="36"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="36"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="ID"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="ID" PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="6" name="Projekt">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="128"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="128"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Projekt"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Projekt" PIC_U="128" Size="128" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="2" name="Server">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="60"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="60"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Server"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Server" PIC_U="60" Size="60" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="3" name="vonDatum">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_DATE" id="1"/>
+        <NullAllowed id="166" val="Y"/>
+        <NullDefault id="169" val="Y"/>
+        <StoredAs id="173" val="19"/>
+        <Size id="174" val="8"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="vonDatum"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="vonDatum" PIC_U="##/##/####" Size="8" allowed_null="Y" attribute="D" context_cookies="Y" database_definition="2" id="231" storage="19" translate="1"/>
+        <_FieldStyle id="276" val="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="4" name="vonZeit">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_TIME" id="1"/>
+        <StoredAs id="173" val="24"/>
+        <Size id="174" val="6"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="vonZeit"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="vonZeit" PIC_U="HH:MM:SS" Size="6" allowed_null="N" attribute="T" context_cookies="Y" database_definition="2" id="231" storage="24" translate="1"/>
+        <_FieldStyle id="276" val="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="5" name="BlobFile">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_BLOB" id="1"/>
+        <StoredAs id="173" val="33"/>
+        <Size id="174" val="28"/>
+        <Definition id="175" val="1"/>
+        <DbColumnName id="178" val="BlobFile"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="BlobFile" Size="28" allowed_null="Y" attribute="O" context_cookies="Y" database_definition="1" id="231" storage="33"/>
+        <_FieldStyle id="276" val="1"/>
+        <Content id="434" val="1"/>
+      </PropertyList>
+    </Column>
+  </Columns>
+
+  <Indexes>
+    <Index id="1" name="LogfilesBlob_ID">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="LogfilesBlob_ID"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="36"/>
+          <Column val="1"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+    <Index id="2" name="LogfilesBlob_ServerDatum">
+      <Mode val="N"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="LogfilesBlob_ServerDatum"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="128"/>
+          <Column val="6"/>
+          <Order val="A"/>
+        </Segment>
+        <Segment>
+          <Size val="60"/>
+          <Column val="2"/>
+          <Order val="A"/>
+        </Segment>
+        <Segment>
+          <Size val="8"/>
+          <Column val="3"/>
+          <Order val="D"/>
+        </Segment>
+        <Segment>
+          <Size val="6"/>
+          <Column val="4"/>
+          <Order val="D"/>
+        </Segment>
+      </Segments>
+    </Index>
+    <Index id="3" name="LogfilesBlob_DatumServer">
+      <Mode val="N"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="LogfilesBlob_DatumServer"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="8"/>
+          <Column val="3"/>
+          <Order val="D"/>
+        </Segment>
+        <Segment>
+          <Size val="6"/>
+          <Column val="4"/>
+          <Order val="D"/>
+        </Segment>
+        <Segment>
+          <Size val="128"/>
+          <Column val="6"/>
+          <Order val="A"/>
+        </Segment>
+        <Segment>
+          <Size val="60"/>
+          <Column val="2"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+  </Indexes>
+
+  <ForeignKeys/>
+
+  <WebS/>
+
+</DataObject> 
+<DataObject PhysicalName="SF_Funktionen" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="31" name="SF_Funktionen">
+
+  <Encrypt val="N"/>
+
+  <Cache val="D"/>
+
+  <IdentifyRowModifications val="U"/>
+
+  <HasHint val="Y"/>
+
+  <Cursor val="D"/>
+
+  <CheckExistence val="Y"/>
+
+  <ObjectType val="T"/>
+
+  <Position val="D"/>
+
+  <PositionIndex val="2"/>
+
+  <IndexesLastIsn val="3"/>
+
+  <Columns>
+    <Column id="4" name="Funktionen_ID">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="36"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="36"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Funktionen_ID"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Funktionen_ID" PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
     <Column id="1" name="Funktion">
       <PropertyList model="FIELD">
         <Model attr_obj="FIELD_ALPHA" id="1"/>
@@ -4465,12 +4731,30 @@
   </Columns>
 
   <Indexes>
-    <Index id="1" name="Funktion">
+    <Index id="2" name="SF_Funktionen_id">
       <Mode val="S"/>
       <Order val="T"/>
       <Range val="Q"/>
       <IndexType val="R"/>
-      <PhysicalName val="Funktion"/>
+      <PhysicalName val="SF_Funktionen_id"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="36"/>
+          <Column val="4"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+    <Index id="3" name="SF_Funktionen_Funktion">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="SF_Funktionen_Funktion"/>
       <HasHint val="Y"/>
       <Clustered val="N"/>
       <DropOnReindex val="N"/>
@@ -4478,6 +4762,563 @@
       <Segments>
         <Segment>
           <Size val="64"/>
+          <Column val="1"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+  </Indexes>
+
+  <ForeignKeys/>
+
+  <WebS/>
+
+</DataObject> 
+<DataObject PhysicalName="SF_Modules" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="44" name="SF_Modules">
+
+  <Encrypt val="N"/>
+
+  <Cache val="D"/>
+
+  <IdentifyRowModifications val="U"/>
+
+  <HasHint val="Y"/>
+
+  <Cursor val="D"/>
+
+  <CheckExistence val="Y"/>
+
+  <ObjectType val="T"/>
+
+  <Position val="D"/>
+
+  <PositionIndex val="1"/>
+
+  <IndexesLastIsn val="2"/>
+
+  <MetaTreeRTIndex val="-1"/>
+
+  <Columns>
+    <Column id="1" name="Modules_ID">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="36"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="36"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Modules_ID"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Modules_ID" PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="2" name="Module">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="64"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="64"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Module"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Module" PIC_U="64" Size="64" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+  </Columns>
+
+  <Indexes>
+    <Index id="1" name="SF_Modules_id">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="SF_Modules_id"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="36"/>
+          <Column val="1"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+    <Index id="2" name="SF_Modules_Module">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="SF_Modules_Module"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="64"/>
+          <Column val="2"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+  </Indexes>
+
+  <ForeignKeys/>
+
+  <WebS/>
+
+</DataObject> 
+<DataObject PhysicalName="SF_GruppeModules" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="46" name="SF_GruppeModules">
+
+  <Encrypt val="N"/>
+
+  <Cache val="D"/>
+
+  <IdentifyRowModifications val="U"/>
+
+  <HasHint val="Y"/>
+
+  <Cursor val="D"/>
+
+  <CheckExistence val="Y"/>
+
+  <ObjectType val="T"/>
+
+  <Position val="D"/>
+
+  <PositionIndex val="1"/>
+
+  <IndexesLastIsn val="2"/>
+
+  <MetaTreeRTIndex val="-1"/>
+
+  <Columns>
+    <Column id="1" name="GruppeModules_id">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="36"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="36"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="GruppeModules_id"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="GruppeModules_id" PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="2" name="Gruppe">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="64"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="64"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Gruppe"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Gruppe" PIC_U="64" Size="64" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+  </Columns>
+
+  <Indexes>
+    <Index id="1" name="SF_GruppeModules_id">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="SF_GruppeModules_id"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="36"/>
+          <Column val="1"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+    <Index id="2" name="SF_GruppeModules_Gruppe">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="SF_GruppeModules_Gruppe"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="64"/>
+          <Column val="2"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+  </Indexes>
+
+  <ForeignKeys/>
+
+  <WebS/>
+
+</DataObject> 
+<DataObject PhysicalName="SF_GruppeModulesModul" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="47" name="SF_GruppeModulesModul">
+
+  <Encrypt val="N"/>
+
+  <Cache val="D"/>
+
+  <IdentifyRowModifications val="U"/>
+
+  <HasHint val="Y"/>
+
+  <Cursor val="D"/>
+
+  <CheckExistence val="Y"/>
+
+  <ObjectType val="T"/>
+
+  <Position val="D"/>
+
+  <PositionIndex val="1"/>
+
+  <IndexesLastIsn val="1"/>
+
+  <MetaTreeRTIndex val="-1"/>
+
+  <Columns>
+    <Column id="1" name="GruppeModules_id">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="36"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="36"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="GruppeModules_id"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="GruppeModules_id" PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="2" name="Modules_id">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="36"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="36"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Modules_id"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Modules_id" PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+  </Columns>
+
+  <Indexes>
+    <Index id="1" name="SF_GruppeModules_Grp_Mod">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="SF_GruppeModules_Grp_Mod"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="36"/>
+          <Column val="1"/>
+          <Order val="A"/>
+        </Segment>
+        <Segment>
+          <Size val="36"/>
+          <Column val="2"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+  </Indexes>
+
+  <ForeignKeys/>
+
+  <WebS/>
+
+</DataObject> 
+<DataObject PhysicalName="SF_FunktionVersionen" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="43" name="SF_FunktionVersionen">
+
+  <Encrypt val="N"/>
+
+  <Cache val="D"/>
+
+  <IdentifyRowModifications val="U"/>
+
+  <HasHint val="Y"/>
+
+  <Cursor val="D"/>
+
+  <CheckExistence val="Y"/>
+
+  <ObjectType val="T"/>
+
+  <Position val="D"/>
+
+  <PositionIndex val="1"/>
+
+  <IndexesLastIsn val="1"/>
+
+  <MetaTreeRTIndex val="-1"/>
+
+  <Columns>
+    <Column id="1" name="Funktion_id">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="36"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="36"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Funktion_id"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Funktion_id" PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="2" name="Version">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="10"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="10"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Version"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Version" PIC_U="10" Size="10" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="3" name="freigegeben">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_LOGICAL" comp="28" id="1" obj="38"/>
+        <StoredAs id="173" val="15"/>
+        <Size id="174" val="1"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="freigegeben"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="freigegeben" PIC_U="1" Size="1" allowed_null="N" attribute="B" context_cookies="Y" database_definition="2" id="231" storage="15" translate="1"/>
+      </PropertyList>
+    </Column>
+  </Columns>
+
+  <Indexes>
+    <Index id="1" name="SF_FunktionVersionen_F_V">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="SF_FunktionVersionen_F_V"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="36"/>
+          <Column val="1"/>
+          <Order val="A"/>
+        </Segment>
+        <Segment>
+          <Size val="10"/>
+          <Column val="2"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+  </Indexes>
+
+  <ForeignKeys/>
+
+  <WebS/>
+
+</DataObject> 
+<DataObject PhysicalName="SF_FunktVersionModule" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="45" name="SF_FunktVersionModule">
+
+  <Encrypt val="N"/>
+
+  <Cache val="D"/>
+
+  <IdentifyRowModifications val="U"/>
+
+  <HasHint val="Y"/>
+
+  <Cursor val="D"/>
+
+  <CheckExistence val="Y"/>
+
+  <ObjectType val="T"/>
+
+  <Position val="D"/>
+
+  <PositionIndex val="1"/>
+
+  <IndexesLastIsn val="1"/>
+
+  <MetaTreeRTIndex val="-1"/>
+
+  <Columns>
+    <Column id="1" name="Funktion_id">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="36"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="36"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Funktion_id"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Funktion_id" PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="2" name="Version">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="10"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="10"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Version"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Version" PIC_U="10" Size="10" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="3" name="Module_id">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="36"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="36"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Module_id"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Module_id" PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+  </Columns>
+
+  <Indexes>
+    <Index id="1" name="SF_FunktVersionModule">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="SF_FunktVersionModule"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="36"/>
+          <Column val="1"/>
+          <Order val="A"/>
+        </Segment>
+        <Segment>
+          <Size val="10"/>
+          <Column val="2"/>
+          <Order val="A"/>
+        </Segment>
+        <Segment>
+          <Size val="36"/>
+          <Column val="3"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+  </Indexes>
+
+  <ForeignKeys/>
+
+  <WebS/>
+
+</DataObject> 
+<DataObject PhysicalName="SF_CICD_Steuerfile" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="48" name="SF_CICD_Steuerfile">
+
+  <Encrypt val="N"/>
+
+  <Cache val="D"/>
+
+  <IdentifyRowModifications val="U"/>
+
+  <HasHint val="Y"/>
+
+  <Cursor val="D"/>
+
+  <CheckExistence val="Y"/>
+
+  <ObjectType val="T"/>
+
+  <Position val="D"/>
+
+  <PositionIndex val="1"/>
+
+  <IndexesLastIsn val="1"/>
+
+  <MetaTreeRTIndex val="-1"/>
+
+  <Columns>
+    <Column id="1" name="code">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_NUMERIC" id="1"/>
+        <Picture id="157" valUnicode="1"/>
+        <StoredAs id="173" val="4"/>
+        <Size id="174" val="2"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="code"/>
+        <_Dec id="181"/>
+        <_Whole id="182" val="1"/>
+        <_Negative id="192"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="code" PIC_U="1" Size="2" allowed_null="N" attribute="N" context_cookies="Y" database_definition="2" id="231" storage="4" translate="1"/>
+        <_FieldStyle id="276" val="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="2" name="SuccessFlow_Funktion_id">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="36"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="36"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="SuccessFlow_Funktion_id"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="SuccessFlow_Funktion_id" PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="7" name="SuccessFlow_StableVersion">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="10"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="10"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="SuccessFlow_StableVersion"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="SuccessFlow_StableVersion" PIC_U="10" Size="10" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+  </Columns>
+
+  <Indexes>
+    <Index id="1" name="SF_CICD_Steuerfile_code">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="SF_CICD_Steuerfile_code"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="2"/>
           <Column val="1"/>
           <Order val="A"/>
         </Segment>
@@ -4929,6 +5770,537 @@
       <Segments>
         <Segment>
           <Size val="64"/>
+          <Column val="1"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+  </Indexes>
+
+  <ForeignKeys/>
+
+  <WebS/>
+
+</DataObject> 
+<DataObject PhysicalName="Serverumgebung" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="36" name="Serverumgebung">
+
+  <Encrypt val="N"/>
+
+  <Cache val="D"/>
+
+  <IdentifyRowModifications val="U"/>
+
+  <HasHint val="Y"/>
+
+  <Cursor val="D"/>
+
+  <CheckExistence val="Y"/>
+
+  <ObjectType val="T"/>
+
+  <Position val="D"/>
+
+  <PositionIndex val="5"/>
+
+  <IndexesLastIsn val="5"/>
+
+  <MetaTreeRTIndex val="-1"/>
+
+  <Columns>
+    <Column id="3" name="Servername">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="60"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="60"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="IP"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="IP" PIC_U="60" Size="60" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="2" name="Beschreibung">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="60"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="60"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Beschreibung"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Beschreibung" PIC_U="60" Size="60" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+  </Columns>
+
+  <Indexes>
+    <Index id="5" name="ServerumgebungName">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="ServerumgebungName"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="60"/>
+          <Column val="3"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+  </Indexes>
+
+  <ForeignKeys/>
+
+  <WebS/>
+
+</DataObject> 
+<DataObject PhysicalName="Logdetails" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="38" name="Logdetails">
+
+  <Encrypt val="N"/>
+
+  <Cache val="D"/>
+
+  <IdentifyRowModifications val="U"/>
+
+  <HasHint val="Y"/>
+
+  <Cursor val="D"/>
+
+  <CheckExistence val="Y"/>
+
+  <ObjectType val="T"/>
+
+  <Position val="D"/>
+
+  <PositionIndex val="1"/>
+
+  <IndexesLastIsn val="3"/>
+
+  <MetaTreeRTIndex val="-1"/>
+
+  <Columns>
+    <Column id="1" name="LogfileID">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="36"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="36"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="LogfileID"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="LogfileID" PIC_U="36" Size="36" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="2" name="ZeilenNr">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_NUMERIC" id="1"/>
+        <Picture id="157" valUnicode="9"/>
+        <StoredAs id="173" val="4"/>
+        <Size id="174" val="4"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="ZeilenNr"/>
+        <_Dec id="181"/>
+        <_Whole id="182" val="9"/>
+        <_Negative id="192"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="ZeilenNr" PIC_U="9" Size="4" allowed_null="N" attribute="N" context_cookies="Y" database_definition="2" id="231" storage="4" translate="1"/>
+        <_FieldStyle id="276" val="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="3" name="CTXID">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="18"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="18"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="CTXID"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="CTXID" PIC_U="18" Size="18" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="4" name="Datum">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_DATE" id="1"/>
+        <NullAllowed id="166" val="Y"/>
+        <NullDefault id="169" val="Y"/>
+        <StoredAs id="173" val="19"/>
+        <Size id="174" val="8"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Datum"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Datum" PIC_U="##/##/####" Size="8" allowed_null="Y" attribute="D" context_cookies="Y" database_definition="2" id="231" storage="19" translate="1"/>
+        <_FieldStyle id="276" val="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="5" name="Zeit">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_TIME" id="1"/>
+        <StoredAs id="173" val="24"/>
+        <Size id="174" val="6"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Zeit"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Zeit" PIC_U="HH:MM:SS" Size="6" allowed_null="N" attribute="T" context_cookies="Y" database_definition="2" id="231" storage="24" translate="1"/>
+        <_FieldStyle id="276" val="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="6" name="Error">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="1024"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="1024"/>
+        <Definition id="175" val="1"/>
+        <DbColumnName id="178" val="Error"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Error" PIC_U="1024" Size="1024" allowed_null="N" attribute="A" context_cookies="Y" database_definition="1" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="7" name="Application">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="1024"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="1024"/>
+        <Definition id="175" val="1"/>
+        <DbColumnName id="178" val="Application"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Application" PIC_U="1024" Size="1024" allowed_null="N" attribute="A" context_cookies="Y" database_definition="1" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="8" name="Program">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="1024"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="1024"/>
+        <Definition id="175" val="1"/>
+        <DbColumnName id="178" val="Program"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Program" PIC_U="1024" Size="1024" allowed_null="N" attribute="A" context_cookies="Y" database_definition="1" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="9" name="Projekt">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="128"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="128"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Projekt"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Projekt" PIC_U="128" Size="128" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+  </Columns>
+
+  <Indexes>
+    <Index id="1" name="Logdetails_LogId_Zeile">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="Logdetails_LogId_Zeile"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="36"/>
+          <Column val="1"/>
+          <Order val="A"/>
+        </Segment>
+        <Segment>
+          <Size val="4"/>
+          <Column val="2"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+    <Index id="2" name="Logdetails_Projekt_Datum_Zeit">
+      <Mode val="N"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="Logdetails_Projekt_Datum_Zeit"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="128"/>
+          <Column val="9"/>
+          <Order val="A"/>
+        </Segment>
+        <Segment>
+          <Size val="8"/>
+          <Column val="4"/>
+          <Order val="D"/>
+        </Segment>
+        <Segment>
+          <Size val="6"/>
+          <Column val="5"/>
+          <Order val="D"/>
+        </Segment>
+      </Segments>
+    </Index>
+    <Index id="3" name="Logdetails_Datum_Zeit">
+      <Mode val="N"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="Logdetails_Datum_Zeit"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="8"/>
+          <Column val="4"/>
+          <Order val="D"/>
+        </Segment>
+        <Segment>
+          <Size val="6"/>
+          <Column val="5"/>
+          <Order val="D"/>
+        </Segment>
+      </Segments>
+    </Index>
+  </Indexes>
+
+  <ForeignKeys/>
+
+  <WebS/>
+
+</DataObject> 
+<DataObject PhysicalName="ProjekteAnzeigen" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="39" name="ProjekteAnzeigen">
+
+  <Encrypt val="N"/>
+
+  <Cache val="D"/>
+
+  <IdentifyRowModifications val="U"/>
+
+  <HasHint val="Y"/>
+
+  <Cursor val="D"/>
+
+  <CheckExistence val="Y"/>
+
+  <ObjectType val="T"/>
+
+  <Position val="D"/>
+
+  <PositionIndex val="1"/>
+
+  <IndexesLastIsn val="1"/>
+
+  <MetaTreeRTIndex val="-1"/>
+
+  <Columns>
+    <Column id="1" name="Projekt">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="128"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="128"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Projekt"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Projekt" PIC_U="128" Size="128" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="2" name="Anzeigen">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_LOGICAL" id="1"/>
+        <StoredAs id="173" val="15"/>
+        <Size id="174" val="1"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Anzeigen"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Anzeigen" PIC_U="5" Size="1" allowed_null="N" attribute="B" context_cookies="Y" database_definition="2" id="231" storage="15" translate="1"/>
+        <_FieldStyle id="276" val="1"/>
+      </PropertyList>
+    </Column>
+  </Columns>
+
+  <Indexes>
+    <Index id="1" name="ProjekteAnzeigenProjekt">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="ProjekteAnzeigenProjekt"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="128"/>
+          <Column val="1"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+  </Indexes>
+
+  <ForeignKeys/>
+
+  <WebS/>
+
+</DataObject> 
+<DataObject PhysicalName="CheckInhalt" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="40" name="CheckInhalt">
+
+  <Encrypt val="N"/>
+
+  <Cache val="D"/>
+
+  <IdentifyRowModifications val="U"/>
+
+  <HasHint val="Y"/>
+
+  <Cursor val="D"/>
+
+  <CheckExistence val="Y"/>
+
+  <ObjectType val="T"/>
+
+  <Position val="D"/>
+
+  <PositionIndex val="-1"/>
+
+  <IndexesLastIsn val="1"/>
+
+  <MetaTreeRTIndex val="-1"/>
+
+  <Columns>
+    <Column id="1" name="Zeichenfolge">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="128"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="128"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Zeichenfolge"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Zeichenfolge" PIC_U="128" Size="128" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="2" name="Webhook">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="1028"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="1028"/>
+        <Definition id="175" val="1"/>
+        <DbColumnName id="178" val="Webhook"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Webhook" PIC_U="1028" Size="1028" allowed_null="N" attribute="A" context_cookies="Y" database_definition="1" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+    <Column id="3" name="WebhookInfotext">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="200"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="200"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="WebhookInfotext"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="WebhookInfotext" PIC_U="200" Size="200" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+  </Columns>
+
+  <Indexes>
+    <Index id="1" name="CheckInhalt_Zeichenfolge">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="CheckInhalt_Zeichenfolge"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="128"/>
+          <Column val="1"/>
+          <Order val="A"/>
+        </Segment>
+      </Segments>
+    </Index>
+  </Indexes>
+
+  <ForeignKeys/>
+
+  <WebS/>
+
+</DataObject> 
+<DataObject PhysicalName="nichtEinlesenInhalt" Resident="N" UniqueISNConvState="12" data_source="SQLCENTRAL" id="41" name="nichtEinlesenInhalt">
+
+  <Encrypt val="N"/>
+
+  <Cache val="D"/>
+
+  <IdentifyRowModifications val="U"/>
+
+  <HasHint val="Y"/>
+
+  <Cursor val="D"/>
+
+  <CheckExistence val="Y"/>
+
+  <ObjectType val="T"/>
+
+  <Position val="D"/>
+
+  <PositionIndex val="1"/>
+
+  <IndexesLastIsn val="1"/>
+
+  <MetaTreeRTIndex val="-1"/>
+
+  <Columns>
+    <Column id="1" name="Inhalt">
+      <PropertyList model="FIELD">
+        <Model attr_obj="FIELD_ALPHA" id="1"/>
+        <Picture id="157" valUnicode="60"/>
+        <StoredAs id="173" val="3"/>
+        <Size id="174" val="60"/>
+        <Definition id="175" val="2"/>
+        <DbColumnName id="178" val="Inhalt"/>
+        <_Flip id="194"/>
+        <_FieldPhysical Name="Inhalt" PIC_U="60" Size="60" allowed_null="N" attribute="A" context_cookies="Y" database_definition="2" id="231" storage="3" translate="1"/>
+      </PropertyList>
+    </Column>
+  </Columns>
+
+  <Indexes>
+    <Index id="1" name="nichtEinlesenInhalt_Inhalt">
+      <Mode val="S"/>
+      <Order val="T"/>
+      <Range val="Q"/>
+      <IndexType val="R"/>
+      <PhysicalName val="nichtEinlesenInhalt_Inhalt"/>
+      <HasHint val="Y"/>
+      <Clustered val="N"/>
+      <DropOnReindex val="N"/>
+      <Primary val="N"/>
+      <Segments>
+        <Segment>
+          <Size val="60"/>
           <Column val="1"/>
           <Order val="A"/>
         </Segment>

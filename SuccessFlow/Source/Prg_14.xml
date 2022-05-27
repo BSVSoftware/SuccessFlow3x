@@ -39,10 +39,10 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738221" _time="50138" date="07.03.2022" time="13:55:38"/>
+          <LastModified _date="738302" _time="46006" date="27.05.2022" time="12:46:46"/>
         </Header>
         <CHUNK val="179"/>
-        <ItemIsn val="907"/>
+        <ItemIsn val="908"/>
         <Resource>
           <DB id="1">
             <DataObject comp="2" obj="116"/>
@@ -2620,6 +2620,12 @@
                 <Model attr_obj="FIELD_LOGICAL" id="1"/>
                 <_FieldStyle id="276" val="1"/>
                 <PartOfDataview id="449"/>
+              </PropertyList>
+            </Column>
+            <Column id="237" name="HotServSync_OffTickWRUmgebcht_v">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_LOGICAL" id="1"/>
+                <_FieldStyle id="276" val="1"/>
               </PropertyList>
             </Column>
             <Column id="227" name="neuesEvent">
@@ -15283,6 +15289,18 @@
                   <Direction val="C"/>
                 </Select>
               </LogicLine>
+              <LogicLine>
+                <Select FieldID="908" FlowIsn="47915" id="908">
+                  <Column val="237"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
             </LogicLines>
           </LogicUnit>
           <LogicUnit id="607" propagate="78">
@@ -17205,7 +17223,7 @@
                   <SyncData val="N"/>
                   <RetainFocus val="N"/>
                   <Condition val="Y"/>
-                  <Modifier val="S"/>
+                  <Modifier val="B"/>
                   <Direction val="C"/>
                 </CallTask>
               </LogicLine>
@@ -17255,6 +17273,43 @@
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </CallTask>
+              </LogicLine>
+              <LogicLine>
+                <CallTask FlowIsn="47914">
+                  <OperationType val="P"/>
+                  <Event>
+                    <EventType val="N"/>
+                  </Event>
+                  <TaskID comp="-1" obj="3693"/>
+                  <Lock val="N"/>
+                  <Arguments>
+                    <Argument>
+                      <Expression val="549"/>
+                      <Skip val="N"/>
+                    </Argument>
+                    <Argument>
+                      <Variable val="908"/>
+                      <Skip val="N"/>
+                    </Argument>
+                  </Arguments>
+                  <Wait val="Y"/>
+                  <SyncData val="N"/>
+                  <RetainFocus val="N"/>
+                  <Condition Exp="785"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </CallTask>
+              </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="48403">
+                  <FieldID val="908"/>
+                  <WithValue val="96"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
               </LogicLine>
               <LogicLine>
                 <END_BLK FlowIsn="42090"/>
@@ -18132,7 +18187,7 @@
                   <SyncData val="N"/>
                   <RetainFocus val="N"/>
                   <Condition val="Y"/>
-                  <Modifier val="S"/>
+                  <Modifier val="B"/>
                   <Direction val="C"/>
                 </CallTask>
               </LogicLine>
@@ -18170,7 +18225,7 @@
                     </Argument>
                   </Arguments>
                   <Condition Exp="675"/>
-                  <Modifier val="S"/>
+                  <Modifier val="B"/>
                   <Direction val="C"/>
                 </RaiseEvent>
               </LogicLine>
@@ -37337,6 +37392,10 @@
             <ExpSyntax val="NOT(ISNULL({0,161})) AND {0,161}>'01/01/1901'DATE"/>
             <ExpAttribute val="B"/>
           </Expression>
+          <Expression id="785">
+            <ExpSyntax val="{0,697} AND NOT({0,716}) AND {0,895}=45"/>
+            <ExpAttribute val="B"/>
+          </Expression>
         </Expressions>
         <EVNT DESC="43-45" FORCE_EXIT="N" id="1">
           <Event>
@@ -40692,21 +40751,33 @@
           <Task MainProgram="N">
             <Header Description="Kopf update" ISN_2="313" LastIsn="347" id="14">
               <ExecutionRight comp="-1"/>
-              <Resident val="Y"/>
+              <Resident val="N"/>
               <SQL val="N"/>
               <ReturnValue>
                 <ReturnValueAttr/>
                 <ParametersAttributes/>
               </ReturnValue>
               <SqlWhereExist val="N"/>
-              <TaskType val="B"/>
+              <TaskType val="C"/>
+              <Interactive val="N"/>
               <External val="N"/>
-              <FormType val="N"/>
+              <FormType val="M"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="736977" _time="36279" date="10.10.2018" time="10:04:39"/>
+              <LastModified _date="738302" _time="46006" date="27.05.2022" time="12:46:46"/>
             </Header>
+            <ItemIsn val="2"/>
             <Resource>
-              <Columns/>
+              <Columns>
+                <Column id="1" name="tmp">
+                  <PropertyList model="FIELD">
+                    <Model attr_obj="FIELD_ALPHA" id="1"/>
+                    <Picture id="157" valUnicode="1"/>
+                    <StoredAs id="173" val="1"/>
+                    <Size id="174" val="1"/>
+                    <_Flip id="194"/>
+                  </PropertyList>
+                </Column>
+              </Columns>
             </Resource>
             <Information>
               <Key>
@@ -40728,17 +40799,17 @@
                 <ConfirmUpdate CNFU="N"/>
                 <ConfirmCancel val="N"/>
                 <ErrorStrategy val="A"/>
-                <LockingStrategy val="I"/>
-                <CacheStrategy val="N"/>
+                <LockingStrategy val="M"/>
+                <CacheStrategy val="D"/>
                 <ForceRecordSuffix val="N"/>
-                <TransactionMode val="P"/>
+                <TransactionMode val="O"/>
                 <TransactionBegin val="N"/>
                 <PreloadView val="N"/>
                 <AllowEmptyDataview val="N"/>
                 <KeepCreatedContext val="N"/>
               </TaskProperties>
               <SIDE_WIN>
-                <AllowOptions val="N"/>
+                <AllowOptions val="Y"/>
                 <AllowQuery val="Y"/>
                 <AllowModify val="Y"/>
                 <AllowCreate val="Y"/>
@@ -40747,9 +40818,9 @@
                 <AllowRange val="Y"/>
                 <AllowIndexChange val="Y"/>
                 <AllowSorting val="Y"/>
-                <AllowIOFiles val="Y"/>
-                <RecordCycle val="Y"/>
-                <AllowEvents val="N"/>
+                <AllowIOFiles val="N"/>
+                <TabbingCycle val="R"/>
+                <AllowEvents val="Y"/>
                 <AllowIndexOptimization val="Y"/>
                 <AllowLocationInQuery val="Y"/>
                 <AllowPrintingData val="N"/>
@@ -40777,6 +40848,7 @@
                   <EventType val="S"/>
                 </Event>
                 <Expanded val="1"/>
+                <ExecuteOn_ val="O"/>
                 <LogicLines>
                   <LogicLine>
                     <DATAVIEW_SRC FlowIsn="2" Type="M">
@@ -40784,6 +40856,24 @@
                       <Modifier val="B"/>
                       <Direction val="C"/>
                     </DATAVIEW_SRC>
+                  </LogicLine>
+                  <LogicLine>
+                    <Remark FlowIsn="72">
+                      <Type val="0"/>
+                      <Text val="muss RC sein da sonst mgerror fehler kommt"/>
+                    </Remark>
+                  </LogicLine>
+                  <LogicLine>
+                    <Select FieldID="1" FlowIsn="37" id="1">
+                      <Column val="1"/>
+                      <Type val="V"/>
+                      <ExposedToRoute val="N"/>
+                      <IsParameter val="N"/>
+                      <DIFF_UPDATE val="T"/>
+                      <Condition val="Y"/>
+                      <Modifier val="S"/>
+                      <Direction val="C"/>
+                    </Select>
                   </LogicLine>
                 </LogicLines>
               </LogicUnit>
@@ -40798,6 +40888,7 @@
                   <EventType val="S"/>
                 </Event>
                 <Expanded val="1"/>
+                <ExecuteOn_ val="O"/>
                 <LogicLines>
                   <LogicLine>
                     <Update FlowIsn="3">
@@ -41200,13 +41291,13 @@
             </TaskLogic>
             <TaskForms>
               <FormEntry id="1">
-                <PropertyList model="FORM_GUI0">
+                <PropertyList model="FORM_RICH_CLIENT">
                   <Font id="50" val="111"/>
                   <Color id="51" val="101"/>
                   <_Comment id="218"/>
                   <FormName id="311" valUnicode="Kopf update"/>
                   <_TabbingOrder id="318" val="1"/>
-                  <WindowType id="358" val="1"/>
+                  <WindowType id="358" val="6"/>
                   <PersistentFormState id="493"/>
                 </PropertyList>
               </FormEntry>
@@ -48662,9 +48753,9 @@
             <External val="N"/>
             <FormType val="M"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738053" _time="32889" date="20.09.2021" time="09:08:09"/>
+            <LastModified _date="738273" _time="43742" date="28.04.2022" time="12:09:02"/>
           </Header>
-          <ItemIsn val="3"/>
+          <ItemIsn val="8"/>
           <Resource>
             <Columns>
               <Column id="1" name="NeuesEvent_p">
@@ -48838,7 +48929,7 @@
                     <SyncData val="N"/>
                     <RetainFocus val="N"/>
                     <Condition Exp="1"/>
-                    <Modifier val="S"/>
+                    <Modifier val="B"/>
                     <Direction val="C"/>
                   </CallTask>
                 </LogicLine>
@@ -48860,7 +48951,7 @@
                     <SyncData val="N"/>
                     <RetainFocus val="N"/>
                     <Condition val="Y"/>
-                    <Modifier val="S"/>
+                    <Modifier val="B"/>
                     <Direction val="C"/>
                   </CallTask>
                 </LogicLine>
@@ -48921,7 +49012,7 @@
                     <SyncData val="N"/>
                     <RetainFocus val="N"/>
                     <Condition val="Y"/>
-                    <Modifier val="S"/>
+                    <Modifier val="B"/>
                     <Direction val="C"/>
                   </CallTask>
                 </LogicLine>
@@ -48947,7 +49038,7 @@
                     <SyncData val="N"/>
                     <RetainFocus val="N"/>
                     <Condition val="Y"/>
-                    <Modifier val="S"/>
+                    <Modifier val="B"/>
                     <Direction val="C"/>
                   </CallTask>
                 </LogicLine>
@@ -49299,7 +49390,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738013" _time="38133" date="11.08.2021" time="10:35:33"/>
+              <LastModified _date="738273" _time="43840" date="28.04.2022" time="12:10:40"/>
             </Header>
             <ItemIsn val="19"/>
             <Resource>
@@ -49749,7 +49840,7 @@
                   <LogicLine>
                     <BLOCK EndBlock="26" EndBlockSegment="26" FlowIsn="24" Type="I">
                       <Expanded val="1"/>
-                      <Condition Exp="3"/>
+                      <Condition Exp="29"/>
                       <Modifier val="B"/>
                       <Direction val="C"/>
                     </BLOCK>
@@ -49889,7 +49980,7 @@
                   <LogicLine>
                     <BLOCK EndBlock="40" EndBlockSegment="40" FlowIsn="38" Type="I">
                       <Expanded val="1"/>
-                      <Condition Exp="3"/>
+                      <Condition Exp="29"/>
                       <Modifier val="B"/>
                       <Direction val="C"/>
                     </BLOCK>
@@ -49942,6 +50033,10 @@
               </Expression>
               <Expression id="3">
                 <ExpSyntax val="{33,3}=0 OR {33,3}=45"/>
+                <ExpAttribute val="B"/>
+              </Expression>
+              <Expression id="29">
+                <ExpSyntax val="({33,3}=0 OR {33,3}=45) AND NOT({33,697} AND NOT({33,716}))"/>
                 <ExpAttribute val="B"/>
               </Expression>
               <Expression id="4">
@@ -50573,9 +50668,9 @@
             <External val="N"/>
             <FormType val="M"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738053" _time="32839" date="20.09.2021" time="09:07:19"/>
+            <LastModified _date="738273" _time="42923" date="28.04.2022" time="11:55:23"/>
           </Header>
-          <ItemIsn val="27"/>
+          <ItemIsn val="32"/>
           <Resource>
             <DB id="1">
               <DataObject comp="2" obj="703"/>

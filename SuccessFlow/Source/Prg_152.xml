@@ -43,7 +43,7 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738266" _time="41340" date="21.04.2022" time="11:29:00"/>
+          <LastModified _date="738300" _time="31680" date="25.05.2022" time="08:48:00"/>
         </Header>
         <ItemIsn val="16"/>
         <Resource>
@@ -653,7 +653,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738266" _time="41340" date="21.04.2022" time="11:29:00"/>
+            <LastModified _date="738300" _time="30415" date="25.05.2022" time="08:26:55"/>
           </Header>
           <ItemIsn val="338"/>
           <Resource>
@@ -834,7 +834,7 @@
               <IdentifyRowModifications val="84"/>
             </DB>
             <Columns>
-              <Column id="1" name="Auftrags.-Nr _v_p">
+              <Column id="1" name="AuftragsNr _p">
                 <PropertyList model="FIELD">
                   <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="26"/>
                   <CharSet id="172" val="1"/>
@@ -842,7 +842,7 @@
                   <Definition id="175" val="2"/>
                 </PropertyList>
               </Column>
-              <Column id="2" name="Rechnungs Nr _v_p">
+              <Column id="2" name="RechnungsNr _p">
                 <PropertyList model="FIELD">
                   <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="33"/>
                   <CharSet id="172" val="1"/>
@@ -1961,6 +1961,7 @@
                     <Type val="R"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
+                    <REAL_VNAME_TXT val="POS_POSNR"/>
                     <INT_RCMP_INFO>
                       <v>137</v>
                       <v>158</v>
@@ -2163,6 +2164,7 @@
                     <Type val="R"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
+                    <REAL_VNAME_TXT val="POS_Vertragsbereich"/>
                     <INT_RCMP_INFO>
                       <v>193</v>
                       <v>216</v>
@@ -2179,6 +2181,7 @@
                     <Type val="R"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
+                    <REAL_VNAME_TXT val="POS_Vertragsnummer"/>
                     <INT_RCMP_INFO>
                       <v>193</v>
                       <v>216</v>
@@ -3191,6 +3194,7 @@
                     <Type val="R"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
+                    <REAL_VNAME_TXT val="POS_Pauschale  Zaehler"/>
                     <INT_RCMP_INFO>
                       <v>169</v>
                       <v>193</v>
@@ -3307,6 +3311,7 @@
                     <Type val="R"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
+                    <REAL_VNAME_TXT val="POS_FürID_Zeilennummer"/>
                     <INT_RCMP_INFO>
                       <v>178</v>
                     </INT_RCMP_INFO>
@@ -3322,6 +3327,7 @@
                     <Type val="R"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
+                    <REAL_VNAME_TXT val="zuZF_zuZP_Pauschale  Zaehler"/>
                     <Locate MAX="66" MIN="66"/>
                     <DIFF_UPDATE val="T"/>
                     <Condition val="Y"/>
@@ -3435,6 +3441,7 @@
                     <Type val="R"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
+                    <REAL_VNAME_TXT val="ZF/ZP_Version"/>
                     <INT_RCMP_INFO>
                       <v>193</v>
                       <v>216</v>
@@ -3451,6 +3458,7 @@
                     <Type val="R"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
+                    <REAL_VNAME_TXT val="ZF/ZP_VPosNr"/>
                     <INT_RCMP_INFO>
                       <v>193</v>
                     </INT_RCMP_INFO>
@@ -3466,6 +3474,7 @@
                     <Type val="R"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
+                    <REAL_VNAME_TXT val="ZF/ZP_Vertragsbereich"/>
                     <INT_RCMP_INFO>
                       <v>193</v>
                       <v>216</v>
@@ -3482,6 +3491,7 @@
                     <Type val="R"/>
                     <ExposedToRoute val="N"/>
                     <IsParameter val="N"/>
+                    <REAL_VNAME_TXT val="ZF/ZP_Vertragsnummer"/>
                     <INT_RCMP_INFO>
                       <v>193</v>
                       <v>216</v>
@@ -6356,6 +6366,17 @@
                   </BLOCK>
                 </LogicLine>
                 <LogicLine>
+                  <Update FlowIsn="2834">
+                    <FieldID val="7"/>
+                    <WithValue val="42"/>
+                    <Incremental val="N"/>
+                    <ForcedUpdate val="Y"/>
+                    <Condition val="Y"/>
+                    <Modifier val="B"/>
+                    <Direction val="C"/>
+                  </Update>
+                </LogicLine>
+                <LogicLine>
                   <Update FlowIsn="1671">
                     <FieldID val="7"/>
                     <WithValue val="140"/>
@@ -7536,7 +7557,7 @@
               <ExpAttribute val="B"/>
             </Expression>
             <Expression id="137">
-              <ExpSyntax val="IF({0,182}&lt;>'' OR {0,324}&lt;>'',IF({1,11},{0,234},{0,230}),0)"/>
+              <ExpSyntax val="IF({0,182}&lt;>'' OR {0,324}&lt;>'',IF({0,310},{0,231},IF({1,11},{0,234},{0,230})),0)"/>
               <ExpAttribute val="N"/>
             </Expression>
             <Expression id="139">
@@ -7544,7 +7565,7 @@
               <ExpAttribute val="B"/>
             </Expression>
             <Expression id="140">
-              <ExpSyntax val="IF({0,182}&lt;>'' OR {0,324}&lt;>'',IF({1,11},{0,327},{0,325}),0)"/>
+              <ExpSyntax val="IF({0,182}&lt;>'' OR {0,324}&lt;>'',IF({0,310},{0,231},IF({1,11},{0,327},{0,325})),0)"/>
               <ExpAttribute val="N"/>
             </Expression>
             <Expression id="141">
@@ -10677,7 +10698,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738250" _time="40977" date="05.04.2022" time="11:22:57"/>
+              <LastModified _date="738294" _time="59133" date="19.05.2022" time="16:25:33"/>
             </Header>
             <ItemIsn val="13"/>
             <Resource>
@@ -10911,6 +10932,7 @@
                       <Type val="R"/>
                       <ExposedToRoute val="N"/>
                       <IsParameter val="N"/>
+                      <REAL_VNAME_TXT val="Konto_PVW"/>
                       <DIFF_UPDATE val="T"/>
                       <Condition val="Y"/>
                       <Modifier val="S"/>
@@ -11109,7 +11131,7 @@
                 <External val="N"/>
                 <FormType val="N"/>
                 <DotNetObjectExists val="N"/>
-                <LastModified _date="738250" _time="41022" date="05.04.2022" time="11:23:42"/>
+                <LastModified _date="738294" _time="59971" date="19.05.2022" time="16:39:31"/>
               </Header>
               <ItemIsn val="22"/>
               <Resource>
@@ -11540,39 +11562,6 @@
                   <Expanded val="1"/>
                   <LogicLines>
                     <LogicLine>
-                      <Update FlowIsn="29">
-                        <FieldID val="5"/>
-                        <WithValue val="18"/>
-                        <Incremental val="N"/>
-                        <ForcedUpdate val="Y"/>
-                        <Condition val="Y"/>
-                        <Modifier val="B"/>
-                        <Direction val="C"/>
-                      </Update>
-                    </LogicLine>
-                    <LogicLine>
-                      <Update FlowIsn="30">
-                        <FieldID val="6"/>
-                        <WithValue val="13"/>
-                        <Incremental val="N"/>
-                        <ForcedUpdate val="Y"/>
-                        <Condition val="Y"/>
-                        <Modifier val="B"/>
-                        <Direction val="C"/>
-                      </Update>
-                    </LogicLine>
-                    <LogicLine>
-                      <Update FlowIsn="31">
-                        <FieldID val="7"/>
-                        <WithValue val="14"/>
-                        <Incremental val="N"/>
-                        <ForcedUpdate val="Y"/>
-                        <Condition val="Y"/>
-                        <Modifier val="B"/>
-                        <Direction val="C"/>
-                      </Update>
-                    </LogicLine>
-                    <LogicLine>
                       <Update FlowIsn="32">
                         <FieldID val="8"/>
                         <WithValue val="17"/>
@@ -11609,50 +11598,6 @@
                       <Update FlowIsn="34">
                         <FieldID val="10"/>
                         <WithValue val="15"/>
-                        <Incremental val="N"/>
-                        <ForcedUpdate val="Y"/>
-                        <Condition val="Y"/>
-                        <Modifier val="B"/>
-                        <Direction val="C"/>
-                      </Update>
-                    </LogicLine>
-                    <LogicLine>
-                      <Update FlowIsn="35">
-                        <FieldID val="11"/>
-                        <WithValue val="9"/>
-                        <Incremental val="N"/>
-                        <ForcedUpdate val="Y"/>
-                        <Condition val="Y"/>
-                        <Modifier val="B"/>
-                        <Direction val="C"/>
-                      </Update>
-                    </LogicLine>
-                    <LogicLine>
-                      <Update FlowIsn="36">
-                        <FieldID val="12"/>
-                        <WithValue val="12"/>
-                        <Incremental val="N"/>
-                        <ForcedUpdate val="Y"/>
-                        <Condition val="Y"/>
-                        <Modifier val="B"/>
-                        <Direction val="C"/>
-                      </Update>
-                    </LogicLine>
-                    <LogicLine>
-                      <Update FlowIsn="37">
-                        <FieldID val="18"/>
-                        <WithValue val="12"/>
-                        <Incremental val="N"/>
-                        <ForcedUpdate val="Y"/>
-                        <Condition val="Y"/>
-                        <Modifier val="B"/>
-                        <Direction val="C"/>
-                      </Update>
-                    </LogicLine>
-                    <LogicLine>
-                      <Update FlowIsn="38">
-                        <FieldID val="19"/>
-                        <WithValue val="9"/>
                         <Incremental val="N"/>
                         <ForcedUpdate val="Y"/>
                         <Condition val="Y"/>
@@ -11772,7 +11717,7 @@
                   <ExpAttribute val="N"/>
                 </Expression>
                 <Expression id="13">
-                  <ExpSyntax val="IF ({11,10}&lt;>0,{11,10},IF ({2,177}&lt;>0,{2,177},{2,83}))"/>
+                  <ExpSyntax val="IF ({11,10}&lt;>0,{11,10},IF({2,182}&lt;>'' OR {2,324}&lt;>'',IF({2,310},{2,231},{2,230}),IF ({2,177}&lt;>0,{2,177},{2,83})))"/>
                   <ExpAttribute val="N"/>
                 </Expression>
                 <Expression id="14">
@@ -15862,7 +15807,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738046" _time="52093" date="13.09.2021" time="14:28:13"/>
+              <LastModified _date="738300" _time="31680" date="25.05.2022" time="08:48:00"/>
             </Header>
             <ItemIsn val="1"/>
             <Resource>
@@ -15902,13 +15847,13 @@
                 <ConfirmUpdate CNFU="N"/>
                 <ConfirmCancel val="N"/>
                 <ErrorStrategy val="A"/>
-                <LockingStrategy val="I"/>
+                <LockingStrategy val="M"/>
                 <CacheStrategy val="N"/>
                 <ForceRecordSuffix val="N"/>
-                <TransactionMode val="W"/>
-                <TransactionBegin val="T"/>
+                <TransactionMode val="P"/>
+                <TransactionBegin val="N"/>
                 <PreloadView val="N"/>
-                <AllowEmptyDataview val="Y"/>
+                <AllowEmptyDataview val="N"/>
                 <KeepCreatedContext val="N"/>
               </TaskProperties>
               <SIDE_WIN>
@@ -15940,7 +15885,7 @@
               </BOX>
             </Information>
             <SQL_FORM DB="SQL" RESTAB="SQL">
-              <SQL_STMT_U val="SELECT SUM( ( ISNULL (Brutto,0) - ISNULL(Bezahlt_I,0) - ISNULL(Bezahlt_II,0) - ISNULL(Bezahlt_III,0) - ISNULL(Skontobetrag,0) - ISNULL(Sonst_Abzugg,0)) )&#xD;&#xA;FROM         RECHNUNGSBUCH WITH(NOLOCK)&#xD;&#xA;WHERE     (Ebene1 = :1) AND (Ebene2 = :2) AND (Ebene3 = :3) AND (Ebene4 = :4) AND (Kunden_Nr = :5) and bezahlt_status&lt;>2"/>
+              <SQL_STMT_U val="SELECT SUM( ( ISNULL (Brutto,0) - ISNULL(Bezahlt_I,0) - ISNULL(Bezahlt_II,0) - ISNULL(Bezahlt_III,0) - ISNULL(Skontobetrag,0) - ISNULL(Sonst_Abzugg,0)) )&#xD;&#xA;FROM         RECHNUNGSBUCH WITH(NOLOCK, index(REAUS_KDNR))&#xD;&#xA;WHERE     (Ebene1 = :1) AND (Ebene2 = :2) AND (Ebene3 = :3) AND (Ebene4 = :4) AND (Kunden_Nr = :5) and bezahlt_status&lt;>2"/>
               <INARG>
                 <Arguments>
                   <Argument Parent="32768" Variable="1"/>
@@ -16043,7 +15988,7 @@
                 <External val="N"/>
                 <FormType val="N"/>
                 <DotNetObjectExists val="N"/>
-                <LastModified _date="733474" _time="77532" date="08.03.2009" time="21:32:12"/>
+                <LastModified _date="738300" _time="30430" date="25.05.2022" time="08:27:10"/>
               </Header>
               <ItemIsn val="6"/>
               <Resource>
@@ -16081,10 +16026,10 @@
                   <LockingStrategy val="I"/>
                   <CacheStrategy val="T"/>
                   <ForceRecordSuffix val="N"/>
-                  <TransactionMode val="W"/>
+                  <TransactionMode val="P"/>
                   <TransactionBegin val="T"/>
                   <PreloadView val="N"/>
-                  <AllowEmptyDataview val="Y"/>
+                  <AllowEmptyDataview val="N"/>
                   <KeepCreatedContext val="N"/>
                 </TaskProperties>
                 <SIDE_WIN>

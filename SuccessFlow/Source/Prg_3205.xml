@@ -30,7 +30,7 @@
           <Offline val="N"/>
           <FormType val="M"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738046" _time="61938" date="13.09.2021" time="17:12:18"/>
+          <LastModified _date="738300" _time="54431" date="25.05.2022" time="15:07:11"/>
         </Header>
         <ItemIsn val="3"/>
         <Resource>
@@ -121,7 +121,7 @@
           </BOX>
         </Information>
         <SQL_FORM DB="SQL" RESTAB="SQL">
-          <SQL_STMT_U val="select count(*) from MITARBEITER_TODO WITH(NOLOCK) where ebene1=:1 and ebene2=:2 and ebene3=:3 and ebene4=:4 and empfaenger=:5 and erledigt_am is null"/>
+          <SQL_STMT_U val="select count(*) from MITARBEITER_TODO WITH(NOLOCK, index(MITARBEITER_TODO_Empfaenger)) where ebene1=:1 and ebene2=:2 and ebene3=:3 and ebene4=:4 and empfaenger=:5 and erledigt_am is null"/>
           <INARG>
             <Arguments>
               <Argument Parent="32768" Variable="1"/>

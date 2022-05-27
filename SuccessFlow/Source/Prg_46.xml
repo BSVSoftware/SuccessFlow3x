@@ -34,7 +34,7 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738159" _time="58622" date="04.01.2022" time="16:17:02"/>
+          <LastModified _date="738300" _time="52809" date="25.05.2022" time="14:40:09"/>
         </Header>
         <ItemIsn val="26"/>
         <Resource>
@@ -2241,7 +2241,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738046" _time="50445" date="13.09.2021" time="14:00:45"/>
+            <LastModified _date="738300" _time="52668" date="25.05.2022" time="14:37:48"/>
           </Header>
           <ItemIsn val="1"/>
           <Resource>
@@ -2282,11 +2282,11 @@
               <ConfirmUpdate CNFU="N"/>
               <ConfirmCancel val="N"/>
               <ErrorStrategy val="A"/>
-              <LockingStrategy val="I"/>
+              <LockingStrategy val="M"/>
               <CacheStrategy val="N"/>
               <ForceRecordSuffix val="N"/>
               <TransactionMode val="P"/>
-              <TransactionBegin val="T"/>
+              <TransactionBegin val="N"/>
               <PreloadView val="N"/>
               <AllowEmptyDataview val="N"/>
               <KeepCreatedContext val="N"/>
@@ -2320,7 +2320,7 @@
             </BOX>
           </Information>
           <SQL_FORM DB="SQL" RESTAB="SQL">
-            <SQL_STMT_U val="SELECT SUM( ( ISNULL (Brutto,0) - ISNULL(Bezahlt_I,0) - ISNULL(Bezahlt_II,0) - ISNULL(Bezahlt_III,0) - ISNULL(Skontobetrag,0) - ISNULL(Sonst_Abzugg,0)) )&#xD;&#xA;FROM         RECHNUNGSBUCH WITH(NOLOCK)&#xD;&#xA;WHERE     (Ebene1 = :1) AND (Ebene2 = :2) AND (Ebene3 = :3) AND (Ebene4 = :4) AND (Kunden_Nr = :5)"/>
+            <SQL_STMT_U val="SELECT SUM( ( ISNULL (Brutto,0) - ISNULL(Bezahlt_I,0) - ISNULL(Bezahlt_II,0) - ISNULL(Bezahlt_III,0) - ISNULL(Skontobetrag,0) - ISNULL(Sonst_Abzugg,0)) )&#xD;&#xA;FROM         RECHNUNGSBUCH WITH(NOLOCK, index(REAUS_KDNR))&#xD;&#xA;WHERE     (Ebene1 = :1) AND (Ebene2 = :2) AND (Ebene3 = :3) AND (Ebene4 = :4) AND (Kunden_Nr = :5)"/>
             <INARG>
               <Arguments>
                 <Argument Parent="1" Variable="5"/>
@@ -2433,7 +2433,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738046" _time="50463" date="13.09.2021" time="14:01:03"/>
+            <LastModified _date="738300" _time="52697" date="25.05.2022" time="14:38:17"/>
           </Header>
           <ItemIsn val="1"/>
           <Resource>
@@ -2474,11 +2474,11 @@
               <ConfirmUpdate CNFU="N"/>
               <ConfirmCancel val="N"/>
               <ErrorStrategy val="A"/>
-              <LockingStrategy val="I"/>
+              <LockingStrategy val="M"/>
               <CacheStrategy val="N"/>
               <ForceRecordSuffix val="N"/>
               <TransactionMode val="P"/>
-              <TransactionBegin val="T"/>
+              <TransactionBegin val="N"/>
               <PreloadView val="N"/>
               <AllowEmptyDataview val="N"/>
               <KeepCreatedContext val="N"/>
@@ -2512,7 +2512,7 @@
             </BOX>
           </Information>
           <SQL_FORM DB="SQL" RESTAB="SQL">
-            <SQL_STMT_U val="SELECT SUM(Brutto) FROM RECHNUNGSBUCH WITH(NOLOCK) WHERE Ebene1=:1 AND Ebene2=:2 AND Ebene3=:3 AND Ebene4=:4 AND Kunden_Nr=:5"/>
+            <SQL_STMT_U val="SELECT SUM(Brutto) FROM RECHNUNGSBUCH WITH(NOLOCK,  index(REAUS_KDNR)) WHERE Ebene1=:1 AND Ebene2=:2 AND Ebene3=:3 AND Ebene4=:4 AND Kunden_Nr=:5"/>
             <INARG>
               <Arguments>
                 <Argument Parent="1" Variable="5"/>
@@ -2625,7 +2625,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738046" _time="50478" date="13.09.2021" time="14:01:18"/>
+            <LastModified _date="738300" _time="52731" date="25.05.2022" time="14:38:51"/>
           </Header>
           <ItemIsn val="1"/>
           <Resource>
@@ -2666,11 +2666,11 @@
               <ConfirmUpdate CNFU="N"/>
               <ConfirmCancel val="N"/>
               <ErrorStrategy val="A"/>
-              <LockingStrategy val="I"/>
+              <LockingStrategy val="M"/>
               <CacheStrategy val="N"/>
               <ForceRecordSuffix val="N"/>
               <TransactionMode val="P"/>
-              <TransactionBegin val="T"/>
+              <TransactionBegin val="N"/>
               <PreloadView val="N"/>
               <AllowEmptyDataview val="N"/>
               <KeepCreatedContext val="N"/>
@@ -2704,7 +2704,7 @@
             </BOX>
           </Information>
           <SQL_FORM DB="SQL" RESTAB="SQL">
-            <SQL_STMT_U val="SELECT     SUM(Skontobetrag)&#xD;&#xA;FROM         RECHNUNGSBUCH WITH(NOLOCK)&#xD;&#xA;WHERE     (Ebene1 = :1) AND (Ebene2 = :2) AND (Ebene3 = :3) AND (Ebene4 = :4) AND (Kunden_Nr = :5)"/>
+            <SQL_STMT_U val="SELECT     SUM(Skontobetrag)&#xD;&#xA;FROM         RECHNUNGSBUCH WITH(NOLOCK,  index(REAUS_KDNR))&#xD;&#xA;WHERE     (Ebene1 = :1) AND (Ebene2 = :2) AND (Ebene3 = :3) AND (Ebene4 = :4) AND (Kunden_Nr = :5)"/>
             <INARG>
               <Arguments>
                 <Argument Parent="1" Variable="5"/>
@@ -2817,7 +2817,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738046" _time="50491" date="13.09.2021" time="14:01:31"/>
+            <LastModified _date="738300" _time="52759" date="25.05.2022" time="14:39:19"/>
           </Header>
           <ItemIsn val="1"/>
           <Resource>
@@ -2858,11 +2858,11 @@
               <ConfirmUpdate CNFU="N"/>
               <ConfirmCancel val="N"/>
               <ErrorStrategy val="A"/>
-              <LockingStrategy val="I"/>
+              <LockingStrategy val="M"/>
               <CacheStrategy val="N"/>
               <ForceRecordSuffix val="N"/>
               <TransactionMode val="P"/>
-              <TransactionBegin val="T"/>
+              <TransactionBegin val="N"/>
               <PreloadView val="N"/>
               <AllowEmptyDataview val="N"/>
               <KeepCreatedContext val="N"/>
@@ -2896,7 +2896,7 @@
             </BOX>
           </Information>
           <SQL_FORM DB="SQL" RESTAB="SQL">
-            <SQL_STMT_U val="SELECT     SUM(sonst_Abzugg)&#xD;&#xA;FROM         RECHNUNGSBUCH WITH(NOLOCK)&#xD;&#xA;WHERE     (Ebene1 = :1) AND (Ebene2 = :2) AND (Ebene3 = :3) AND (Ebene4 = :4) AND (Kunden_Nr = :5)"/>
+            <SQL_STMT_U val="SELECT     SUM(sonst_Abzugg)&#xD;&#xA;FROM         RECHNUNGSBUCH WITH(NOLOCK,  index(REAUS_KDNR))&#xD;&#xA;WHERE     (Ebene1 = :1) AND (Ebene2 = :2) AND (Ebene3 = :3) AND (Ebene4 = :4) AND (Kunden_Nr = :5)"/>
             <INARG>
               <Arguments>
                 <Argument Parent="1" Variable="5"/>
@@ -3009,7 +3009,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738046" _time="50507" date="13.09.2021" time="14:01:47"/>
+            <LastModified _date="738300" _time="52781" date="25.05.2022" time="14:39:41"/>
           </Header>
           <ItemIsn val="1"/>
           <Resource>
@@ -3050,11 +3050,11 @@
               <ConfirmUpdate CNFU="N"/>
               <ConfirmCancel val="N"/>
               <ErrorStrategy val="A"/>
-              <LockingStrategy val="I"/>
+              <LockingStrategy val="M"/>
               <CacheStrategy val="N"/>
               <ForceRecordSuffix val="N"/>
               <TransactionMode val="P"/>
-              <TransactionBegin val="T"/>
+              <TransactionBegin val="N"/>
               <PreloadView val="N"/>
               <AllowEmptyDataview val="N"/>
               <KeepCreatedContext val="N"/>
@@ -3088,7 +3088,7 @@
             </BOX>
           </Information>
           <SQL_FORM DB="SQL" RESTAB="SQL">
-            <SQL_STMT_U val="SELECT     COUNT(Rechnungs_Nr)&#xD;&#xA;FROM         RECHNUNGSBUCH WITH(NOLOCK)&#xD;&#xA;WHERE     (Ebene1 = :1) AND (Ebene2 = :2) AND (Ebene3 = :3) AND (Ebene4 = :4) AND (Kunden_Nr = :5) and (Am_I IS NOT NULL)"/>
+            <SQL_STMT_U val="SELECT     COUNT(Rechnungs_Nr)&#xD;&#xA;FROM         RECHNUNGSBUCH WITH(NOLOCK,  index(REAUS_KDNR))&#xD;&#xA;WHERE     (Ebene1 = :1) AND (Ebene2 = :2) AND (Ebene3 = :3) AND (Ebene4 = :4) AND (Kunden_Nr = :5) and (Am_I IS NOT NULL)"/>
             <INARG>
               <Arguments>
                 <Argument Parent="1" Variable="5"/>
@@ -3201,7 +3201,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738046" _time="50527" date="13.09.2021" time="14:02:07"/>
+            <LastModified _date="738300" _time="52809" date="25.05.2022" time="14:40:09"/>
           </Header>
           <ItemIsn val="1"/>
           <Resource>
@@ -3242,11 +3242,11 @@
               <ConfirmUpdate CNFU="N"/>
               <ConfirmCancel val="N"/>
               <ErrorStrategy val="A"/>
-              <LockingStrategy val="I"/>
+              <LockingStrategy val="M"/>
               <CacheStrategy val="N"/>
               <ForceRecordSuffix val="N"/>
               <TransactionMode val="P"/>
-              <TransactionBegin val="T"/>
+              <TransactionBegin val="N"/>
               <PreloadView val="N"/>
               <AllowEmptyDataview val="N"/>
               <KeepCreatedContext val="N"/>
@@ -3280,7 +3280,7 @@
             </BOX>
           </Information>
           <SQL_FORM DB="SQL" RESTAB="SQL">
-            <SQL_STMT_U val="SELECT sum (datediff (d,  Datum,Am_I))&#xD;&#xA;FROM         RECHNUNGSBUCH WITH(NOLOCK)&#xD;&#xA;WHERE     (Ebene1 = :1) AND (Ebene2 = :2) AND (Ebene3 = :3) AND (Ebene4 = :4) AND (Kunden_Nr = :5) and (Am_I IS NOT NULL)"/>
+            <SQL_STMT_U val="SELECT sum (datediff (d,  Datum,Am_I))&#xD;&#xA;FROM         RECHNUNGSBUCH WITH(NOLOCK,  index(REAUS_KDNR))&#xD;&#xA;WHERE     (Ebene1 = :1) AND (Ebene2 = :2) AND (Ebene3 = :3) AND (Ebene4 = :4) AND (Kunden_Nr = :5) and (Am_I IS NOT NULL)"/>
             <INARG>
               <Arguments>
                 <Argument Parent="1" Variable="5"/>

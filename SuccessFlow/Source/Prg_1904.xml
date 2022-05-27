@@ -37,7 +37,7 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738266" _time="59577" date="21.04.2022" time="16:32:57"/>
+          <LastModified _date="738300" _time="42844" date="25.05.2022" time="11:54:04"/>
         </Header>
         <ItemIsn val="96"/>
         <Resource>
@@ -2002,7 +2002,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738266" _time="59435" date="21.04.2022" time="16:30:35"/>
+            <LastModified _date="738300" _time="42822" date="25.05.2022" time="11:53:42"/>
           </Header>
           <ItemIsn val="252"/>
           <Resource>
@@ -7427,7 +7427,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738053" _time="50828" date="20.09.2021" time="14:07:08"/>
+              <LastModified _date="738300" _time="42821" date="25.05.2022" time="11:53:41"/>
             </Header>
             <ItemIsn val="1"/>
             <Resource>
@@ -7465,11 +7465,11 @@
                 <ConfirmUpdate CNFU="N"/>
                 <ConfirmCancel val="N"/>
                 <ErrorStrategy val="A"/>
-                <LockingStrategy val="I"/>
+                <LockingStrategy val="M"/>
                 <CacheStrategy val="N"/>
                 <ForceRecordSuffix val="N"/>
-                <TransactionMode val="W"/>
-                <TransactionBegin val="T"/>
+                <TransactionMode val="P"/>
+                <TransactionBegin val="N"/>
                 <PreloadView val="N"/>
                 <AllowEmptyDataview val="N"/>
                 <KeepCreatedContext val="N"/>
@@ -7503,7 +7503,7 @@
               </BOX>
             </Information>
             <SQL_FORM DB="SQL" RESTAB="SQL">
-              <SQL_STMT_U val="select min (von_zeitraum_vertr) from positionen WITH(NOLOCK) where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and AUFTNR=:5"/>
+              <SQL_STMT_U val="select min (von_zeitraum_vertr) from positionen WITH(NOLOCK, index(Positionen_AUFTNR_POSNR)) where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and AUFTNR=:5"/>
               <INARG>
                 <Arguments>
                   <Argument Parent="32768" Variable="1"/>
@@ -7608,7 +7608,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738053" _time="50844" date="20.09.2021" time="14:07:24"/>
+              <LastModified _date="738300" _time="42844" date="25.05.2022" time="11:54:04"/>
             </Header>
             <ItemIsn val="1"/>
             <Resource>
@@ -7646,11 +7646,11 @@
                 <ConfirmUpdate CNFU="N"/>
                 <ConfirmCancel val="N"/>
                 <ErrorStrategy val="A"/>
-                <LockingStrategy val="I"/>
+                <LockingStrategy val="M"/>
                 <CacheStrategy val="N"/>
                 <ForceRecordSuffix val="N"/>
-                <TransactionMode val="W"/>
-                <TransactionBegin val="T"/>
+                <TransactionMode val="P"/>
+                <TransactionBegin val="N"/>
                 <PreloadView val="N"/>
                 <AllowEmptyDataview val="N"/>
                 <KeepCreatedContext val="N"/>
@@ -7684,7 +7684,7 @@
               </BOX>
             </Information>
             <SQL_FORM DB="SQL" RESTAB="SQL">
-              <SQL_STMT_U val="select max (bis_zeitraum_vertr) from positionen WITH(NOLOCK) where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and AUFTNR=:5"/>
+              <SQL_STMT_U val="select max (bis_zeitraum_vertr) from positionen WITH(NOLOCK, index(Positionen_AUFTNR_POSNR)) where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and AUFTNR=:5"/>
               <INARG>
                 <Arguments>
                   <Argument Parent="32768" Variable="1"/>

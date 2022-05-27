@@ -28,9 +28,9 @@
           <RunProjectAs val="C"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738267" _time="56216" date="22.04.2022" time="15:36:56"/>
+          <LastModified _date="738300" _time="57889" date="25.05.2022" time="16:04:49"/>
         </Header>
-        <ItemIsn val="1568"/>
+        <ItemIsn val="1569"/>
         <Resource>
           <DB id="7">
             <DataObject comp="2" obj="105"/>
@@ -1866,6 +1866,14 @@
           </DB>
           <DB id="2281">
             <DataObject comp="2" obj="4266"/>
+            <Access val="R"/>
+            <Share val="W"/>
+            <Open val="N"/>
+            <Cache val="N"/>
+            <IdentifyRowModifications val="84"/>
+          </DB>
+          <DB id="2718">
+            <DataObject comp="2" obj="4129"/>
             <Access val="R"/>
             <Share val="W"/>
             <Open val="N"/>
@@ -3909,6 +3917,16 @@
                 <StoredAs id="173" val="1"/>
                 <Size id="174" val="15"/>
                 <_Flip id="194"/>
+              </PropertyList>
+            </Column>
+            <Column id="1535" name="Benutzerrechte_blob_gv">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_BLOB" id="1"/>
+                <StoredAs id="173" val="33"/>
+                <Size id="174" val="28"/>
+                <Definition id="175" val="1"/>
+                <_FieldStyle id="276" val="1"/>
+                <Content id="434" val="1"/>
               </PropertyList>
             </Column>
             <Column id="157" name="RECHTE-START">
@@ -10299,12 +10317,6 @@
                 <UserType id="180"/>
               </PropertyList>
             </Column>
-            <Column id="869" name="RechtVorhanden_fv">
-              <PropertyList model="FIELD">
-                <Model attr_obj="FIELD_LOGICAL" id="1"/>
-                <_FieldStyle id="276" val="1"/>
-              </PropertyList>
-            </Column>
             <Column id="1179" name="AusgabeFormat_egv">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_NUMERIC" id="1"/>
@@ -11407,7 +11419,6 @@
           </BOX>
         </Information>
         <INT_CMP_LIST_INFO>
-          <v>8</v>
           <v>2</v>
         </INT_CMP_LIST_INFO>
         <TaskLogic>
@@ -13154,6 +13165,13 @@
               </LogicLine>
               <LogicLine>
                 <DATAVIEW_SRC FlowIsn="254798" IDX="2547" Type="D">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="265780" IDX="2718" Type="D">
                   <Condition val="N"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
@@ -15809,6 +15827,18 @@
               <LogicLine>
                 <Select FieldID="1534" FlowIsn="244294" id="1534">
                   <Column val="1502"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1569" FlowIsn="261921" id="1569">
+                  <Column val="1535"/>
                   <Type val="V"/>
                   <ExposedToRoute val="N"/>
                   <IsParameter val="N"/>
@@ -26762,6 +26792,14 @@
                 </Update>
               </LogicLine>
               <LogicLine>
+                <Evaluate FlowIsn="264670">
+                  <Expression val="1421"/>
+                  <Condition Exp="1422"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+              <LogicLine>
                 <Evaluate FlowIsn="131609">
                   <Expression val="766"/>
                   <Condition Exp="977"/>
@@ -29526,7 +29564,7 @@
               <EventType val="F"/>
             </Event>
             <TXT val="BenutzerrechtOk"/>
-            <ReturnValueExpression val="585"/>
+            <ReturnValueExpression val="1417"/>
             <Expanded val="1"/>
             <LogicLines>
               <LogicLine>
@@ -29543,61 +29581,12 @@
                 </Select>
               </LogicLine>
               <LogicLine>
-                <Select FieldID="869" FlowIsn="875" id="869">
-                  <Column val="869"/>
-                  <Type val="V"/>
-                  <ExposedToRoute val="N"/>
-                  <IsParameter val="N"/>
-                  <DIFF_UPDATE val="T"/>
-                  <Condition val="Y"/>
+                <STP Buttons="O" DefaultButton="1" ERR_LOG_DEF_CHG="N" Exp="1418" FlowIsn="263875" IMG_DEF_CHG="N" Image="E" Mode="W" TTL_DEF_CHG="N" TitleTxt="Warning" VR_DISP="B">
+                  <AppendToErrorLog val="N"/>
+                  <Condition Exp="1419"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
-                </Select>
-              </LogicLine>
-              <LogicLine>
-                <CallTask FlowIsn="876">
-                  <OperationType val="P"/>
-                  <Event>
-                    <EventType val="N"/>
-                  </Event>
-                  <TaskID comp="8" obj="13"/>
-                  <Lock val="N"/>
-                  <Arguments>
-                    <Argument>
-                      <Variable val="1"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Variable val="2"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Variable val="3"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Variable val="4"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Variable val="24"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Variable val="868"/>
-                      <Skip val="N"/>
-                    </Argument>
-                    <Argument>
-                      <Variable val="869"/>
-                      <Skip val="N"/>
-                    </Argument>
-                  </Arguments>
-                  <Wait val="Y"/>
-                  <SyncData val="N"/>
-                  <Condition val="Y"/>
-                  <Modifier val="B"/>
-                  <Direction val="C"/>
-                </CallTask>
+                </STP>
               </LogicLine>
             </LogicLines>
           </LogicUnit>
@@ -33056,7 +33045,7 @@
             <Scope val="S"/>
             <EngineDirective val="S"/>
             <ShowMessage val="Y"/>
-            <Condition val="-1384"/>
+            <Condition val="-1383"/>
             <Event>
               <EventType val="S"/>
               <KeyCombinationID val="345"/>
@@ -33151,7 +33140,7 @@
             <Scope val="S"/>
             <EngineDirective val="S"/>
             <ShowMessage val="Y"/>
-            <Condition val="-1385"/>
+            <Condition val="-1383"/>
             <Event>
               <EventType val="S"/>
               <KeyCombinationID val="357"/>
@@ -33631,7 +33620,7 @@
                   </Arguments>
                   <Wait val="Y"/>
                   <SyncData val="N"/>
-                  <Condition Exp="1391"/>
+                  <Condition Exp="1393"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </CallTask>
@@ -33692,7 +33681,7 @@
                   </Arguments>
                   <Wait val="Y"/>
                   <SyncData val="N"/>
-                  <Condition Exp="1392"/>
+                  <Condition Exp="1393"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </CallTask>
@@ -33874,7 +33863,7 @@
                     </Argument>
                   </Arguments>
                   <SyncData val="N"/>
-                  <Condition Exp="1395"/>
+                  <Condition Exp="1393"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </CallTask>
@@ -41671,16 +41660,32 @@
                 </Select>
               </LogicLine>
               <LogicLine>
+                <BLOCK EndBlock="267944" EndBlockSegment="267943" FlowIsn="267942" Type="I">
+                  <Expanded val="1"/>
+                  <Condition Exp="639"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
+              </LogicLine>
+              <LogicLine>
                 <RaiseEvent FlowIsn="14953">
                   <Event>
                     <EventType val="S"/>
                     <KeyCombinationID val="100"/>
                   </Event>
                   <Wait val="78"/>
-                  <Condition Exp="639"/>
+                  <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </RaiseEvent>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="267944" EndBlockSegment="267945" FlowIsn="267943" Type="E">
+                  <Expanded val="1"/>
+                  <Condition Exp="640"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
               </LogicLine>
               <LogicLine>
                 <RaiseEvent FlowIsn="14954">
@@ -41689,10 +41694,18 @@
                     <KeyCombinationID val="101"/>
                   </Event>
                   <Wait val="78"/>
-                  <Condition Exp="640"/>
+                  <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </RaiseEvent>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="267944" EndBlockSegment="267946" FlowIsn="267945" Type="E">
+                  <Expanded val="1"/>
+                  <Condition Exp="641"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
               </LogicLine>
               <LogicLine>
                 <RaiseEvent FlowIsn="14955">
@@ -41701,10 +41714,18 @@
                     <KeyCombinationID val="102"/>
                   </Event>
                   <Wait val="78"/>
-                  <Condition Exp="641"/>
+                  <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </RaiseEvent>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="267944" EndBlockSegment="267947" FlowIsn="267946" Type="E">
+                  <Expanded val="1"/>
+                  <Condition Exp="642"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
               </LogicLine>
               <LogicLine>
                 <RaiseEvent FlowIsn="14955">
@@ -41713,10 +41734,18 @@
                     <KeyCombinationID val="103"/>
                   </Event>
                   <Wait val="78"/>
-                  <Condition Exp="642"/>
+                  <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </RaiseEvent>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="267944" EndBlockSegment="267948" FlowIsn="267947" Type="E">
+                  <Expanded val="1"/>
+                  <Condition Exp="643"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
               </LogicLine>
               <LogicLine>
                 <RaiseEvent FlowIsn="14956">
@@ -41725,10 +41754,18 @@
                     <KeyCombinationID val="104"/>
                   </Event>
                   <Wait val="78"/>
-                  <Condition Exp="643"/>
+                  <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </RaiseEvent>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="267944" EndBlockSegment="267949" FlowIsn="267948" Type="E">
+                  <Expanded val="1"/>
+                  <Condition Exp="644"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
               </LogicLine>
               <LogicLine>
                 <RaiseEvent FlowIsn="14968">
@@ -41737,10 +41774,18 @@
                     <KeyCombinationID val="105"/>
                   </Event>
                   <Wait val="78"/>
-                  <Condition Exp="644"/>
+                  <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </RaiseEvent>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="267944" EndBlockSegment="267950" FlowIsn="267949" Type="E">
+                  <Expanded val="1"/>
+                  <Condition Exp="645"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
               </LogicLine>
               <LogicLine>
                 <RaiseEvent FlowIsn="14969">
@@ -41749,10 +41794,18 @@
                     <KeyCombinationID val="106"/>
                   </Event>
                   <Wait val="78"/>
-                  <Condition Exp="645"/>
+                  <Condition val="Y"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </RaiseEvent>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="267944" EndBlockSegment="267944" FlowIsn="267950" Type="E">
+                  <Expanded val="1"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
               </LogicLine>
               <LogicLine>
                 <RaiseEvent FlowIsn="14970">
@@ -42642,6 +42695,9 @@
                   <Direction val="C"/>
                 </RaiseEvent>
               </LogicLine>
+              <LogicLine>
+                <END_BLK FlowIsn="267944"/>
+              </LogicLine>
             </LogicLines>
           </LogicUnit>
           <LogicUnit id="192" propagate="78">
@@ -43520,6 +43576,14 @@
             <ExpSyntax val="'TRUE'LOG"/>
             <ExpAttribute val="B"/>
           </Expression>
+          <Expression id="1418">
+            <ExpSyntax val="MlsTrans('keine Berechtigung')"/>
+            <ExpAttribute val="U"/>
+          </Expression>
+          <Expression id="1417">
+            <ExpSyntax val="InStr({0,1569},Trim({0,868}))>0"/>
+            <ExpAttribute val="B"/>
+          </Expression>
           <Expression id="1351">
             <ExpSyntax val="INIPut('[MAGIC_LOGICAL_NAMES]LNG='&amp;Trim({0,1485}),'FALSE'LOG)"/>
             <ExpAttribute val="B"/>
@@ -43624,8 +43688,16 @@
             <ExpSyntax val="ServerFileToClient('%BMP%FleetBTN.png')"/>
             <ExpAttribute val="A"/>
           </Expression>
+          <Expression id="1421">
+            <ExpSyntax val="ServerFileToClient('%BMP%HomeBTN.png')"/>
+            <ExpAttribute val="A"/>
+          </Expression>
           <Expression id="977">
             <ExpSyntax val="NOT ClientFileExist(Trim({0,1480})&amp;'gesperrt.png')"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="1422">
+            <ExpSyntax val="NOT ClientFileExist(Trim({0,1480})&amp;'HomeBTN.png')"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="978">
@@ -46201,15 +46273,7 @@
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="1383">
-            <ExpSyntax val="NOT({0,25}) AND NOT({0,142}) AND BenutzerrechtOk('P0054')"/>
-            <ExpAttribute val="B"/>
-          </Expression>
-          <Expression id="1384">
-            <ExpSyntax val="NOT({0,25}) AND NOT({0,142}) AND BenutzerrechtOk('P0054')"/>
-            <ExpAttribute val="B"/>
-          </Expression>
-          <Expression id="1385">
-            <ExpSyntax val="NOT({0,25}) AND NOT({0,142}) AND BenutzerrechtOk('P0621')"/>
+            <ExpSyntax val="NOT({0,25}) AND NOT({0,142}) AND BenutzerrechtOk('P0554')"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="1386">
@@ -46491,10 +46555,6 @@
           <Expression id="576">
             <ExpSyntax val="{0,884}"/>
             <ExpAttribute val="A"/>
-          </Expression>
-          <Expression id="585">
-            <ExpSyntax val="{0,869}"/>
-            <ExpAttribute val="B"/>
           </Expression>
           <Expression id="604">
             <ExpSyntax val="ClientOSEnvGet('ProgramFiles(x86)')"/>
@@ -48268,25 +48328,17 @@
             <ExpSyntax val="{0,1485}>''"/>
             <ExpAttribute val="B"/>
           </Expression>
-          <Expression id="1391">
-            <ExpSyntax val="BenutzerrechtOk('P0914')"/>
-            <ExpAttribute val="B"/>
-          </Expression>
-          <Expression id="1392">
-            <ExpSyntax val="BenutzerrechtOk('P0881')"/>
-            <ExpAttribute val="B"/>
-          </Expression>
           <Expression id="1393">
-            <ExpSyntax val="BenutzerrechtOk('R0024')"/>
-            <ExpAttribute val="B"/>
-          </Expression>
-          <Expression id="1395">
             <ExpSyntax val="BenutzerrechtOk('R0024')"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="1394">
             <ExpSyntax val="NOT({0,25}) AND NOT({0,142}) AND NOT {0,1199}"/>
             <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="1419">
+            <ExpSyntax val="NOT(ExpCalc('1417'EXP))"/>
+            <ExpAttribute val="A"/>
           </Expression>
         </Expressions>
         <EVNT DESC="gZoomEditing" FORCE_EXIT="E" id="1">

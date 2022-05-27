@@ -44,7 +44,7 @@
           <Offline val="N"/>
           <FormType val="M"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="737879" _time="53000" date="30.03.2021" time="14:43:20"/>
+          <LastModified _date="738292" _time="59477" date="17.05.2022" time="16:31:17"/>
         </Header>
         <ItemIsn val="21"/>
         <Resource>
@@ -139,7 +139,7 @@
                 <Definition id="175" val="2"/>
               </PropertyList>
             </Column>
-            <Column id="9" name="CCoderWBPWAendernOhneAltesPW_p">
+            <Column id="9" name="CC_WB_SF_PWAendernOhneAltesPW_p">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_LOGICAL" id="1"/>
                 <_FieldStyle id="276" val="1"/>
@@ -776,7 +776,7 @@
               <LogicLine>
                 <STP Buttons="O" DefaultButton="1" ERR_LOG_DEF_CHG="N" Exp="9" FlowIsn="32" IMG_DEF_CHG="N" Image="E" Mode="W" TTL_DEF_CHG="N" TitleTxt="Warning" VR_DISP="B">
                   <AppendToErrorLog val="N"/>
-                  <Condition Exp="8"/>
+                  <Condition Exp="42"/>
                   <Modifier val="B"/>
                   <Direction val="C"/>
                 </STP>
@@ -784,7 +784,7 @@
               <LogicLine>
                 <BLOCK EndBlock="45" EndBlockSegment="45" FlowIsn="33" Type="I">
                   <Expanded val="1"/>
-                  <Condition Exp="23"/>
+                  <Condition Exp="43"/>
                   <Modifier val="S"/>
                   <Direction val="C"/>
                 </BLOCK>
@@ -1184,7 +1184,7 @@
           </LogicUnit>
         </TaskLogic>
         <TaskForms>
-          <FormEntry _last_isn="13" _last_test_id="16" id="1">
+          <FormEntry _last_isn="14" _last_test_id="17" id="1">
             <PropertyList model="FORM_RICH_CLIENT">
               <Model comp="-1" id="1" obj="181"/>
               <X id="21" val="280"/>
@@ -1456,8 +1456,8 @@
             <ExpSyntax val="1"/>
             <ExpAttribute val="N"/>
           </Expression>
-          <Expression id="8">
-            <ExpSyntax val="{0,1}&lt;>'CC' AND (&#xD;&#xA;NOT({32768,26}='SUPERVISOR' AND {0,1}='SF')&#xD;&#xA;AND CASE({0,1},&#xD;&#xA;    'SF',Trim({0,16})>'',&#xD;&#xA;    'WP',NOT({0,9}) AND Trim({0,17})>'',&#xD;&#xA;    'TRUE'LOG) &#xD;&#xA;AND Trim({0,13})=''&#xD;&#xA;OR Trim ({0,20})&lt;>Trim (CASE ({0,1},'SF',{0,16},'WP',{0,17},''))&#xD;&#xA;)"/>
+          <Expression id="42">
+            <ExpSyntax val="{0,1}&lt;>'CC' AND &#xD;&#xA;NOT({32768,26}='SUPERVISOR' AND {0,1}='SF')&#xD;&#xA;AND CASE({0,1},'SF',Trim({0,16})>'','WP',Trim({0,17})>'','TRUE'LOG) &#xD;&#xA;AND NOT({0,9})&#xD;&#xA;AND (Trim({0,13})='' OR Trim ({0,20})&lt;>Trim (CASE ({0,1},'SF',{0,16},'WP',{0,17},'')))"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="9">
@@ -1516,8 +1516,8 @@
             <ExpSyntax val="'SF'"/>
             <ExpAttribute val="A"/>
           </Expression>
-          <Expression id="23">
-            <ExpSyntax val="Trim ({0,14})&lt;>'' &#xD;&#xA;AND Trim ({0,14})=Trim ({0,15}) &#xD;&#xA;AND &#xD;&#xA;IF({0,1}&lt;>'WP' AND {32768,26}&lt;>'SUPERVISOR' AND {0,1}&lt;>'CC' OR {0,1}='WP' AND NOT({0,9}),&#xD;&#xA;    Trim ({0,20})=Trim (IF ({0,1}='SF',{0,16},{0,17})),&#xD;&#xA;    'TRUE'LOG)"/>
+          <Expression id="43">
+            <ExpSyntax val="NOT (ExpCalc('26'EXP)) AND NOT (ExpCalc('24'EXP)) AND NOT (ExpCalc('42'EXP))"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="24">
@@ -1557,7 +1557,7 @@
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="33">
-            <ExpSyntax val="NOT({32768,26}='SUPERVISOR' AND {0,1}='SF' OR {0,1}='CC' AND {0,9})"/>
+            <ExpSyntax val="NOT({32768,26}='SUPERVISOR' AND {0,1}='SF' OR {0,9})"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="34">
@@ -1604,7 +1604,7 @@
           </Event>
         </EVNT>
         <Task MainProgram="N">
-          <Header Description="SFBen Ändern auslesen" ISN_2="2" id="385">
+          <Header Description="SFBen Ändern auslesen" ISN_2="2" LastIsn="8" id="385">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -1829,7 +1829,7 @@
           </Expressions>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Planung loeschen" ISN_2="3" id="385">
+          <Header Description="Planung loeschen" ISN_2="3" LastIsn="8" id="385">
             <ExecutionRight comp="-1"/>
             <Resident val="N"/>
             <SQL val="N"/>
@@ -2038,7 +2038,7 @@
           <VarRangeInfo Mode="E" VarRangeVeeIsn="5" id="5"/>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Historie schreiben" ISN_2="4" id="385">
+          <Header Description="Historie schreiben" ISN_2="4" LastIsn="8" id="385">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -2276,7 +2276,7 @@
           </Expressions>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Eintragen" ISN_2="5" id="385">
+          <Header Description="Eintragen" ISN_2="5" LastIsn="8" id="385">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -2576,7 +2576,7 @@
           <VarRangeInfo Mode="F" VarRangeVeeIsn="2" id="1"/>
           <VarRangeInfo Mode="T" VarRangeVeeIsn="2" id="2"/>
           <Task MainProgram="N">
-            <Header Description="UnternehmenUserPw" ISN_2="6" id="385">
+            <Header Description="UnternehmenUserPw" ISN_2="6" LastIsn="8" id="385">
               <ExecutionRight comp="-1"/>
               <Resident val="N"/>
               <SQL val="N"/>
@@ -2755,7 +2755,7 @@
           </Task>
         </Task>
         <Task MainProgram="N">
-          <Header Description="Historie reduzieren" ISN_2="7" id="385">
+          <Header Description="Historie reduzieren" ISN_2="7" LastIsn="8" id="385">
             <ExecutionRight comp="-1"/>
             <Resident val="Y"/>
             <SQL val="N"/>
@@ -2939,7 +2939,7 @@
           <VarRangeInfo Mode="T" VarRangeVeeIsn="1" id="2"/>
         </Task>
         <Task MainProgram="N">
-          <Header Description="WEB_Ben PW lesen" ISN_2="8" id="385">
+          <Header Description="WEB_Ben PW lesen" ISN_2="8" LastIsn="8" id="385">
             <ExecutionRight comp="-1"/>
             <Resident val="N"/>
             <SQL val="N"/>

@@ -44,9 +44,9 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738238" _time="50244" date="24.03.2022" time="13:57:24"/>
+          <LastModified _date="738300" _time="50204" date="25.05.2022" time="13:56:44"/>
         </Header>
-        <ItemIsn val="37"/>
+        <ItemIsn val="38"/>
         <Resource>
           <Columns>
             <Column id="12" name="EndeRaiseEvent_p">
@@ -293,6 +293,16 @@
                 <_FieldStyle id="276" val="1"/>
               </PropertyList>
             </Column>
+            <Column id="36" name="Frage_v">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" id="1"/>
+                <Picture id="157" valUnicode="1"/>
+                <_Dec id="181"/>
+                <_Whole id="182" val="1"/>
+                <_Negative id="192"/>
+                <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
           </Columns>
         </Resource>
         <Information>
@@ -397,6 +407,7 @@
                   <INT_DIT_INFO>
                     <v>5</v>
                     <v>7</v>
+                    <v>42</v>
                     <v>41</v>
                     <v>35</v>
                     <v>36</v>
@@ -514,6 +525,7 @@
                   <ExposedToRoute val="N"/>
                   <IsParameter val="Y"/>
                   <INT_DIT_INFO>
+                    <v>42</v>
                     <v>41</v>
                     <v>35</v>
                     <v>36</v>
@@ -3568,9 +3580,81 @@
               </LogicLine>
             </LogicLines>
           </LogicUnit>
+          <LogicUnit id="284" propagate="78">
+            <Level val="H"/>
+            <Type val="U"/>
+            <Scope val="T"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="U"/>
+              <PublicObject comp="-1" obj="37"/>
+            </Event>
+            <Expanded val="1"/>
+            <ExecuteOn_ val="O"/>
+            <LogicLines>
+              <LogicLine>
+                <Select FieldID="38" FlowIsn="2675" id="38">
+                  <Column val="36"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <STP Buttons="N" DefaultButton="1" ERR_LOG_DEF_CHG="N" Exp="92" FlowIsn="2674" IMG_DEF_CHG="Y" Image="Q" Mode="W" TTL_DEF_CHG="N" TitleTxt="Warning" VR_DISP="B">
+                  <AppendToErrorLog val="N"/>
+                  <RetValVar val="38"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </STP>
+              </LogicLine>
+              <LogicLine>
+                <BLOCK EndBlock="2677" EndBlockSegment="2677" FlowIsn="2676" Type="I">
+                  <Expanded val="1"/>
+                  <Condition Exp="93"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </BLOCK>
+              </LogicLine>
+              <LogicLine>
+                <CallTask FlowIsn="2678">
+                  <OperationType val="P"/>
+                  <Event>
+                    <EventType val="N"/>
+                  </Event>
+                  <TaskID comp="-1" obj="147"/>
+                  <Lock val="N"/>
+                  <Wait val="Y"/>
+                  <SyncData val="N"/>
+                  <RetainFocus val="N"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </CallTask>
+              </LogicLine>
+              <LogicLine>
+                <STP Buttons="O" DefaultButton="1" ERR_LOG_DEF_CHG="N" Exp="94" FlowIsn="2679" IMG_DEF_CHG="Y" Image="I" Mode="W" TTL_DEF_CHG="N" TitleTxt="Warning" VR_DISP="B">
+                  <AppendToErrorLog val="N"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </STP>
+              </LogicLine>
+              <LogicLine>
+                <END_BLK FlowIsn="2677"/>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
         </TaskLogic>
         <TaskForms>
-          <FormEntry _last_isn="41" _last_test_id="45" id="1">
+          <FormEntry _last_isn="42" _last_test_id="46" id="1">
             <PropertyList model="FORM_RICH_CLIENT">
               <Model comp="-1" id="1" obj="75"/>
               <Width id="23" val="654"/>
@@ -3628,7 +3712,7 @@
                 <Font id="50" val="112"/>
                 <Color id="51" val="102"/>
                 <HorizontalAlignment id="65" val="3"/>
-                <TabOrder id="314" val="31"/>
+                <TabOrder id="314" val="32"/>
                 <Border id="452"/>
               </PropertyList>
             </Control>
@@ -3914,6 +3998,22 @@
                 <TabOrder id="314" val="18"/>
               </PropertyList>
             </Control>
+            <Control PDOD="128" _test_id="46" id="42">
+              <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
+                <Model comp="-1" id="1" obj="31"/>
+                <X id="21" val="360"/>
+                <Y id="22" val="191"/>
+                <Width id="23" val="144"/>
+                <Height id="24" val="30"/>
+                <Visible Exp="58" id="61"/>
+                <Format id="82" valUnicode="Reporte Prüfsumme"/>
+                <RaiseEvent id="234">
+                  <EventType val="U"/>
+                  <PublicObject comp="-1" obj="37"/>
+                </RaiseEvent>
+                <TabOrder id="314" val="19"/>
+              </PropertyList>
+            </Control>
             <Control PDOD="128" _test_id="44" id="40">
               <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
                 <Model comp="-1" id="1" obj="28"/>
@@ -3927,7 +4027,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="35"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="19"/>
+                <TabOrder id="314" val="20"/>
               </PropertyList>
             </Control>
             <Control _test_id="45" id="41">
@@ -3943,7 +4043,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="36"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="20"/>
+                <TabOrder id="314" val="21"/>
               </PropertyList>
             </Control>
             <Control PDOD="128" _test_id="39" id="35">
@@ -3959,7 +4059,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="29"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="21"/>
+                <TabOrder id="314" val="22"/>
               </PropertyList>
             </Control>
             <Control PDOD="128" _test_id="40" id="36">
@@ -3975,7 +4075,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="30"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="22"/>
+                <TabOrder id="314" val="23"/>
               </PropertyList>
             </Control>
             <Control PDOD="128" _test_id="17" id="11">
@@ -3992,7 +4092,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="13"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="23"/>
+                <TabOrder id="314" val="24"/>
               </PropertyList>
             </Control>
             <Control PDOD="128" _test_id="41" id="37">
@@ -4007,7 +4107,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="31"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="24"/>
+                <TabOrder id="314" val="25"/>
               </PropertyList>
             </Control>
             <Control PDOD="128" _test_id="37" id="33">
@@ -4023,7 +4123,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="28"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="25"/>
+                <TabOrder id="314" val="26"/>
               </PropertyList>
             </Control>
             <Control PDOD="128" _test_id="18" id="13">
@@ -4040,7 +4140,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="14"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="26"/>
+                <TabOrder id="314" val="27"/>
               </PropertyList>
             </Control>
             <Control PDOD="128" _test_id="42" id="38">
@@ -4055,7 +4155,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="32"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="27"/>
+                <TabOrder id="314" val="28"/>
               </PropertyList>
             </Control>
             <Control PDOD="128" _test_id="12" id="15">
@@ -4071,7 +4171,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="11"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="28"/>
+                <TabOrder id="314" val="29"/>
               </PropertyList>
             </Control>
             <Control PDOD="128" _test_id="19" id="14">
@@ -4088,7 +4188,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="15"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="29"/>
+                <TabOrder id="314" val="30"/>
               </PropertyList>
             </Control>
             <Control PDOD="128" _test_id="32" id="28">
@@ -4104,7 +4204,7 @@
                   <EventType val="U"/>
                   <PublicObject comp="-1" obj="25"/>
                 </RaiseEvent>
-                <TabOrder id="314" val="30"/>
+                <TabOrder id="314" val="31"/>
               </PropertyList>
             </Control>
           </FormEntry>
@@ -4112,6 +4212,14 @@
         <Expressions>
           <Expression id="1">
             <ExpSyntax val="'FALSE'LOG"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="94">
+            <ExpSyntax val="MlsTrans('Prüfsummen aktualisiert!')"/>
+            <ExpAttribute val="U"/>
+          </Expression>
+          <Expression id="93">
+            <ExpSyntax val="{0,38}=6"/>
             <ExpAttribute val="B"/>
           </Expression>
           <Expression id="58">
@@ -4390,6 +4498,10 @@
             <ExpSyntax val="INIGet('[MAGIC_LOGICAL_NAMES]UserPassword')"/>
             <ExpAttribute val="A"/>
           </Expression>
+          <Expression id="92">
+            <ExpSyntax val="MlsTrans('Prüfsummen aktualisieren ?')"/>
+            <ExpAttribute val="U"/>
+          </Expression>
         </Expressions>
         <EVNT DESC="Benutzer" FORCE_EXIT="N" id="1">
           <Event>
@@ -4506,6 +4618,11 @@
             <EventType val="N"/>
           </Event>
         </EVNT>
+        <EVNT DESC="ReporteSHA256" FORCE_EXIT="N" id="37">
+          <Event>
+            <EventType val="N"/>
+          </Event>
+        </EVNT>
         <EVNT DESC="StandardImporte" FORCE_EXIT="N" id="25">
           <Event>
             <EventType val="N"/>
@@ -4560,7 +4677,7 @@
             <External val="N"/>
             <FormType val="M"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="737153" _time="53335" date="04.04.2019" time="14:48:55"/>
+            <LastModified _date="738300" _time="50204" date="25.05.2022" time="13:56:44"/>
           </Header>
           <ItemIsn val="2"/>
           <Resource>
@@ -4642,7 +4759,7 @@
             </BOX>
           </Information>
           <SQL_FORM DB="SQLAUTO" RESTAB="SQLAUTO">
-            <SQL_STMT_U val="select ZugriffAutorisierung from sf_benutzer where benutzername=':1'"/>
+            <SQL_STMT_U val="select ZugriffAutorisierung from sf_benutzer with(NOLOCK) where benutzername=':1'"/>
             <INARG>
               <Arguments>
                 <Argument Parent="32768" Variable="9"/>

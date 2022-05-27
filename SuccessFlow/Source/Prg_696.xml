@@ -20,7 +20,10 @@
           <SQL val="N"/>
           <ReturnValue>
             <ReturnValueAttr/>
-            <ParametersAttributes/>
+            <TSK_PARAMS val="1"/>
+            <ParametersAttributes>
+              <Attr MgAttr="B"/>
+            </ParametersAttributes>
           </ReturnValue>
           <SqlWhereExist val="N"/>
           <TaskType val="C"/>
@@ -29,9 +32,9 @@
           <Offline val="N"/>
           <FormType val="D"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738235" _time="33647" date="21.03.2022" time="09:20:47"/>
+          <LastModified _date="738274" _time="52679" date="29.04.2022" time="14:37:59"/>
         </Header>
-        <ItemIsn val="20"/>
+        <ItemIsn val="21"/>
         <Resource>
           <DB id="1">
             <DataObject comp="2" obj="122"/>
@@ -42,6 +45,12 @@
             <IdentifyRowModifications val="84"/>
           </DB>
           <Columns>
+            <Column id="14" name="Dummy_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_LOGICAL" id="1"/>
+                <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
             <Column id="1" name="Dateianame_v">
               <PropertyList model="FIELD">
                 <Model attr_obj="FIELD_ALPHA" id="1"/>
@@ -253,6 +262,18 @@
                 </DATAVIEW_SRC>
               </LogicLine>
               <LogicLine>
+                <Select FieldID="21" FlowIsn="103" id="21">
+                  <Column val="14"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
                 <Select FieldID="1" FlowIsn="3" id="1">
                   <Column val="1"/>
                   <Type val="V"/>
@@ -297,7 +318,7 @@
                 </Select>
               </LogicLine>
               <LogicLine>
-                <LNK Direction="A" EVL_CND="R" FieldID="3" FlowIsn="10" Key="1" Mode="R" SortType="18" VIEW="4" VIEWS="7">
+                <LNK Direction="A" EVL_CND="R" FieldID="3" FlowIsn="10" Key="1" Mode="R" SortType="18" VIEW="5" VIEWS="7">
                   <DB comp="2" obj="122"/>
                   <Expanded val="1"/>
                   <Condition val="Y"/>

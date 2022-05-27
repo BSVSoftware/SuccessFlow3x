@@ -35,9 +35,9 @@
           <Offline val="N"/>
           <FormType val="M"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="737999" _time="38452" date="28.07.2021" time="10:40:52"/>
+          <LastModified _date="738291" _time="66881" date="16.05.2022" time="18:34:41"/>
         </Header>
-        <ItemIsn val="15"/>
+        <ItemIsn val="16"/>
         <Resource>
           <DB id="1">
             <DataObject comp="-1" obj="14"/>
@@ -356,6 +356,18 @@
                   <Direction val="C"/>
                 </Select>
               </LogicLine>
+              <LogicLine>
+                <Select FieldID="16" FlowIsn="59" id="16">
+                  <Column val="12"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
             </LogicLines>
           </LogicUnit>
           <LogicUnit id="3" propagate="78">
@@ -469,6 +481,17 @@
                   <Direction val="C"/>
                 </Update>
               </LogicLine>
+              <LogicLine>
+                <Update FlowIsn="60">
+                  <FieldID val="16"/>
+                  <WithValue val="10"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
             </LogicLines>
           </LogicUnit>
         </TaskLogic>
@@ -484,6 +507,10 @@
           <Expression id="1">
             <ExpSyntax val="guid_cc()"/>
             <ExpAttribute val="O"/>
+          </Expression>
+          <Expression id="10">
+            <ExpSyntax val="Trim(Str(CtxGetId(''),'18'))"/>
+            <ExpAttribute val="A"/>
           </Expression>
           <Expression id="9">
             <ExpSyntax val="{0,14}"/>

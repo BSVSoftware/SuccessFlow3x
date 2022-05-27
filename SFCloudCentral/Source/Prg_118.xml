@@ -40,10 +40,18 @@
           <Offline val="N"/>
           <FormType val="M"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738189" _time="69398" date="03.02.2022" time="19:16:38"/>
+          <LastModified _date="738302" _time="47841" date="27.05.2022" time="13:17:21"/>
         </Header>
-        <ItemIsn val="11"/>
+        <ItemIsn val="18"/>
         <Resource>
+          <DB id="1">
+            <DataObject comp="-1" obj="48"/>
+            <Access val="R"/>
+            <Share val="W"/>
+            <Open val="N"/>
+            <Cache val="Y"/>
+            <IdentifyRowModifications val="84"/>
+          </DB>
           <Columns>
             <Column id="1" name="DBSQL">
               <PropertyList model="FIELD">
@@ -352,6 +360,53 @@
                   <Direction val="C"/>
                 </Select>
               </LogicLine>
+              <LogicLine>
+                <LNK Direction="A" EVL_CND="R" FlowIsn="41" Key="1" Mode="R" SortType="42" VIEW="12" VIEWS="3">
+                  <DB comp="-1" obj="48"/>
+                  <Expanded val="1"/>
+                  <Condition val="Y"/>
+                </LNK>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="12" FlowIsn="43" id="12">
+                  <Column val="1"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <Locate MAX="31" MIN="31"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="13" FlowIsn="44" id="13">
+                  <Column val="2"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="14" FlowIsn="45" id="14">
+                  <Column val="7"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <END_LINK FlowIsn="42"/>
+              </LogicLine>
             </LogicLines>
           </LogicUnit>
           <LogicUnit id="3" propagate="78">
@@ -625,6 +680,14 @@
             <ExpSyntax val="{0,1}"/>
             <ExpAttribute val="A"/>
           </Expression>
+          <Expression id="33">
+            <ExpSyntax val="{0,14}"/>
+            <ExpAttribute val="A"/>
+          </Expression>
+          <Expression id="32">
+            <ExpSyntax val="{0,13}"/>
+            <ExpAttribute val="A"/>
+          </Expression>
           <Expression id="2">
             <ExpSyntax val="{0,2}"/>
             <ExpAttribute val="A"/>
@@ -740,6 +803,10 @@
           <Expression id="26">
             <ExpSyntax val="{0,11}"/>
             <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="31">
+            <ExpSyntax val="1"/>
+            <ExpAttribute val="N"/>
           </Expression>
         </Expressions>
       </Task>

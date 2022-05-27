@@ -38,7 +38,7 @@
           <Offline val="N"/>
           <FormType val="N"/>
           <DotNetObjectExists val="N"/>
-          <LastModified _date="738266" _time="53578" date="21.04.2022" time="14:52:58"/>
+          <LastModified _date="738300" _time="42576" date="25.05.2022" time="11:49:36"/>
         </Header>
         <ItemIsn val="120"/>
         <Resource>
@@ -2527,7 +2527,7 @@
             <External val="N"/>
             <FormType val="N"/>
             <DotNetObjectExists val="N"/>
-            <LastModified _date="738266" _time="53550" date="21.04.2022" time="14:52:30"/>
+            <LastModified _date="738300" _time="42535" date="25.05.2022" time="11:48:55"/>
           </Header>
           <ItemIsn val="285"/>
           <Resource>
@@ -10577,7 +10577,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738266" _time="53578" date="21.04.2022" time="14:52:58"/>
+              <LastModified _date="738278" _time="43193" date="03.05.2022" time="11:59:53"/>
             </Header>
             <ItemIsn val="393"/>
             <Resource>
@@ -18748,7 +18748,7 @@
                       <Wait val="Y"/>
                       <SyncData val="N"/>
                       <RetainFocus val="N"/>
-                      <Condition Exp="141"/>
+                      <Condition Exp="278"/>
                       <Modifier val="B"/>
                       <Direction val="C"/>
                     </CallTask>
@@ -20490,8 +20490,8 @@
                 <ExpSyntax val="{0,168}"/>
                 <ExpAttribute val="A"/>
               </Expression>
-              <Expression id="141">
-                <ExpSyntax val="Trim ({0,167})='Z' AND {0,83}>0"/>
+              <Expression id="278">
+                <ExpSyntax val="Trim ({0,167})='Z' AND {0,83}>0 AND NOT ({2,12})"/>
                 <ExpAttribute val="B"/>
               </Expression>
               <Expression id="269">
@@ -24166,7 +24166,7 @@
                 <External val="N"/>
                 <FormType val="N"/>
                 <DotNetObjectExists val="N"/>
-                <LastModified _date="737524" _time="59972" date="09.04.2020" time="16:39:32"/>
+                <LastModified _date="738278" _time="43196" date="03.05.2022" time="11:59:56"/>
               </Header>
               <ItemIsn val="22"/>
               <Resource>
@@ -27013,7 +27013,7 @@
                 <External val="N"/>
                 <FormType val="N"/>
                 <DotNetObjectExists val="N"/>
-                <LastModified _date="738250" _time="44034" date="05.04.2022" time="12:13:54"/>
+                <LastModified _date="738295" _time="49248" date="20.05.2022" time="13:40:48"/>
               </Header>
               <ItemIsn val="22"/>
               <Resource>
@@ -27462,6 +27462,14 @@
                       </Update>
                     </LogicLine>
                     <LogicLine>
+                      <BLOCK EndBlock="50" EndBlockSegment="50" FlowIsn="48" Type="I">
+                        <Expanded val="1"/>
+                        <Condition Exp="20"/>
+                        <Modifier val="B"/>
+                        <Direction val="C"/>
+                      </BLOCK>
+                    </LogicLine>
+                    <LogicLine>
                       <Update FlowIsn="43">
                         <Parent val="2"/>
                         <FieldID val="254"/>
@@ -27481,18 +27489,6 @@
                         <Incremental val="N"/>
                         <ForcedUpdate val="Y"/>
                         <Condition Exp="15"/>
-                        <Modifier val="B"/>
-                        <Direction val="C"/>
-                      </Update>
-                    </LogicLine>
-                    <LogicLine>
-                      <Update FlowIsn="44">
-                        <Parent val="4"/>
-                        <FieldID val="393"/>
-                        <WithValue val="12"/>
-                        <Incremental val="N"/>
-                        <ForcedUpdate val="Y"/>
-                        <Condition val="Y"/>
                         <Modifier val="B"/>
                         <Direction val="C"/>
                       </Update>
@@ -27527,9 +27523,24 @@
                         <SyncData val="N"/>
                         <RetainFocus val="N"/>
                         <Condition Exp="19"/>
-                        <Modifier val="S"/>
+                        <Modifier val="B"/>
                         <Direction val="C"/>
                       </CallTask>
+                    </LogicLine>
+                    <LogicLine>
+                      <END_BLK FlowIsn="50"/>
+                    </LogicLine>
+                    <LogicLine>
+                      <Update FlowIsn="44">
+                        <Parent val="4"/>
+                        <FieldID val="393"/>
+                        <WithValue val="12"/>
+                        <Incremental val="N"/>
+                        <ForcedUpdate val="Y"/>
+                        <Condition val="Y"/>
+                        <Modifier val="B"/>
+                        <Direction val="C"/>
+                      </Update>
                     </LogicLine>
                   </LogicLines>
                 </LogicUnit>
@@ -27622,6 +27633,10 @@
                 </Expression>
                 <Expression id="19">
                   <ExpSyntax val="{1,40}"/>
+                  <ExpAttribute val="B"/>
+                </Expression>
+                <Expression id="20">
+                  <ExpSyntax val="NOT(ISNULL({4,90})) AND {4,90}&lt;>0"/>
                   <ExpAttribute val="B"/>
                 </Expression>
               </Expressions>
@@ -30449,7 +30464,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738053" _time="50765" date="20.09.2021" time="14:06:05"/>
+              <LastModified _date="738300" _time="42535" date="25.05.2022" time="11:48:55"/>
             </Header>
             <ItemIsn val="1"/>
             <Resource>
@@ -30487,11 +30502,11 @@
                 <ConfirmUpdate CNFU="N"/>
                 <ConfirmCancel val="N"/>
                 <ErrorStrategy val="A"/>
-                <LockingStrategy val="I"/>
+                <LockingStrategy val="M"/>
                 <CacheStrategy val="N"/>
                 <ForceRecordSuffix val="N"/>
-                <TransactionMode val="W"/>
-                <TransactionBegin val="T"/>
+                <TransactionMode val="P"/>
+                <TransactionBegin val="N"/>
                 <PreloadView val="N"/>
                 <AllowEmptyDataview val="N"/>
                 <KeepCreatedContext val="N"/>
@@ -30525,7 +30540,7 @@
               </BOX>
             </Information>
             <SQL_FORM DB="SQL" RESTAB="SQL">
-              <SQL_STMT_U val="select min (von_zeitraum_vertr) from positionen WITH(NOLOCK) where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and AUFTNR=:5"/>
+              <SQL_STMT_U val="select min (von_zeitraum_vertr) from positionen WITH(NOLOCK, index(Positionen_AUFTNR_POSNR)) where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and AUFTNR=:5"/>
               <INARG>
                 <Arguments>
                   <Argument Parent="32768" Variable="1"/>
@@ -30630,7 +30645,7 @@
               <External val="N"/>
               <FormType val="N"/>
               <DotNetObjectExists val="N"/>
-              <LastModified _date="738053" _time="50796" date="20.09.2021" time="14:06:36"/>
+              <LastModified _date="738300" _time="42576" date="25.05.2022" time="11:49:36"/>
             </Header>
             <ItemIsn val="1"/>
             <Resource>
@@ -30668,11 +30683,11 @@
                 <ConfirmUpdate CNFU="N"/>
                 <ConfirmCancel val="N"/>
                 <ErrorStrategy val="A"/>
-                <LockingStrategy val="I"/>
+                <LockingStrategy val="M"/>
                 <CacheStrategy val="N"/>
                 <ForceRecordSuffix val="N"/>
-                <TransactionMode val="W"/>
-                <TransactionBegin val="T"/>
+                <TransactionMode val="P"/>
+                <TransactionBegin val="N"/>
                 <PreloadView val="N"/>
                 <AllowEmptyDataview val="N"/>
                 <KeepCreatedContext val="N"/>
@@ -30706,7 +30721,7 @@
               </BOX>
             </Information>
             <SQL_FORM DB="SQL" RESTAB="SQL">
-              <SQL_STMT_U val="select max (bis_zeitraum_vertr) from positionen WITH(NOLOCK) where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and AUFTNR=:5"/>
+              <SQL_STMT_U val="select max (bis_zeitraum_vertr) from positionen WITH(NOLOCK, , index(Positionen_AUFTNR_POSNR)) where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and AUFTNR=:5"/>
               <INARG>
                 <Arguments>
                   <Argument Parent="32768" Variable="1"/>
