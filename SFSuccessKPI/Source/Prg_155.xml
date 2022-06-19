@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="ETL STAT_AnbahnungKPImonthly" ISN_2="1" LastIsn="1" id="155">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <TSK_PARAMS val="4"/>
+            <ParametersAttributes>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+            </ParametersAttributes>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63033" date="22.10.2020" time="17:30:33"/>
+        </Header>
+        <ItemIsn val="4"/>
+        <Resource>
+          <Columns>
+            <Column id="1" name="Ebene1_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="1"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene2"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="Ebene2_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="2"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene2"/>
+              </PropertyList>
+            </Column>
+            <Column id="3" name="Ebene3_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="3"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene3"/>
+              </PropertyList>
+            </Column>
+            <Column id="4" name="Ebene4_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="4"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene4"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="I"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="T"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="DECLARE @date datetime;&#xD;&#xA;&#x9;&#x9;SET @date = (dateadd(month,datediff(MONTH,0,(dateadd(yy, datediff(yy,0,getdate())-1,0))),0))&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;WHILE @date&lt;= getdate()&#xD;&#xA;&#x9;&#x9;&#x9;BEGIN&#xD;&#xA;&#x9;&#x9;&#x9;insert into dbo.STAT_Anbahnung_KPI_monthly (MonthStartDate, Ebene1,Ebene2,Ebene3,Ebene4)&#xD;&#xA;&#x9;&#x9;&#x9;Select&#x9;@date, :1, :2, :3, :4&#xD;&#xA;&#x9;&#x9;&#x9;SET @date = dateadd(MM,1,@date)&#xD;&#xA;&#x9;&#x9;&#x9;END&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;Update dbo.STAT_Anbahnung_KPI_monthly set MaxDatum = (Select max(Datum)FROM STAT_Anbahnung_KPI_daily b where MonthStartDate = dateadd(month, datediff(month, 0, Datum),0) and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 group by dateadd(month, datediff(month, 0, Datum),0)) from dbo.STAT_Anbahnung_KPI_monthly a&#xD;&#xA;Update dbo.STAT_Anbahnung_KPI_monthly set N_GEWONNNEN = isnull((Select sum(N_GEWONNNEN) FROM STAT_Anbahnung_KPI_daily b where MonthStartDate = dateadd(month, datediff(month, 0, Datum),0) and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 group by dateadd(month, datediff(month, 0, Datum),0)),0) from dbo.STAT_Anbahnung_KPI_monthly a&#xD;&#xA;Update dbo.STAT_Anbahnung_KPI_monthly set N_OFFEN = isnull((Select sum(isnull(N_OFFEN,0))FROM STAT_Anbahnung_KPI_daily b where MonthStartDate = dateadd(month, datediff(month, 0, Datum),0) and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 group by dateadd(month, datediff(month, 0, Datum),0)),0) from dbo.STAT_Anbahnung_KPI_monthly a&#xD;&#xA;Update dbo.STAT_Anbahnung_KPI_monthly set N_NEU = isnull((Select isnull(sum(N_NEU),0)FROM STAT_Anbahnung_KPI_daily b where MonthStartDate = dateadd(month, datediff(month, 0, Datum),0) and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 group by dateadd(month, datediff(month, 0, Datum),0)),0) from dbo.STAT_Anbahnung_KPI_monthly a&#xD;&#xA;Update dbo.STAT_Anbahnung_KPI_monthly set N_VERLOREN = isnull((Select isnull(sum(N_VERLOREN),0)FROM STAT_Anbahnung_KPI_daily b where MonthStartDate = dateadd(month, datediff(month, 0, Datum),0) and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 group by dateadd(month, datediff(month, 0, Datum),0)),0) from dbo.STAT_Anbahnung_KPI_monthly a&#xD;&#xA;&#xD;&#xA;Update dbo.STAT_Anbahnung_KPI_monthly set E_GEWONNNEN = isnull((Select isnull(sum(E_GEWONNNEN),0)FROM STAT_Anbahnung_KPI_daily b where MonthStartDate = dateadd(Month, datediff(Month, 0, Datum),0) and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 group by dateadd(Month, datediff(Month, 0, Datum),0)),0) from dbo.STAT_Anbahnung_KPI_monthly a&#xD;&#xA;Update dbo.STAT_Anbahnung_KPI_monthly set E_OFFEN = isnull((Select isnull(sum(E_OFFEN),0)FROM STAT_Anbahnung_KPI_daily b where MonthStartDate = dateadd(Month, datediff(Month, 0, Datum),0) and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 group by dateadd(Month, datediff(Month, 0, Datum),0)),0) from dbo.STAT_Anbahnung_KPI_monthly a&#xD;&#xA;Update dbo.STAT_Anbahnung_KPI_monthly set E_NEU = isnull((Select isnull(sum(E_NEU),0)FROM STAT_Anbahnung_KPI_daily b where MonthStartDate = dateadd(Month, datediff(Month, 0, Datum),0) and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 group by dateadd(Month, datediff(Month, 0, Datum),0)),0) from dbo.STAT_Anbahnung_KPI_monthly a&#xD;&#xA;Update dbo.STAT_Anbahnung_KPI_monthly set E_VERLOREN = isnull((Select isnull(sum(E_VERLOREN),0)FROM STAT_Anbahnung_KPI_daily b where MonthStartDate = dateadd(Month, datediff(Month, 0, Datum),0) and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 group by dateadd(Month, datediff(Month, 0, Datum),0)),0) from dbo.STAT_Anbahnung_KPI_monthly a&#xD;&#xA;Update dbo.STAT_Anbahnung_KPI_monthly set E_OFFENR = isnull((Select isnull(sum(E_OFFENReal),0)FROM STAT_Anbahnung_KPI_daily b where MonthStartDate = dateadd(Month, datediff(Month, 0, Datum),0) and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 group by dateadd(Month, datediff(Month, 0, Datum),0)),0) from dbo.STAT_Anbahnung_KPI_monthly a&#xD;&#xA;&#xD;&#xA;Update dbo.STAT_Anbahnung_KPI_monthly set Jahr = (Select datepart(year,MonthStartDate)) from dbo.STAT_Anbahnung_KPI_monthly&#xD;&#xA;Update dbo.STAT_Anbahnung_KPI_monthly set Monat = (Select datepart(MONTH,MonthStartDate)) from dbo.STAT_Anbahnung_KPI_monthly&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;-- Übernahme der Werte für Rtot_N_Offen vom Ende des letzten Jahres&#x9;&#xD;&#xA;&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_monthly SET Rtot_N_Offen =&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT Rtot_N_Offen FROM STAT_Anbahnung_KPI_daily&#xD;&#xA;&#x9;WHERE Datum = &#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;SELECT MAX(Datum) FROM STAT_Anbahnung_KPI_daily b WHERE Datum &lt; dateadd(yy, datediff(yy,0,getdate())-1,0) and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;+&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT  sum(b.N_OFFEN)&#xD;&#xA;&#x9;FROM  dbo.STAT_Anbahnung_KPI_monthly b&#xD;&#xA;&#x9;where (b.IDnr &lt;= a.IDnr )&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;from dbo.STAT_Anbahnung_KPI_monthly as a&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;-- Übernahme der Werte für Rtot_E_Offen vom Ende des letzten Jahres&#x9;&#xD;&#xA;&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_monthly SET Rtot_E_Offen =&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT Rtot_E_Offen FROM STAT_Anbahnung_KPI_daily&#xD;&#xA;&#x9;WHERE Datum = &#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;SELECT MAX(Datum) FROM STAT_Anbahnung_KPI_daily b WHERE Datum &lt; dateadd(yy, datediff(yy,0,getdate())-1,0)and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;+&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT  sum(b.E_OFFEN)&#xD;&#xA;&#x9;FROM  dbo.STAT_Anbahnung_KPI_monthly b&#xD;&#xA;&#x9;where (b.IDnr &lt;= a.IDnr )&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;from dbo.STAT_Anbahnung_KPI_monthly as a&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;-- Übernahme der Werte für Rtot_E_OffenReal vom Ende des letzten Jahres&#x9;&#xD;&#xA;&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_monthly SET Rtot_E_OFFENR =&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT Rtot_E_OffenReal FROM STAT_Anbahnung_KPI_daily b&#xD;&#xA;&#x9;WHERE Datum = &#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;SELECT MAX(Datum) FROM STAT_Anbahnung_KPI_daily WHERE Datum &lt; dateadd(yy, datediff(yy,0,getdate())-1,0) and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;+&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT  sum(b.E_OFFENR)&#xD;&#xA;&#x9;FROM  dbo.STAT_Anbahnung_KPI_monthly b&#xD;&#xA;&#x9;where (b.IDnr &lt;= a.IDnr )&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;from dbo.STAT_Anbahnung_KPI_monthly as a&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_monthly SET N_KPI = case when (N_GEWONNNEN + Rtot_N_Offen + N_VERLOREN)&lt;>0 then 100*N_GEWONNNEN/(N_GEWONNNEN + Rtot_N_Offen + N_VERLOREN)else 0 end&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_monthly SET E_KPI = case when (E_GEWONNNEN + Rtot_E_Offen + E_VERLOREN)&lt;>0 then 100*E_GEWONNNEN/(E_GEWONNNEN + Rtot_E_Offen + E_VERLOREN)else 0 end&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_monthly SET N_TREND_Anb = case when (N_GEWONNNEN+N_VERLOREN)&lt;>0 then((N_GEWONNNEN-N_VERLOREN)/(N_GEWONNNEN+N_VERLOREN)*100)else 0 end&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_monthly SET E_TREND_Anb = case when (E_GEWONNNEN+E_VERLOREN)&lt;>0 then((E_GEWONNNEN-E_VERLOREN)/(E_GEWONNNEN+E_VERLOREN)*100) else 0 end&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_monthly SET N_KPIgew = case when (N_GEWONNNEN+N_VERLOREN)&lt;>0 then((N_GEWONNNEN)/(N_GEWONNNEN+N_VERLOREN)*100)else 0 end&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_monthly SET E_KPIgew = case when (E_GEWONNNEN+E_VERLOREN)&lt;>0 then((E_GEWONNNEN)/(E_GEWONNNEN+E_VERLOREN)*100) else 0 end&#xD;&#xA;"/>
+          <INARG>
+            <Arguments>
+              <Argument Variable="1"/>
+              <Argument Variable="2"/>
+              <Argument Variable="3"/>
+              <Argument Variable="4"/>
+            </Arguments>
+          </INARG>
+        </SQL_FORM>
+        <INT_CMP_LIST_INFO>
+          <v>2</v>
+        </INT_CMP_LIST_INFO>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="3" FlowIsn="5" id="3">
+                  <Column val="3"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="4" FlowIsn="6" id="4">
+                  <Column val="4"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="ETL STAT_AnbahnungKPImonthly"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

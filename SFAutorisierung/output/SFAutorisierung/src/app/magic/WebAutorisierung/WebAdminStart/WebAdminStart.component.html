@@ -1,0 +1,262 @@
+<div
+    novalidate
+    [formGroup]="screenFormGroup"
+>
+    <div
+        style="display: flex; flex-direction: column"
+        [magic]="mgc.WebAdminStart"
+    >
+        <div style="display: flex; flex-direction: row">
+            <div>
+                <mat-form-field>
+                    <mat-select
+                        [magic]="mgc.EbenenString_v"
+                        [formControlName]="mgc.EbenenString_v"
+                    >
+                        <mat-option
+                            *ngFor="let o of mg.getItemListValues(mgc.EbenenString_v);"
+                            [value]="o.index"
+                        >
+                            {{o.displayValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <label [magic]="mgc.BenutzerNameVorname_gv">
+                {{mg.getValue(mgc.BenutzerNameVorname_gv) }}
+            </label>
+            <button
+                mat-button
+                color="primary"
+                [magic]="mgc.Benutzer"
+                class="button_image_background_size"
+                [ngStyle]="{'background-image': mg.getStyle(mgc.Benutzer, magicProperties.ImageFile)}"
+            >
+                {{mg.getValue(mgc.Benutzer)}}
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_Benutzer"
+                [disabled]="mg.isDisabled(mgc.btn_Benutzer )"
+            >
+                Benutzer
+            </button>
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_Steuerfile"
+                [disabled]="mg.isDisabled(mgc.btn_Steuerfile )"
+            >
+                Passwort Steuerfile
+            </button>
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.Konvertieren"
+                [style.visibility]="mg.getVisible(mgc.Konvertieren)"
+            >
+                Konvertieren
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_BenutzerGruppen"
+                [disabled]="mg.isDisabled(mgc.btn_BenutzerGruppen )"
+            >
+                Benutzergruppen
+            </button>
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_Maildaten"
+                [disabled]="mg.isDisabled(mgc.btn_Maildaten )"
+            >
+                Maildaten Steuerfile
+            </button>
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.Logfile"
+                [style.visibility]="mg.getVisible(mgc.Logfile)"
+            >
+                Logfile
+            </button>
+            <router-outlet [magic]="mgc.WebAdRouterOutlet">
+            </router-outlet>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_RechteGruppen"
+                [disabled]="mg.isDisabled(mgc.btn_RechteGruppen )"
+            >
+                Rechtegruppen
+            </button>
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_EbeneErstellen"
+            >
+                Ebenen erstellen
+            </button>
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_KDBerechtigungenNeu"
+                [style.visibility]="mg.getVisible(mgc.btn_KDBerechtigungenNeu)"
+            >
+                KDBerechtigungen Neu
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-button
+                color="primary"
+                [magic]="mgc.OnOffBTN"
+                class="button_image_background_size"
+                [ngStyle]="{'background-image': mg.getStyle(mgc.OnOffBTN, magicProperties.ImageFile)}"
+            >
+                {{mg.getValue(mgc.OnOffBTN)}}
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_Rechte"
+                [disabled]="mg.isDisabled(mgc.btn_Rechte )"
+            >
+                Rechte
+            </button>
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_Ebenenfarben"
+                [disabled]="mg.isDisabled(mgc.btn_Ebenenfarben )"
+            >
+                Ebenenfarben
+            </button>
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_BenutzerRechteNeuSchreiben"
+                [disabled]="mg.isDisabled(mgc.btn_BenutzerRechteNeuSchreiben )"
+            >
+                Benutzerrechte Neu
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_BenutzerRechte"
+                [disabled]="mg.isDisabled(mgc.btn_BenutzerRechte )"
+            >
+                Benutzerrechte
+            </button>
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_StandardImporte"
+            >
+                Standard Importe
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_DateiExplorerBTN"
+                [style.visibility]="mg.getVisible(mgc.btn_DateiExplorerBTN)"
+            >
+                Datei Explorer
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_SQLBackups"
+                [style.visibility]="mg.getVisible(mgc.btn_SQLBackups)"
+            >
+                SQL Backups
+            </button>
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_RechteWS"
+                [style.visibility]="mg.getVisible(mgc.btn_RechteWS)"
+                [disabled]="mg.isDisabled(mgc.btn_RechteWS )"
+            >
+                Rechte erneuern
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_ProgrammeWS"
+                [style.visibility]="mg.getVisible(mgc.btn_ProgrammeWS)"
+                [disabled]="mg.isDisabled(mgc.btn_ProgrammeWS )"
+            >
+                Programme erneuen
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_MenueWS"
+                [style.visibility]="mg.getVisible(mgc.btn_MenueWS)"
+                [disabled]="mg.isDisabled(mgc.btn_MenueWS )"
+            >
+                Menüs laden
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_CloudTools"
+                [style.visibility]="mg.getVisible(mgc.btn_CloudTools)"
+            >
+                Cloud Tools
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_V8BenutzerKonvert"
+                [disabled]="mg.isDisabled(mgc.btn_V8BenutzerKonvert )"
+            >
+                V8 Benutzer Konvert
+            </button>
+            <button
+                mat-raised-button
+                color="primary"
+                [magic]="mgc.btn_MasterDatenImport"
+                [disabled]="mg.isDisabled(mgc.btn_MasterDatenImport )"
+            >
+                Grunddaten Import
+            </button>
+            <label
+                [magic]="mgc.Label2"
+                class="lable_overflow"
+            >
+                {{mg.getText(mgc.Label2)}}
+            </label>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <label [magic]="mgc.AktBenutzername_gv">
+                {{mg.getValue(mgc.AktBenutzername_gv) }}
+            </label>
+        </div>
+    </div>
+</div>

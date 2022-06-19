@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <title>Success! Mobile Service - BSV Software</title>
+  <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0; padding: 0 }
+        #map_canvas { height: 100% }
+  </style>
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.47&key=AIzaSyBnPooU-KxHLKoayMJg01eEXzHXH934hEk"></script>
+ <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier/1.0.3/oms.min.js"></script>
+ <script src="http://successflow.bsv.net/dhtmlx_suite/hotkeys.min.js"></script>
+ <script>
+ hotkeys('ctrl+f1,ctrl+f2,ctrl+f3,ctrl+f4,ctrl+f5,ctrl+f6,ctrl+f7,ctrl+f8,ctrl+f9,ctrl+f10,ctrl+f11,ctrl+f12,alt+f1,alt+f2,alt+f3,alt+f4,alt+f5,alt+f6,alt+f7,alt+f8,alt+f9,alt+f10,alt+p,ctrl+1,ctrl+2,ctrl+3,ctrl+4,ctrl+5,ctrl+6,ctrl+7,ctrl+8,ctrl+9,ctrl+a,ctrl+b,ctrl+d,ctrl+f,ctrl+h,ctrl+j,ctrl+p,ctrl+u,ctrl+w,shift+f1,shift+f2,shift+f3,shift+f4,shift+f5,shift+f6,shift+f7,shift+f8,shift+f9,shift+f11,alt+shift+f10,alt+shift+f11,alt+shift+a,ctrl+alt+f5,ctrl+alt+f7,ctrl+alt+f9,ctrl+shift+a,ctrl+shift+c,ctrl+shift+d,ctrl+shift+f,ctrl+shift+m,ctrl+shift+p,ctrl+shift+t,ctrl+shift+h,ctrl+shift+f1,ctrl+shift+f2,ctrl+shift+f3,ctrl+shift+f4,ctrl+shift+f5,ctrl+shift+f6,ctrl+shift+f7,ctrl+shift+f8,ctrl+shift+f9,ctrl+shift+f10,ctrl+shift+f11,ctrl+shift+f12,ctrl+pgup,ctrl+pgdn,esc,f10,ctrl+y,ctrl+alt+l,ctrl+alt+p', function (event,handler){
+		 switch (handler.key){
+		   case "ctrl+f1": sendmsg('hotkey:ctrl+f1'); break;
+		   case "ctrl+f2": sendmsg('hotkey:ctrl+f2'); break;
+		   case "ctrl+f3": sendmsg('hotkey:ctrl+f3'); break;
+		   case "ctrl+f4": sendmsg('hotkey:ctrl+f4'); break;
+		   case "ctrl+f5": sendmsg('hotkey:ctrl+f5'); break;
+		   case "ctrl+f6": sendmsg('hotkey:ctrl+f6'); break;
+		   case "ctrl+f7": sendmsg('hotkey:ctrl+f7'); break;
+		   case "ctrl+f8": sendmsg('hotkey:ctrl+f8'); break;
+		   case "ctrl+f9": sendmsg('hotkey:ctrl+f9'); break;
+		   case "ctrl+f10": sendmsg('hotkey:ctrl+f10'); break;
+		   case "ctrl+f11": sendmsg('hotkey:ctrl+f11'); break;
+		   case "ctrl+f12": sendmsg('hotkey:ctrl+f12'); break;
+		   case "ctrl+pagedown": sendmsg('hotkey:ctrl+pgdn'); break;
+		   case "ctrl+pageup": sendmsg('hotkey:ctrl+pgup'); break;
+		   case "ctrl+1": sendmsg('hotkey:ctrl+1'); break;
+		   case "ctrl+2": sendmsg('hotkey:ctrl+2'); break;
+		   case "ctrl+3": sendmsg('hotkey:ctrl+3'); break;
+		   case "ctrl+4": sendmsg('hotkey:ctrl+4'); break;
+		   case "ctrl+5": sendmsg('hotkey:ctrl+5'); break;
+		   case "ctrl+6": sendmsg('hotkey:ctrl+6'); break;
+		   case "ctrl+7": sendmsg('hotkey:ctrl+7'); break;
+		   case "ctrl+8": sendmsg('hotkey:ctrl+8'); break;
+		   case "ctrl+9": sendmsg('hotkey:ctrl+9'); break;
+		   case "ctrl+a": sendmsg('hotkey:ctrl+a'); break;
+		   case "ctrl+b": sendmsg('hotkey:ctrl+b'); break;
+		   case "ctrl+b": sendmsg('hotkey:ctrl+b'); break;
+		   case "ctrl+d": sendmsg('hotkey:ctrl+d'); break;
+		   case "ctrl+h": sendmsg('hotkey:ctrl+h'); break;
+		   case "ctrl+j": sendmsg('hotkey:ctrl+j'); break;
+		   case "ctrl+p": sendmsg('hotkey:ctrl+p'); break;
+		   case "ctrl+u": sendmsg('hotkey:ctrl+u'); break;
+		   case "ctrl+w": sendmsg('hotkey:ctrl+w'); break;
+		   case "ctrl+y": sendmsg('hotkey:ctrl+y'); break;
+		   
+		   case "alt+f1": sendmsg('hotkey:alt+f1'); break;
+		   case "alt+f2": sendmsg('hotkey:alt+f2'); break;
+		   case "alt+f3": sendmsg('hotkey:alt+f3'); break;
+		   case "alt+f4": sendmsg('hotkey:alt+f4'); break;
+		   case "alt+f5": sendmsg('hotkey:alt+f5'); break;
+		   case "alt+f6": sendmsg('hotkey:alt+f6'); break;
+		   case "alt+f7": sendmsg('hotkey:alt+f7'); break;
+		   case "alt+f8": sendmsg('hotkey:alt+f8'); break;
+		   case "alt+f9": sendmsg('hotkey:alt+f9'); break;
+		   case "alt+f10": sendmsg('hotkey:alt+f10'); break;
+		   case "alt+f11": sendmsg('hotkey:alt+f11'); break;
+		   case "alt+f12": sendmsg('hotkey:alt+f12'); break;
+		   
+		   case "shift+f1": sendmsg('hotkey:shift+f1'); break;
+		   case "shift+f2": sendmsg('hotkey:shift+f2'); break;
+		   case "shift+f3": sendmsg('hotkey:shift+f3'); break;
+		   case "shift+f4": sendmsg('hotkey:shift+f4'); break;
+		   case "shift+f5": sendmsg('hotkey:shift+f5'); break;
+		   case "shift+f6": sendmsg('hotkey:shift+f6'); break;
+		   case "shift+f7": sendmsg('hotkey:shift+f7'); break;
+		   case "shift+f8": sendmsg('hotkey:shift+f8'); break;
+		   case "shift+f9": sendmsg('hotkey:shift+f9'); break;
+		   case "shift+f10": sendmsg('hotkey:shift+f10'); break;
+		   case "shift+f11": sendmsg('hotkey:shift+f11'); break;
+		   case "shift+f12": sendmsg('hotkey:shift+f12'); break;
+
+		   case "alt+shift+a": sendmsg('hotkey:alt+shift+a'); break;
+		   case "alt+shift+f10": sendmsg('hotkey:alt+shift+f10'); break;
+		   case "alt+shift+f11": sendmsg('hotkey:alt+shift+f11'); break;
+
+		   case "ctrl+alt+f5": sendmsg('hotkey:ctrl+alt+f5'); break;
+		   case "ctrl+alt+f7": sendmsg('hotkey:ctrl+alt+f7'); break;
+		   case "ctrl+alt+f9": sendmsg('hotkey:ctrl+alt+f9'); break;
+		   case "ctrl+alt+l": sendmsg('hotkey:ctrl+alt+l'); break;
+		   case "ctrl+alt+p": sendmsg('hotkey:ctrl+alt+p'); break;
+
+		   case "ctrl+shift+a": sendmsg('hotkey:ctrl+shift+a'); break;
+		   case "ctrl+shift+c": sendmsg('hotkey:ctrl+shift+c'); break;
+		   case "ctrl+shift+d": sendmsg('hotkey:ctrl+shift+d'); break;
+		   case "ctrl+shift+f": sendmsg('hotkey:ctrl+shift+f'); break;
+		   case "ctrl+shift+m": sendmsg('hotkey:ctrl+shift+m'); break;
+		   case "ctrl+shift+p": sendmsg('hotkey:ctrl+shift+p'); break;
+		   case "ctrl+shift+t": sendmsg('hotkey:ctrl+shift+t'); break;
+		   case "ctrl+shift+h": sendmsg('hotkey:ctrl+shift+h'); break;
+		   case "ctrl+shift+f1": sendmsg('hotkey:ctrl+shift+f1'); break;
+		   case "ctrl+shift+f2": sendmsg('hotkey:ctrl+shift+f2'); break;
+		   case "ctrl+shift+f3": sendmsg('hotkey:ctrl+shift+f3'); break;
+		   case "ctrl+shift+f4": sendmsg('hotkey:ctrl+shift+f4'); break;
+		   case "ctrl+shift+f5": sendmsg('hotkey:ctrl+shift+f5'); break;
+		   case "ctrl+shift+f6": sendmsg('hotkey:ctrl+shift+f6'); break;
+		   case "ctrl+shift+f7": sendmsg('hotkey:ctrl+shift+f7'); break;
+		   case "ctrl+shift+f8": sendmsg('hotkey:ctrl+shift+f8'); break;
+		   case "ctrl+shift+f9": sendmsg('hotkey:ctrl+shift+f9'); break;
+		   case "ctrl+shift+f10": sendmsg('hotkey:ctrl+shift+f10'); break;
+		   case "ctrl+shift+f11": sendmsg('hotkey:ctrl+shift+f11'); break;
+		   case "ctrl+shift+f12": sendmsg('hotkey:ctrl+shift+f12'); break;
+
+		   case "esc": sendmsg('hotkey:esc'); break;
+		   case "f10": sendmsg('hotkey:f10'); break;
+		 }
+		});
+ </script>
+ 
+ <script type="text/javascript">
+    const google = window.google;
+    var imageUrl = "http://successflow.bsv.net/MapImages/GoogleMapsMarkers/";
+    var geocoder;
+    var myOptions;
+    var map;
+    var oms;
+    var spiderConfig;
+    var iw;
+    var latlng;
+    var directionsDisplay;
+    var traffic;
+    var directionsService = new google.maps.DirectionsService();
+    var num, data;
+    var requestArray = [], renderArray = []; 
+    var markers = [];
+    // var colourArray = ["navy", "brown", "green", "orange", "hotpink", "red", "deepskyblue ", "purple", "yellow", "darkgreen"];
+    // Success: blue, brown, darkgreen, orange, pink, red, paleblue, purple, yellow, darkgreen
+    requestArray = [];
+    var jsonArray = [];
+	var styledMapType = [];
+	
+	function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+     if ((new Date().getTime() - start) > milliseconds){
+      break;
+       }
+      }
+     }
+	
+	document.onkeydown = function (e) {
+            if (e.keyCode === 116) {
+                return false;
+            }
+        };
+
+    function routendaten(routennr, rcolor, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, techniker) {
+	//alert ('route '+routennr+' farbe '+rcolor+' techniker ' +techniker);
+        jsonArray[routennr] = [rcolor, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
+    }
+
+    function generateRequests() {
+        var j = 0;
+        requestArray = [];    
+        for (var route in jsonArray) {
+            var waypts = [];
+            var start, finish;
+            var lastpoint;
+            var limit;
+            j = j + 1;
+            //alert ("route "+j)
+            data = jsonArray[route];
+            limit = data.length;
+            //ab 1, 0=Farbe der Route
+            for (var waypoint = 1; waypoint < limit; waypoint++) {			
+                if (data[waypoint] > '') {
+                    if (data[waypoint] === lastpoint) {
+                        // Duplicate of of the last waypoint - don't bother
+                        continue;
+                    }
+                    // Prepare the lastpoint for the next loop
+                    lastpoint = data[waypoint];
+                    // Add this to waypoint to the array for making the request
+                    waypts.push({
+                        location: data[waypoint],
+                        stopover: true
+                    });
+                }
+            }
+            // gibt es gar keine Route, �berspringen
+			if (waypts.length==0) {
+			 //alert ('wird �bersprungen');
+			 continue;
+			}			
+            // Grab the first waypoint for the 'start' location			
+			start = (waypts.shift()).location;				
+            // Grab the last waypoint for use as a 'finish' location
+            finish = waypts.pop();
+            if (finish === undefined) {
+                // Unless there was no finish location for some reason?
+                finish = start;
+            } else 
+			{
+               finish = finish.location;
+            }
+            // Let's create the Google Maps request object
+            var request = {
+                origin: start,
+                destination: finish,
+                waypoints: waypts,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+            // and save it in our requestArray
+			//alert ('route wird gespeichert');
+            requestArray.push({"route": route, "request": request, "color": data[0]});
+        }
+        processRequests();
+    }  
+
+
+    function processRequests(){
+        // Counter to track request submission and process one at a time;
+        var i = 0;
+        var currentcolor='';
+        // Used to submit the request 'i'
+        function submitRequest(){
+		 //alert ('Route '+i);
+         if(requestArray[i] != undefined) {
+                   currentcolor = requestArray[i].color;
+				   if (currentcolor == "") {currentcolor="black"};
+				   //alert ('Request '+i);
+				   sleep(333);
+				     try { directionsService.route(requestArray[i].request, directionResults); }
+				     catch (err) {alert (err.message);} 
+					}
+            }
+        // Used as callback for the above request for current 'i'
+        function directionResults(result, status) {
+		   try {
+            if (status == google.maps.DirectionsStatus.OK) {
+                // Create a unique DirectionsRenderer 'i'
+                //alert('start render');
+				renderArray[i] = new google.maps.DirectionsRenderer();
+                renderArray[i].setMap(map);
+                // Some unique options from the colorArray so we can see the routes
+                renderArray[i].setOptions({
+                    preserveViewport: true,
+                    suppressInfoWindows: true,
+                    polylineOptions: {
+                        strokeWeight: 4,
+                        strokeOpacity: 0.8,
+                        strokeColor: currentcolor
+                    },
+                        markerOptions:{
+                            icon: { path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+                                scale: 3,
+                                strokeColor: currentcolor
+                                }
+                        }
+                    });
+                // Use this new renderer with the result
+                renderArray[i].setDirections(result);
+                // and start the next request
+                nextRequest();
+            }}
+			catch (err) { alert (err.message);};
+        }
+        function nextRequest(){
+            // Increase the counter
+            i++;
+            // Make sure we are still waiting for a request
+            if(i > requestArray.length){
+                // No more to do
+                return;
+            }
+            // Submit another request
+            submitRequest();
+        }
+        // This request is just to kick start the whole process
+        submitRequest();
+    }
+
+    function initialize() {
+        latlng = new google.maps.LatLng( 51.531559,9.953333);
+        geocoder = new google.maps.Geocoder();
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        myOptions = {zoom: 10, center: latlng, 
+		 //mapTypeId: google.maps.MapTypeId.ROADMAP,		 
+		mapTypeControlOptions: {
+            mapTypeIds: ['Standard','UltraLight','Assasins Creed IV','Nachtmodus','Light Monochrome']
+			},
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+        map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+
+		map.addListener('zoom_changed', function() {
+          getbounds();
+        });
+		map.addListener('bounds_changed', function () {
+		  getbounds();
+		});
+        directionsDisplay.setMap(map);
+        traffic = new google.maps.TrafficLayer();
+        traffic.setMap(map);
+        spiderConfig = {keepSpiderfied: true, event: 'mouseover'};
+        oms = new OverlappingMarkerSpiderfier(map, spiderConfig);
+        iw = new google.maps.InfoWindow();
+        notifyLoaded();
+    }
+
+    function sendMessage(msg) {
+        device_os = '';
+        		switch (device_os) {
+            case 'iOS':
+                window.location.href = 'MGExternalEvent:' + msg;
+                break;
+            case 'android':
+                window.external.MGExternalEvent(msg);
+                break;
+            default:
+                window.external.MGExternalEvent(msg);
+        }
+				
+    }
+
+    function notifyLoaded() {
+        sendMessage('OK');
+    }
+
+	function addstyle(newstyle,myname) {
+	 var parsed = JSON.parse(newstyle);
+	 var mystyledMapType = new google.maps.StyledMapType(
+           parsed, {name: myname});
+	        styledMapType.push(mystyledMapType);
+	}
+	
+	function addstylestomap() {
+	  for (var i = 0; i<styledMapType.length; i++){
+	    map.mapTypes.set(styledMapType[i].name, styledMapType[i]);
+	  }
+	  map.setMapTypeId(styledMapType[0].name);
+	}
+	
+    function gotGeocode(results, status) {
+       if (status == google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+                    sendMessage('ADDRESS|' + results[0].formatted_address);
+            }
+        }
+    }
+    
+    function moveto(lat, lng, Markertext, myIcon) {
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: Markertext,
+            icon: myIcon
+        });
+        geocoder.geocode({'latLng': latlng}, gotGeocode);
+    }
+
+	function calcRoute(start,end,waypts) {
+        var wps = [];
+        var mywps = waypts.split(";");
+        for (var i = 0; i< mywps.length;  i++) {
+            wps.push({
+                location: mywps[i].toString(),
+                stopover: true
+            });
+        }
+        var request = {
+            origin:start,
+            destination:end,
+            waypoints: wps,
+            optimizeWaypoints: false,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+        directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            }
+        });
+    }
+	
+	function changestyle(newstyle) {	    
+	    var thisstyle = JSON.parse(newstyle);	
+		map.setOptions({styles: thisstyle});
+	};
+	
+    //Marker f�r geplante und auch ungeplante Auftr�ge
+    function codeAddress(adresse, Markertext, MarkerImage, auftragsnr, sla) {
+        var myaddr = adresse.split(";");
+        var mymark = Markertext.split(";");
+        var myimage = MarkerImage.split(";");
+        var myauftrag = auftragsnr.split(";");
+        var mysla = sla.split(";");
+		//da die Funktion zweimal l�uft muss die Schleife bei array.length beginnen, sonst �berschreibt man vorhandene Marker-Funktionen 
+		var m = markers.length;		
+        for (var i = m; i< (m+myaddr.length);  i++) {
+            var mkoord = myaddr[i-m].split(",");
+            var mlat = mkoord[0];
+            var mlng = mkoord[1];
+            var latlng = new google.maps.LatLng(mlat,mlng);
+            var slai = mysla[i];
+            if (slai == undefined || slai == "-" || slai == ""){
+			    var thistitle = mymark[i-m].replace(/<b>/g,"");
+				thistitle=thistitle.replace(/<\/b>/g,"")
+			    var marker = new google.maps.Marker({
+                    map: map, 
+                    position: latlng,
+                    title: thistitle,  
+					icon: {url: imageUrl+myimage[i-m]} ,
+                    auftragsnr: myauftrag[i-m]
+                }) 
+            } else
+            {
+			    var marker = new google.maps.Marker({
+                    map: map, 
+                    position: latlng,
+                    title: mymark[i-m],
+                    icon: {url: imageUrl+myimage[i-m], labelOrigin: new google.maps.Point(32,32)} ,
+                    label: {text: slai, color:"red" },
+                    auftragsnr: myauftrag[i-m]
+                })
+            };    
+            markers.push(marker);
+			//alert(markers.length+' '+i);
+            //google.maps.event.addListener(marker, 'click', (function(marker,i) {return function () {var message = "plan|"+markers[i].auftragsnr; sendMessage(message);};})(marker,i));
+            google.maps.event.addListener(marker, 'spider_click', (function(marker,i) {return function() {  // 'spider_click', not plain 'click'
+                //var reped = mymark[i-m].replace("\n","<br>");
+				var reped = mymark[i-m].replace(/\n/g,"<br>");
+				//var reped = mymark[i-m];
+				var markerauftrag = markers[i].auftragsnr;
+				var infotext='<div id="content">'+
+				    reped+'<br>'+
+				    'Marker #'+i+'<br>'+
+					'<a id="markerlink" href="javascript:var message = \'plan|'+markers[i].auftragsnr+'|'+i+'\'; sendMessage(message);">Planen</a>'+
+					'&nbsp;&nbsp;&nbsp;'+
+					'<a id="markerlink2" href="javascript:var servmsg = \'serviceruf|'+markerauftrag+'|'+i+'\'; sendMessage(servmsg);">Info</a>'+
+				    '</div>'
+				//iw.setContent(markers[i].title);
+				iw.setContent(infotext);
+                iw.open(map, markers[i]);
+            };})(marker,i));
+            oms.addMarker(markers[i]);
+        }
+		
+		if (false == true) {
+        var markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m',maxZoom: 10});
+		}
+         //markerCluster.setMaxZoom(15);
+    }
+	
+	function showmarker(m) {
+		google.maps.event.trigger(markers[m], 'spider_click');
+		map.setCenter(markers[m].position);
+	}
+	
+    function removemarker(m) {
+       markers[m].setMap(null);
+    }
+	
+    function removemarkers() {
+       for (i=0; i<markers.length; i++) {
+            markers[i].setMap(null);
+	   }
+	   markers = [];
+    }
+    function setmarkericon(m,iconstr) {
+        markers[m].setIcon ({url: imageUrl+iconstr});
+    }
+    function trafficonoff (on) {
+        if (on) {
+            traffic.setMap(map);
+        } else
+        {
+            traffic.setMap(null);
+        }
+    }
+	
+    function clearroutes() { 
+        //alert ('Clearing routes'); 
+        //var myroutes = [];
+        //directionsDisplay.setDirections(myroutes);
+        //directionsDisplay.setMap(null);
+        if (directionsDisplay != null) {
+            directionsDisplay.setMap(null);
+            directionsDisplay = null;
+        };
+        if (renderArray != null) {
+            for (i=0; i<renderArray.length; i++){
+                //alert(i);
+                renderArray[i].setMap(null);
+            }
+            renderArray = []; 
+        };
+		jsonArray = [];
+    }
+
+	function getbounds() {
+	 var mycenter;
+	 var myzoom;
+	 mycenter = map.getCenter();
+	 myzoom = map.getZoom();
+	 sendMessage('bounds|'+mycenter+'|'+myzoom);
+	}
+	function setbounds(newcenterlat,newcenterlng,newzoom) {
+	 var newlatlng = new google.maps.LatLng(newcenterlat,newcenterlng);
+	 map.setCenter (newlatlng);
+	 map.setZoom (newzoom);
+	}
+	
+	function debuginfo() { 
+	    alert(jsonArray.length); 
+	}
+</script>
+</head>
+<body onload="initialize()">
+<div id="map_canvas"></div>
+<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/simpleicon" title="SimpleIcon">SimpleIcon</a> from <a hr ef="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+</body>
+</html>

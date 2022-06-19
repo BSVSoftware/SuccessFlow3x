@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+
+
+    <script>
+        function isIE() {
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf('MSIE ');
+            if (msie > 0) {
+                // IE 10 or older => return version number
+                return true;
+            }
+
+            var trident = ua.indexOf('Trident/');
+            if (trident > 0) {
+                // IE 11 => return version number
+                var rv = ua.indexOf('rv:');
+                return true;
+            }
+
+            var edge = ua.indexOf('Edge/');
+            if (edge > 0) {
+                // Edge (IE 12+) => return version number
+                return true;
+            }
+
+            // other browser
+            return false;
+        }
+        if (isIE()) {
+            window.MSPointerEvent = null;
+            window.PointerEvent = null;
+        }
+        document.onkeydown = function (e) {
+            if (e.keyCode === 116) {
+                return false;
+            }
+        };
+    </script>
+
+    <script src="http://successflow.bsv.net//cdn/planungv4/js/jquery.min.js"></script>
+    <script src="http://successflow.bsv.net//cdn/planungv4/js/jquery-ui.min.js"></script>
+    <script src="http://successflow.bsv.net//cdn/planungv4/js/jquery.touch.min.js"></script>
+
+    <script src="http://successflow.bsv.net//cdn/planungv4/js/kendo.all.min.js"></script>
+    <script src="http://successflow.bsv.net//cdn/planungv4/js/jszip.min.js"></script>
+    <script src="http://successflow.bsv.net//cdn/planungv4/js/cultures/kendo.culture.de-CH.min.js"></script>
+    <script src="http://successflow.bsv.net//cdn/planungv4/js/messages/kendo.messages.de-CH.min.js"></script>
+    <script src="http://successflow.bsv.net//cdn/planungv4/js/kendo.timezones.min.js"></script>
+
+    <script src="http://successflow.bsv.net//cdn/planungv4/js/app.min.js"></script>
+
+    <link rel="stylesheet" type="text/css"  href="http://successflow.bsv.net//cdn/css/jquery-ui.min.css"/>
+
+    <link rel="stylesheet" type="text/css"  href="http://successflow.bsv.net//cdn/planungv4/css/kendo-main-default.css" />
+    <link rel="stylesheet" type="text/css"  href="http://successflow.bsv.net//cdn/planungv4/css/planung-main.css"/>
+
+
+</head>
+<body>
+<div id="app"></div>
+<div id="site-loader"><div class="site-loader-wrap"><span class="k-icon k-i-loading site-loader-icon" style="color: #ffffff"></span><span class="site-loader-state"></span></div></div>
+
+<script id="ticketTreeview-template" type="text/kendo-ui-template">
+    #
+    switch (item.Tree) {
+        case 'Planung':
+        #
+            <span data-tree="#=item.Tree#" data-type="#=item.Type#" data-eventnr="#=item.EventNr#" data-pendingarea="#=item.PendingArea#">#= item.name #</span>
+        #
+        break;
+        case 'Fehlercode':
+        #
+            <span data-tree="#=item.Tree#" data-type="#=item.Type#" data-eventnr="#=item.EventNr#" data-errorcode="#=item.ErrorCode#">#= item.name #</span>
+        #
+        break;
+        case 'SLA':
+        #
+            <span data-tree="#=item.Tree#" data-type="#=item.Type#" data-eventnr="#=item.EventNr#" data-slagroup="#=item.slaGroup#">#= item.name #</span>
+        #
+        break;
+    }
+    #
+</script>
+
+<script id="tplPlanung" type="text/x-kendo-template">
+    <div style="position: absolute;bottom:0;right:230px;z-index:1;padding:5px 0;">
+        <span>Automatische Aktualisierung: <span data-bind="text: lastDataRefresh.refreshIntervalToString"></span></span><br>
+        <span>Zuletzt aktualisiert:  Auftr&auml;ge: </span><span data-bind="text: lastDataRefresh.ticketGrid" data-format="dd.MM.yyyy HH:mm"></span> / <span>Termine: </span><span data-bind="text: lastDataRefresh.ticketScheduler" data-format="dd.MM.yyyy HH:mm"></span>
+    </div>
+
+    <div data-role="splitter"
+         data-panes="[
+                { collapsible: false},
+                { collapsible: false, size: '55%'},
+             ]"
+         data-orientation="vertical"
+         data-bind="visible: isVisible, events: { resize: onResize }"
+         style="height: 100%; width: 100%;">
+
+        <div>
+            <div data-role="splitter"
+                 data-panes="[
+                        { collapsible: true, size: '15%' },
+                        { collapsible: false }
+
+                     ]"
+                 data-bind="visible: isVisible, events: { resize: onResize }"
+                 style="height: 100%; width: 100%;">
+                <div>
+                    <div id="TicketTreeviewContainer" class="k-content" style="width:100%;min-height:100%;padding: 5px;">
+                        <div id="ticketTreeview"
+                             data-role="treeview"
+                             data-text-field="name"
+                             data-template="ticketTreeview-template"
+                             data-bind="visible: isVisible,
+                                        source: treeData,
+                                        events: { select: onTreeViewSelect }"
+                        >
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div>
+                    <div id="TicketGridContainer" class="k-content" style="width:100%;height:100%;">
+                        <div id="technicianPlannerGrid"></div>
+                    </div>
+                    <ul id="technicianPlannerGridContextMenu" class="sm-popup sm-popup-list"></ul>
+                </div>
+            </div>
+        </div>
+        <div id="scheduler">
+            <div id="TicketSchedulerContainer" class="k-content" style="width:100%;height:100%;padding: 1px;">
+                <div id="technicianPlannerScheduler" data-bind="source: appointments"></div>
+                <div id="selectedTicketInfo">
+
+                    <span>Selektierter Auftrag: </span><span style="width:60px;display:inline-block;" data-bind="text: selectedTicket" class="value"></span>
+                </div>
+            </div>
+            <ul id="contextMenu" class="sm-popup sm-popup-list"></ul>
+        </div>
+    </div>
+
+</script>
+
+<script type="text/javascript">
+    smConfig = {
+        URLPrefix: 'http://successflow.bsv.net/',
+        Grids: {
+            "technicianPlannerGrid": {
+                options: {
+                    toolbar: true
+                },
+
+                columns: ["Ticketnumber","Address","Postcode","City","PlainText","EventCode","TechnikerNr","TechnikerName","Appointment","Duration","IDNR"],
+    defaultColumns: ["Ticketnumber","Address","Postcode","City","PlainText","EventCode","TechnikerNr","TechnikerName","Appointment","Duration","IDNR"],
+    config: {"columns":[{"encoded":true,"hidden":false,"field":"Postcode","title":"PLZ","width":"100px","attributes":{"class":"table-nowrap#= data && data.dirty && data.dirtyFields && data.dirtyFields['Postcode'] ? ' k-dirty-cell' : '' #","data-field":"Postcode"},"template":"#= (Postcode) ? kendo.toString(stripPostcode(Postcode)) : '' #","filterable":{"cell":{"operator":"contains","suggestionOperator":"contains"}},"headerAttributes":{"id":"52c9585a-4eb6-40ae-88dc-92487a458052"},"locked":false},{"encoded":true,"hidden":false,"field":"Ticketnumber","title":"TicketNr","width":"100px","attributes":{"class":"table-nowrap#= data && data.dirty && data.dirtyFields && data.dirtyFields['Ticketnumber'] ? ' k-dirty-cell' : '' #","data-field":"Ticketnumber"},"filterable":{"cell":{"operator":"contains","suggestionOperator":"contains"}},"template":"# if (typeof ServiceNotification !== 'undefined' && ServiceNotification !== '') { # <span class='service-notification' title='#=ServiceNotification#'><i class='fal fa-info-circle'></i></span>  #= Ticketnumber # # } else { # <span class='service-notification'></span> #= Ticketnumber # # } #","headerAttributes":{"id":"ad7b3234-4338-422e-accd-f52c1fc7b9a8"}},{"encoded":true,"hidden":false,"field":"Address","title":"Adresse","width":"150px","attributes":{"class":"table-nowrap#= data && data.dirty && data.dirtyFields && data.dirtyFields['Address'] ? ' k-dirty-cell' : '' #","data-field":"Address"},"filterable":{"cell":{"operator":"contains","suggestionOperator":"contains"}},"headerAttributes":{"id":"56ee36b6-c51e-4629-99d8-bff0be60a7c5"}},{"encoded":true,"hidden":false,"field":"City","title":"Ort","width":"120px","attributes":{"class":"table-nowrap#= data && data.dirty && data.dirtyFields && data.dirtyFields['City'] ? ' k-dirty-cell' : '' #","data-field":"City"},"filterable":{"cell":{"operator":"contains","suggestionOperator":"contains"}},"headerAttributes":{"id":"40a954f4-2b6f-4b6c-881b-3a9e6056d613"}},{"encoded":true,"hidden":false,"field":"PlainText","title":"Klartext","width":"150px","attributes":{"class":"table-nowrap#= data && data.dirty && data.dirtyFields && data.dirtyFields['PlainText'] ? ' k-dirty-cell' : '' #","data-field":"PlainText"},"filterable":{"cell":{"operator":"contains","suggestionOperator":"contains"}},"headerAttributes":{"id":"d8a920c8-9e12-4489-ba90-9638f6c31e63"}},{"encoded":true,"hidden":false,"field":"EventCode","title":"Event","format":"{0:n0}","width":"100px","attributes":{"class":"table-nowrap#= data && data.dirty && data.dirtyFields && data.dirtyFields['EventCode'] ? ' k-dirty-cell' : '' #","data-field":"EventCode"},"filterable":{"cell":{}},"headerAttributes":{"id":"016185c7-dda8-4563-a50b-a65ca8983ff1"}},{"encoded":true,"hidden":false,"field":"TechnikerNr","title":"Techniker (Nr)","width":"130px","attributes":{"class":"table-nowrap#= data && data.dirty && data.dirtyFields && data.dirtyFields['TechnikerNr'] ? ' k-dirty-cell' : '' #","data-field":"TechnikerNr"},"filterable":false,"headerAttributes":{"id":"6f796bc8-913f-46e0-8f2a-14cbd27f7e39"}},{"encoded":true,"hidden":false,"field":"TechnikerName","title":"Techniker (Name)","width":"150px","attributes":{"class":"table-nowrap#= data && data.dirty && data.dirtyFields && data.dirtyFields['TechnikerName'] ? ' k-dirty-cell' : '' #","data-field":"TechnikerName"},"filterable":{"cell":{"operator":"contains","suggestionOperator":"contains"}},"headerAttributes":{"id":"ad47566d-d3f7-4331-8a41-a536729bdcf8"}},{"encoded":true,"hidden":false,"field":"Appointment","template":"#= (typeof Appointment !== 'undefined' && Appointment !== '' && Appointment) ? kendo.toString(Appointment, 'dd.MM.yyyy HH:mm') : '' #","title":"Termin","width":"100px","attributes":{"class":"table-nowrap#= data && data.dirty && data.dirtyFields && data.dirtyFields['Appointment'] ? ' k-dirty-cell' : '' #","data-field":"Appointment"},"headerAttributes":{"id":"6408a49e-6828-465b-b9d4-643788952b1c"}},{"encoded":true,"hidden":false,"field":"Duration","title":"Dauer","width":"100px","attributes":{"class":"table-nowrap#= data && data.dirty && data.dirtyFields && data.dirtyFields['Duration'] ? ' k-dirty-cell' : '' #","data-field":"Duration"},"headerAttributes":{"id":"ab45077e-4c17-4ed5-8244-669d0e22f41a"}},{"encoded":true,"hidden":false,"field":"IDNR","title":"IDNR","width":"150px","attributes":{"class":"table-nowrap#= data && data.dirty && data.dirtyFields && data.dirtyFields['IDNR'] ? ' k-dirty-cell' : '' #","data-field":"IDNR"},"filterable":{"cell":{"operator":"contains","suggestionOperator":"contains"}},"headerAttributes":{"id":"32930732-10d3-4501-9d69-7acb86e3c450"}}]}
+    },
+
+    },
+    PlannerSplitter: '15:60',
+        Localization: {
+        Strings: {
+            Grids: {
+                technicianPlannerGrid: {
+                    openingHours: {
+                        Mon: "Mo",
+                            Tue: "Di",
+                            Wed: "Mi",
+                            Thu: "Do",
+                            Fri: "Fr",
+                            Sat: "Sa",
+                            Sun: "So"
+
+                    }
+                }
+
+            }
+        }
+    }
+    };
+
+
+    var availableActionButtons = [{"Icon": "home","Title": "","MagicEvent": "close"},{"Icon": "","Title": "Ausbildung","MagicEvent": "ausbildung"},{"Icon": "","Title": "Öffnungszeiten","MagicEvent": "oeffnungszeiten"},{"Icon": "","Title": "Team","MagicEvent": "team"},{"Icon": "","Title": "Callinfo","MagicEvent": "callinfo"},{"Icon": "","Title": "Planungsdaten","MagicEvent": "planung"},{"Icon": "","Title": "Planung zurück","MagicEvent": "planungzurueck"},{"Icon": "","Title": "Eventchange","MagicEvent": "eventchange"},{"Icon": "","Title": "Abwesenheit","MagicEvent": "abwesenheit"},{"Icon": "","Title": "Map","MagicEvent": "map"},{"Icon": "","Title": "Rückmeldung","MagicEvent": "feedback"},{"Icon": "","Title": "Bemerkung","MagicEvent": "comment"},{"Icon": "","Title": "Pagen","MagicEvent": "pagen"},{"Icon": "","Title": "SLA","MagicEvent": "sla"},{"Icon": "","Title": "Sperre","MagicEvent": "sperre"},{"Icon": "","Title": "Aktualisieren","MagicEvent": "update"},{"Icon": "","Title": "Spalten","MagicEvent": "gridcolumns"},{"Icon": "","Title": "neue Calls","MagicEvent": "update2"}];
+
+    var availableEvents = [{"EventNr":1, "EventDescription": "Eingang"},{"EventNr":3, "EventDescription": "gepaged"},{"EventNr":4, "EventDescription": "hotline wird service"},{"EventNr":5, "EventDescription": "Kunde gesperrt"},{"EventNr":8, "EventDescription": "Vorplanung"},{"EventNr":10, "EventDescription": "Planung gelöscht"},{"EventNr":19, "EventDescription": "Vorgeplant"},{"EventNr":30, "EventDescription": "unvollständig"},{"EventNr":31, "EventDescription": "neue Planung möglich"},{"EventNr":35, "EventDescription": "E-Teile bestellt"},{"EventNr":39, "EventDescription": "Techniker gelesen"},{"EventNr":40, "EventDescription": "in Anfahrt"},{"EventNr":41, "EventDescription": "beim Kunden"},{"EventNr":50, "EventDescription": "IT-Call"},{"EventNr":66, "EventDescription": "Pause"},{"EventNr":90, "EventDescription": "Termin ohne Reaktionszeit"},{"EventNr":2, "EventDescription": "Hotline"}];
+
+    var availableErrorCodes = [
+        {"ErrorCode":"AA", "ErrorDescription": "WARTUNG"},{"ErrorCode":"AD", "ErrorDescription": "Programmierung"},{"ErrorCode":"AF", "ErrorDescription": "Schulung"},{"ErrorCode":"AG", "ErrorDescription": "Ersatzstellung/Demostellung"},{"ErrorCode":"FI", "ErrorDescription": "PAPIERLAUF"},{"ErrorCode":"FJ", "ErrorDescription": "FIXIERUNG"},{"ErrorCode":"FN", "ErrorDescription": "GERÄUSCHE"},{"ErrorCode":"FQ", "ErrorDescription": "SELBSTDIAGNOSE"},{"ErrorCode":"FZ", "ErrorDescription": "SONSTIGES"},{"ErrorCode":"XXZZ", "ErrorDescription": "M. DEPPE (IT)"}
+    ];
+
+    var eventColors = {1: "#008000",3: "#8B5F65",4: "#1392ac",5: "#FF0000",8: "#636a98",10: "#778899",19: "#1824c9",30: "#EE7621",31: "#400080",35: "#CD6600",39: "#90EE90",40: "#6495ED",41: "#FFFF00",50: "",66: "#D3D3D3",90: "",2: ""};
+
+
+    var technicianPlannerResources = [{text:"Jan Meyer (10)",value:10,sort:0},{text:"Michael Deppe (14)",value:14,sort:0},{text:"Knut Schmal (20)",value:20,sort:0},{text:"Theo Dörnte (24)",value:24,sort:0},{text:"Fahrzeug GÖ-SV 10 (37)",value:37,sort:0},{text:"Stephanie Jeschke (60)",value:60,sort:0},{text:"Alexander Bartols (70)",value:70,sort:0},{text:"Simon Aschenbach (75)",value:75,sort:0},{text:"Techniker, Theodor (77)",value:77,sort:0},{text:"Techniker, Fritz (78)",value:78,sort:0},{text:"Gnoettgen, Gustav (79)",value:79,sort:0},{text:"Karoline Metz (815)",value:815,sort:0},{text:"Testzugang LuM (1004)",value:1004,sort:0},{text:"Testzugang Stundner (1005)",value:1005,sort:0},{text:"Testzugang Copynet (1006)",value:1006,sort:0},{text:"Testuser KL Netprint (1008)",value:1008,sort:0},{text:"Testzugang Boyn (1009)",value:1009,sort:0},{text:"Testzugang M.Deppe (1010)",value:1010,sort:0},{text:"Loew, Andreas (3)",value:3,sort:1},{text:"Ulrich Wiese (4)",value:4,sort:1},{text:"Thomas Dörnte (QS) (6)",value:6,sort:1},{text:"Michael Anders (1)",value:1,sort:2},{text:"Thomas Anders (8)",value:8,sort:2},{text:"Volker Rust (13)",value:13,sort:2},{text:"Detlef Krieger (31)",value:31,sort:2},{text:"Benjamin Ansbach (36)",value:36,sort:2},{text:"David Hammer (50)",value:50,sort:2},{text:"Dirk Meyer (2)",value:2,sort:99},{text:"Björn Grossmann (12)",value:12,sort:99},{text:"Michael Albers (23)",value:23,sort:99},{text:"Viktor Oldenburger (27)",value:27,sort:99},{text:"TD Freenet (30)",value:30,sort:99},{text:"Andreas Voigt (34)",value:34,sort:99},{text:"Horst Blatter (88)",value:88,sort:99},{text:"Andreas Test (500)",value:500,sort:99},{text:"Dummy Techniker / Supervisor (99999",value:99999,sort:99},{text:"Fritz Linde (51)",value:51,sort:999}];
+    var technicianPlannerDefaultResources = [14,60,3,4,6,1,50];
+
+
+    var technicianPlannerAdditionalResources = [{text: "Fahrzeug GÖ-SV 10", value: 37, color: "#880000"}];
+
+    var planungAbfrage = true; // Ob beim Drop auf das Gantt eine Abfrage kommen soll, ob geplant werden soll (true/false)
+    var colorFixCall = "#ff0000"; // Farbe fÃ¼r Fix-Termine im Gantt  ("#b3b3b3")
+    var colorConfirmedCall = "#80ff80"; //Farbe fÃ¼r bestÃ¤tigte Termine im Gantt ("#b3b3b3")
+    var eventCodePlanned =  8; // Event, dass der Auftrag bekommt, wenn er geplant wird (19)
+    var showMatchcodeInBar = true; // im Gantt den Kundenmatchcode im Bar zeigen?  (true/false)
+    var ganttStartTime = "07:00";  // Gantt Anzeige startet um x Uhr - "08:00"
+    var ganttEndTime = "18:00"; // Gantt Anzeige ende um x Uhr - "17:00"
+    var treeStartEvent =  1; // im Tree soll dieses Event beim Start ausgewÃ¤hlt sein (1)
+    var pauseEvent = 66; // Event fÃ¼r Pause (66) - nicht mehr sicher wofÃ¼r wir es brauchen, lÃ¶sche ich ggf.
+    var treeWithErrorCodes = true; // Ob ErrorCode Tree angezeigt werden soll   true / false
+    var treeWithSLA = false;
+    var openingHourCheck = true;
+    var filterableMode = 'quicksearch'; // kann quicksearch oder row sein, bei row wird zusÃ¤tzlich die Filterzeile im Grid angezeigt. VerlÃ¤ngert jedoch die Ladezeit.
+    var useGoogleMapsAPI = true;
+    var useGoogleMapsDistance = true;
+    var googleAPIKey = "AIzaSyBnPooU-KxHLKoayMJg01eEXzHXH934hEk";
+    var refreshInterval =   0;  // refreshInterval in Minuten  0 = Ausgeschaltet
+    var treeWithTechnicianTicketcount = true;  // Anzahl AuftrÃ¤ge hinter dem Techniker
+	var nonWorkingDays = [];
+
+    App({
+        // headerTitle: "Technikerplanung",
+        headerTitle: "Techniker Planung",
+        debug: false,
+        showNotifications: true,
+		auth: {
+			features: ['MG47','EXPORT']
+		}
+    });
+
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnPooU-KxHLKoayMJg01eEXzHXH934hEk&callback=initGoogleAPI"
+        type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SuccessFlow! ProjVorgGrp</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	
+	<link rel="stylesheet" type="text/css" href="http://successflow.bsv.net//dhtmlx_suite/fonts/font_roboto/roboto.css"/>
+	<link rel="stylesheet" type="text/css" href="http://successflow.bsv.net//dhtmlx_suite/skins/web/dhtmlx.css"/>
+	<script src="http://successflow.bsv.net//dhtmlx_suite/dhtmlx.js" type="text/javascript"></script>
+	<script>
+		var myTree;
+		function doOnLoad(){
+			myTree = new dhtmlXTreeObject("treeboxbox_tree","100%","100%",0);
+			myTree.setImagePath("http://successflow.bsv.net//dhtmlx_suite/skins/web/imgs/dhxtree_web/");
+			myTree.enableSmartXMLParsing(true);
+			myTree.enableCheckBoxes(false);
+			myTree.enableDragAndDrop(false);
+			myTree.enableTreeImages(true);
+			myTree.enableTreeLines(true);
+			myTree.enableTextSigns(true);
+			myTree.openItem("Alle");
+    		myTree.parse('<?xml version="1.0" encoding="utf-8"?><tree id="0"><item text="Alle Vorgänge" id="Alle"><item text="1 Vertrieb" id="2;1;Vertrieb"></item><item text="2 Innendienst" id="2;2;Innendienst"></item><item text="3 Service" id="2;3;Service"></item></item></tree>');
+			myTree.attachEvent("onClick", function(id){
+									sendmsg('click:'+id);
+								});
+			myTree.openItem("Alle");
+		}
+		
+		
+		function sendmsg(msg) {
+			var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+			var Win10 = ( navigator.userAgent.match(/(Windows Phone 10|Windows NT 10)/g) ? true : false );
+			if( iOS ){ 
+						window.location.href="MGExternalEvent:"+msg; 
+					}
+			else if ( Win10 ) {
+						window.MGExternalEvent(msg);
+					}
+			else {  
+					window.external.MGExternalEvent(msg); 
+				}
+		}
+	</script>
+</head>
+<body onload="doOnLoad()">
+	<div id="treeboxbox_tree"></div>
+</body>
+</html>

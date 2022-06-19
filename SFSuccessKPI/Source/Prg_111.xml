@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="ET STAT_TFuellStandLast" ISN_2="1" LastIsn="1" id="111">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <ParametersAttributes/>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63033" date="22.10.2020" time="17:30:33"/>
+        </Header>
+        <Resource>
+          <Columns/>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="M"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="M"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="N"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="Y"/>
+            <AllowCreate val="Y"/>
+            <AllowDelete val="Y"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="Delete from dbo.STAT_TFuellStandLast&#xD;&#xA;INSERT INTO dbo.STAT_TFuellStandLast (Ebene1,Ebene2,Ebene3,Ebene4,DeviceID)&#xD;&#xA;SELECT Ebene1,Ebene2,Ebene3,Ebene4,deviceid FROM Supplies_WS_SQL group by Ebene1,Ebene2,Ebene3,Ebene4, deviceid&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;Update dbo.STAT_TFuellStandLast set IDNR = &#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;Select Max(IDNR) from GERAETE b WHERE a.DeviceID = b.Berechnungsinterva and b.IDNR is not null and b.IDNR&lt;>0 and b.Berechnungsinterva is not null and  b.Berechnungsinterva&lt;>0 and &#xD;&#xA;&#x9; a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4&#xD;&#xA;&#x9; )&#xD;&#xA;FROM dbo.STAT_TFuellStandLast a &#xD;&#xA;&#xD;&#xA;Update dbo.STAT_TFuellStandLast set KundNr = &#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;Select Max(BETREIBER) from GERAETE b WHERE a.DeviceID = b.Berechnungsinterva and b.BETREIBER is not null and b.BETREIBER&lt;>0 and b.Berechnungsinterva is not null and  b.Berechnungsinterva&lt;>0 and &#xD;&#xA;&#x9; a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4&#xD;&#xA;&#x9; )&#xD;&#xA;FROM dbo.STAT_TFuellStandLast a &#xD;&#xA;&#x9;&#xD;&#xA;Update dbo.STAT_TFuellStandLast set LastUpdate = &#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;Select MAX(b.erstelltam) from Supplies_WS_SQL b WHERE b.supplytype in ('toner','tonerCartridge') and b.deviceid = a.DeviceID &#xD;&#xA;&#x9;and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4&#xD;&#xA;&#x9;) &#xD;&#xA;FROM dbo.STAT_TFuellStandLast a&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Update dbo.STAT_TFuellStandLast set LastTime = &#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;Select MAX(b.erstelltum) from Supplies_WS_SQL b WHERE b.erstelltam=a.LastUpdate and b.supplytype in ('toner','tonerCartridge') and b.deviceid = a.DeviceID &#xD;&#xA;&#x9;and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4&#xD;&#xA;&#x9;)&#xD;&#xA;FROM dbo.STAT_TFuellStandLast a&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Update dbo.STAT_TFuellStandLast set LastCyan = &#xD;&#xA;(&#xD;&#xA;Select b.remainingvalue from Supplies_WS_SQL b &#xD;&#xA;&#x9;WHERE b.coleranttype='cyan' and b.supplytype in ('toner','tonerCartridge')&#xD;&#xA; and a.deviceid = b.DeviceID and b.erstelltam =a.LastUpdate&#xD;&#xA;&#x9;&#x9;and b.Ebene1=a.Ebene1 and b.Ebene2=a.Ebene2 and b.Ebene3=a.Ebene3 and b.Ebene4=a.Ebene4 &#xD;&#xA;&#x9;&#x9;and b.erstelltum=(Select Max(c.erstelltum) from Supplies_WS_SQL c where a.deviceid = c.DeviceID and c.Ebene1=a.Ebene1 and c.Ebene2=a.Ebene2 and c.Ebene3=a.Ebene3 and c.Ebene4=a.Ebene4 and c.erstelltam=a.LastUpdate and c.coleranttype='cyan' and c.supplytype in ('toner','tonerCartridge'))&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;)&#xD;&#xA;FROM dbo.STAT_TFuellStandLast a &#xD;&#xA;&#xD;&#xA;Update dbo.STAT_TFuellStandLast set LastMagenta = &#xD;&#xA;(&#xD;&#xA;Select b.remainingvalue from Supplies_WS_SQL b &#xD;&#xA;&#x9;WHERE b.coleranttype='magenta' and b.supplytype in ('toner','tonerCartridge')&#xD;&#xA; and a.deviceid = b.DeviceID and b.erstelltam =a.LastUpdate&#xD;&#xA;&#x9;&#x9;and b.Ebene1=a.Ebene1 and b.Ebene2=a.Ebene2 and b.Ebene3=a.Ebene3 and b.Ebene4=a.Ebene4 &#xD;&#xA;&#x9;&#x9;and b.erstelltum=(Select Max(c.erstelltum) from Supplies_WS_SQL c where a.deviceid = c.DeviceID and c.Ebene1=a.Ebene1 and c.Ebene2=a.Ebene2 and c.Ebene3=a.Ebene3 and c.Ebene4=a.Ebene4 and c.erstelltam=a.LastUpdate and c.coleranttype='magenta' and c.supplytype in ('toner','tonerCartridge'))&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;)&#xD;&#xA;FROM dbo.STAT_TFuellStandLast a &#xD;&#xA;&#xD;&#xA;Update dbo.STAT_TFuellStandLast set LastYellow = &#xD;&#xA;(&#xD;&#xA;Select b.remainingvalue from Supplies_WS_SQL b &#xD;&#xA;&#x9;WHERE b.coleranttype='yellow' and b.supplytype in ('toner','tonerCartridge')&#xD;&#xA; and a.deviceid = b.DeviceID and b.erstelltam =a.LastUpdate&#xD;&#xA;&#x9;&#x9;and b.Ebene1=a.Ebene1 and b.Ebene2=a.Ebene2 and b.Ebene3=a.Ebene3 and b.Ebene4=a.Ebene4 &#xD;&#xA;&#x9;&#x9;and b.erstelltum=(Select Max(c.erstelltum) from Supplies_WS_SQL c where a.deviceid = c.DeviceID and c.Ebene1=a.Ebene1 and c.Ebene2=a.Ebene2 and c.Ebene3=a.Ebene3 and c.Ebene4=a.Ebene4 and c.erstelltam=a.LastUpdate and c.coleranttype='yellow' and c.supplytype in ('toner','tonerCartridge')) &#xD;&#xA;&#x9;&#x9;&#xD;&#xA;)&#xD;&#xA;FROM dbo.STAT_TFuellStandLast a &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Update dbo.STAT_TFuellStandLast set LastBlack = &#xD;&#xA;(&#xD;&#xA;Select b.remainingvalue from Supplies_WS_SQL b &#xD;&#xA;&#x9;WHERE b.coleranttype='black' and b.supplytype in ('toner','tonerCartridge')&#xD;&#xA; and a.deviceid = b.DeviceID and b.erstelltam =a.LastUpdate&#xD;&#xA;&#x9;&#x9;and b.Ebene1=a.Ebene1 and b.Ebene2=a.Ebene2 and b.Ebene3=a.Ebene3 and b.Ebene4=a.Ebene4 &#xD;&#xA;&#x9;&#x9;and b.erstelltum=(Select Max(c.erstelltum) from Supplies_WS_SQL c where a.deviceid = c.DeviceID and c.Ebene1=a.Ebene1 and c.Ebene2=a.Ebene2 and c.Ebene3=a.Ebene3 and c.Ebene4=a.Ebene4 and c.erstelltam=a.LastUpdate and c.coleranttype='black' and c.supplytype in ('toner','tonerCartridge')) &#xD;&#xA;&#x9;&#x9;&#xD;&#xA;) FROM dbo.STAT_TFuellStandLast a&#xD;&#xA;"/>
+        </SQL_FORM>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="ET STAT_TFuellStandLast"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

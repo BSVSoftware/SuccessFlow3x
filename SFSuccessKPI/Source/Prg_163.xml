@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="Load1 STAT_Dashboard_YearMonth" ISN_2="1" LastIsn="1" id="163">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <TSK_PARAMS val="4"/>
+            <ParametersAttributes>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+            </ParametersAttributes>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63034" date="22.10.2020" time="17:30:34"/>
+        </Header>
+        <ItemIsn val="4"/>
+        <Resource>
+          <Columns>
+            <Column id="1" name="Ebene1_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="1"/>
+                <NullAllowed id="166"/>
+                <NullDefault id="169"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="Ebene2_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="2"/>
+                <NullAllowed id="166"/>
+                <NullDefault id="169"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+              </PropertyList>
+            </Column>
+            <Column id="3" name="Ebene3_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="3"/>
+                <NullAllowed id="166"/>
+                <NullDefault id="169"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+              </PropertyList>
+            </Column>
+            <Column id="4" name="Ebene4_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="4"/>
+                <NullAllowed id="166"/>
+                <NullDefault id="169"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="I"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="T"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="Delete from dbo.STAT_Dashboard_YearMonth where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;DECLARE @date datetime;&#xD;&#xA;SET @date = (dateadd(month,datediff(MONTH,0,(dateadd(yy, datediff(yy,0,getdate()),0))),0))&#xD;&#xA;WHILE @date&lt;= (dateadd(year,datediff(year,0,getdate())+1,0))-1&#xD;&#xA;BEGIN&#xD;&#xA;insert into dbo.STAT_Dashboard_YearMonth (MonthStartDate,Ebene1,Ebene2,Ebene3,Ebene4,IDnr)&#xD;&#xA;Select&#x9;@date, :1, :2, :3, :4,MONTH(@date)&#xD;&#xA;SET @date = dateadd(month,1,@date)&#xD;&#xA;END&#x9;&#xD;&#xA;Update dbo.STAT_Dashboard_YearMonth set MonthName = &#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT  case &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;when IDnr=1  then 'Januar'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;when IDnr=2  then 'Februar'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;when IDnr=3  then 'März'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;when IDnr=4  then 'April'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;when IDnr=5  then 'Mai'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;when IDnr=6  then 'Juni'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;when IDnr=7  then 'Juli'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;when IDnr=8  then 'August'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;when IDnr=9  then 'September'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;when IDnr=10 then 'Oktober'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;when IDnr=11 then 'November'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;when IDnr=12 then 'Dezember'end)&#xD;&#xA;from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set startdate = &#x9;(dateadd(year,datediff(year,0,getdate())+1,0))-1&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set NettoCY = &#x9;(SELECT b.Netto FROM STAT_Trend_Prognose_Enterprise b&#xD;&#xA;WHERE a.MonthStartDate=b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.MonthStartDate&lt;=dateadd(month, datediff(month, 0, getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set NettoCY_Trd = (SELECT b.Netto_Trd FROM STAT_Trend_Prognose_Enterprise b&#xD;&#xA;WHERE a.MonthStartDate=b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a  where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set NettoLY = &#x9;(SELECT b.Netto FROM STAT_Trend_Prognose_Enterprise b &#xD;&#xA;WHERE dateadd(YYYY,-1,a.MonthStartDate) = b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set NettoSLY = &#x9;(SELECT b.Netto FROM STAT_Trend_Prognose_Enterprise b &#xD;&#xA;WHERE dateadd(YYYY,-2,a.MonthStartDate) = b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set NettoLY_Trd = &#x9;(SELECT Netto_Trd FROM STAT_Trend_Prognose_Enterprise b &#xD;&#xA;WHERE dateadd(YYYY,-1,a.MonthStartDate) = b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set DeckungCY = &#x9;(SELECT b.Deckung FROM STAT_Trend_Prognose_Enterprise b&#xD;&#xA;WHERE a.MonthStartDate=b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.MonthStartDate&lt;=dateadd(month, datediff(month, 0, getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set DeckungCY_Trd = (SELECT b.Deckung_Trd FROM STAT_Trend_Prognose_Enterprise b &#xD;&#xA;WHERE a.MonthStartDate=b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set DeckungLY = &#x9;(SELECT b.Deckung FROM STAT_Trend_Prognose_Enterprise b &#xD;&#xA;WHERE dateadd(YYYY,-1,a.MonthStartDate) = b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set DeckungLY_Trd = (SELECT b.Deckung_Trd FROM STAT_Trend_Prognose_Enterprise b&#xD;&#xA;WHERE dateadd(YYYY,-1,a.MonthStartDate) = b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set ProfitCY = &#x9;(SELECT b.DeckungNetto FROM STAT_Trend_Prognose_Enterprise b&#xD;&#xA;WHERE a.MonthStartDate=b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.MonthStartDate&lt;=dateadd(month, datediff(month, 0, getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set ProfitCY_Trd = (SELECT b.DeckungNetto_Trd FROM STAT_Trend_Prognose_Enterprise b&#xD;&#xA;WHERE a.MonthStartDate=b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set ProfitLY = &#x9;(SELECT b.DeckungNetto FROM STAT_Trend_Prognose_Enterprise b&#xD;&#xA;WHERE dateadd(YYYY,-1,a.MonthStartDate) = b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set ProfitLY_Trd = &#x9;(SELECT b.DeckungNetto_Trd FROM STAT_Trend_Prognose_Enterprise b &#xD;&#xA;WHERE dateadd(YYYY,-1,a.MonthStartDate) = b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set TrendBrCY_CMLM = &#x9;(SELECT b.TrendBr_CMLM FROM STAT_Trend_Prognose_Enterprise b &#xD;&#xA;WHERE a.MonthStartDate=b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set TrendBrCY_CMMLY = &#x9;(SELECT b.TrendBr_CMMLY FROM STAT_Trend_Prognose_Enterprise b &#xD;&#xA;WHERE a.MonthStartDate=b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set TrendProfitCY_CMLM = &#x9;(SELECT b.TrendDeBr_CMLM FROM STAT_Trend_Prognose_Enterprise b&#xD;&#xA;WHERE a.MonthStartDate=b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set TrendProfitCY_CMMLY = &#x9;(SELECT b.TrendDeBr_CMMLY FROM STAT_Trend_Prognose_Enterprise b &#xD;&#xA;WHERE a.MonthStartDate=b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set KundenCY = &#x9;(SELECT b.KdAnzahl FROM STAT_Trend_Prognose_Enterprise b &#xD;&#xA;WHERE a.MonthStartDate=b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.MonthStartDate&lt;=dateadd(month, datediff(month, 0, getdate()),0) and  a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set KundenLY = &#x9;(SELECT b.KdAnzahl FROM STAT_Trend_Prognose_Enterprise b&#xD;&#xA;WHERE dateadd(YYYY,-1,a.MonthStartDate) = b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set NettoKundeCY = &#x9;(SELECT b.NettoKunde FROM STAT_Trend_Prognose_Enterprise b &#xD;&#xA;WHERE a.MonthStartDate=b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.MonthStartDate&lt;=dateadd(month, datediff(month, 0, getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Dashboard_YearMonth set NettoKundeLY = &#x9;(SELECT b.NettoKunde FROM STAT_Trend_Prognose_Enterprise b &#xD;&#xA;WHERE dateadd(YYYY,-1,a.MonthStartDate) = b.MonthStartDate and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4) from dbo.STAT_Dashboard_YearMonth a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;"/>
+          <INARG>
+            <Arguments>
+              <Argument>
+                <Exp val="1"/>
+              </Argument>
+              <Argument>
+                <Exp val="2"/>
+              </Argument>
+              <Argument>
+                <Exp val="3"/>
+              </Argument>
+              <Argument>
+                <Exp val="4"/>
+              </Argument>
+            </Arguments>
+          </INARG>
+        </SQL_FORM>
+        <INT_CMP_LIST_INFO>
+          <v>2</v>
+        </INT_CMP_LIST_INFO>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="3" FlowIsn="5" id="3">
+                  <Column val="3"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="4" FlowIsn="6" id="4">
+                  <Column val="4"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="Load1 STAT_Dashboard_YearMonth"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+        <Expressions>
+          <Expression id="1">
+            <ExpSyntax val="{0,1}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="2">
+            <ExpSyntax val="{0,2}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="3">
+            <ExpSyntax val="{0,3}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="4">
+            <ExpSyntax val="{0,4}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+        </Expressions>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

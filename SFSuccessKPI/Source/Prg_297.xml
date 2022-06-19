@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="ETL1 STAT_KUNDE" ISN_2="1" LastIsn="1" id="297">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <TSK_PARAMS val="4"/>
+            <ParametersAttributes>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+            </ParametersAttributes>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63037" date="22.10.2020" time="17:30:37"/>
+        </Header>
+        <ItemIsn val="4"/>
+        <Resource>
+          <Columns>
+            <Column id="1" name="Ebene1_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="1"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene1"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="Ebene2_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="2"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene2"/>
+              </PropertyList>
+            </Column>
+            <Column id="3" name="Ebene3_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="3"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene3"/>
+              </PropertyList>
+            </Column>
+            <Column id="4" name="Ebene1_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="4"/>
+                <Picture id="157" valUnicode="4"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <_Dec id="181"/>
+                <_Whole id="182" val="4"/>
+                <_Negative id="192"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="I"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="T"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="Delete  from STAT_Kunde&#xD;&#xA;Insert into STAT_Kunde &#xD;&#xA;&#xD;&#xA;Select &#xD;&#xA;&#xD;&#xA;a.Ebene1, &#xD;&#xA;a.Ebene2, &#xD;&#xA;a.Ebene3, &#xD;&#xA;a.Ebene4, &#xD;&#xA;a.KDNR,&#xD;&#xA;e.Kontoart,&#xD;&#xA;d.BETREIBER,&#xD;&#xA;g.Lieferanschrift_Nr, &#xD;&#xA;CASE WHEN d.Betreiber is null  THEN a.KDNR ELSE d.Betreiber END,&#xD;&#xA;--------&#xD;&#xA;a.IDNR,&#xD;&#xA;d.Serien_Nr,&#xD;&#xA;d.ModellBezeichnung, &#xD;&#xA;--------&#xD;&#xA;a.Auftnr,&#xD;&#xA;z.Rechnungs_Nr,&#xD;&#xA;z.Erzeugungsart, &#xD;&#xA;a.Auftrags_Datum,&#xD;&#xA;z.RechnungsDatum,&#xD;&#xA;CASE WHEN  z.Erzeugungsart='A' THEN z.RechnungsDatum ELSE a.Auftrags_Datum END, &#xD;&#xA;a.posnr,&#xD;&#xA;--------&#xD;&#xA;a.artikel_nr,&#xD;&#xA;a.Zuordnung,&#xD;&#xA;a.Bezeichnung,&#xD;&#xA;a.Bezeichnung_II,&#xD;&#xA;--------&#xD;&#xA;a.Vertragsnummer,&#xD;&#xA;a.Vertragsbereich,&#xD;&#xA;a.Vertrag_Version,&#xD;&#xA;isnull(h.Poolvertrag,0),&#xD;&#xA;CASE WHEN isnull(a.IDNR,0)>0 and z.Erzeugungsart&lt;>'V' THEN 'ZVER' ELSE f.Pauschale__Zaehler END ,&#xD;&#xA;CASE WHEN f.Pauschale__Zaehler ='Z' and ltrim(isnull(a.Preisformel,''))&lt;>'' THEN a.Bezeichnung_II --k.Beschreibung &#xD;&#xA;     WHEN (f.Pauschale__Zaehler ='Z' and ltrim(isnull(a.Preisformel,''))='') or f.Pauschale__Zaehler in ('P','PG','VA','CS','VAZ') THEN a.Bezeichnung_II ELSE NULL END,&#xD;&#xA;f.Zhlerkennung,&#xD;&#xA;l.SW_Farbe,&#xD;&#xA;-- Preisfromel und Kategorie_PF wird später noch für Z-Zeilen upgedated&#xD;&#xA;a.Preisformel,&#xD;&#xA;a.Kategorie_PF,&#xD;&#xA;--------&#xD;&#xA;a.von_Zeitraum_Vertr,&#xD;&#xA;a.bis_Zeitraum_Vertr,&#xD;&#xA;a.Zaehler_alt,&#xD;&#xA;a.Zaehler_neu,&#xD;&#xA;isnull(a.Zaehler_neu,0)-isnull(a.Zaehler_alt,0),&#xD;&#xA;a.Freikopien,&#xD;&#xA;CASE WHEN f.Pauschale__Zaehler in ('ZF','ZP','ZPO','PP','PG') THEN 0 ELSE Isnull(a.Freikopien,0)END ,&#xD;&#xA;Isnull(a.Zeilenwert,0),&#xD;&#xA;CASE WHEN f.Pauschale__Zaehler in ('ZF','ZP','ZPO','PP','PG') THEN 0 ELSE Isnull(a.Zeilenwert,0)END &#xD;&#xA;&#xD;&#xA;from Positionen a inner join &#xD;&#xA;(Select b.Ebene1, b.Ebene2, b.Ebene3, b.Ebene4, b.Auftragsnummer,c.Erzeugungsart,max(c.Rechnungs_Nr) Rechnungs_Nr, max(b.RechnungsDatum) Rechnungsdatum from AUFTRAG_RNR b &#xD;&#xA;inner join RECHNUNGSBUCH c on c.Ebene1=b.Ebene1 and c.Ebene2=b.Ebene2 and c.Ebene3=b.Ebene3 and c.Ebene4=b.Ebene4 and c.Rechnungs_Nr=b.RechnungsNr and b.Splitt_lfdNr=c.RE_Splittung_lfdNr &#xD;&#xA;group by b.Ebene1, b.Ebene2, b.Ebene3, b.Ebene4,b.Auftragsnummer,c.Erzeugungsart) z&#xD;&#xA;-- Group by wegen Splittrechnungen notwendig&#xD;&#xA;on a.Ebene1=z.Ebene1 and a.Ebene2=z.Ebene2 and a.Ebene3=z.Ebene3 and a.Ebene4=z.Ebene4 and a.auftnr=z.auftragsnummer&#xD;&#xA;left join GERAETE d on a.Ebene1=d.Ebene1 and a.Ebene2=d.Ebene2 and a.Ebene3=d.Ebene3 and a.Ebene4=d.Ebene4 and a.IDNR=d.IDNR&#xD;&#xA;left join KUNDEN e on a.Ebene1=e.Ebene1 and a.Ebene2=e.Ebene2 and a.Ebene3=e.Ebene3 and a.Ebene4=e.Ebene4 and a.KDNR=e.KDNR&#xD;&#xA;left join POSITION_ZUSATZ f on a.Ebene1=f.Ebene1 and a.Ebene2=f.Ebene2 and a.Ebene3=f.Ebene3 and a.Ebene4=f.Ebene4 and a.AUFTNR=f.Auftragsnr and a.posnr=f.Zeilennummer&#xD;&#xA;left join Auftragkopf g on z.Ebene1=g.Ebene1 and z.Ebene2=g.Ebene2 and z.Ebene3=g.Ebene3 and z.Ebene4=g.Ebene4 and z.Auftragsnummer=g.AuftragsNr&#xD;&#xA;left join VERTRAG_KOPF h on a.Ebene1=h.Ebene1 and a.Ebene2=h.Ebene2 and a.Ebene3=h.Ebene3 and a.Ebene4=h.Ebene4 and a.Vertragsnummer=h.Vertragsnummer and a.Vertrag_Version=h.Vertrag_Version and a.KDNR=h.Rechnungsempfaenger and a.Vertragsbereich=h.Vertragsbereich  &#xD;&#xA;left join GEREATE_ZAEHLER l on a.Ebene1=l.Ebene1 and a.Ebene2=l.Ebene2 and a.Ebene3=l.Ebene3 and a.Ebene4=l.Ebene4 and a.IDNR=l.IDNR and a.Bezeichnung_II=l.Zaehlerbeschreibung&#xD;&#xA;where a.Ebene1= :1 and a.Ebene2=:2 and a.Ebene3=:3 and  a.Ebene4=:4&#xD;&#xA;order by 13,19&#xD;&#xA;&#xD;&#xA;-- Preisformel Update für Z-Zeilen mit ZF&#xD;&#xA;update STAT_Kunde set Preisformel = (Select rtrim(y.Preisformel) from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and a.auftnr=y.auftnr and y.Pauschale_Zaehler='ZF' group by y.Preisformel)&#xD;&#xA;from STAT_kunde a where a.Pauschale_Zaehler='Z' and Auftnr in (Select y.Auftnr from STAT_Kunde y where a.Ebene1=y.Ebene1 and  a.Ebene2=y.Ebene2 and a.Ebene3=y.Ebene3 and a.Ebene4=y.Ebene4 and y.Pauschale_Zaehler='ZF' group by y.Auftnr)&#xD;&#xA;&#xD;&#xA;-- Kategorie Update für Z-Zeilen mit ZF&#xD;&#xA;update STAT_Kunde set PF_Kategorie = &#xD;&#xA;(Select  Kategorie from PREISFORMEL_ZEILE i where Position>0 and a.Ebene1=i.Ebene1 and a.Ebene2=i.Ebene2 and a.Ebene3=i.Ebene3 and a.Ebene4=i.Ebene4 and a.Preisformel=i.Preisformelcode and a.Zaehlerkennung=i.Zaehlerkennung group by Ebene1, Ebene2, Ebene3,Ebene4,Preisformelcode,Kategorie, Zaehlerkennung)&#xD;&#xA; from STAT_Kunde a where a.Pauschale_Zaehler='Z' and rtrim(Preisformel)&lt;>''&#xD;&#xA;&#xD;&#xA;-- Pausch_Zaehler_Beschreibung Update für Z-Zeilen mit ZF&#xD;&#xA;update STAT_Kunde set PauschZaehl_Beschreibung= &#xD;&#xA;(Select  Beschreibung from PREISFORMEL_KOPF i where a.Ebene1=i.Ebene1 and a.Ebene2=i.Ebene2 and a.Ebene3=i.Ebene3 and a.Ebene4=i.Ebene4 and a.Preisformel=i.Preisformelcode and a.PF_Kategorie=i.Kategorie and rtrim(i.Sprache)='' group by Ebene1, Ebene2, Ebene3,Ebene4,Preisformelcode,Kategorie,Beschreibung)&#xD;&#xA; from STAT_Kunde a where a.Pauschale_Zaehler='Z' and rtrim(Preisformel)&lt;>''"/>
+          <INARG>
+            <Arguments>
+              <Argument Variable="1"/>
+              <Argument Variable="2"/>
+              <Argument Variable="3"/>
+              <Argument Variable="4"/>
+            </Arguments>
+          </INARG>
+        </SQL_FORM>
+        <INT_CMP_LIST_INFO>
+          <v>2</v>
+        </INT_CMP_LIST_INFO>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="3" FlowIsn="5" id="3">
+                  <Column val="3"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="4" FlowIsn="6" id="4">
+                  <Column val="4"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="ETL1 STAT_KUNDE"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

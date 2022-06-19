@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="2_Extrapol STAT_TZ_CHANGE1" ISN_2="1" LastIsn="1" id="62">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <TSK_PARAMS val="4"/>
+            <ParametersAttributes>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+            </ParametersAttributes>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63031" date="22.10.2020" time="17:30:31"/>
+        </Header>
+        <ItemIsn val="4"/>
+        <Resource>
+          <Columns>
+            <Column id="1" name="Ebene1_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="1"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene1"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="Ebene2_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="2"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene2"/>
+              </PropertyList>
+            </Column>
+            <Column id="3" name="Ebene3_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="3"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene3"/>
+              </PropertyList>
+            </Column>
+            <Column id="4" name="Ebene4_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="4"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene4"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="M"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="M"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="L"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="Y"/>
+            <AllowCreate val="Y"/>
+            <AllowDelete val="Y"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="--*** BeforeChangeValue EXTRAPOLATION {MLK@2011}&#xD;&#xA;-- 1. 100/SupplyCapacity = TonerProSeite(ideal)&#xD;&#xA;update STAT_TonerZaehlerChange set BefChValue_extrapol = BeforeChangeValue-(100/convert(decimal(7,2),SupplyCapacity))*(case when coleranttype='black' then (case when isnull(d_ZaehlerGesamt_dead,0)&lt;>0 then isnull(d_ZaehlerGesamt_dead,0)-AfterChange_DeadVolume else -1 end) else (case when isnull(d_ZaehlerFarbe_dead,0)&lt;>0 then isnull(d_ZaehlerFarbe_dead,0)-AfterChange_DeadVolume else -1 end) end&#xD;&#xA;) from STAT_TonerZaehlerChange where BeforeChangeValue>0 and SupplyCapacity>0 and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;&#xD;&#xA;-- 2. TonerProSeite&#xD;&#xA;Update  STAT_TonerZaehlerChange set BefChValue_TPS_Real = BeforeChangeValue-&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;TonerProSeite*(case when coleranttype='black' then (case when isnull(d_ZaehlerGesamt_dead,0)&lt;>0 then isnull(d_ZaehlerGesamt_dead,0)-(100.00-AfterChangeValue)/TonerProSeite else 0 end)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else (case when isnull(d_ZaehlerFarbe_dead,0)&lt;>0 then isnull(d_ZaehlerFarbe_dead,0)-(100.00-AfterChangeValue)/TonerProSeite else 0 end) end) &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;from STAT_TonerZaehlerChange where TonerProSeite&lt;>0 and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;Update  STAT_TonerZaehlerChange set BefChValue_TPS_LinR = BeforeChangeValue-&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;TonerProSeite_linR*(case when coleranttype='black' then (case when isnull(d_ZaehlerGesamt_dead,0)&lt;>0 then isnull(d_ZaehlerGesamt_dead,0)-(100.00-AfterChangeValue)/TonerProSeite else 0 end)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else (case when isnull(d_ZaehlerFarbe_dead,0)&lt;>0 then isnull(d_ZaehlerFarbe_dead,0)-(100.00-AfterChangeValue)/TonerProSeite else 0 end) end) &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;from STAT_TonerZaehlerChange where TonerProSeite&lt;>0 and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;-- 3. TonerProTag&#xD;&#xA;Update  STAT_TonerZaehlerChange set BefChValue_TPD_Real = BeforeChangeValue-&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;TonerProTag*(DATEDIFF(dd,BeforeChangeDate,AfterChangeDate)-(100.00-AfterChangeValue)/TonerProTag)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;from STAT_TonerZaehlerChange where TonerProTag&lt;>0 and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;&#xD;&#xA;update STAT_TonerZaehlerChange set BefChValue_extrapol = BefChValue_TPS_Real where BefChValue_TPS_Real&lt;BeforeChangeValue and BefChValue_TPS_Real>0 and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;&#xD;&#xA;-- 4. Korrektur wenn BefChValue_extrapol nicht annehmbare Werte angenommen hat!&#xD;&#xA;Update  STAT_TonerZaehlerChange set BefChValue_extrapol = BeforeChangeValue from STAT_TonerZaehlerChange where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and (BefChValue_extrapol> BeforeChangeValue or BefChValue_extrapol&lt;0 or BefChValue_extrapol is null)&#xD;&#xA;&#xD;&#xA;--*** HIER ORIGNAL BeforeCHANGDate aus Supplies_WS_SQL einlesen!!!&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;--*** CHANGEDATE EXTAPOLATION {MLK@2011}&#xD;&#xA;--*****   Extrapolation des ChangeDatums = BeforChangeDate + &quot;DATE ((Zaehler(BeforChangeDate) + (BeforeChangeValue-BefChValue_extrapol)/TonerProSeite(real oder ideal))&quot;&#xD;&#xA;--*****   BEDINGUNG: BeforeChangeDate >= ChangeDate_extrapol &lt;= AfterChangeDate&#xD;&#xA;-- *** 1. TonerProSeite(ideal) = 100.00/SupplyCapacity&#xD;&#xA;update STAT_TonerZaehlerChange  set ChangeDate_extrapol= CASE WHEN Coleranttype ='black' THEN&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(Select MIN(b.Datum) from STAT_TonerZaehler b where a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4  and b.IDNR=a.IDNR and b.Zaehler_Gesamt>=&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((Select c.Zaehler_Gesamt from STAT_TonerZaehler c where a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4  and c.IDNR=a.IDNR and c.Datum=a.BeforeChangeDate)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;+(a.BeforeChangeValue-a.BefChValue_extrapol)/100.00*a.SupplyCapacity))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ELSE  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(Select MIN(b.Datum) from STAT_TonerZaehler b where a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4  and b.IDNR=a.IDNR and b.Zaehler_Farbe>=&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((Select c.Zaehler_Farbe from STAT_TonerZaehler c where a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4  and c.IDNR=a.IDNR and c.Datum=a.BeforeChangeDate)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;+(a.BeforeChangeValue-a.BefChValue_extrapol)/100.00*a.SupplyCapacity))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;END from STAT_TonerZaehlerChange a where a.SupplyCapacity>1 and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;-- *** 2. TonerProSeite (real)&#xD;&#xA;update STAT_TonerZaehlerChange  set ChangeDate_extrapol= CASE WHEN Coleranttype ='black' THEN&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(Select MIN(b.Datum) from STAT_TonerZaehler b where a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4  and b.IDNR=a.IDNR and b.Zaehler_Gesamt>=&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((Select c.Zaehler_Gesamt from STAT_TonerZaehler c where a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4  and c.IDNR=a.IDNR and c.Datum=a.BeforeChangeDate)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;+(a.BeforeChangeValue-a.BefChValue_extrapol)/a.TonerProSeite))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ELSE  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(Select MIN(b.Datum) from STAT_TonerZaehler b where a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4  and b.IDNR=a.IDNR and b.Zaehler_Farbe>=&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((Select c.Zaehler_Farbe from STAT_TonerZaehler c where a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4  and c.IDNR=a.IDNR and c.Datum=a.BeforeChangeDate)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;+(a.BeforeChangeValue-a.BefChValue_extrapol)/a.TonerProSeite))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;END from STAT_TonerZaehlerChange a where a.TonerProSeite>0 and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;-- *** 3. ChangeDate_extrapol = BeforechangeDate wenn BeforeChangeValue=BefChValue_extrapol&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;update STAT_TonerZaehlerChange  set ChangeDate_extrapol= BeforeChangeDate from STAT_TonerZaehlerChange where BeforeChangeValue=BefChValue_extrapol and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;-- *** 4. restliche ChangeDate_extrapol-Werte, die außerahlb der BEDINGUNG liegen &quot;einnorden&quot;&#xD;&#xA;update STAT_TonerZaehlerChange  set ChangeDate_extrapol= CASE WHEN ChangeDate_extrapol&lt;BeforeChangeDate THEN BeforeChangeDate ELSE AfterChangeDate-1 END  from STAT_TonerZaehlerChange where ChangeDate_extrapol not between BeforeChangeDate and AfterChangeDate and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;-- *** 5. ChangeDate_extrapol-Werte, die gleich AfterChangeDate sind auf AfterChangDate+1 setzen {MLK@2012}&#xD;&#xA;update STAT_TonerZaehlerChange  set ChangeDate_extrapol=  AfterChangeDate-1   from STAT_TonerZaehlerChange where ChangeDate_extrapol= AfterChangeDate and Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Update dbo.STAT_TonerZaehlerChange set ChangeDate_Previous = (&#xD;&#xA;&#x9;Select CASE WHEN&#x9;(&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Select  c.ChangeDate_extrapol  from STAT_TonerZaehlerChange c where c.Ebene1=a.Ebene1 and c.Ebene2=a.Ebene2 and c.Ebene3=a.Ebene3 and c.Ebene4=a.Ebene4 and c.IDNR=a.IDNR and a.Coleranttype=c.Coleranttype and c.ChangeDate_extrapol=&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Select MAX(b.ChangeDate_extrapol) from STAT_TonerZaehlerChange b where b.ChangeDate_extrapol&lt;a.ChangeDate_extrapol and a.Coleranttype=b.Coleranttype and a.IDNR=b.IDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;) &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;) is null &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;THEN&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(Select b.PreviousAfterChangeDate from STAT_TonerZaehlerChange b where b.ChangeDate_extrapol=a.ChangeDate_extrapol AND a.Coleranttype=b.Coleranttype and a.IDNR=b.IDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4)&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ELSE&#x9;(Select  c.ChangeDate_extrapol  from STAT_TonerZaehlerChange c where c.Ebene1=a.Ebene1 and c.Ebene2=a.Ebene2 and c.Ebene3=a.Ebene3 and c.Ebene4=a.Ebene4 and c.IDNR=a.IDNR and a.Coleranttype=c.Coleranttype and c.ChangeDate_extrapol=&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(Select MAX(b.ChangeDate_extrapol) from STAT_TonerZaehlerChange b where b.AfterChangeDate&lt;a.AfterChangeDate and a.Coleranttype=b.Coleranttype and a.IDNR = b.IDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;END)  FROM dbo.STAT_TonerZaehlerChange a where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4"/>
+          <INARG>
+            <Arguments>
+              <Argument>
+                <Exp val="1"/>
+              </Argument>
+              <Argument>
+                <Exp val="2"/>
+              </Argument>
+              <Argument>
+                <Exp val="3"/>
+              </Argument>
+              <Argument>
+                <Exp val="4"/>
+              </Argument>
+            </Arguments>
+          </INARG>
+        </SQL_FORM>
+        <INT_CMP_LIST_INFO>
+          <v>2</v>
+        </INT_CMP_LIST_INFO>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="3" FlowIsn="5" id="3">
+                  <Column val="3"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="4" FlowIsn="6" id="4">
+                  <Column val="4"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="2_Extrapol STAT_TZ_CHANGE1"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+        <Expressions>
+          <Expression id="1">
+            <ExpSyntax val="{0,1}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="2">
+            <ExpSyntax val="{0,2}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="3">
+            <ExpSyntax val="{0,3}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="4">
+            <ExpSyntax val="{0,4}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+        </Expressions>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

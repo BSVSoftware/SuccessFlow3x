@@ -1,0 +1,1721 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14071.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="Öffnungszeiten" ISN_2="1" LastIsn="1" id="91">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="N"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <TSK_PARAMS val="2"/>
+            <ParametersAttributes>
+              <Attr MgAttr="A"/>
+              <Attr MgAttr="N"/>
+            </ParametersAttributes>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="C"/>
+          <Interactive val="Y"/>
+          <External val="N"/>
+          <Offline val="Y"/>
+          <FormType val="D"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="738119" _time="37047" date="25.11.2021" time="10:17:27"/>
+        </Header>
+        <DISPLAY val="1"/>
+        <ItemIsn val="35"/>
+        <Resource>
+          <DB id="1">
+            <DataObject comp="4" obj="77"/>
+            <Access val="W"/>
+            <Share val="W"/>
+            <Open val="N"/>
+            <Cache val="Y"/>
+            <IdentifyRowModifications val="84"/>
+          </DB>
+          <Columns>
+            <Column id="1" name="Phone_Tablet">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_ALPHA" id="1"/>
+                <Picture id="157" valUnicode="U"/>
+                <StoredAs id="173" val="1"/>
+                <Size id="174" val="1"/>
+                <_Flip id="194"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="FuerKunde">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" id="1"/>
+                <Picture id="157" valUnicode="9"/>
+                <_Dec id="181"/>
+                <_Whole id="182" val="9"/>
+                <_Negative id="192"/>
+                <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Column val="1"/>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="4" obj="77"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="N"/>
+          <EvaluateEndCondition val="B"/>
+          <InitialMode val="M"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange LastIsn="1"/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="R"/>
+            <LockingStrategy val="M"/>
+            <CacheStrategy val="D"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="D"/>
+            <TransactionBegin val="P"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="Y"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="Y"/>
+            <AllowCreate val="Y"/>
+            <AllowDelete val="Y"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="N"/>
+            <TabbingCycle val="R"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="Y"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <INT_CMP_LIST_INFO>
+          <v>4</v>
+        </INT_CMP_LIST_INFO>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <ExecuteOn_ val="O"/>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" IDX="1" Type="M">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <ASS val="3"/>
+                  <Column val="5"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <Range MAX="3" MIN="3"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="38"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="3" FlowIsn="5" id="3">
+                  <Column val="39"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="4" FlowIsn="6" id="4">
+                  <Column val="41"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <INT_DIT_INFO>
+                    <v>3</v>
+                    <v>4</v>
+                    <v>5</v>
+                    <v>6</v>
+                    <v>7</v>
+                    <v>9</v>
+                    <v>10</v>
+                    <v>11</v>
+                    <v>12</v>
+                    <v>14</v>
+                    <v>15</v>
+                    <v>16</v>
+                    <v>17</v>
+                    <v>19</v>
+                    <v>20</v>
+                    <v>21</v>
+                    <v>22</v>
+                    <v>24</v>
+                    <v>25</v>
+                    <v>26</v>
+                    <v>27</v>
+                  </INT_DIT_INFO>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="5" FlowIsn="7" id="5">
+                  <Column val="9"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="4"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="6" FlowIsn="8" id="6">
+                  <Column val="10"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="5"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="7" FlowIsn="9" id="7">
+                  <Column val="11"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="6"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="8" FlowIsn="10" id="8">
+                  <Column val="12"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="7"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="9" FlowIsn="11" id="9">
+                  <Column val="13"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="9"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="10" FlowIsn="12" id="10">
+                  <Column val="14"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="10"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="11" FlowIsn="13" id="11">
+                  <Column val="15"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="11"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="12" FlowIsn="14" id="12">
+                  <Column val="16"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="12"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="13" FlowIsn="15" id="13">
+                  <Column val="17"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="14"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="14" FlowIsn="16" id="14">
+                  <Column val="18"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="15"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="15" FlowIsn="17" id="15">
+                  <Column val="19"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="16"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="16" FlowIsn="18" id="16">
+                  <Column val="20"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="17"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="17" FlowIsn="19" id="17">
+                  <Column val="21"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="19"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="18" FlowIsn="20" id="18">
+                  <Column val="22"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="20"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="19" FlowIsn="21" id="19">
+                  <Column val="23"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="21"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="20" FlowIsn="22" id="20">
+                  <Column val="24"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="22"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="21" FlowIsn="23" id="21">
+                  <Column val="25"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="24"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="22" FlowIsn="24" id="22">
+                  <Column val="26"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="25"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="23" FlowIsn="25" id="23">
+                  <Column val="27"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="26"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="24" FlowIsn="26" id="24">
+                  <Column val="28"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="27"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="25" FlowIsn="27" id="25">
+                  <Column val="29"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="26" FlowIsn="28" id="26">
+                  <Column val="30"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="27" FlowIsn="29" id="27">
+                  <Column val="31"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="28" FlowIsn="30" id="28">
+                  <Column val="32"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="29" FlowIsn="31" id="29">
+                  <Column val="33"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="30" FlowIsn="32" id="30">
+                  <Column val="34"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="31" FlowIsn="33" id="31">
+                  <Column val="35"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="32" FlowIsn="34" id="32">
+                  <Column val="36"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="N"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="33" FlowIsn="35" id="33">
+                  <Column val="42"/>
+                  <Type val="R"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="34" FlowIsn="36" id="34">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="35" FlowIsn="37" id="35">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+          <LogicUnit id="3" propagate="78">
+            <Level val="R"/>
+            <Type val="S"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <Expanded val="1"/>
+            <ExecuteOn_ val="O"/>
+            <LogicLines>
+              <LogicLine>
+                <Update FlowIsn="38">
+                  <FieldID val="33"/>
+                  <WithValue val="6"/>
+                  <Incremental val="N"/>
+                  <ForcedUpdate val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Update>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+          <LogicUnit id="4" propagate="78">
+            <Level val="H"/>
+            <Type val="U"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="U"/>
+              <PublicObject comp="-1" obj="1"/>
+            </Event>
+            <Expanded val="1"/>
+            <ExecuteOn_ val="O"/>
+            <LogicLines>
+              <LogicLine>
+                <RaiseEvent FlowIsn="39">
+                  <Event>
+                    <EventType val="I"/>
+                    <InternalEventID val="13"/>
+                  </Event>
+                  <Wait val="78"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </RaiseEvent>
+              </LogicLine>
+              <LogicLine>
+                <RaiseEvent FlowIsn="40">
+                  <Event>
+                    <EventType val="I"/>
+                    <InternalEventID val="295"/>
+                  </Event>
+                  <Wait val="78"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </RaiseEvent>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry _last_isn="29" _last_test_id="48" id="1">
+            <PropertyList model="FORM_RICH_CLIENT">
+              <Model comp="-1" id="1" obj="2"/>
+              <Width id="23" val="188"/>
+              <Height id="24" val="317"/>
+              <FormUnits id="33" val="4"/>
+              <VerticalFactor id="34" val="1"/>
+              <HorizontalFactor id="35" val="1"/>
+              <GridY id="39" val="2"/>
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="Öffnungszeiten"/>
+              <MinimumWidth id="418" val="188"/>
+              <MinimumHeight id="419" val="317"/>
+              <OrientationLock id="659" val="2"/>
+              <NavigationDrawerMenu comp="-1" id="662" obj="2"/>
+            </PropertyList>
+            <Control _test_id="1" id="1">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="11"/>
+                <Width id="23" val="188"/>
+                <Height id="24" val="317"/>
+                <Data Exp="2" id="43"/>
+                <Format id="82" valUnicode="1"/>
+                <Attribute id="83" val="85"/>
+                <TabOrder id="314" val="1"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="18" id="2">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="5"/>
+                <Text id="19" valUnicode="Montag"/>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="2"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="46" id="3">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="5"/>
+                <Text id="19" valUnicode="(aus Vorlage)"/>
+                <Placement id="20" left="50" right="50"/>
+                <X id="21" val="110"/>
+                <Y id="22" val="2"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Visible Exp="5" id="61"/>
+                <HorizontalAlignment id="65" val="3"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="26" id="4">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="9"/>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="23"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="5" id="43"/>
+                <ControlName id="46" val="MontagVon1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="3"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="27" id="5">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="9"/>
+                <Placement id="20" left="50" right="50"/>
+                <X id="21" val="110"/>
+                <Y id="22" val="23"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="6" id="43"/>
+                <ControlName id="46" val="MontagBis1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="4"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="28" id="6">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="9"/>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="44"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="7" id="43"/>
+                <ControlName id="46" val="MontagVon2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="5"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="29" id="7">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="9"/>
+                <Placement id="20" left="50" right="50"/>
+                <X id="21" val="110"/>
+                <Y id="22" val="44"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="8" id="43"/>
+                <ControlName id="46" val="MontagBis2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="6"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="19" id="8">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="5"/>
+                <Text id="19" valUnicode="Dienstag"/>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="63"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="30" id="9">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="9"/>
+                </Model>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="81"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="9" id="43"/>
+                <ControlName id="46" val="DienstagVon1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="7"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="31" id="10">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="10"/>
+                </Model>
+                <Placement id="20" left="50" right="50"/>
+                <X id="21" val="110"/>
+                <Y id="22" val="81"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="10" id="43"/>
+                <ControlName id="46" val="DienstagBis1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="8"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="32" id="11">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="11"/>
+                </Model>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="101"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="11" id="43"/>
+                <ControlName id="46" val="DienstagVon2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="9"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="33" id="12">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="12"/>
+                </Model>
+                <Placement id="20" left="50" right="50"/>
+                <X id="21" val="110"/>
+                <Y id="22" val="101"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="12" id="43"/>
+                <ControlName id="46" val="DienstagBis2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="10"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="20" id="13">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="5"/>
+                <Text id="19" valUnicode="Mittwoch"/>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="122"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="34" id="14">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="13"/>
+                </Model>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="142"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="13" id="43"/>
+                <ControlName id="46" val="MittwochVon1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="11"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="35" id="15">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="14"/>
+                </Model>
+                <Placement id="20" left="50" right="50"/>
+                <X id="21" val="110"/>
+                <Y id="22" val="142"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="14" id="43"/>
+                <ControlName id="46" val="MittwochBis1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="12"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="36" id="16">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="15"/>
+                </Model>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="162"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="15" id="43"/>
+                <ControlName id="46" val="MittwochVon2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="13"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="37" id="17">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="16"/>
+                </Model>
+                <Placement id="20" left="50" right="50"/>
+                <X id="21" val="110"/>
+                <Y id="22" val="162"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="16" id="43"/>
+                <ControlName id="46" val="MittwochBis2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="14"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="21" id="18">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="5"/>
+                <Text id="19" valUnicode="Donnerstag"/>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="183"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="38" id="19">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="17"/>
+                </Model>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="201"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="17" id="43"/>
+                <ControlName id="46" val="DonnerstagVon1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="15"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="39" id="20">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="18"/>
+                </Model>
+                <Placement id="20" left="50" right="50"/>
+                <X id="21" val="110"/>
+                <Y id="22" val="201"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="18" id="43"/>
+                <ControlName id="46" val="DonnerstagBis1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="16"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="40" id="21">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="19"/>
+                </Model>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="222"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="19" id="43"/>
+                <ControlName id="46" val="DonnerstagVon2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="17"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="41" id="22">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="20"/>
+                </Model>
+                <Placement id="20" left="50" right="50"/>
+                <X id="21" val="110"/>
+                <Y id="22" val="222"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="20" id="43"/>
+                <ControlName id="46" val="DonnerstagBis2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="18"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="22" id="23">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="5"/>
+                <Text id="19" valUnicode="Freitag"/>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="246"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="42" id="24">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="21"/>
+                </Model>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="266"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="21" id="43"/>
+                <ControlName id="46" val="FreitagVon1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="19"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="43" id="25">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="22"/>
+                </Model>
+                <Placement id="20" left="50" right="50"/>
+                <X id="21" val="110"/>
+                <Y id="22" val="266"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="22" id="43"/>
+                <ControlName id="46" val="FreitagBis1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="20"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="44" id="26">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="23"/>
+                </Model>
+                <Placement id="20" right="50"/>
+                <X id="21" val="27"/>
+                <Y id="22" val="288"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="23" id="43"/>
+                <ControlName id="46" val="FreitagVon2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="21"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="45" id="27">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model ID="MODEL_RICH_CLIENT" id="1">
+                  <Var FieldID="24"/>
+                </Model>
+                <Placement id="20" left="50" right="50"/>
+                <X id="21" val="110"/>
+                <Y id="22" val="288"/>
+                <Width id="23" val="65"/>
+                <Height id="24" val="16"/>
+                <Data FieldID="24" id="43"/>
+                <ControlName id="46" val="FreitagBis2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="261"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="22"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="48" id="29">
+              <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
+                <X id="21" val="1"/>
+                <Y id="22" val="2"/>
+                <Width id="23" val="21"/>
+                <Height id="24" val="21"/>
+                <Color id="51" val="102"/>
+                <Visible Exp="7" id="61"/>
+                <Format id="82"/>
+                <ImageListFileName id="88" val="Images\circle_plus_blackBTN.png"/>
+                <ButtonStyle id="96" val="2"/>
+                <RaiseEvent id="234">
+                  <EventType val="I"/>
+                  <InternalEventID val="31"/>
+                </RaiseEvent>
+                <TabOrder id="314" val="2"/>
+              </PropertyList>
+            </Control>
+          </FormEntry>
+        </TaskForms>
+        <TaskForms>
+          <FormEntry _last_isn="28" _last_test_id="48" id="2">
+            <PropertyList model="FORM_RICH_CLIENT">
+              <Model comp="-1" id="1" obj="1"/>
+              <Width id="23" val="656"/>
+              <Height id="24" val="411"/>
+              <FormUnits id="33" val="4"/>
+              <VerticalFactor id="34" val="1"/>
+              <HorizontalFactor id="35" val="1"/>
+              <GridY id="39" val="4"/>
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="Öffnungszeiten"/>
+              <MinimumWidth id="418" val="656"/>
+              <MinimumHeight id="419" val="411"/>
+              <_ContextMenu comp="-1" id="442" obj="2"/>
+              <OrientationLock id="659" val="3"/>
+            </PropertyList>
+            <Control _test_id="1" id="1">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="11"/>
+                <Width id="23" val="656"/>
+                <Height id="24" val="411"/>
+                <Data Exp="2" id="43"/>
+                <Format id="82" valUnicode="1"/>
+                <Attribute id="83" val="85"/>
+                <TabOrder id="314" val="1"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="18" id="2">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="5"/>
+                <Text id="19" valUnicode="Montag"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="19"/>
+                <Width id="23" val="136"/>
+                <Height id="24" val="16"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="47" id="3">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="5"/>
+                <Text id="19" valUnicode="(Werte stammen aus Vorlage)"/>
+                <Placement id="20"/>
+                <X id="21" val="212"/>
+                <Y id="22" val="19"/>
+                <Width id="23" val="175"/>
+                <Height id="24" val="16"/>
+                <Visible Exp="5" id="61"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="26" id="4">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="41"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="5" id="43"/>
+                <ControlName id="46" val="MontagVon1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="3"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="27" id="5">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="137"/>
+                <Y id="22" val="41"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="6" id="43"/>
+                <ControlName id="46" val="MontagBis1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="4"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="28" id="6">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="68"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="7" id="43"/>
+                <ControlName id="46" val="MontagVon2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="5"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="29" id="7">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="137"/>
+                <Y id="22" val="68"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="8" id="43"/>
+                <ControlName id="46" val="MontagBis2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="6"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="19" id="8">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="5"/>
+                <Text id="19" valUnicode="Dienstag"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="94"/>
+                <Width id="23" val="136"/>
+                <Height id="24" val="16"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="30" id="9">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="114"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="9" id="43"/>
+                <ControlName id="46" val="DienstagVon1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="7"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="31" id="10">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="137"/>
+                <Y id="22" val="114"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="10" id="43"/>
+                <ControlName id="46" val="DienstagBis1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="8"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="32" id="11">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="141"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="11" id="43"/>
+                <ControlName id="46" val="DienstagVon2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="9"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="33" id="12">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="137"/>
+                <Y id="22" val="141"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="12" id="43"/>
+                <ControlName id="46" val="DienstagBis2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="10"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="20" id="13">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="5"/>
+                <Text id="19" valUnicode="Mittwoch"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="166"/>
+                <Width id="23" val="136"/>
+                <Height id="24" val="16"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="34" id="14">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="189"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="13" id="43"/>
+                <ControlName id="46" val="MittwochVon1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="11"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="35" id="15">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="137"/>
+                <Y id="22" val="189"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="14" id="43"/>
+                <ControlName id="46" val="MittwochBis1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="12"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="36" id="16">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="212"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="15" id="43"/>
+                <ControlName id="46" val="MittwochVon2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="13"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="37" id="17">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="137"/>
+                <Y id="22" val="212"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="16" id="43"/>
+                <ControlName id="46" val="MittwochBis2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="14"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="21" id="18">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="5"/>
+                <Text id="19" valUnicode="Donnerstag"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="237"/>
+                <Width id="23" val="136"/>
+                <Height id="24" val="16"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="38" id="19">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="258"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="17" id="43"/>
+                <ControlName id="46" val="DonnerstagVon1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="15"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="39" id="20">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="137"/>
+                <Y id="22" val="258"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="18" id="43"/>
+                <ControlName id="46" val="DonnerstagBis1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="16"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="40" id="21">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="285"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="19" id="43"/>
+                <ControlName id="46" val="DonnerstagVon2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="17"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="41" id="22">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="137"/>
+                <Y id="22" val="285"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="20" id="43"/>
+                <ControlName id="46" val="DonnerstagBis2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="18"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="22" id="23">
+              <PropertyList model="CTRL_RICH_CLIENT_LABEL">
+                <Model comp="-1" id="1" obj="5"/>
+                <Text id="19" valUnicode="Freitag"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="312"/>
+                <Width id="23" val="136"/>
+                <Height id="24" val="16"/>
+                <_Orientation id="143"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="42" id="24">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="335"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="21" id="43"/>
+                <ControlName id="46" val="FreitagVon1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="19"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="43" id="25">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="137"/>
+                <Y id="22" val="335"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="22" id="43"/>
+                <ControlName id="46" val="FreitagBis1"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="20"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="44" id="26">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="57"/>
+                <Y id="22" val="360"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="23" id="43"/>
+                <ControlName id="46" val="FreitagVon2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="21"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control PDOD="128" _test_id="45" id="27">
+              <PropertyList model="CTRL_RICH_CLIENT_EDIT">
+                <Model comp="-1" id="1" obj="4"/>
+                <Placement id="20"/>
+                <X id="21" val="137"/>
+                <Y id="22" val="360"/>
+                <Width id="23" val="56"/>
+                <Height id="24" val="18"/>
+                <Data FieldID="24" id="43"/>
+                <ControlName id="46" val="FreitagBis2"/>
+                <Font id="50" val="219"/>
+                <Color id="51" val="257"/>
+                <MultiLineEdit id="71"/>
+                <Format id="82" valUnicode="HH:MM"/>
+                <TabOrder id="314" val="22"/>
+                <AllowParking Exp="4" id="315" val="Y"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="48" id="28">
+              <PropertyList model="CTRL_RICH_CLIENT_PUSH_BUTTON">
+                <Placement id="20" left="100"/>
+                <X id="21" val="611"/>
+                <Y id="22" val="19"/>
+                <Width id="23" val="24"/>
+                <Height id="24" val="24"/>
+                <Color id="51" val="102"/>
+                <Visible Exp="7" id="61"/>
+                <Format id="82"/>
+                <ImageListFileName id="88" val="Images\circle_plus_blackBTN.png"/>
+                <ButtonStyle id="96" val="2"/>
+                <RaiseEvent id="234">
+                  <EventType val="I"/>
+                  <InternalEventID val="31"/>
+                </RaiseEvent>
+                <TabOrder id="314" val="2"/>
+              </PropertyList>
+            </Control>
+          </FormEntry>
+        </TaskForms>
+        <Expressions>
+          <Expression id="1">
+            <ExpSyntax val="IF({0,34}='T' OR {0,34}='W','{0,2}'FORM,'{0,1}'FORM)"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="2">
+            <ExpSyntax val="''"/>
+            <ExpAttribute val="A"/>
+          </Expression>
+          <Expression id="3">
+            <ExpSyntax val="{0,35}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="4">
+            <ExpSyntax val="{0,4}='FALSE'LOG"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="5">
+            <ExpSyntax val="{0,4}"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+          <Expression id="6">
+            <ExpSyntax val="0"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="7">
+            <ExpSyntax val="EmptyDataview(0)"/>
+            <ExpAttribute val="B"/>
+          </Expression>
+        </Expressions>
+        <EVNT DESC="Speichern" FORCE_EXIT="N" id="1">
+          <Event>
+            <EventType val="N"/>
+          </Event>
+        </EVNT>
+        <VarRangeInfo Mode="E" VarRangeVeeIsn="1" id="1"/>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

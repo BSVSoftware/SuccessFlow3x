@@ -1,0 +1,166 @@
+<div
+    novalidate
+    [formGroup]="screenFormGroup"
+>
+    <div
+        style="display: flex; flex-direction: column"
+        [magic]="mgc.SuccessFlowAnmeldung"
+    >
+        <div style="display: flex; flex-direction: row">
+            <div *ngIf="mg.isImageExists(mgc.Image2)">
+                <img
+                    [magic]="mgc.Image2"
+                    [src]="mg.getImage(mgc.Image2)"
+                />
+            </div>
+            <label
+                [magic]="mgc.Label1"
+                class="lable_overflow"
+            >
+                SuccessFlow
+            </label>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <label [magic]="mgc.EditGroup">
+                {{mg.getValue(mgc.EditGroup) }}
+            </label>
+            <label
+                [magic]="mgc.Label4"
+                class="lable_overflow"
+            >
+                Benutzer
+            </label>
+            <label
+                [magic]="mgc.Label7"
+                class="lable_overflow"
+            >
+                Passwort
+            </label>
+            <mat-form-field>
+                <div>
+                    <input
+                        matInput
+                        [magic]="mgc.Benutzername_v"
+                        placeholder="Benutzername"
+                        [formControlName]="mgc.Benutzername_v"
+                        mgFormat
+                    >
+                    <mgError [magic]=mgc.Benutzername_v> </mgError>
+                </div>
+            </mat-form-field>
+            <label
+                [magic]="mgc.Label6"
+                [style.visibility]="mg.getVisible(mgc.Label6)"
+                class="lable_overflow"
+            >
+                * Benutzer nicht gefunden
+            </label>
+            <mat-form-field>
+                <div>
+                    <input
+                        matInput
+                        [magic]="mgc.Passwort_v"
+                        [attr.required]=""
+                        type="password"
+                        placeholder="Passwort"
+                        [formControlName]="mgc.Passwort_v"
+                        mgFormat
+                    >
+                    <mgError [magic]=mgc.Passwort_v> </mgError>
+                </div>
+            </mat-form-field>
+            <label
+                [magic]="mgc.Label9"
+                [style.visibility]="mg.getVisible(mgc.Label9)"
+                class="lable_overflow"
+            >
+                * Passwort falsch
+            </label>
+            <label
+                [magic]="mgc.Label11"
+                [style.visibility]="mg.getVisible(mgc.Label11)"
+                class="lable_overflow"
+            >
+                * Anmeldung gesperrt seit
+            </label>
+            <label
+                [magic]="mgc.Label13"
+                [style.visibility]="mg.getVisible(mgc.Label13)"
+                class="lable_overflow"
+            >
+                * Passwort abgelaufen am
+            </label>
+            <label
+                [magic]="mgc.Edit10"
+                [style.visibility]="mg.getVisible(mgc.Edit10)"
+            >
+                {{mg.getValue(mgc.Edit10) }}
+            </label>
+            <mat-form-field [style.visibility]="mg.getVisible(mgc.AnmGesperrtSeit_v)">
+                <div>
+                    <input
+                        matInput
+                        [magic]="mgc.AnmGesperrtSeit_v"
+                        [formControlName]="mgc.AnmGesperrtSeit_v"
+                        mgFormat
+                    >
+                    <mgError [magic]=mgc.AnmGesperrtSeit_v> </mgError>
+                </div>
+            </mat-form-field>
+            <mat-form-field
+                [style.visibility]="mg.getVisible(mgc.PWAbgelaufen_am_v)"
+                [magic]="mgc.PWAbgelaufen_am_v"
+                [eventsOnly]=true
+            >
+                <input
+                    matInput
+                    [matDatepicker]="PWAbgelaufen_am_v"
+                    [magic]="mgc.PWAbgelaufen_am_v"
+                    [formControlName]="mgc.PWAbgelaufen_am_v"
+                    [style.visibility]="mg.getVisible(mgc.PWAbgelaufen_am_v)"
+                    mgFormat
+                >
+                <mat-datepicker-toggle
+                    matSuffix
+                    [for]="PWAbgelaufen_am_v"
+                    *ngIf="mg.checkIsReadOnly(mgc.PWAbgelaufen_am_v)"
+                >
+                </mat-datepicker-toggle>
+                <mat-datepicker #PWAbgelaufen_am_v></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-button
+                color="primary"
+                [magic]="mgc.AnmeldenSF"
+                class="button_image_background_size"
+                [ngStyle]="{'background-image': mg.getStyle(mgc.AnmeldenSF, magicProperties.ImageFile)}"
+            >
+                {{mg.getValue(mgc.AnmeldenSF)}}
+            </button>
+            <button
+                mat-button
+                color="primary"
+                [magic]="mgc.Schliessen_b"
+                [matTooltip]="mg.getTitle(mgc.Schliessen_b)"
+                class="button_image_background_size"
+                [ngStyle]="{'background-image': mg.getStyle(mgc.Schliessen_b, magicProperties.ImageFile)}"
+            >
+                {{mg.getValue(mgc.Schliessen_b)}}
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: row">
+            <button
+                mat-button
+                color="primary"
+                [magic]="mgc.btn_PWVergessen"
+                [style.visibility]="mg.getVisible(mgc.btn_PWVergessen)"
+                class="button_image_background_size"
+                [ngStyle]="{'background-image': mg.getStyle(mgc.btn_PWVergessen, magicProperties.ImageFile)}"
+            >
+                Passwort vergessen ?
+            </button>
+        </div>
+    </div>
+</div>

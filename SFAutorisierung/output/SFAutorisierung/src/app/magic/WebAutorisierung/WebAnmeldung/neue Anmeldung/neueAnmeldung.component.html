@@ -1,0 +1,130 @@
+<div
+    novalidate
+    [formGroup]="screenFormGroup"
+>
+    <div
+        style="display: flex; flex-direction: column"
+        [magic]="mgc.neueAnmeldung"
+    >
+        <div style="display: flex; flex-direction: row">
+            <mat-card
+                [magic]="mgc.Group1"
+                class="container_border"
+            >
+                <div style="display: flex; flex-direction: row">
+                    <label
+                        [magic]="mgc.Label2"
+                        class="lable_overflow"
+                    >
+                        neues Konto erstellen
+                    </label>
+                </div>
+                <div style="display: flex; flex-direction: row">
+                    <label
+                        [magic]="mgc.Label3"
+                        class="lable_overflow"
+                    >
+                        E-Mail-Adresse
+                    </label>
+                    <mat-form-field>
+                        <div>
+                            <input
+                                matInput
+                                [magic]="mgc.EMailAdresse"
+                                placeholder="Pflichtfeld"
+                                [formControlName]="mgc.EMailAdresse"
+                                mgFormat
+                            >
+                            <mgError [magic]=mgc.EMailAdresse> </mgError>
+                        </div>
+                    </mat-form-field>
+                </div>
+                <div style="display: flex; flex-direction: row">
+                    <label
+                        [magic]="mgc.Label5"
+                        class="lable_overflow"
+                    >
+                        Anrede
+                    </label>
+                    <mat-form-field>
+                        <div>
+                            <input
+                                matInput
+                                [magic]="mgc.Anrede"
+                                placeholder="Pflichtfeld"
+                                [formControlName]="mgc.Anrede"
+                                mgFormat
+                            >
+                            <mgError [magic]=mgc.Anrede> </mgError>
+                        </div>
+                    </mat-form-field>
+                </div>
+                <div style="display: flex; flex-direction: row">
+                    <label
+                        [magic]="mgc.Label7"
+                        class="lable_overflow"
+                    >
+                        Vorname
+                    </label>
+                    <mat-form-field>
+                        <div>
+                            <input
+                                matInput
+                                [magic]="mgc.Vorname"
+                                placeholder="Pflichtfeld"
+                                [formControlName]="mgc.Vorname"
+                                mgFormat
+                            >
+                            <mgError [magic]=mgc.Vorname> </mgError>
+                        </div>
+                    </mat-form-field>
+                </div>
+                <div style="display: flex; flex-direction: row">
+                    <label
+                        [magic]="mgc.Label9"
+                        class="lable_overflow"
+                    >
+                        Nachname
+                    </label>
+                    <mat-form-field>
+                        <div>
+                            <input
+                                matInput
+                                [magic]="mgc.Nachname"
+                                placeholder="Pflichtfeld"
+                                [formControlName]="mgc.Nachname"
+                                mgFormat
+                            >
+                            <mgError [magic]=mgc.Nachname> </mgError>
+                        </div>
+                    </mat-form-field>
+                </div>
+                <div style="display: flex; flex-direction: row">
+                    <label
+                        [magic]="mgc.Label11"
+                        class="lable_overflow"
+                    >
+                        Kürzel
+                    </label>
+                    <mat-form-field>
+                        <div>
+                            <input
+                                matInput
+                                [magic]="mgc.Kuerzel"
+                                [formControlName]="mgc.Kuerzel"
+                                mgFormat
+                            >
+                            <mgError [magic]=mgc.Kuerzel> </mgError>
+                        </div>
+                    </mat-form-field>
+                    <div *ngIf="mg.isImageExists(mgc.Auswahl)">
+                        <img
+                            [magic]="mgc.Auswahl"
+                            [src]="mg.getImage(mgc.Auswahl)"
+                        />
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

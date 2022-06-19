@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="Insert STAT_TZ_CHANGE" ISN_2="1" LastIsn="1" id="45">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <TSK_PARAMS val="4"/>
+            <ParametersAttributes>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+            </ParametersAttributes>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63031" date="22.10.2020" time="17:30:31"/>
+        </Header>
+        <ItemIsn val="4"/>
+        <Resource>
+          <Columns>
+            <Column id="1" name="Ebene1_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="1"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene1"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="Ebene2_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="2"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene2"/>
+              </PropertyList>
+            </Column>
+            <Column id="3" name="Ebene3_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="3"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene3"/>
+              </PropertyList>
+            </Column>
+            <Column id="4" name="Ebene4_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="4"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene4"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="M"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="M"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="N"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="Y"/>
+            <AllowCreate val="Y"/>
+            <AllowDelete val="Y"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="Delete from dbo.STAT_TonerZaehlerChange where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;&#xD;&#xA;Insert into dbo.STAT_TonerZaehlerChange (Ebene1,Ebene2,Ebene3,Ebene4,DeviceID,Coleranttype,TonerArtNr, TonerSerialNr ,SupplyCapacity, SupplyPrice,BeforeChangeValue,BeforeChangeDate,BeforeChangeTime,AfterChange_DeadVolume,Deckungsanteil,AfterChangeValue,AfterChangeDate,AfterChangeTime)&#xD;&#xA;Select a.Ebene1,a.Ebene2,a.Ebene3,a.Ebene4,a.deviceid,a.coleranttype,a.SUCArtnr,a.supplyserialnr, a.supplycapacity, a.supplycustprice, a.remainingvalue,a.erstelltam,a.erstelltum,&#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;Select top 1 c.supplycapacity- (c.estimatedpages) FROM Supplies_WS_SQL c&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;where c.deviceid=a.deviceid and c.coleranttype=a.coleranttype and a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4 and c.remainingvalue>a.remainingvalue&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;and c.erstelltam = (Select MIN(d.erstelltam) from Supplies_WS_SQL d where d.erstelltam>a.erstelltam and d.deviceid=a.deviceid and d.coleranttype=a.coleranttype and a.Ebene1=d.Ebene1 and a.Ebene2=d.Ebene2 and a.Ebene3=d.Ebene3 and a.Ebene4=d.Ebene4 and d.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and d.coleranttype&lt;>'')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;group by c.deviceid,c.erstelltam,c.erstelltum,c.supplycapacity,c.estimatedpages&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;order by c.deviceid,c.erstelltam,c.erstelltum asc &#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;Select f.DeckungsanteilInProzent from ARTIKEL f where a.Ebene1=f.Ebene1 and a.Ebene2=f.Ebene2 and a.Ebene3=f.Ebene3 and a.Ebene4=f.Ebene4 and ArtikelPart_Nr=&#xD;&#xA;&#x9;&#x9;&#x9;(Select  top 1 max(c.SUCArtnr) FROM Supplies_WS_SQL c&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;where c.deviceid=a.deviceid and c.coleranttype=a.coleranttype and a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4 and c.remainingvalue>a.remainingvalue and c.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and c.coleranttype&lt;>''&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;and c.erstelltam = (Select MIN(d.erstelltam) from Supplies_WS_SQL d where d.erstelltam>a.erstelltam and d.deviceid=a.deviceid and d.coleranttype=a.coleranttype and a.Ebene1=d.Ebene1 and a.Ebene2=d.Ebene2 and a.Ebene3=d.Ebene3 and a.Ebene4=d.Ebene4 and d.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and d.coleranttype&lt;>'')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;group by c.deviceid,c.erstelltam,c.erstelltum &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;order by c.deviceid,c.erstelltam,c.erstelltum asc) &#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;Select  top 1 max(c.remainingvalue)  FROM Supplies_WS_SQL c&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;where c.deviceid=a.deviceid and c.coleranttype=a.coleranttype and a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4 and c.remainingvalue>a.remainingvalue and c.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and c.coleranttype&lt;>''&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;and c.erstelltam = (Select MIN(d.erstelltam) from Supplies_WS_SQL d where d.erstelltam>a.erstelltam and d.deviceid=a.deviceid and d.coleranttype=a.coleranttype and a.Ebene1=d.Ebene1 and a.Ebene2=d.Ebene2 and a.Ebene3=d.Ebene3 and a.Ebene4=d.Ebene4 and d.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and d.coleranttype&lt;>'')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;group by c.deviceid,c.erstelltam,c.erstelltum &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;order by c.deviceid,c.erstelltam,c.erstelltum asc &#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;Select  top 1 MAX(c.erstelltam) FROM Supplies_WS_SQL c&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;where c.deviceid=a.deviceid and c.coleranttype=a.coleranttype and a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4 and c.remainingvalue>a.remainingvalue and c.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and c.coleranttype&lt;>''&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;and c.erstelltam = (Select MIN(d.erstelltam) from Supplies_WS_SQL d where d.erstelltam>a.erstelltam and d.deviceid=a.deviceid and d.coleranttype=a.coleranttype and a.Ebene1=d.Ebene1 and a.Ebene2=d.Ebene2 and a.Ebene3=d.Ebene3 and a.Ebene4=d.Ebene4 and d.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and d.coleranttype&lt;>'')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;group by c.deviceid,c.erstelltam,c.erstelltum &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;order by c.deviceid,c.erstelltam,c.erstelltum asc  &#xD;&#xA;&#x9;&#x9;) ,&#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;Select  top 1 MAX(c.erstelltum) FROM Supplies_WS_SQL c&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;where c.deviceid=a.deviceid and c.coleranttype=a.coleranttype and a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4 and c.remainingvalue>a.remainingvalue and c.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and c.coleranttype&lt;>''&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;and c.erstelltam = (Select MIN(d.erstelltam) from Supplies_WS_SQL d where d.erstelltam>a.erstelltam and d.deviceid=a.deviceid and d.coleranttype=a.coleranttype and a.Ebene1=d.Ebene1 and a.Ebene2=d.Ebene2 and a.Ebene3=d.Ebene3 and a.Ebene4=d.Ebene4 and d.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and d.coleranttype&lt;>'')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;group by c.deviceid,c.erstelltam,c.erstelltum &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;order by c.deviceid,c.erstelltam,c.erstelltum asc  &#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;from Supplies_WS_SQL a &#xD;&#xA;&#x9;where a.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and a.coleranttype&lt;>'' and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;&#x9;and a.erstelltum = &#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;Select max(b.erstelltum) from Supplies_WS_SQL b where b.deviceid=a.deviceid  and b.coleranttype=a.coleranttype and a.erstelltam=b.erstelltam and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and b.coleranttype&lt;>''&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;and a.remainingvalue&lt;&#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;Select  top 1 max(c.remainingvalue)  FROM Supplies_WS_SQL c&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;where c.deviceid=a.deviceid and c.coleranttype=a.coleranttype and a.Ebene1=c.Ebene1 and a.Ebene2=c.Ebene2 and a.Ebene3=c.Ebene3 and a.Ebene4=c.Ebene4 and c.remainingvalue>a.remainingvalue and c.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and c.coleranttype&lt;>''&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;and c.erstelltam = (Select MIN(d.erstelltam) from Supplies_WS_SQL d where d.erstelltam>a.erstelltam and d.deviceid=a.deviceid and d.coleranttype=a.coleranttype and a.Ebene1=d.Ebene1 and a.Ebene2=d.Ebene2 and a.Ebene3=d.Ebene3 and a.Ebene4=d.Ebene4 and d.supplytype in ('toner','tonerCartridge','ink','inkCartridge') and d.coleranttype&lt;>'')&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;group by c.deviceid,c.erstelltam,c.erstelltum &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;order by c.deviceid,c.erstelltam,c.erstelltum asc &#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;group by a.Ebene1,a.Ebene2,a.Ebene3,a.Ebene4,a.remainingvalue,a.erstelltam,a.erstelltum,a.deviceid,a.coleranttype,a.SUCArtnr,a.supplyserialnr,a.supplycapacity,a.estimatedpages,a.supplycustprice &#xD;&#xA;order by a.deviceid,a.erstelltam,a.erstelltum"/>
+          <INARG>
+            <Arguments>
+              <Argument>
+                <Exp val="1"/>
+              </Argument>
+              <Argument>
+                <Exp val="2"/>
+              </Argument>
+              <Argument>
+                <Exp val="3"/>
+              </Argument>
+              <Argument>
+                <Exp val="4"/>
+              </Argument>
+            </Arguments>
+          </INARG>
+        </SQL_FORM>
+        <INT_CMP_LIST_INFO>
+          <v>2</v>
+        </INT_CMP_LIST_INFO>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="3" FlowIsn="5" id="3">
+                  <Column val="3"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="4" FlowIsn="6" id="4">
+                  <Column val="4"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="Insert STAT_TZ_CHANGE"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+        <Expressions>
+          <Expression id="1">
+            <ExpSyntax val="{0,1}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="2">
+            <ExpSyntax val="{0,2}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="3">
+            <ExpSyntax val="{0,3}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="4">
+            <ExpSyntax val="{0,4}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+        </Expressions>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>
