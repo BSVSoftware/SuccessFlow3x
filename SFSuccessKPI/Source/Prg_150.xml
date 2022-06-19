@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="ETL2 STAT_AnbahnungKPIweekly" ISN_2="1" LastIsn="1" id="150">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <ParametersAttributes/>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63033" date="22.10.2020" time="17:30:33"/>
+        </Header>
+        <Resource>
+          <Columns/>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="I"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="T"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="update dbo.STAT_Anbahnung_KPI_weekly SET Rtot_N_Offen =&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT b.Rtot_N_Offen FROM STAT_Anbahnung_KPI_daily b&#xD;&#xA;&#x9;WHERE b.Datum = &#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;SELECT MAX(Datum) FROM STAT_Anbahnung_KPI_daily WHERE Datum &lt; dateadd(yy, datediff(yy,0,getdate())-1,0)&#xD;&#xA;&#x9;&#x9;)and Ebene1=b.Ebene1 and Ebene2=b.Ebene2 and Ebene3=b.Ebene3 and Ebene4=b.Ebene4&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;+&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT  sum(b.N_OFFEN)&#xD;&#xA;&#x9;FROM  dbo.STAT_Anbahnung_KPI_weekly b&#xD;&#xA;&#x9;where (b.IDnr &lt;= a.IDnr )&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;from dbo.STAT_Anbahnung_KPI_weekly as a&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;-- Übernahme der Werte für Rtot_E_Offen vom Ende des letzten Jahres&#x9;&#xD;&#xA;&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_weekly SET Rtot_E_Offen =&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT b.Rtot_E_Offen FROM STAT_Anbahnung_KPI_daily b&#xD;&#xA;&#x9;WHERE b.Datum = &#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;SELECT MAX(Datum) FROM STAT_Anbahnung_KPI_daily WHERE Datum &lt; dateadd(yy, datediff(yy,0,getdate())-1,0)&#xD;&#xA;&#x9;&#x9;)and Ebene1=b.Ebene1 and Ebene2=b.Ebene2 and Ebene3=b.Ebene3 and Ebene4=b.Ebene4&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;+&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT  sum(b.E_OFFEN)&#xD;&#xA;&#x9;FROM  dbo.STAT_Anbahnung_KPI_weekly b&#xD;&#xA;&#x9;where (b.IDnr &lt;= a.IDnr )&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;from dbo.STAT_Anbahnung_KPI_weekly as a&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;-- Übernahme der Werte für Rtot_E_OffenReal vom Ende des letzten Jahres&#x9;&#xD;&#xA;&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_weekly SET Rtot_E_OFFENR =&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT b.Rtot_E_OffenReal FROM STAT_Anbahnung_KPI_daily b&#xD;&#xA;&#x9;WHERE b.Datum = &#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;SELECT MAX(Datum) FROM STAT_Anbahnung_KPI_daily WHERE Datum &lt; dateadd(yy, datediff(yy,0,getdate())-1,0)&#xD;&#xA;&#x9;&#x9;) and Ebene1=b.Ebene1 and Ebene2=b.Ebene2 and Ebene3=b.Ebene3 and Ebene4=b.Ebene4&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;+&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;SELECT  sum(b.E_OFFENR)&#xD;&#xA;&#x9;FROM  dbo.STAT_Anbahnung_KPI_weekly b&#xD;&#xA;&#x9;where (b.IDnr &lt;= a.IDnr )&#xD;&#xA;&#x9;)&#xD;&#xA;&#x9;from dbo.STAT_Anbahnung_KPI_weekly as a&#xD;&#xA;&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_weekly SET Rtot_E_Offen_ToWin =&#xD;&#xA;&#xD;&#xA;Isnull((SELECT sum(b.PLanOFFEN) FROM&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;SELECT a.Anbahnung,a.PlanOFFEN FROM STAT_Anbahnung_Daten a&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;WHERE a.Datum &lt;Dateadd(dd,+7,c.WeekStartDate) and c.Ebene1=a.Ebene1 and c.Ebene2=a.Ebene2 and c.Ebene3=a.Ebene3 and c.Ebene4=a.Ebene4 and a.OFFENDauer&lt;=(select max(Gewonnendauer) from STAT_Anbahnung_Daten)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;GROUP BY a.Anbahnung,a.PlanOFFEN&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;HAVING COUNT(a.Anbahnung)=1&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;)as b),0) &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;FROM dbo.STAT_Anbahnung_KPI_weekly c&#xD;&#xA;&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_weekly SET N_KPI = case when (N_GEWONNNENw + Rtot_N_Offen + N_VERLOREN)&lt;>0 then 100*convert(decimal(5,2),N_GEWONNNENw)/(N_GEWONNNENw + Rtot_N_Offen + N_VERLOREN)else 0 end&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_weekly SET E_KPI = case when (E_GEWONNNENw + Rtot_E_Offen + E_VERLOREN)&lt;>0 then 100*E_GEWONNNENw/(E_GEWONNNENw + Rtot_E_Offen + E_VERLOREN)else 0 end&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_weekly SET N_TREND_Anb = case when (N_GEWONNNENw+N_VERLOREN)&lt;>0 then((convert(decimal(5,2),N_GEWONNNENw)-N_VERLOREN)/(N_GEWONNNENw+N_VERLOREN)*100)else 0 end&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_weekly SET E_TREND_Anb = case when (E_GEWONNNENw+E_VERLOREN)&lt;>0 then(E_GEWONNNENw-E_VERLOREN)/(E_GEWONNNENw+E_VERLOREN)*100 else 0 end&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_weekly SET N_KPIgew = case when (N_GEWONNNENw+N_VERLOREN)&lt;>0 then((convert(decimal(5,2),N_GEWONNNENw))/(N_GEWONNNENw+N_VERLOREN)*100)else 0 end&#xD;&#xA;update dbo.STAT_Anbahnung_KPI_weekly SET E_KPIgew = case when (E_GEWONNNENw+E_VERLOREN)&lt;>0 then(E_GEWONNNENw)/(E_GEWONNNENw+E_VERLOREN)*100 else 0 end&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;-- TrendGlättung&#xD;&#xA;&#xD;&#xA;update  dbo.STAT_Anbahnung_KPI_weekly SET N_KPI_Trd = &#xD;&#xA;&#x9;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;&#x9;SELECT sum(b.N_KPI)/COUNT(b.IDnr)&#xD;&#xA;&#x9;&#x9;&#x9;FROM STAT_Anbahnung_KPI_weekly b&#xD;&#xA;&#x9;&#x9;&#x9;WHERE&#x9;b.IDnr between a.IDnr-2 and a.IDnr+2&#xD;&#xA;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;&#x9;FROM STAT_Anbahnung_KPI_weekly as a&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;update  dbo.STAT_Anbahnung_KPI_weekly SET N_KPIgew_Trd = &#xD;&#xA;&#x9;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;&#x9;SELECT sum(b.N_KPIgew)/COUNT(b.IDnr)&#xD;&#xA;&#x9;&#x9;&#x9;FROM STAT_Anbahnung_KPI_weekly b&#xD;&#xA;&#x9;&#x9;&#x9;WHERE&#x9;b.IDnr between a.IDnr-2 and a.IDnr+2&#xD;&#xA;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;&#x9;FROM STAT_Anbahnung_KPI_weekly as a&#xD;&#xA;&#xD;&#xA;update  dbo.STAT_Anbahnung_KPI_weekly SET E_KPI_Trd = &#xD;&#xA;&#x9;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;&#x9;SELECT sum(b.E_KPI)/COUNT(b.IDnr)&#xD;&#xA;&#x9;&#x9;&#x9;FROM STAT_Anbahnung_KPI_weekly b&#xD;&#xA;&#x9;&#x9;&#x9;WHERE&#x9;b.IDnr between a.IDnr-2 and a.IDnr+2&#xD;&#xA;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;&#x9;FROM STAT_Anbahnung_KPI_weekly as a&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;update  dbo.STAT_Anbahnung_KPI_weekly SET E_KPIgew_Trd = &#xD;&#xA;&#x9;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;&#x9;SELECT sum(b.E_KPIgew)/COUNT(b.IDnr)&#xD;&#xA;&#x9;&#x9;&#x9;FROM STAT_Anbahnung_KPI_weekly b&#xD;&#xA;&#x9;&#x9;&#x9;WHERE&#x9;b.IDnr between a.IDnr-2 and a.IDnr+2&#xD;&#xA;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;&#x9;FROM STAT_Anbahnung_KPI_weekly as a"/>
+        </SQL_FORM>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="ETL2 STAT_AnbahnungKPIweekly"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

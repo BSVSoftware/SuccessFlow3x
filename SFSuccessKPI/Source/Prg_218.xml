@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="ET STAT TrendProgArtGruppe" ISN_2="1" LastIsn="1" id="218">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <TSK_PARAMS val="4"/>
+            <ParametersAttributes>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+            </ParametersAttributes>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63035" date="22.10.2020" time="17:30:35"/>
+        </Header>
+        <ItemIsn val="4"/>
+        <Resource>
+          <Columns>
+            <Column id="1" name="Ebene1_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="1"/>
+                <NullAllowed id="166"/>
+                <NullDefault id="169"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="Ebene2_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="2"/>
+                <NullAllowed id="166"/>
+                <NullDefault id="169"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+              </PropertyList>
+            </Column>
+            <Column id="3" name="Ebene3_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="3"/>
+                <NullAllowed id="166"/>
+                <NullDefault id="169"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+              </PropertyList>
+            </Column>
+            <Column id="4" name="Ebene4_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="4"/>
+                <NullAllowed id="166"/>
+                <NullDefault id="169"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="I"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="T"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="Delete from dbo.STAT_Trend_Prognose_ArtikelGruppe where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;DECLARE @date datetime,&#xD;&#xA;&#x9;&#x9;@Counter1 int,&#xD;&#xA;&#x9;&#x9;@IDNRCounter int,&#xD;&#xA;&#x9;&#x9;@ArtGRPAlt  int,&#xD;&#xA;&#x9;&#x9;@AnzahlArtGrp int,&#xD;&#xA;&#x9;&#x9;@InsertArtGrp int,&#xD;&#xA;&#x9;&#x9;@InsertStatGrp int,&#xD;&#xA;&#x9;&#x9;@InsertBezeichnung char(30);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;SET @ArtGRPAlt =(Select min(b.Artikelgruppe) from ((Select c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum  from Auftrag_RNR c group by c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum) c inner join Positionen b on (c.ebene1=b.Ebene1 and c.ebene2=b.Ebene2 and c.ebene3=b.Ebene3 and c.ebene4=b.Ebene4 and c.Auftragsnummer=b.AUFTNR))  where c.RechnungsDatum>=(dateadd(month,datediff(MONTH,0,(dateadd(yy, datediff(yy,0,GETDATE())-2,0))),0)) and b.Artikel_Nr>'' and b.Ebene1=:1 and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4)-1&#xD;&#xA;&#x9;&#x9;SET @Counter1=1&#xD;&#xA;&#x9;&#x9;Set @AnzahlArtGrp =(Select count(distinct b.Artikelgruppe) from ((Select c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum  from Auftrag_RNR c group by c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum) c inner join Positionen b on (c.ebene1=b.Ebene1 and c.ebene2=b.Ebene2 and c.ebene3=b.Ebene3 and c.ebene4=b.Ebene4 and c.Auftragsnummer=b.AUFTNR))  where c.RechnungsDatum>=(dateadd(month,datediff(MONTH,0,(dateadd(yy, datediff(yy,0,GETDATE())-2,0))),0)) and b.Artikel_Nr>'' and b.Ebene1=:1 and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4)&#xD;&#xA;WHILE @Counter1&lt;=@AnzahlArtGrp&#xD;&#xA;&#x9;BEGIN&#xD;&#xA;&#x9;&#x9;print @ArtGRPAlt&#xD;&#xA;&#x9;&#x9;print&#x9;@AnzahlArtGrp&#xD;&#xA;&#x9;&#x9;print @Counter1&#xD;&#xA;&#x9;&#x9;SET @InsertArtGrp =(Select min(b.Artikelgruppe) from ((Select c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum  from Auftrag_RNR c group by c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum) c inner join Positionen b on (c.ebene1=b.Ebene1 and c.ebene2=b.Ebene2 and c.ebene3=b.Ebene3 and c.ebene4=b.Ebene4 and c.Auftragsnummer=b.AUFTNR))  where c.RechnungsDatum>=(dateadd(month,datediff(MONTH,0,(dateadd(yy, datediff(yy,0,GETDATE())-2,0))),0)) and b.Artikel_Nr>'' and b.Ebene1=:1 and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4 and b.Artikelgruppe>@ArtGRPAlt)&#xD;&#xA;&#x9;&#x9;SET @InsertBezeichnung =(Select e.Bezeichnung from ARTIKELGRUPPE e where e.Ebene1=:1 and e.Ebene2=:2 and e.Ebene3=:3 and e.Ebene4=:4 and e.Artikelgruppe=(Select min(b.Artikelgruppe) from ((Select c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum  from Auftrag_RNR c group by c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum) c inner join Positionen b on (c.ebene1=b.Ebene1 and c.ebene2=b.Ebene2 and c.ebene3=b.Ebene3 and c.ebene4=b.Ebene4 and c.Auftragsnummer=b.AUFTNR))  where c.RechnungsDatum>=(dateadd(month,datediff(MONTH,0,(dateadd(yy, datediff(yy,0,GETDATE())-2,0))),0)) and b.Artikel_Nr>'' and b.Ebene1=:1 and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4 and b.Artikelgruppe>@ArtGRPAlt))&#xD;&#xA;&#x9;&#x9;SET @InsertStatGrp = (Select e.Statistiknummer from ARTIKELGRUPPE e where e.Ebene1=:1 and e.Ebene2=:2 and e.Ebene3=:3 and e.Ebene4=:4 and e.Artikelgruppe=(Select min(b.Artikelgruppe) from ((Select c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum  from Auftrag_RNR c group by c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum) c inner join Positionen b on (c.ebene1=b.Ebene1 and c.ebene2=b.Ebene2 and c.ebene3=b.Ebene3 and c.ebene4=b.Ebene4 and c.Auftragsnummer=b.AUFTNR))  where c.RechnungsDatum>=(dateadd(month,datediff(MONTH,0,(dateadd(yy, datediff(yy,0,GETDATE())-2,0))),0)) and b.Artikel_Nr>'' and b.Ebene1=:1 and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4 and b.Artikelgruppe>@ArtGRPAlt))&#xD;&#xA;&#x9;&#x9;SET @date = (dateadd(month,datediff(MONTH,0,(dateadd(yy, datediff(yy,0,GETDATE())-2,0))),0))&#xD;&#xA;&#x9;&#x9;Set @IDNRCounter=1&#xD;&#xA;&#x9;&#x9;WHILE @date&lt;= dateadd(MM,12,GETDATE())&#xD;&#xA;&#x9;&#x9;&#x9;BEGIN&#xD;&#xA;&#x9;&#x9;&#x9;insert into dbo.STAT_Trend_Prognose_ArtikelGruppe(IDNR,MonthStartDate,Ebene1,Ebene2,Ebene3,Ebene4,ArtikelGruppe,ArtGrp_Bezeichnung,StatGruppe)&#xD;&#xA;&#x9;&#x9;&#x9;Select&#x9;@IDNRCounter,@date,:1,:2,:3,:4,@InsertArtGrp,@InsertBezeichnung,@InsertStatGrp&#xD;&#xA;&#x9;&#x9;&#x9;SET @date = dateadd(MM,1,@date)&#xD;&#xA;&#x9;&#x9;&#x9;Set @IDNRCounter= @IDNRCounter+1&#xD;&#xA;&#x9;&#x9;&#x9;END&#xD;&#xA;&#x9;SET @Counter1=@Counter1+1&#xD;&#xA;&#x9;set  @ArtGRPAlt = (Select (e.Artikelgruppe) from ARTIKELGRUPPE e&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;where e.Ebene1=:1 and e.Ebene2=:2 and e.Ebene3=:3 and e.Ebene4=:4 and e.Artikelgruppe =(Select min(b.Artikelgruppe) from ((Select c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum  from Auftrag_RNR c group by c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum) c inner join Positionen b on (c.ebene1=b.Ebene1 and c.ebene2=b.Ebene2 and c.ebene3=b.Ebene3 and c.ebene4=b.Ebene4 and c.Auftragsnummer=b.AUFTNR))  where c.RechnungsDatum>=(dateadd(month,datediff(MONTH,0,(dateadd(yy, datediff(yy,0,GETDATE())-2,0))),0)) and b.Artikel_Nr>'' and b.Ebene1=:1 and b.Ebene2=:2 and b.Ebene3=:3 and b.Ebene4=:4 and b.Artikelgruppe>@ArtGRPAlt))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;END&#xD;&#xA;delete from dbo.STAT_Trend_Prognose_ArtikelGruppe where Ebene1=:1 and Ebene2=:2 and Ebene3=:3 and Ebene4=:4 and StatGruppe is null&#xD;&#xA;Update dbo.STAT_Trend_Prognose_ArtikelGruppe set StatGrp_Bezeichnung = (Select b.Beschreibung from STATISTIKGRUPPE b where a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and a.StatGruppe=b.StatGrpNr)from dbo.STAT_Trend_Prognose_ArtikelGruppe a  where a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;Update dbo.STAT_Trend_Prognose_ArtikelGruppe set MaxDatum =(Select MAX(c.RechnungsDatum) from (Select c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum  from Auftrag_RNR c group by c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum) c inner join Positionen b on (c.ebene1=b.Ebene1 and c.ebene2=b.Ebene2 and c.ebene3=b.Ebene3 and c.ebene4=b.Ebene4 and c.Auftragsnummer=b.AUFTNR) where  a.MonthStartDate = dateadd(month, datediff(month, 0, c.RechnungsDatum),0) and a.ArtikelGruppe=b.Artikelgruppe and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.Artikel_Nr>'' group by  (dateadd(month,datediff(MONTH,0,(dateadd(MM, datediff(MM,0,c.RechnungsDatum),0))),0))) from dbo.STAT_Trend_Prognose_ArtikelGruppe a where a.MonthStartDate&lt;=dateadd(month, datediff(month, 0, getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;Update dbo.STAT_Trend_Prognose_ArtikelGruppe set Netto = isnull((Select SUM((100-ISNULL(b.Rabatt,0))*isnull(b.zeilenwert,0)/100) from (Select c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum  from Auftrag_RNR c where c.Splitt_lfdNr=1 group by c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum) c inner join Positionen b on (c.ebene1=b.Ebene1 and c.ebene2=b.Ebene2 and c.ebene3=b.Ebene3 and c.ebene4=b.Ebene4 and c.Auftragsnummer=b.AUFTNR) where  a.MonthStartDate = dateadd(month, datediff(month, 0, c.RechnungsDatum),0) and a.ArtikelGruppe=b.Artikelgruppe and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.Artikel_Nr>'' group by  (dateadd(month,datediff(MONTH,0,(dateadd(MM, datediff(MM,0,c.RechnungsDatum),0))),0))),0) from dbo.STAT_Trend_Prognose_ArtikelGruppe a where a.MonthStartDate&lt;=dateadd(month, datediff(month, 0, getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;Update dbo.STAT_Trend_Prognose_ArtikelGruppe set VerkaufteEinheiten = isnull((Select sum(Case when isnull(b.Teilung,0)&lt;>0 then b.Liefermenge/b.Teilung else b.Liefermenge end) from (Select c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum  from Auftrag_RNR c group by c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum) c inner join Positionen b on (c.ebene1=b.Ebene1 and c.ebene2=b.Ebene2 and c.ebene3=b.Ebene3 and c.ebene4=b.Ebene4 and c.Auftragsnummer=b.AUFTNR) where  a.MonthStartDate = dateadd(month, datediff(month, 0, c.RechnungsDatum),0) and a.ArtikelGruppe=b.Artikelgruppe and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.Artikel_Nr>'' group by  (dateadd(month,datediff(MONTH,0,(dateadd(MM, datediff(MM,0,c.RechnungsDatum),0))),0))),0) from dbo.STAT_Trend_Prognose_ArtikelGruppe a where a.MonthStartDate&lt;=dateadd(month, datediff(month, 0, getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;Update dbo.STAT_Trend_Prognose_ArtikelGruppe set Kosten = isnull((Select sum(case when b.Teilung > 0 then isnull(b.EkPreis,0)*isnull(b.Liefermenge,0)/isnull(b.Teilung,0)else isnull(b.EkPreis,0)*isnull(b.Liefermenge,0) end) from (Select c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum  from Auftrag_RNR c group by c.Ebene1,c.Ebene2, c.Ebene3, c.Ebene4, c.Auftragsnummer , c.Rechnungsdatum) c inner join Positionen b on (c.ebene1=b.Ebene1 and c.ebene2=b.Ebene2 and c.ebene3=b.Ebene3 and c.ebene4=b.Ebene4 and c.Auftragsnummer=b.AUFTNR) where  a.MonthStartDate = dateadd(month, datediff(month, 0, c.RechnungsDatum),0) and a.ArtikelGruppe=b.Artikelgruppe and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.Artikel_Nr>'' group by  (dateadd(month,datediff(MONTH,0,(dateadd(MM, datediff(MM,0,c.RechnungsDatum),0))),0))),0) from dbo.STAT_Trend_Prognose_ArtikelGruppe a where a.MonthStartDate&lt;=dateadd(month, datediff(month, 0, getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;Update dbo.STAT_Trend_Prognose_ArtikelGruppe set Deckung = Netto- Kosten &#xD;&#xA;update dbo.STAT_Trend_Prognose_ArtikelGruppe SET DeckungNetto = case when a.Netto&lt;>0 then a.Deckung/a.Netto*100 else 0 end from dbo.STAT_Trend_Prognose_ArtikelGruppe a  where a.MonthStartDate&lt;=dateadd(month, datediff(month, 0, getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;"/>
+          <INARG>
+            <Arguments>
+              <Argument>
+                <Exp val="1"/>
+              </Argument>
+              <Argument>
+                <Exp val="2"/>
+              </Argument>
+              <Argument>
+                <Exp val="3"/>
+              </Argument>
+              <Argument>
+                <Exp val="4"/>
+              </Argument>
+            </Arguments>
+          </INARG>
+        </SQL_FORM>
+        <INT_CMP_LIST_INFO>
+          <v>2</v>
+        </INT_CMP_LIST_INFO>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="3" FlowIsn="5" id="3">
+                  <Column val="3"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="4" FlowIsn="6" id="4">
+                  <Column val="4"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="ET STAT TrendProgArtGruppe"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+        <Expressions>
+          <Expression id="1">
+            <ExpSyntax val="{0,1}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="2">
+            <ExpSyntax val="{0,2}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="3">
+            <ExpSyntax val="{0,3}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="4">
+            <ExpSyntax val="{0,4}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+        </Expressions>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

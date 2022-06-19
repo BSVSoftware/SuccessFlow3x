@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="CMA1 STAT TrendProgCustomer" ISN_2="1" LastIsn="1" id="204">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <TSK_PARAMS val="4"/>
+            <ParametersAttributes>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+              <Attr MgAttr="N"/>
+            </ParametersAttributes>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63034" date="22.10.2020" time="17:30:34"/>
+        </Header>
+        <ItemIsn val="4"/>
+        <Resource>
+          <Columns>
+            <Column id="1" name="Ebene1_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="1"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene1"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="Ebene2_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="2"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene2"/>
+              </PropertyList>
+            </Column>
+            <Column id="3" name="Ebene3_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="3"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene3"/>
+              </PropertyList>
+            </Column>
+            <Column id="4" name="Ebene4_P">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_NUMERIC" comp="2" id="1" obj="4"/>
+                <StoredAs id="173" val="4"/>
+                <Size id="174" val="2"/>
+                <Definition id="175" val="2"/>
+                <DbColumnName id="178" val="Ebene4"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="I"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="T"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="update  dbo.STAT_Trend_Prognose_Customer SET Netto_Trd=&#xD;&#xA;((&#xD;&#xA;SELECT sum(b.Netto)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE&#x9;a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-5 and a.IDnr+6 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;)+(&#xD;&#xA;SELECT sum(b.Netto)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE&#x9;a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-6 and a.IDnr+5 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;))/2&#xD;&#xA;FROM STAT_Trend_Prognose_Customer a where a.MonthStartDate&lt;dateadd(month,datediff(month,0,getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update  dbo.STAT_Trend_Prognose_Customer SET NettoA_Trd=&#xD;&#xA;((&#xD;&#xA;SELECT sum(b.NettoA)/COUNT(b.IDnr)&#xD;&#xA;FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE&#x9;a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-5 and a.IDnr+6 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;)+(&#xD;&#xA;SELECT sum(b.NettoA)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE&#x9;a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-6 and a.IDnr+5 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;))/2&#xD;&#xA;FROM STAT_Trend_Prognose_Customer a where a.MonthStartDate&lt;dateadd(month,datediff(month,0,getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#x9;&#xD;&#xA;update  dbo.STAT_Trend_Prognose_Customer SET NettoR_Trd=&#xD;&#xA;((&#xD;&#xA;SELECT sum(b.NettoR)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE&#x9;a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-5 and a.IDnr+6 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;)+(&#xD;&#xA;SELECT sum(b.NettoR)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE&#x9;a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-6 and a.IDnr+5 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;))/2&#xD;&#xA;FROM STAT_Trend_Prognose_Customer a where a.MonthStartDate&lt;dateadd(month,datediff(month,0,getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#x9;&#xD;&#xA;update  dbo.STAT_Trend_Prognose_Customer SET NettoM_Trd=&#xD;&#xA;((&#xD;&#xA;SELECT sum(b.NettoM)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE&#x9;a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-5 and a.IDnr+6 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;)+(&#xD;&#xA;SELECT sum(b.NettoM)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-6 and a.IDnr+5 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;))/2&#xD;&#xA;FROM STAT_Trend_Prognose_Customer a where a.MonthStartDate&lt;dateadd(month,datediff(month,0,getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Trend_Prognose_Customer SET NettoV_Trd=&#xD;&#xA;((&#xD;&#xA;SELECT sum(b.NettoV)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-5 and a.IDnr+6 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;)+(&#xD;&#xA;SELECT sum(b.NettoV)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-6 and a.IDnr+5 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;))/2&#xD;&#xA;FROM STAT_Trend_Prognose_Customer a where a.MonthStartDate&lt;dateadd(month,datediff(month,0,getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Trend_Prognose_Customer SET NettoW_Trd=&#xD;&#xA;((&#xD;&#xA;SELECT sum(b.NettoW)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-5 and a.IDnr+6 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;)+(&#xD;&#xA;SELECT sum(b.NettoW)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-6 and a.IDnr+5 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;))/2&#xD;&#xA;FROM STAT_Trend_Prognose_Customer a where a.MonthStartDate&lt;dateadd(month,datediff(month,0,getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Trend_Prognose_Customer SET VerkaufteEinheiten_Trd=((&#xD;&#xA;SELECT sum(b.VerkaufteEinheiten)/convert(decimal(5,2),COUNT(b.IDnr))FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-5 and a.IDnr+6 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;)+(&#xD;&#xA;SELECT sum(b.VerkaufteEinheiten)/convert(decimal(5,2),COUNT(b.IDnr))FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-6 and a.IDnr+5 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;))/2&#xD;&#xA;FROM STAT_Trend_Prognose_Customer a where a.MonthStartDate&lt;dateadd(month,datediff(month,0,getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Trend_Prognose_Customer SET ReAnzahl_Trd=&#xD;&#xA;((&#xD;&#xA;SELECT sum(b.ReAnzahl)/convert(decimal(5,2),COUNT(b.IDnr))FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-5 and a.IDnr+6 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;)+(&#xD;&#xA;SELECT sum(b.ReAnzahl)/convert(decimal(5,2),COUNT(b.IDnr))FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-6 and a.IDnr+5 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;))/2&#xD;&#xA;FROM STAT_Trend_Prognose_Customer a where a.MonthStartDate&lt;dateadd(month,datediff(month,0,getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Trend_Prognose_Customer SET Deckung_Trd=&#xD;&#xA;((&#xD;&#xA;SELECT sum(b.Deckung)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-5 and a.IDnr+6 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;)+(&#xD;&#xA;SELECT sum(b.Deckung)/COUNT(b.IDnr)FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-6 and a.IDnr+5 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;))/2&#xD;&#xA;FROM STAT_Trend_Prognose_Customer a where a.MonthStartDate&lt;dateadd(month,datediff(month,0,getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Trend_Prognose_Customer SET Vol_Mono_Trd=&#xD;&#xA;((&#xD;&#xA;SELECT sum(b.Vol_Mono)/convert(decimal(5,2),COUNT(b.IDnr))FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-5 and a.IDnr+6 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;)+(&#xD;&#xA;SELECT sum(b.Vol_Mono)/convert(decimal(5,2),COUNT(b.IDnr))&#xD;&#xA;FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-6 and a.IDnr+5 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;))/2&#xD;&#xA;FROM STAT_Trend_Prognose_Customer a where a.MonthStartDate&lt;dateadd(month,datediff(month,0,getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4&#xD;&#xA;update dbo.STAT_Trend_Prognose_Customer SET Vol_Farbe_Trd=&#xD;&#xA;((SELECT sum(b.Vol_Farbe)/convert(decimal(5,2),COUNT(b.IDnr))FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-5 and a.IDnr+6 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;)+(&#xD;&#xA;SELECT sum(b.Vol_Farbe)/convert(decimal(5,2),COUNT(b.IDnr))FROM STAT_Trend_Prognose_Customer b&#xD;&#xA;WHERE a.KDNR=b.KDNR and a.Ebene1=b.Ebene1 and a.Ebene2=b.Ebene2 and a.Ebene3=b.Ebene3 and a.Ebene4=b.Ebene4 and b.IDnr between a.IDnr-6 and a.IDnr+5 and b.IDnr&lt;24+month(getdate())&#xD;&#xA;))/2&#xD;&#xA;FROM STAT_Trend_Prognose_Customer a where a.MonthStartDate&lt;dateadd(month,datediff(month,0,getdate()),0) and a.Ebene1=:1 and a.Ebene2=:2 and a.Ebene3=:3 and a.Ebene4=:4"/>
+          <INARG>
+            <Arguments>
+              <Argument>
+                <Exp val="1"/>
+              </Argument>
+              <Argument>
+                <Exp val="2"/>
+              </Argument>
+              <Argument>
+                <Exp val="3"/>
+              </Argument>
+              <Argument>
+                <Exp val="4"/>
+              </Argument>
+            </Arguments>
+          </INARG>
+        </SQL_FORM>
+        <INT_CMP_LIST_INFO>
+          <v>2</v>
+        </INT_CMP_LIST_INFO>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="3" FlowIsn="5" id="3">
+                  <Column val="3"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="4" FlowIsn="6" id="4">
+                  <Column val="4"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <PartOfDataview val="Y"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="CMA1 STAT TrendProgCustomer"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+        <Expressions>
+          <Expression id="1">
+            <ExpSyntax val="{0,1}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="2">
+            <ExpSyntax val="{0,2}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="3">
+            <ExpSyntax val="{0,3}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+          <Expression id="4">
+            <ExpSyntax val="{0,4}"/>
+            <ExpAttribute val="N"/>
+          </Expression>
+        </Expressions>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="UP1 STAT_VERTRAG_VOLP Pausch" ISN_2="1" LastIsn="1" id="312">
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="Y"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <TSK_PARAMS val="1"/>
+            <ParametersAttributes>
+              <Attr MgAttr="D"/>
+            </ParametersAttributes>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="B"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737720" _time="63038" date="22.10.2020" time="17:30:38"/>
+        </Header>
+        <ItemIsn val="2"/>
+        <Resource>
+          <Columns>
+            <Column id="1" name="Bezugsdatum_p">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_DATE" id="1"/>
+                <StoredAs id="173" val="19"/>
+                <Size id="174" val="8"/>
+                <Definition id="175" val="2"/>
+                <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="retcd">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_LOGICAL" id="1"/>
+                <StoredAs id="173" val="15"/>
+                <Size id="174" val="1"/>
+                <Definition id="175" val="2"/>
+                <_FieldStyle id="276" val="1"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="N"/>
+          <EvaluateEndCondition val="B"/>
+          <InitialMode val="E"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="N"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="A"/>
+            <LockingStrategy val="I"/>
+            <CacheStrategy val="T"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="P"/>
+            <TransactionBegin val="T"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="Y"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="N"/>
+            <AllowCreate val="N"/>
+            <AllowDelete val="N"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="N"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="Y"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <SQL_FORM DB="SQL" RESTAB="SQL">
+          <SQL_STMT_U val="update STAT_VERTRAG_VOLPAU set pauschale= isnull(&#xA;(select sum(pw.PauschalBetrag)&#xA;from vertrag_positionen vp&#xA;join vertrag_kopf vk on (vk.Vertragsnummer=vp.Vertragsnummer and vk.Rechnungsempfaenger=vp.Rechnungsempfaenger and&#xA;                        vk.Vorlage=vp.Vorlage and vk.Vertragsbereich=vp.Vertragsbereich and &#xA;vk.Vertrag_version=vp.Vertrag_version)&#xA;join vertrag_pauschverw pw on (pw.Vertragsnummer=vp.Vertragsnummer and pw.Rechnungsempfaenger=pw.Rechnungsempfaenger and&#xA;                        pw.Vorlage=vp.Vorlage and pw.Vertragsbereich=vp.Vertragsbereich and &#xA;pw.Vertrag_version=vp.Vertrag_version and pw.VposNr=vp.vposnr and pw.Verwendung='WARTUNG')&#xA;where vk.aktiver_vertrag=1 and vk.poolvertrag=1 and (vp.gekuendigt_zum is null or vp.gekuendigt_zum>=':1')&#xA;      and vk.pauschale_aus_einzelpos=1&#xA;  and vp.Ebene1=st.Ebene1 and vp.Ebene2=st.Ebene2 and vp.Ebene3=st.Ebene3 and vp.Ebene4=st.Ebene4 and vp.Vertragsbereich=st.Vertragsbereich and&#xA;      vp.Vertragsnummer=st.Vertragsnummer and vp.Rechnungsempfaenger=st.Rechnungsempfaenger and vp.Vertrag_Version=st.Vertrag_Version      &#xA;group by vp.Ebene1,vp.Ebene2,vp.Ebene3,vp.Ebene4,vp.Vertragsbereich, vp.Vertragsnummer,vp.Rechnungsempfaenger,vp.Vertrag_Version),st.Pauschale)&#xA;from STAT_VERTRAG_VOLPAU st&#xA;&#xA;update STAT_VERTRAG_VOLPAU set pauschale= isnull(&#xA;(select vpp2.Pauschale&#xA;from vertrag_positionen vp&#xA;join vertrag_kopf vk on (vk.Vertragsnummer=vp.Vertragsnummer and vk.Rechnungsempfaenger=vp.Rechnungsempfaenger and&#xA;                        vk.Vorlage=vp.Vorlage and vk.Vertragsbereich=vp.Vertragsbereich and &#xA;vk.Vertrag_version=vp.Vertrag_version)&#xA;join (select vertragsnummer,vertragsbereich,rechnungsempfaenger,vorlage,vertrag_version, max(zeitraum_von) as zeitraum &#xA;from vertrag_pool_PauschVol&#xA;where zeitraum_von &lt;= getdate()&#xA;group by vertragsnummer,vertragsbereich,rechnungsempfaenger,vorlage,vertrag_version)&#xA;   vpp &#xA; on (vpp.Vertragsnummer=vp.Vertragsnummer and vpp.Rechnungsempfaenger=vp.Rechnungsempfaenger and&#xA;                        vpp.Vorlage=vp.Vorlage and vpp.Vertragsbereich=vp.Vertragsbereich and &#xA;vpp.Vertrag_version=vp.Vertrag_version)&#xA;join vertrag_pool_pverw vpp2 on (vpp2.Vertragsnummer=vp.Vertragsnummer and vpp2.Rechnungsempfaenger=vp.Rechnungsempfaenger and&#xA;                        vpp2.Vorlage=vp.Vorlage and vpp2.Vertragsbereich=vp.Vertragsbereich and &#xA;vpp2.Vertrag_version=vp.Vertrag_version and vpp2.Zeitraum_von=vpp.zeitraum and vpp2.Verwendung='WARTUNG')&#xA;where vk.aktiver_vertrag=1 and vk.poolvertrag=1 and (vp.gekuendigt_zum is null or vp.gekuendigt_zum>=':1')&#xA;      and vk.pauschale_aus_einzelpos=0&#xA;  and vp.Ebene1=st.Ebene1 and vp.Ebene2=st.Ebene2 and vp.Ebene3=st.Ebene3 and vp.Ebene4=st.Ebene4 and vp.Vertragsbereich=st.Vertragsbereich and&#xA;      vp.Vertragsnummer=st.Vertragsnummer and vp.Rechnungsempfaenger=st.Rechnungsempfaenger and vp.Vertrag_Version=st.Vertrag_Version      &#xA;group by vp.Ebene1,vp.Ebene2,vp.Ebene3,vp.Ebene4,vp.Vertragsbereich, vp.Vertragsnummer,vp.Rechnungsempfaenger,vp.Vertrag_Version,vpp2.Pauschale),st.Pauschale)&#xA;from STAT_VERTRAG_VOLPAU st"/>
+          <INARG>
+            <Arguments>
+              <Argument>
+                <Exp val="1"/>
+              </Argument>
+            </Arguments>
+          </INARG>
+          <RETARG>
+            <Arguments>
+              <Argument Variable="2"/>
+            </Arguments>
+          </RETARG>
+        </SQL_FORM>
+        <TaskLogic>
+          <LogicUnit id="2" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="2" Type="Q">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="Y"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry id="1">
+            <PropertyList model="FORM_GUI0">
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="INS2 STAT_VERTRAG_VOLP"/>
+              <PersistentFormState id="493"/>
+            </PropertyList>
+          </FormEntry>
+        </TaskForms>
+        <Expressions>
+          <Expression id="1">
+            <ExpSyntax val="DStr({0,1},'DD.MM.YYYY')"/>
+            <ExpAttribute val="U"/>
+          </Expression>
+        </Expressions>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>

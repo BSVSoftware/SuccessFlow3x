@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Application>
+
+  <Header>
+    <Version val="14070.00"/>
+    <WithIsn val="Y"/>
+    <_InternalTask val="N"/>
+    <IsRoot val="N"/>
+    <InIndex val="N"/>
+    <UniqueISNConvState val="12"/>
+  </Header>
+
+  <ProgramsRepository>
+    <Programs>
+      <Task MainProgram="N">
+        <Header Description="SendData" ISN_2="1" LastIsn="1" id="3587">
+          <Public val="SendData"/>
+          <ExecutionRight comp="-1"/>
+          <Resident val="N"/>
+          <SQL val="N"/>
+          <ReturnValue>
+            <ReturnValueAttr/>
+            <ParametersAttributes/>
+          </ReturnValue>
+          <SqlWhereExist val="N"/>
+          <TaskType val="W"/>
+          <Interactive val="N"/>
+          <RoutePath val="SendData"/>
+          <External val="N"/>
+          <Offline val="N"/>
+          <FormType val="N"/>
+          <DotNetObjectExists val="N"/>
+          <LastModified _date="737861" _time="49238" date="12.03.2021" time="13:40:38"/>
+        </Header>
+        <ItemIsn val="2"/>
+        <Resource>
+          <Columns>
+            <Column id="1" name="Alpha1">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_ALPHA" id="1"/>
+                <Picture id="157" valUnicode="1"/>
+                <StoredAs id="173" val="1"/>
+                <Size id="174" val="1"/>
+                <_Flip id="194"/>
+              </PropertyList>
+            </Column>
+            <Column id="2" name="JSONData_v">
+              <PropertyList model="FIELD">
+                <Model attr_obj="FIELD_BLOB" id="1"/>
+                <StoredAs id="173" val="33"/>
+                <Size id="174" val="28"/>
+                <Definition id="175" val="1"/>
+                <_FieldStyle id="276" val="1"/>
+                <Content id="434" val="1"/>
+              </PropertyList>
+            </Column>
+          </Columns>
+        </Resource>
+        <Information>
+          <Key>
+            <Mode val="N"/>
+          </Key>
+          <DB comp="-1"/>
+          <Sort>
+            <CLS val="A"/>
+          </Sort>
+          <ForceRecordDelete DEL="N"/>
+          <EndTaskCondition val="Y"/>
+          <EvaluateEndCondition val="A"/>
+          <InitialMode val="M"/>
+          <Locate Direction="A"/>
+          <Range Direction="A"/>
+          <VarRange/>
+          <TaskProperties>
+            <SelectionTable val="N"/>
+            <ConfirmUpdate CNFU="Y"/>
+            <ConfirmCancel val="N"/>
+            <ErrorStrategy val="R"/>
+            <LockingStrategy val="M"/>
+            <CacheStrategy val="D"/>
+            <ForceRecordSuffix val="N"/>
+            <TransactionMode val="D"/>
+            <TransactionBegin val="P"/>
+            <PreloadView val="N"/>
+            <AllowEmptyDataview val="N"/>
+            <KeepCreatedContext val="N"/>
+          </TaskProperties>
+          <SIDE_WIN>
+            <AllowOptions val="N"/>
+            <AllowQuery val="Y"/>
+            <AllowModify val="Y"/>
+            <AllowCreate val="Y"/>
+            <AllowDelete val="Y"/>
+            <AllowLocate val="Y"/>
+            <AllowRange val="Y"/>
+            <AllowIndexChange val="Y"/>
+            <AllowSorting val="Y"/>
+            <AllowIOFiles val="N"/>
+            <RecordCycle val="Y"/>
+            <AllowEvents val="Y"/>
+            <AllowIndexOptimization val="Y"/>
+            <AllowLocationInQuery val="Y"/>
+            <AllowPrintingData val="N"/>
+          </SIDE_WIN>
+          <WIN>
+            <OpenTaskWindow val="N"/>
+            <CloseTaskWindow val="Y"/>
+            <ForegroundWindow val="Y"/>
+            <FlipFld val="N"/>
+            <RefreshTaskWindow ReturnValue="N"/>
+          </WIN>
+          <BOX>
+            <Direction val="V"/>
+          </BOX>
+        </Information>
+        <TaskLogic>
+          <LogicUnit id="1" propagate="78">
+            <Level val="R"/>
+            <Type val="M"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <ExecuteOn_ val="O"/>
+            <LogicLines>
+              <LogicLine>
+                <DATAVIEW_SRC FlowIsn="1" Type="M">
+                  <Condition val="N"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </DATAVIEW_SRC>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="1" FlowIsn="3" id="1">
+                  <Column val="1"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <_DitIndexForToolkit val="2"/>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+              <LogicLine>
+                <Select FieldID="2" FlowIsn="4" id="2">
+                  <Column val="2"/>
+                  <Type val="V"/>
+                  <ExposedToRoute val="N"/>
+                  <IsParameter val="N"/>
+                  <INT_DSP_INFO>
+                    <v>0</v>
+                  </INT_DSP_INFO>
+                  <DIFF_UPDATE val="T"/>
+                  <Condition val="Y"/>
+                  <Modifier val="S"/>
+                  <Direction val="C"/>
+                </Select>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+          <LogicUnit id="3" propagate="78">
+            <Level val="T"/>
+            <Type val="S"/>
+            <Scope val="S"/>
+            <EngineDirective val="S"/>
+            <ShowMessage val="Y"/>
+            <Condition val="89"/>
+            <Event>
+              <EventType val="S"/>
+            </Event>
+            <Expanded val="1"/>
+            <ExecuteOn_ val="O"/>
+            <LogicLines>
+              <LogicLine>
+                <Evaluate FlowIsn="5">
+                  <Expression val="2"/>
+                  <Condition val="Y"/>
+                  <Modifier val="B"/>
+                  <Direction val="C"/>
+                </Evaluate>
+              </LogicLine>
+            </LogicLines>
+          </LogicUnit>
+        </TaskLogic>
+        <TaskForms>
+          <FormEntry _last_isn="2" _last_test_id="2" id="1">
+            <PropertyList model="FORM_WEB_CLIENT">
+              <FormUnits id="33" val="4"/>
+              <_Comment id="218"/>
+              <FormName id="311" valUnicode="SendData"/>
+              <WindowType id="358" val="12"/>
+              <CustomProperties id="713">
+                <CustomProperties>
+                  <CustomProperty>
+                    <Name val="JsonData"/>
+                    <Expression val="1"/>
+                  </CustomProperty>
+                </CustomProperties>
+              </CustomProperties>
+            </PropertyList>
+            <Control _test_id="2" id="2">
+              <PropertyList model="CTRL_WEB_CLIENT_LABEL">
+                <Text id="19" valUnicode="Alpha1"/>
+                <X id="21" val="39"/>
+                <Y id="22" val="48"/>
+                <Width id="23" val="36"/>
+                <Height id="24" val="16"/>
+                <ControlName id="46" val="Label2"/>
+                <Font id="50" val="1"/>
+              </PropertyList>
+            </Control>
+            <Control _test_id="1" id="1">
+              <PropertyList model="CTRL_WEB_CLIENT_EDIT">
+                <Model ID="MODEL_WEB_CLIENT" id="1">
+                  <Var FieldID="1"/>
+                </Model>
+                <X id="21" val="80"/>
+                <Y id="22" val="48"/>
+                <Width id="23" val="41"/>
+                <Height id="24" val="21"/>
+                <Data FieldID="1" id="43"/>
+                <ControlName id="46" val="Alpha1"/>
+              </PropertyList>
+            </Control>
+          </FormEntry>
+        </TaskForms>
+        <Expressions>
+          <Expression id="1">
+            <ExpSyntax val="{0,2}"/>
+            <ExpAttribute val="O"/>
+          </Expression>
+          <Expression id="2">
+            <ExpSyntax val="CallJS('receviedMagicCall','{&quot;status&quot;:&quot;success&quot;,&quot;requestID&quot;:&quot;0&quot;,&quot;data&quot;:{&quot;type&quot;:&quot;UserMenu&quot;,&quot;properties&quot;:{&quot;config&quot;:[{&quot;id&quot;:&quot;smrDashboard&quot;,&quot;magicEvent&quot;:&quot;&quot;,&quot;text&quot;:&quot;Dashboard&quot;,&quot;icon&quot;:&quot;&quot;,&quot;items&quot;:[]},{&quot;id&quot;:&quot;smrProjectOrdersOverview&quot;,&quot;magicEvent&quot;:&quot;&quot;,&quot;text&quot;:&quot;Bestellübersicht&quot;,&quot;icon&quot;:&quot;&quot;},{&quot;id&quot;:&quot;&quot;,&quot;magicEvent&quot;:&quot;&quot;,&quot;text&quot;:&quot;PAT Fleetmanager&quot;,&quot;icon&quot;:&quot;&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;smrMyDevices&quot;,&quot;magicEvent&quot;:&quot;&quot;,&quot;text&quot;:&quot;Meine Geräte&quot;,&quot;icon&quot;:&quot;fa-print&quot;},{&quot;id&quot;:&quot;smrMyOrders&quot;,&quot;magicEvent&quot;:&quot;&quot;,&quot;text&quot;:&quot;Bestellungen&quot;,&quot;icon&quot;:&quot;fa-shopping-cart&quot;},{&quot;id&quot;:&quot;smrMyTickets&quot;,&quot;magicEvent&quot;:&quot;&quot;,&quot;text&quot;:&quot;Service&quot;,&quot;icon&quot;:&quot;fa-wrench&quot;}]},{&quot;id&quot;:&quot;&quot;,&quot;magicEvent&quot;:&quot;&quot;,&quot;text&quot;:&quot;Konfigurator&quot;,&quot;icon&quot;:&quot;&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;smrConfigurator&quot;,&quot;magicEvent&quot;:&quot;Configurator&quot;,&quot;text&quot;:&quot;Konfigurator starten&quot;,&quot;icon&quot;:&quot;fa-configurator-start&quot;},{&quot;id&quot;:&quot;smrMyConfigurations&quot;,&quot;magicEvent&quot;:&quot;myConfigurations&quot;,&quot;text&quot;:&quot;Meine Konfiguration&quot;,&quot;icon&quot;:&quot;fa-configuration-favorit&quot;},{&quot;id&quot;:&quot;smrFavorites&quot;,&quot;magicEvent&quot;:&quot;favoriten&quot;,&quot;text&quot;:&quot;Favoriten&quot;,&quot;icon&quot;:&quot;fa-star&quot;}]},{&quot;id&quot;:&quot;smrLevels&quot;,&quot;magicEvent&quot;:&quot;&quot;,&quot;text&quot;:&quot;Offene Aufgaben&quot;,&quot;icon&quot;:&quot;&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;smrLevel1&quot;,&quot;magicEvent&quot;:&quot;&quot;,&quot;text&quot;:&quot;Bestellung&quot;,&quot;icon&quot;:&quot;fa-circle-filled&quot;},{&quot;id&quot;:&quot;smrLevel2&quot;,&quot;magicEvent&quot;:&quot;&quot;,&quot;text&quot;:&quot;Kontrolle IT&quot;,&quot;icon&quot;:&quot;fa-circle-filled&quot;},{&quot;id&quot;:&quot;smrLevel3&quot;,&quot;magicEvent&quot;:&quot;&quot;,&quot;text&quot;:&quot;Freigabe Einkauf&quot;,&quot;icon&quot;:&quot;fa-circle-filled&quot;}, {&quot;id&quot;:&quot;smrLevel4&quot;,&quot;magicEvent&quot;:&quot;&quot;,&quot;text&quot;:&quot;Freigabe Einkauf 2&quot;,&quot;icon&quot;:&quot;fa-circle-filled&quot;}]}]}}}')"/>
+            <ExpAttribute val="A"/>
+          </Expression>
+        </Expressions>
+      </Task>
+    </Programs>
+  </ProgramsRepository>
+
+</Application>
